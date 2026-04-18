@@ -1,0 +1,43 @@
+import { CountryPageTemplate } from "@/components/CountryPageTemplate";
+
+const GeorgiaPage = () => {
+  return (
+    <CountryPageTemplate
+      country="Georgia"
+      programType="MBBS"
+      heroImage="https://gvkedutech.com/site/assets/images/countries/georgia-01.jpg"
+      introduction="The capital of Georgia is Tbilisi (Tiflis). The climatic condition is quite pleasant due to the presence of the Black Sea and the large Mountain range. The students can be stress-free because of the suitable environment and resulting quality education with the encouragement of social skills and pleasant personality. The country has a rich historical aspect and was home to several independent kingdoms during classical times."
+      climateInfo="The atmosphere of Georgia is a muggy subtropical atmosphere with a large portion of the state having short, gentle winters and long, sweltering summers. The Atlantic Ocean on the east bank of Georgia and the slope nation in the north affect the state's atmosphere. Summer daytime temperatures in Georgia often outperform 95 °F (35 °C)."
+      whyChoose={[
+        "Georgian universities have fewer fees",
+        "IELTS/TOEFL not required at all",
+        "Very amicable environment for the students",
+        "Affordable place to live with monthly expenses",
+        "Georgia includes one of the lowest crime rates in the world",
+        "WHO/MCI approved medical universities",
+      ]}
+      advantages={[
+        { text: "Georgian universities have fewer fees." },
+        { text: "IELTS/TOEFL not required at all." },
+        { text: "Very amicable environment for the students." },
+        { text: "Affordable place to live with the monthly expenses." },
+        { text: "Georgia includes the most reduced crime percentages in nations on the planet." },
+        { text: "WHO/MCI approved medical universities." },
+        { text: "No donation required." },
+        { text: "Easy admission procedure." },
+        { text: "Options are given to the students to pay fees in two installments." },
+        { text: "Best salary packages are given to the students." },
+        { text: "No tuition fees for last year's course." },
+      ]}
+      careerOpportunities="Away from the admission processes in India, seeking quality education in Georgia is easy where you get an opportunity to learn the most. Georgia is equipped with cutting-edge technology which gives students all the practical knowledge. A degree from the recognized University can be highly useful for your growth of the career you always dreamt of."
+      universities={[
+        { name: "Georgian American University" },
+        { name: "East European University" },
+        { name: "ISM Georgia (TOU)" },
+        { name: "New Vision University" },
+      ]}
+    />
+  );
+};
+
+export default GeorgiaPage;

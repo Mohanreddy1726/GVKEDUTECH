@@ -1,0 +1,385 @@
+@import "tailwindcss";
+
+@theme {
+  /* Background & Foreground */
+  --color-background: hsl(210 20% 98%);
+  --color-foreground: hsl(215 50% 12%);
+  --color-muted: hsl(210 15% 92%);
+  --color-muted-foreground: hsl(215 20% 45%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(215 50% 12%);
+  --color-border: hsl(215 20% 88%);
+
+  /* Primary - Deep Navy Blue */
+  --color-primary: hsl(215 70% 15%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  /* Secondary - Lighter Navy */
+  --color-secondary: hsl(215 50% 25%);
+  --color-secondary-foreground: hsl(0 0% 100%);
+
+  /* Accent - Vibrant Red */
+  --color-accent: hsl(355 82% 56%);
+  --color-accent-foreground: hsl(0 0% 100%);
+
+  /* Highlight - Teal */
+  --color-highlight: hsl(200 90% 45%);
+  --color-highlight-foreground: hsl(0 0% 100%);
+
+  /* Destructive */
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+}
+
+@layer base {
+  :root {
+    /* GVK Edutech Redesign - Deep Navy & Vibrant Red Theme */
+    --background: 210 20% 98%;
+    --foreground: 215 50% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 50% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 50% 12%;
+
+    /* Primary - Deep Navy Blue */
+    --primary: 215 70% 15%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Lighter Navy */
+    --secondary: 215 50% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent - Vibrant Red (GVK Brand) */
+    --accent: 355 82% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Teal for highlights */
+    --highlight: 200 90% 45%;
+    --highlight-foreground: 0 0% 100%;
+
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 20% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 215 70% 15%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 70% 15%) 0%, hsl(215 50% 25%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(355 82% 56%) 0%, hsl(355 70% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215 70% 12%) 0%, hsl(215 60% 20%) 50%, hsl(355 82% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 97%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(215 70% 15% / 0.08);
+    --shadow-md: 0 8px 24px -8px hsl(215 70% 15% / 0.12);
+    --shadow-lg: 0 16px 48px -12px hsl(215 70% 15% / 0.18);
+    --shadow-accent: 0 8px 24px -8px hsl(355 82% 56% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 50% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 50% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 50% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 355 82% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 40% 20%;
+    --secondary-foreground: 210 20% 98%;
+
+    --accent: 355 82% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --highlight: 200 90% 55%;
+    --highlight-foreground: 0 0% 100%;
+
+    --muted: 215 40% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 40% 20%;
+    --input: 215 40% 20%;
+    --ring: 355 82% 56%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Headings use Poppins */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  /* Glass effect */
+  .glass {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Accent shadow on hover */
+  .hover-accent-shadow:hover {
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Fade in animation */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger children animations */
+  .stagger-children > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+  .stagger-children > *:nth-child(7) { animation-delay: 0.7s; }
+  .stagger-children > *:nth-child(8) { animation-delay: 0.8s; }
+
+  /* Hero gradient background */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Section backgrounds */
+  .section-light {
+    background-color: hsl(var(--background));
+  }
+
+  .section-muted {
+    background-color: hsl(var(--muted) / 0.5);
+  }
+}
+
+/* Hero feature card shimmer & glow */
+.hero-feature-card {
+  box-shadow: 0 0 20px hsl(var(--accent) / 0.3), 0 0 60px hsl(var(--accent) / 0.1);
+  animation: hero-card-glow 2s ease-in-out infinite alternate;
+}
+
+.hero-feature-card:nth-child(2) {
+  box-shadow: 0 0 20px hsl(var(--highlight) / 0.3), 0 0 60px hsl(var(--highlight) / 0.1);
+  animation: hero-card-glow-blue 2s ease-in-out infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes hero-card-glow {
+  from { box-shadow: 0 0 15px hsl(var(--accent) / 0.3), 0 0 40px hsl(var(--accent) / 0.1); }
+  to { box-shadow: 0 0 25px hsl(var(--accent) / 0.5), 0 0 80px hsl(var(--accent) / 0.2); }
+}
+
+@keyframes hero-card-glow-blue {
+  from { box-shadow: 0 0 15px hsl(var(--highlight) / 0.3), 0 0 40px hsl(var(--highlight) / 0.1); }
+  to { box-shadow: 0 0 25px hsl(var(--highlight) / 0.5), 0 0 80px hsl(var(--highlight) / 0.2); }
+}
+
+.hero-shimmer {
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* WhatsApp button animations */
+@keyframes whatsapp-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes whatsapp-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.7;
+  }
+}
+
+.animate-whatsapp-ping {
+  animation: whatsapp-ping 1.5s ease-out infinite;
+}
+
+.animate-whatsapp-glow {
+  animation: whatsapp-glow 2s ease-in-out infinite;
+}
+
+/* Flag flying animation */
+/* @keyframes flag-fly {
+  0%, 100% {
+    transform: rotate(-10deg) translateY(0) scale(1);
+  }
+  25% {
+    transform: rotate(6deg) translateY(-4px) scale(1.05);
+  }
+  50% {
+    transform: rotate(-4deg) translateY(0) scale(1);
+  }
+  75% {
+    transform: rotate(8deg) translateY(-3px) scale(1.03);
+  }
+} */
+
+.flag-fly-wrapper {
+  display: inline-block;
+  animation: flag-fly 2.5s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Staggered flag animations for MBBS section */
+#mbbs .grid > div:nth-child(1) .flag-fly-wrapper { animation-delay: 0s; }
+#mbbs .grid > div:nth-child(2) .flag-fly-wrapper { animation-delay: 0.15s; }
+#mbbs .grid > div:nth-child(3) .flag-fly-wrapper { animation-delay: 0.3s; }
+#mbbs .grid > div:nth-child(4) .flag-fly-wrapper { animation-delay: 0.45s; }
+#mbbs .grid > div:nth-child(5) .flag-fly-wrapper { animation-delay: 0.6s; }
+#mbbs .grid > div:nth-child(6) .flag-fly-wrapper { animation-delay: 0.75s; }
+#mbbs .grid > div:nth-child(7) .flag-fly-wrapper { animation-delay: 0.9s; }
+
+/* Staggered flag animations for Masters section */
+#masters .grid > div:nth-child(1) .flag-fly-wrapper { animation-delay: 0s; }
+#masters .grid > div:nth-child(2) .flag-fly-wrapper { animation-delay: 0.12s; }
+#masters .grid > div:nth-child(3) .flag-fly-wrapper { animation-delay: 0.24s; }
+#masters .grid > div:nth-child(4) .flag-fly-wrapper { animation-delay: 0.36s; }
+#masters .grid > div:nth-child(5) .flag-fly-wrapper { animation-delay: 0.48s; }
+#masters .grid > div:nth-child(6) .flag-fly-wrapper { animation-delay: 0.6s; }
+#masters .grid > div:nth-child(7) .flag-fly-wrapper { animation-delay: 0.72s; }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
