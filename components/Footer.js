@@ -53,7 +53,7 @@ export const Footer = () => {
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-3">
               <Image src="https://ik.imagekit.io/abhobz66j/GVK%20Images/logo.jpg?updatedAt=1776492281519" width={45} height={45} alt="GVK Edutech" />
-              <Image src="https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK-LOGO.png?updatedAt=1776492281541" width={240} height={240} alt="GVK" className="hidden lg:block brightness-120" />
+              <Image src="https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK-LOGO.png?updatedAt=1776492281541" width={240} height={240} alt="GVK" className="lg:block brightness-120" />
             </Link>
             <p className="text-white/70 max-w-sm leading-relaxed">
               Your trusted partner for MBBS and Masters programs abroad.

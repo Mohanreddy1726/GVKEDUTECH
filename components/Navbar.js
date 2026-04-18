@@ -72,7 +72,7 @@ export const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <Image src="https://ik.imagekit.io/abhobz66j/GVK%20Images/logo.jpg?updatedAt=1776492281519" width={40} height={40} alt="GVK EduTech" className="w-auto rounded-lg" priority />
-            <Image src="https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK-LOGO.png?updatedAt=1776492281541" width={240} height={240} alt="GVK" className="hidden lg:block" />
+            <Image src="https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK-LOGO.png?updatedAt=1776492281541" width={240} height={240} alt="GVK" className="lg:block" />
           </Link>
 
           {/* Desktop Navigation */}
