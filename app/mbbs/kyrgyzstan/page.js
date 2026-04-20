@@ -1,5 +1,16 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
+export const metadata = {
+  title: "Study MBBS in Kyrgyzstan 2026 - Top Medical Universities | GVK EduTech",
+  description: "Study MBBS in Kyrgyzstan at NMC/WHO approved universities. Affordable fees, English medium, clinical training from 2nd year. Apply for MBBS in Kyrgyzstan now.",
+  keywords: ["MBBS in Kyrgyzstan", "study MBBS Kyrgyzstan", "Kyrgyzstan medical university", "MBBS abroad Kyrgyzstan", "cheap MBBS abroad"],
+  openGraph: {
+    title: "Study MBBS in Kyrgyzstan | GVK EduTech",
+    description: "Study MBBS in Kyrgyzstan at affordable fees with NMC/WHO approved degrees.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "MBBS in Kyrgyzstan" }],
+  },
+};
+
 const KyrgyzstanPage = () => {
   return (
     <CountryPageTemplate

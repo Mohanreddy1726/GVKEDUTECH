@@ -12,6 +12,17 @@ import Link from "next/link";
 
 import "flag-icons/css/flag-icons.min.css";
 
+export const metadata = {
+  title: "Partner Universities - GVK EduTech | Global University Network",
+  description: "Explore our network of 100+ partner universities worldwide for MBBS and Masters programs. Top-ranked institutions in Russia, Georgia, Kyrgyzstan, USA, UK, Australia and more.",
+  keywords: ["partner universities", "MBBS universities abroad", "study abroad universities", "international universities network", "GVK EduTech university partners"],
+  openGraph: {
+    title: "Partner Universities | GVK EduTech",
+    description: "100+ partner universities worldwide offering MBBS and Masters programs.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GVK EduTech Partner Universities" }],
+  },
+};
+
 const universityData = {
   uk: {
     name: "United Kingdom",

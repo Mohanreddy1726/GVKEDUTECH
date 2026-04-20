@@ -4,6 +4,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone } from "lucide-react";
 
+export const metadata = {
+  title: "Our Services - GVK EduTech | Complete Study Abroad Support",
+  description: "GVK EduTech offers comprehensive services including career counselling, university selection, visa assistance, and pre-departure briefings for MBBS and Masters abroad.",
+  keywords: ["education consultancy services", "study abroad services", "visa assistance", "university admission help", "pre-departure briefing"],
+  openGraph: {
+    title: "GVK EduTech Services",
+    description: "Comprehensive support for your study abroad journey - from counselling to visa assistance.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GVK EduTech Services" }],
+  },
+};
+
 const services = [
   {
     title: "Career Counselling",

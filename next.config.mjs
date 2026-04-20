@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
   images: {
     remotePatterns: [
       {
@@ -9,6 +10,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "ik.imagekit.io",
+      },
+      {
+        protocol: "https",
+        hostname: "gvkedutech.com",
       },
     ],
   },

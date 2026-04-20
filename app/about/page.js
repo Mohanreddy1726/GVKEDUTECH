@@ -4,6 +4,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Target, Eye, MessageCircle, Phone } from "lucide-react";
 
+export const metadata = {
+  title: "About Us - GVK EduTech | Top Overseas Education Consultants",
+  description: "Learn about GVK EduTech - India's trusted overseas education consultancy for MBBS abroad and Masters programs. 15+ years of experience guiding 5000+ students.",
+  keywords: ["GVK EduTech about", "overseas education consultants", "MBBS abroad consultancy", "study abroad India", "education agents"],
+  openGraph: {
+    title: "About GVK EduTech - Our Story",
+    description: "Learn about GVK EduTech's mission to guide Indian students toward global education opportunities.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GVK EduTech Team" }],
+  },
+};
+
 const coreTeam = [
   { name: "Dr. G. VIDYA KUMAR", title: "DIRECTOR & VICE-DEAN", qualification: "MBBS (Russia), MPH (India)", image:"https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK1.png?updatedAt=1776335771436" },
   { name: "Dr. G. VINOD KUMAR", title: "DIRECTOR & CEO", qualification: "MBA (UK), Ph.D (USA)", image:"https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK2.png?updatedAt=1776335787244" },

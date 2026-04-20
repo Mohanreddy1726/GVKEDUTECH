@@ -1,5 +1,16 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
+export const metadata = {
+  title: "Study Masters in Europe 2026 - Top Universities | GVK EduTech",
+  description: "Pursue your Masters degree in Europe at top-ranked universities. Affordable fees, world-class research, Schengen visa benefits. Apply for Europe Masters now.",
+  keywords: ["Masters in Europe", "study Masters Europe", "Europe university admission", "Masters degree Europe", "Schengen visa"],
+  openGraph: {
+    title: "Study Masters in Europe | GVK EduTech",
+    description: "Study Masters in Europe at top-ranked universities with affordable fees.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Masters in Europe" }],
+  },
+};
+
 const EuropePage = () => {
   return (
     <CountryPageTemplate

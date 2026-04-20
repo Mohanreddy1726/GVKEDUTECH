@@ -1,5 +1,16 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
+export const metadata = {
+  title: "Study Masters in USA 2026 - Top Universities | GVK EduTech",
+  description: "Pursue your Masters degree in USA at Ivy League and top-ranked universities. STEM OPT up to 3 years, world-class research facilities. Apply for USA Masters now.",
+  keywords: ["Masters in USA", "study Masters in USA", "USA university admission", "Masters degree USA", "STEM OPT"],
+  openGraph: {
+    title: "Study Masters in USA | GVK EduTech",
+    description: "Study Masters in USA at top-ranked universities with post-study work options.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Masters in USA" }],
+  },
+};
+
 const USAPage = () => {
   return (
     <CountryPageTemplate

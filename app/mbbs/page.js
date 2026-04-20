@@ -5,7 +5,26 @@ import Link from "next/link";
 import { ArrowRight, GraduationCap, Globe2, BadgeCheck, Stethoscope, BookOpen, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { StethoscopeDecoration, HeartbeatDecoration, DNADecoration } from "@/components/ThematicDecorations";
+import { FAQSchema } from "@/components/SEO";
 import "flag-icons/css/flag-icons.min.css";
+
+export const metadata = {
+  title: "Study MBBS Abroad - Top Medical Universities | GVK EduTech",
+  description: "Explore MBBS abroad programs in Georgia, Russia, Kyrgyzstan, Kazakhstan & more. NMC/WHO approved universities with affordable fees. Start your medical career today.",
+  keywords: ["MBBS abroad", "study MBBS abroad", "MBBS in Georgia", "MBBS in Russia", "medical education abroad", "NMC approved MBBS", "cheap MBBS abroad"],
+  openGraph: {
+    title: "Study MBBS Abroad | GVK EduTech",
+    description: "Explore MBBS abroad programs in Georgia, Russia, Kyrgyzstan, Kazakhstan & more. NMC/WHO approved universities.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "MBBS Abroad - GVK EduTech" }],
+  },
+};
+
+const faqs = [
+  { question: "What is the duration of MBBS abroad?", answer: "The MBBS program abroad typically lasts 5-6 years including clinical training." },
+  { question: "Is MBBS abroad valid in India?", answer: "Yes, degrees from NMC/WHO approved universities are valid in India after clearing the FMGE/NExT exam." },
+  { question: "What is the average cost of MBBS abroad?", answer: "The total cost ranges from ₹15-50 lakhs depending on the country and university, which is much lower than private medical colleges in India." },
+  { question: "Do I need to qualify NEET for MBBS abroad?", answer: "Yes, qualifying NEET is mandatory for Indian students seeking MBBS admission abroad." },
+];
 
 const mbbsCountries = [
   {
@@ -88,6 +107,7 @@ const benefits = [
 const MBBSPage = () => {
   return (
     <PageLayout>
+      <FAQSchema faqs={faqs} />
       <PageHeader
         title="Study MBBS Abroad"
         subtitle="Your Gateway to a World-Class Medical Education"

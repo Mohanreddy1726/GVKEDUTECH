@@ -1,5 +1,16 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
+export const metadata = {
+  title: "Study MBBS in Georgia 2026 - Top Medical Universities | GVK EduTech",
+  description: "Study MBBS in Georgia at WHO/NMC approved medical universities. Affordable fees, English medium education, no donation required. Apply for MBBS in Georgia now.",
+  keywords: ["MBBS in Georgia", "study MBBS Georgia", "Georgia medical university", "MBBS abroad Georgia", "MBBS Tbilisi"],
+  openGraph: {
+    title: "Study MBBS in Georgia | GVK EduTech",
+    description: "Study MBBS in Georgia at top-ranked medical universities with affordable fees.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "MBBS in Georgia" }],
+  },
+};
+
 const GeorgiaPage = () => {
   return (
     <CountryPageTemplate

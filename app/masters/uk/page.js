@@ -1,5 +1,16 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
+export const metadata = {
+  title: "Study Masters in UK 2026 - Top Universities | GVK EduTech",
+  description: "Pursue your Masters degree in UK at prestigious institutions. 1-year programs, global recognition, graduate route visa. Apply for UK Masters now.",
+  keywords: ["Masters in UK", "study Masters UK", "UK university admission", "Masters degree UK", "graduate route visa UK"],
+  openGraph: {
+    title: "Study Masters in UK | GVK EduTech",
+    description: "Study Masters in UK at prestigious institutions with graduate route visa.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Masters in UK" }],
+  },
+};
+
 const UKPage = () => {
   return (
     <CountryPageTemplate

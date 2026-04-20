@@ -1,5 +1,16 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
+export const metadata = {
+  title: "Study MBBS in Vietnam 2026 - Top Medical Universities | GVK EduTech",
+  description: "Study MBBS in Vietnam at WHO listed universities. Affordable fees, clinical exposure, tropical medicine focus. Apply for MBBS in Vietnam now.",
+  keywords: ["MBBS in Vietnam", "study MBBS Vietnam", "Vietnam medical university", "MBBS abroad Vietnam"],
+  openGraph: {
+    title: "Study MBBS in Vietnam | GVK EduTech",
+    description: "Study MBBS in Vietnam at affordable fees with WHO listed degrees.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "MBBS in Vietnam" }],
+  },
+};
+
 const VietnamPage = () => {
   return (
     <CountryPageTemplate

@@ -7,6 +7,17 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { AirplaneDecoration, GraduationCapDecoration, GlobeDecoration, FlightPathDecoration } from "@/components/ThematicDecorations";
 import "flag-icons/css/flag-icons.min.css";
 
+export const metadata = {
+  title: "Study Masters Abroad - Top Universities in USA, UK, Australia | GVK EduTech",
+  description: "Pursue your Masters degree abroad in USA, UK, Australia, Germany & Europe. Top-ranked universities with post-study work visas. Expert guidance for admissions.",
+  keywords: ["Masters abroad", "study Masters abroad", "Masters in USA", "Masters in UK", "Masters in Australia", "Masters in Germany", "post-study work visa"],
+  openGraph: {
+    title: "Study Masters Abroad | GVK EduTech",
+    description: "Explore Masters programs in USA, UK, Australia, Germany and more with post-study work opportunities.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Masters Abroad - GVK EduTech" }],
+  },
+};
+
 const mastersCountries = [
   {
     name: "Australia",

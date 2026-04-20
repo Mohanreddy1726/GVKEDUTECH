@@ -13,6 +13,17 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { VideoTestimonials } from "@/components/VideoTestimonials";
 
+export const metadata = {
+  title: "GVK EduTech - Your Gateway to Medical Education Abroad",
+  description: "GVK EduTech is your trusted partner for MBBS and Masters programs at leading global universities. 15+ years of excellence in international education consultancy. Start your journey today!",
+  keywords: ["MBBS abroad", "medical education abroad", "study medicine abroad", "Masters abroad", "education consultancy India", "overseas education"],
+  openGraph: {
+    title: "GVK EduTech - Your Gateway to Medical Education Abroad",
+    description: "Your trusted partner for MBBS and Masters programs at leading global universities. 15+ years of excellence.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GVK EduTech" }],
+  },
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen">

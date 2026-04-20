@@ -1,5 +1,16 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
+export const metadata = {
+  title: "Study Masters in Australia 2026 - Top Universities | GVK EduTech",
+  description: "Pursue your Masters degree in Australia at top-ranked universities. Post-study work visa, research excellence, vibrant student life. Apply for Australia Masters now.",
+  keywords: ["Masters in Australia", "study Masters Australia", "Australia university admission", "Masters degree Australia", "post-study work visa Australia"],
+  openGraph: {
+    title: "Study Masters in Australia | GVK EduTech",
+    description: "Study Masters in Australia at top-ranked universities with post-study work options.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Masters in Australia" }],
+  },
+};
+
 const AustraliaPage = () => {
   return (
     <CountryPageTemplate

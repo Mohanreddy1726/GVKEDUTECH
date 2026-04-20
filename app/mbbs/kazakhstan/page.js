@@ -1,5 +1,16 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
+export const metadata = {
+  title: "Study MBBS in Kazakhstan 2026 - Top Medical Universities | GVK EduTech",
+  description: "Study MBBS in Kazakhstan at NMC/WHO approved universities. Affordable fees, English medium, modern infrastructure. Apply for MBBS in Kazakhstan now.",
+  keywords: ["MBBS in Kazakhstan", "study MBBS Kazakhstan", "Kazakhstan medical university", "MBBS abroad Kazakhstan"],
+  openGraph: {
+    title: "Study MBBS in Kazakhstan | GVK EduTech",
+    description: "Study MBBS in Kazakhstan at affordable fees with NMC/WHO approved degrees.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "MBBS in Kazakhstan" }],
+  },
+};
+
 const KazakhstanPage = () => {
   return (
     <CountryPageTemplate
