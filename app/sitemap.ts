@@ -1,8 +1,11 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.gvkedutech.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://gvkedutech.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+  const lastModified = now.toISOString();
+
   const staticPages = [
     "",
     "/about",
@@ -18,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
   ].map((route) => ({
     url: `${BASE_URL}${route}`,
-    lastModified: new Date(),
+    lastModified,
     changeFrequency: "weekly" as const,
     priority: route === "" ? 1 : 0.8,
   }));
@@ -32,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/mbbs/vietnam",
   ].map((route) => ({
     url: `${BASE_URL}${route}`,
-    lastModified: new Date(),
+    lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
@@ -45,10 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/masters/usa",
   ].map((route) => ({
     url: `${BASE_URL}${route}`,
-    lastModified: new Date(),
+    lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
   return [...staticPages, ...mbbsPages, ...mastersPages];
 }
+
+export const dynamic = "force-static";

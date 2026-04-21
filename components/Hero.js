@@ -52,7 +52,7 @@ export const Hero = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up">
-              Your Gateway to
+              <span className="block">Your Gateway to</span>
               <span className="block text-accent mt-2">Medical Education</span>
               <span className="block">Abroad</span>
             </h1>

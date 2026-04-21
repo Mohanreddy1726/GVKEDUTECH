@@ -1,0 +1,17 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "www.gvkedutech.com"
+        }
+      ],
+      "destination": "https://gvkedutech.com/:path",
+      "permanent": true,
+      "statusCode": 301
+    }
+  ]
+}

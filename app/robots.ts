@@ -1,8 +1,8 @@
 import { MetadataRoute } from "next";
 
-export default function robots(): MetadataRoute.Robots {
-  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.gvkedutech.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://gvkedutech.com";
 
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
@@ -10,6 +10,5 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ["/api/", "/admin/", "/private/"],
     },
     sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
   };
 }

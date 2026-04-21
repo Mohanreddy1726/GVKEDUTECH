@@ -5,17 +5,29 @@ import Link from "next/link";
 import { ArrowRight, GraduationCap, Globe2, BadgeCheck, Stethoscope, BookOpen, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { StethoscopeDecoration, HeartbeatDecoration, DNADecoration } from "@/components/ThematicDecorations";
-import { FAQSchema } from "@/components/SEO";
+import { FAQSchema, ArticleSchema } from "@/components/SEO";
 import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
-  title: "Study MBBS Abroad - Top Medical Universities | GVK EduTech",
-  description: "Explore MBBS abroad programs in Georgia, Russia, Kyrgyzstan, Kazakhstan & more. NMC/WHO approved universities with affordable fees. Start your medical career today.",
-  keywords: ["MBBS abroad", "study MBBS abroad", "MBBS in Georgia", "MBBS in Russia", "medical education abroad", "NMC approved MBBS", "cheap MBBS abroad"],
+  title: "Study MBBS Abroad 2026 | Top Medical Universities in Russia, Georgia, Kyrgyzstan",
+  description: "Study MBBS abroad in top NMC/WHO approved universities. Low fees in Russia, Georgia, Kyrgyzstan, Kazakhstan. 5000+ Indian doctors placed. Free counseling.",
+  keywords: [
+    "MBBS abroad for Indian students",
+    "study MBBS abroad",
+    "MBBS in Russia for Indian students",
+    "MBBS in Georgia for Indian students",
+    "MBBS in Kyrgyzstan for Indian students",
+    "low cost MBBS abroad",
+    "NMC approved MBBS abroad",
+    "medical education abroad",
+    "MBBS abroad eligibility",
+    "NEET qualified MBBS abroad",
+  ],
   openGraph: {
-    title: "Study MBBS Abroad | GVK EduTech",
-    description: "Explore MBBS abroad programs in Georgia, Russia, Kyrgyzstan, Kazakhstan & more. NMC/WHO approved universities.",
+    title: "Study MBBS Abroad 2026 | Top Medical Universities | GVK EduTech",
+    description: "Study MBBS abroad at NMC/WHO approved universities in Russia, Georgia, Kyrgyzstan. Low fees, no donation, English medium.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "MBBS Abroad - GVK EduTech" }],
+    updated_time: new Date().toISOString(),
   },
 };
 
@@ -24,6 +36,8 @@ const faqs = [
   { question: "Is MBBS abroad valid in India?", answer: "Yes, degrees from NMC/WHO approved universities are valid in India after clearing the FMGE/NExT exam." },
   { question: "What is the average cost of MBBS abroad?", answer: "The total cost ranges from ₹15-50 lakhs depending on the country and university, which is much lower than private medical colleges in India." },
   { question: "Do I need to qualify NEET for MBBS abroad?", answer: "Yes, qualifying NEET is mandatory for Indian students seeking MBBS admission abroad." },
+  { question: "Are MBBS abroad programs taught in English?", answer: "Yes, all our partnered universities offer MBBS programs entirely in English medium for international students." },
+  { question: "What is the eligibility criteria for MBBS abroad?", answer: "Indian students must have scored 50% in PCB in 12th grade (40% for reserved categories) and qualified NEET to be eligible for MBBS abroad." },
 ];
 
 const mbbsCountries = [

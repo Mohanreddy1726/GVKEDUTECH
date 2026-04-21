@@ -8,13 +8,24 @@ import { AirplaneDecoration, GraduationCapDecoration, GlobeDecoration, FlightPat
 import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
-  title: "Study Masters Abroad - Top Universities in USA, UK, Australia | GVK EduTech",
-  description: "Pursue your Masters degree abroad in USA, UK, Australia, Germany & Europe. Top-ranked universities with post-study work visas. Expert guidance for admissions.",
-  keywords: ["Masters abroad", "study Masters abroad", "Masters in USA", "Masters in UK", "Masters in Australia", "Masters in Germany", "post-study work visa"],
+  title: "Study Masters Abroad 2026 | Top Universities in USA, UK, Australia, Germany",
+  description: "Pursue Masters abroad in top-ranked US, UK, Australian, German universities. Post-study work visas, scholarships available. Expert admission guidance.",
+  keywords: [
+    "Masters abroad for Indian students",
+    "study Masters abroad",
+    "Masters in USA for Indian students",
+    "Masters in UK for Indian students",
+    "Masters in Germany for Indian students",
+    "post-study work visa abroad",
+    "Masters in Australia for Indian students",
+    "best universities for Masters abroad",
+    "Masters scholarship abroad",
+  ],
   openGraph: {
-    title: "Study Masters Abroad | GVK EduTech",
-    description: "Explore Masters programs in USA, UK, Australia, Germany and more with post-study work opportunities.",
+    title: "Study Masters Abroad 2026 | Top Universities | GVK EduTech",
+    description: "Pursue Masters abroad in top-ranked USA, UK, Australia, Germany universities. Post-study work visas, scholarships available.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Masters Abroad - GVK EduTech" }],
+    updated_time: new Date().toISOString(),
   },
 };
 
