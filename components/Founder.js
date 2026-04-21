@@ -43,7 +43,7 @@ export const Founder = () => {
                 <div className="flex items-center gap-4">
                   <div className="flex-1 h-px bg-border" />
                   <span className="text-muted-foreground text-sm">
-                    GVK Brothers Foundation
+                    GVK Brother&apos;s Foundation
                   </span>
                 </div>
               </div>
