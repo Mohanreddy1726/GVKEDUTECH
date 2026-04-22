@@ -172,7 +172,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} GVK Edutech. All rights reserved.
           </p>
           <p className="text-white/60 text-sm flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-accent fill-current" /> for aspiring doctors
+            Made with <Heart className="w-4 h-4 text-accent fill-current" /> for aspiring doctors & engineers.
           </p>
         </div>
       </div>
