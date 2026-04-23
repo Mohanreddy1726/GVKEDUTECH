@@ -58,24 +58,24 @@ function predictColleges(neetScore, budget, country) {
 
 // Budget Calculator Data
 const budgetCountries = {
-  MBBS: ["Georgia", "Kyrgyzstan", "Russia", "Kazakhstan", "Uzbekistan", "Vietnam"],
+  MBBS: ["Nepal", "Georgia", "Kyrgyzstan", "Russia", "Kazakhstan", "Uzbekistan", "Vietnam"],
   MASTERS: ["USA", "UK", "Germany", "Australia", "Europe", "Ireland", "Canada"],
 };
 
 function calculateBudget(programType, country, livingPref) {
   const tuitionMap = {
-    MBBS: { Georgia: 4.5, Kyrgyzstan: 3, Russia: 5.5, Kazakhstan: 4, Uzbekistan: 3.5, Vietnam: 4 },
+    MBBS: { Nepal: 5, Georgia: 4.5, Kyrgyzstan: 3, Russia: 5.5, Kazakhstan: 4, Uzbekistan: 3.5, Vietnam: 4 },
     MASTERS: { USA: 25, UK: 18, Germany: 3, Australia: 20, Europe: 8, Ireland: 15, Canada: 18 },
   };
 
   const livingMap = {
-    Shared: { Georgia: 2, Kyrgyzstan: 1.5, Russia: 2.5, Kazakhstan: 2, Uzbekistan: 1.5, Vietnam: 2, USA: 8, UK: 7, Germany: 5, Australia: 7, Europe: 5, Ireland: 6, Canada: 7 },
-    Private: { Georgia: 3.5, Kyrgyzstan: 2.5, Russia: 4, Kazakhstan: 3.5, Uzbekistan: 2.5, Vietnam: 3, USA: 14, UK: 12, Germany: 8, Australia: 12, Europe: 8, Ireland: 10, Canada: 12 },
-    "University Hostel": { Georgia: 1.5, Kyrgyzstan: 1, Russia: 2, Kazakhstan: 1.5, Uzbekistan: 1, Vietnam: 1.5, USA: 6, UK: 5, Germany: 4, Australia: 5, Europe: 4, Ireland: 5, Canada: 5 },
+    Shared: { Nepal: 2, Georgia: 2, Kyrgyzstan: 1.5, Russia: 2.5, Kazakhstan: 2, Uzbekistan: 1.5, Vietnam: 2, USA: 8, UK: 7, Germany: 5, Australia: 7, Europe: 5, Ireland: 6, Canada: 7 },
+    Private: { Nepal: 3, Georgia: 3.5, Kyrgyzstan: 2.5, Russia: 4, Kazakhstan: 3.5, Uzbekistan: 2.5, Vietnam: 3, USA: 14, UK: 12, Germany: 8, Australia: 12, Europe: 8, Ireland: 10, Canada: 12 },
+    "University Hostel": { Nepal: 1.5, Georgia: 1.5, Kyrgyzstan: 1, Russia: 2, Kazakhstan: 1.5, Uzbekistan: 1, Vietnam: 1.5, USA: 6, UK: 5, Germany: 4, Australia: 5, Europe: 4, Ireland: 5, Canada: 5 },
   };
 
   const durationMap = {
-    MBBS: { Georgia: 6, Kyrgyzstan: 6, Russia: 6, Kazakhstan: 5, Uzbekistan: 5, Vietnam: 6 },
+    MBBS: { Nepal: 5, Georgia: 6, Kyrgyzstan: 6, Russia: 6, Kazakhstan: 5, Uzbekistan: 5, Vietnam: 6 },
     MASTERS: { USA: 2, UK: 1, Germany: 2, Australia: 2, Europe: 2, Ireland: 1, Canada: 2 },
   };
 
@@ -231,7 +231,7 @@ function PredictorForm() {
               </span>
             </label>
             <Select value={formData.country} onValueChange={(v) => setFormData({ ...formData, country: v })}>
-              <SelectTrigger className="h-12 border-border/50">
+              <SelectTrigger className="h-12 border-border/50 bg-white">
                 <SelectValue placeholder="Select country" />
               </SelectTrigger>
               <SelectContent>
@@ -245,7 +245,7 @@ function PredictorForm() {
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Category *</label>
             <Select value={formData.category} onValueChange={(v) => setFormData({ ...formData, category: v })}>
-              <SelectTrigger className="h-12 border-border/50">
+              <SelectTrigger className="h-12 border-border/50 bg-white">
                 <SelectValue placeholder="Select category" />
               </SelectTrigger>
               <SelectContent>
@@ -368,7 +368,7 @@ function BudgetForm() {
               </span>
             </label>
             <Select value={formData.programType} onValueChange={(v) => setFormData({ ...formData, programType: v, country: "", university: "" })}>
-              <SelectTrigger className="h-12 border-border/50">
+              <SelectTrigger className="h-12 border-border/50 bg-white">
                 <SelectValue placeholder="MBBS or Masters" />
               </SelectTrigger>
               <SelectContent>
@@ -380,7 +380,7 @@ function BudgetForm() {
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Country *</label>
             <Select value={formData.country} onValueChange={(v) => setFormData({ ...formData, country: v })} disabled={!formData.programType}>
-              <SelectTrigger className="h-12 border-border/50">
+              <SelectTrigger className="h-12 border-border/50 bg-white">
                 <SelectValue placeholder="Select country" />
               </SelectTrigger>
               <SelectContent>
@@ -400,7 +400,7 @@ function BudgetForm() {
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Living Preference *</label>
             <Select value={formData.livingPreference} onValueChange={(v) => setFormData({ ...formData, livingPreference: v })}>
-              <SelectTrigger className="h-12 border-border/50">
+              <SelectTrigger className="h-12 border-border/50 bg-white">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
@@ -413,7 +413,7 @@ function BudgetForm() {
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Course Type</label>
             <Select value={formData.courseType} onValueChange={(v) => setFormData({ ...formData, courseType: v })}>
-              <SelectTrigger className="h-12 border-border/50">
+              <SelectTrigger className="h-12 border-border/50 bg-white">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>

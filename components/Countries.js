@@ -12,7 +12,7 @@ const mbbsCountries = [
   { name: "Georgia", flag: "ge", link: "/mbbs/georgia", monument: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&auto=format&fit=crop" },
   { name: "Kyrgyzstan", flag: "kg", link: "/mbbs/kyrgyzstan", monument: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=400&auto=format&fit=crop" },
   { name: "Russia", flag: "ru", link: "/mbbs/russia", monument: "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=400&auto=format&fit=crop" },
-  { name: "Central America", flag: "cr", link: "#", monument: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=400&auto=format&fit=crop" },
+  { name: "Nepal", flag: "np", link: "/mbbs/nepal", monument: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&auto=format&fit=crop" },
   { name: "Kazakhstan", flag: "kz", link: "/mbbs/kazakhstan", monument: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=400&auto=format&fit=crop" },
   { name: "Vietnam", flag: "vn", link: "/mbbs/vietnam", monument: "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=400&auto=format&fit=crop" },
   { name: "Uzbekistan", flag: "uz", link: "/mbbs/uzbekistan", monument: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=400&auto=format&fit=crop" },

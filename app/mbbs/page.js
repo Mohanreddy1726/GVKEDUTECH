@@ -42,6 +42,13 @@ const faqs = [
 
 const mbbsCountries = [
   {
+    name: "Nepal",
+    flag: "np",
+    link: "/mbbs/nepal",
+    monument: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&auto=format&fit=crop",
+    highlights: ["NMC Approved", "Cultural Proximity", "Affordable"],
+  },
+  {
     name: "Georgia",
     flag: "ge",
     link: "/mbbs/georgia",

@@ -43,10 +43,19 @@ const UzbekistanPage = () => {
       ]}
       careerOpportunities="Students who are eligible can check the postgraduate options after acquiring the MBBS degree from Uzbekistan. Indian students can check the eligibility criteria for doing PG courses from India also from foreign Universities after getting the MBBS degree from Uzbekistan University. On completion of the course from MCI approved University in Uzbekistan, Indian students can practice in India. If you're keen on Uzbekistan and need to settle here, you can practice in Uzbekistan after completing your MBBS course."
       universities={[
-        { name: "East European University" },
-        { name: "Georgian American University" },
-        { name: "Tashkent Medical Academy" },
+        { name: "Asia International University" },
+        { name: "Andijan State Medical Institute" },
+        { name: "Bukhara State Medical Institute" },
+        { name: "Fergana Medical Institute of Public Health" },
+        { name: "Karakalpakstan Medical Institute" },
+        { name: "Namangan State University" },
         { name: "Samarkand State Medical University" },
+        { name: "Tashkent Medical Academy, Tashkent" },
+        { name: "Tashkent Medical Academy, Chirchiq" },
+        { name: "Tashkent Medical Academy, Termez" },
+        { name: "Tashkent Medical Academy, Urgench" },
+        { name: "Tashkent Pediatric Medical Institute" },
+        { name: "Tashkent State Dental Institute" },
       ]}
     />
   );

@@ -122,7 +122,7 @@ export const Contact = () => {
                   <div>
                     <p className="text-white/70 text-sm mb-1">Our Offices</p>
                     <p className="font-semibold">
-                      Hyderabad | Warangal | Vijayawada | Visakhapatnam
+                      <a  className="hover:text-accent transition-colors">Hyderabad</a> | <a className="hover:text-accent transition-colors">Warangal</a> | <a className="hover:text-accent transition-colors">Vijayawada</a> | <a  className="hover:text-accent transition-colors">Visakhapatnam</a>
                     </p>
                   </div>
                 </div>

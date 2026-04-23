@@ -15,6 +15,7 @@ const navItems = [
     href: "/mbbs",
     submenu: [
       { label: "All MBBS Countries", href: "/mbbs" },
+      { label: "Nepal", href: "/mbbs/nepal" },
       { label: "Georgia", href: "/mbbs/georgia" },
       { label: "Kyrgyzstan", href: "/mbbs/kyrgyzstan" },
       { label: "Russia", href: "/mbbs/russia" },

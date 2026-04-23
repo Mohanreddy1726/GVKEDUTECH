@@ -42,10 +42,30 @@ const GeorgiaPage = () => {
       ]}
       careerOpportunities="Away from the admission processes in India, seeking quality education in Georgia is easy where you get an opportunity to learn the most. Georgia is equipped with cutting-edge technology which gives students all the practical knowledge. A degree from the recognized University can be highly useful for your growth of the career you always dreamt of."
       universities={[
-        { name: "Georgian American University" },
-        { name: "East European University" },
-        { name: "ISM Georgia (TOU)" },
+        { name: "Akaki Tsereteli State University" },
+        { name: "Alte University School of Medicine" },
+        { name: "Avicenna - Batumi Medical University" },
+        { name: "Batumi Shota Rustaveli State University" },
+        { name: "BAU International University" },
+        { name: "Caucasus International University (CIU)" },
+        { name: "Caucasus University (CU)" },
+        { name: "Central University of Europe, Kutaisi" },
+        { name: "Central University of Europe, Tbilisi" },
+        { name: "David Tvildiani Medical University (DTMU)" },
+        { name: "East European University (EEU)" },
+        { name: "East-West University (EWU)" },
+        { name: "European University (EU)" },
+        { name: "Geomedi University" },
+        { name: "Georgian American University (GAU)" },
+        { name: "Georgian National University (SEU)" },
+        { name: "Grigol Robakidze University" },
+        { name: "International Black Sea University" },
+        { name: "Ilia State University" },
+        { name: "Ivane Javakhishvili Tbilisi State University" },
         { name: "New Vision University" },
+        { name: "Petre Shotadze Tbilisi Medical Academy" },
+        { name: "Tbilisi State Medical University (TSMU)" },
+        { name: "University of Georgia (UG)" },
       ]}
     />
   );

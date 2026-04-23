@@ -61,12 +61,17 @@ const KyrgyzstanPage = () => {
         clinical: ["General Medicine", "Surgery", "Paediatrics", "OBG", "Psychiatry", "Radiology", "Ophthalmology", "Orthopaedics", "Dermatology"],
       }}
       universities={[
-        { name: "International School of Medicine" },
-        { name: "KYRGYZ State Medical Academy" },
-        { name: "Asian Medical Institute" },
-        { name: "Kyrgyz State Medical Academy" },
-        { name: "Osh State University" },
+        { name: "IHSM Central Campus" },
+        { name: "IHSM Issyk-Kul Campus" },
+        { name: "International Medical University" },
         { name: "Jalal-Abad State University" },
+        { name: "Kyrgyz National University" },
+        { name: "Kyrgyz-Russian Slavic University" },
+        { name: "Kyrgyz State Medical Academy" },
+        { name: "Osh International Medical University" },
+        { name: "Osh State University" },
+        { name: "S. Tentishev Asian Medical Institute" },
+        { name: "University Of South Asia" },
       ]}
       faqs={[
         { question: "Is MBBS from Kyrgyzstan valid in India?", answer: "Yes. The degree is valid for FMGE/NExT and global practice. Universities are approved by NMC, WHO, and FAIMER." },

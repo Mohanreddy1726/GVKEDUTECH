@@ -24,6 +24,210 @@ export const metadata = {
 };
 
 const universityData = {
+  nepal: {
+    name: "Nepal",
+    flag: "np",
+    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&auto=format&fit=crop",
+    universities: [
+      "Birat Medical College (KU), Biratnagar",
+      "B & C Medical College (KU), Birtamod",
+      "Chitwan Medical College (TU), Bharatpur",
+      "College of Medical Science (KU), Bharatpur",
+      "Devdaha Medical College (KU), Butwal",
+      "Gandaki Medical College (TU), Pokhara",
+      "Janaki Medical College (TU), Janakpur",
+      "Kathmandu Medical College (KU), Kathmandu",
+      "Kathmandu University (KUSMS), Dhulikhel",
+      "Karnali Academy of Health Science, Karnali",
+      "KIST Medical College (TU), Kathmandu",
+      "Lumbini Medical College (KU), Palpa",
+      "Manipal College of Medical Science (KU), Pokhara",
+      "National Medical College (TU), Birgunj",
+      "Nepal Medical College (KU), Kathmandu",
+      "Nepalgunj Medical College (KU), Nepalgunj",
+      "Nobel Medical College (KU), Biratnagar",
+      "Universal Medical College (TU), Bhairahawa",
+    ],
+  },
+  georgia: {
+    name: "Georgia",
+    flag: "ge",
+    image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&auto=format&fit=crop",
+    universities: [
+      "Akaki Tsereteli State University",
+      "Alte University School of Medicine",
+      "Avicenna - Batumi Medical University",
+      "Batumi Shota Rustaveli State University",
+      "BAU International University",
+      "Caucasus International University (CIU)",
+      "Caucasus University (CU)",
+      "Central University of Europe, Kutaisi",
+      "Central University of Europe, Tbilisi",
+      "David Tvildiani Medical University (DTMU)",
+      "East European University (EEU)",
+      "East-West University (EWU)",
+      "European University (EU)",
+      "Geomedi University",
+      "Georgian American University (GAU)",
+      "Georgian National University (SEU)",
+      "Grigol Robakidze University",
+      "International Black Sea University",
+      "Ilia State University",
+      "Ivane Javakhishvili Tbilisi State University",
+      "New Vision University",
+      "Petre Shotadze Tbilisi Medical Academy",
+      "Tbilisi State Medical University (TSMU)",
+      "University of Georgia (UG)",
+    ],
+  },
+  kyrgyzstan: {
+    name: "Kyrgyzstan",
+    flag: "kg",
+    image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&auto=format&fit=crop",
+    universities: [
+      "IHSM Central Campus",
+      "IHSM Issyk-Kul Campus",
+      "International Medical University",
+      "Jalal-Abad State University",
+      "Kyrgyz National University",
+      "Kyrgyz-Russian Slavic University",
+      "Kyrgyz State Medical Academy",
+      "Osh International Medical University",
+      "Osh State University",
+      "S. Tentishev Asian Medical Institute",
+      "University Of South Asia",
+    ],
+  },
+  russia: {
+    name: "Russia",
+    flag: "ru",
+    image: "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800&auto=format&fit=crop",
+    universities: [
+      "Altai State Medical University",
+      "Amur State Medical Academy",
+      "Astrakhan State Medical University",
+      "Bashkir State Medical University",
+      "Chita State Medical Academy",
+      "Chuvash State University",
+      "Crimean Federal University (CFU)",
+      "Dagestan State Medical University",
+      "Far Eastern Federal University (FEFU)",
+      "First Moscow State Medical University",
+      "Immanuel Kant Baltic Federal University",
+      "Ingush State University",
+      "Irkutsk State Medical University",
+      "Ivanovo State Medical University",
+      "Izhevsk State Medical Academy (ISMA)",
+      "Kabardino-Balkarian State University",
+      "Kadyrov Chechen State University",
+      "Kazan Federal University (KFU)",
+      "Kazan State Medical University",
+      "Kemerovo State Medical University",
+      "Kemerovo State University",
+      "Kirov State Medical University",
+      "Krasnoyarsk State Medical University",
+      "Kuban State Medical University",
+      "Kursk State Medical University",
+      "Lobachevsky State University",
+      "Lomonosov Moscow State University",
+      "Mari State University",
+      "Maykop State University",
+      "Murmansk Arctic State University",
+      "National Nuclear Research University \"MEPhI\" (Moscow Branch)",
+      "National Nuclear Research University \"MEPhI\" (Obninsk Branch)",
+      "N.P. Ogarev Mordovia State University",
+      "North Caucasian State Academy (NCSA)",
+      "North Ossetian State Medical Academy",
+      "North-Western State Medical University",
+      "Northern State Medical University",
+      "Novosibirsk State University",
+      "Omsk State Medical University",
+      "Orel State University",
+      "Orenburg State Medical University",
+      "Pacific State Medical University",
+      "Penza State University",
+      "People's Friendship University \"RUDN\"",
+      "Perm State Medical University",
+      "Petrozavodsk State University",
+      "Pirogov Russian National Research Medical University",
+      "Pitirim Sorokin Syktyvkar State University",
+      "Privolzhsky Research Medical University",
+      "Pskov State University",
+      "Rostov State Medical University",
+      "Ryazan State Medical University",
+      "Saint Petersburg State University of Veterinary Medicine",
+      "Samara State Medical University",
+      "Saratov State Medical University",
+      "Sevastopol State University",
+      "Siberian State Medical University",
+      "Smolensk State Medical University",
+      "South-Ural State Medical University",
+      "Stavropol State Medical University",
+      "Surgut State University",
+      "Synergy University",
+      "Tambov State University",
+      "Tula State University",
+      "Tver State Medical University",
+      "Tyumen State Medical University",
+      "Ulyanovsk State University",
+      "Ural State Medical University",
+      "Volgograd State Medical University",
+      "Voronezh State Medical University",
+      "Yaroslav-the-Wise Novgorod State University",
+      "Yaroslavl State Medical University",
+    ],
+  },
+  uzbekistan: {
+    name: "Uzbekistan",
+    flag: "uz",
+    image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&auto=format&fit=crop",
+    universities: [
+      "Asia International University",
+      "Andijan State Medical Institute",
+      "Bukhara State Medical Institute",
+      "Fergana Medical Institute of Public Health",
+      "Karakalpakstan Medical Institute",
+      "Namangan State University",
+      "Samarkand State Medical University",
+      "Tashkent Medical Academy, Tashkent",
+      "Tashkent Medical Academy, Chirchiq",
+      "Tashkent Medical Academy, Termez",
+      "Tashkent Medical Academy, Urgench",
+      "Tashkent Pediatric Medical Institute",
+      "Tashkent State Dental Institute",
+    ],
+  },
+  kazakhstan: {
+    name: "Kazakhstan",
+    flag: "kz",
+    image: "https://images.unsplash.com/photo-1625657799852-3d2bd008a050?w=800&auto=format&fit=crop",
+    universities: [
+      "Al-Farabi Kazakh National University",
+      "Asfendiyarov Kazakh National University",
+      "Caspian International School of Medicine",
+      "Karaganda Medical University",
+      "Kazakh-Russian Medical University",
+      "Astana Medical University",
+      "Semey Medical University",
+      "Kokshetau State University",
+      "South Kazakhstan Medical Academy",
+      "West Kazakhstan Medical University",
+    ],
+  },
+  vietnam: {
+    name: "Vietnam",
+    flag: "vn",
+    image: "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=800&auto=format&fit=crop",
+    universities: [
+      "Hanoi Medical University (HMU)",
+      "University of Medicine and Pharmacy at HCMC",
+      "Hue University of Medicine and Pharmacy",
+      "Can Tho University of Medicine and Pharmacy",
+      "Thai Nguyen University of Medicine and Pharmacy",
+      "Hai Phong University of Medicine and Pharmacy",
+      "Pham Ngoc Thach University of Medicine",
+    ],
+  },
   uk: {
     name: "United Kingdom",
     flag: "gb",
@@ -179,7 +383,7 @@ const PartnerUniversitiesPage = () => {
             </h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible defaultValue="mbbs" className="space-y-4">
             {Object.entries(universityData).map(([key, country]) => (
               <AccordionItem
                 key={key}
@@ -196,7 +400,11 @@ const PartnerUniversitiesPage = () => {
                       />
                       <div className="absolute inset-0 bg-black/20" />
                       <span className="absolute inset-0 flex items-center justify-center">
-                        <span className={`fi fi-${country.flag}`} style={{ fontSize: "2rem" }}></span>
+                        {key === "mbbs" ? (
+                          <span className="text-2xl">🏥</span>
+                        ) : (
+                          <span className={`fi fi-${country.flag}`} style={{ fontSize: "2rem" }}></span>
+                        )}
                       </span>
                     </div>
                     <div className="text-left">
@@ -211,7 +419,7 @@ const PartnerUniversitiesPage = () => {
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6">
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-4 border-t border-border">
-                    {country.universities.slice(0, 6).map((uni, index) => (
+                    {country.universities.map((uni, index) => (
                       <div
                         key={index}
                         className="flex items-start gap-2 p-3 rounded-lg hover:bg-muted/50 transition-colors"
@@ -221,16 +429,6 @@ const PartnerUniversitiesPage = () => {
                       </div>
                     ))}
                   </div>
-                  {country.universities.length > 6 && (
-                    <div className="mt-4 text-center">
-                      <Button asChild variant="outline" size="sm" className="group">
-                        <Link href={`/partner-universities/${key}`}>
-                          View All {country.universities.length} Universities
-                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </div>
-                  )}
                 </AccordionContent>
               </AccordionItem>
             ))}
