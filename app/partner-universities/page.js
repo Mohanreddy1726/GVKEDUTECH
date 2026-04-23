@@ -14,11 +14,11 @@ import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
   title: "Partner Universities - GVK EduTech | Global University Network",
-  description: "Explore our network of 100+ partner universities worldwide for MBBS and Masters programs. Top-ranked institutions in Russia, Georgia, Kyrgyzstan, USA, UK, Australia and more.",
+  description: "Explore our network of 300+ partner universities worldwide for MBBS and Masters programs. Top-ranked institutions in Russia, Georgia, Kyrgyzstan, USA, UK, Australia and more.",
   keywords: ["partner universities", "MBBS universities abroad", "study abroad universities", "international universities network", "GVK EduTech university partners"],
   openGraph: {
     title: "Partner Universities | GVK EduTech",
-    description: "100+ partner universities worldwide offering MBBS and Masters programs.",
+    description: "300+ partner universities worldwide offering MBBS and Masters programs.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GVK EduTech Partner Universities" }],
   },
 };
@@ -354,7 +354,7 @@ const PartnerUniversitiesPage = () => {
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
               <GraduationCap className="w-5 h-5 text-primary" />
-              <span className="text-primary font-medium">150+ Partner Universities</span>
+              <span className="text-primary font-medium">300+ Partner Universities</span>
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
               Your Gateway to <span className="text-primary">Elite Universities</span> for Masters Abroad
