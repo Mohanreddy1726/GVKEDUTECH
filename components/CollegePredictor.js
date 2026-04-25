@@ -8,37 +8,178 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { GraduationCap, Stethoscope, TrendingUp, Sparkles, ArrowRight, CheckCircle2, Calculator, BookOpen } from "lucide-react";
 
-// MBBS College Predictor Data
+// MBBS College Predictor Data - All 7 Countries
 const mbbsCountries = [
-  "Georgia", "Kyrgyzstan", "Russia", "Kazakhstan", "Uzbekistan", "Vietnam"
+  "Nepal", "Georgia", "Kyrgyzstan", "Russia", "Kazakhstan", "Uzbekistan", "Vietnam"
 ];
 
 const categories = ["OC", "BC-A", "BC-B", "BC-C", "BC-D", "BC-E", "SC", "ST", "EWS"];
 
+// Complete college database from all MBBS country pages
 const collegeDatabase = [
-  { name: "Tbilisi State Medical University", country: "Georgia", fee: "₹20-25 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC, WFME" },
+  // NEPAL - 18 Universities
+  { name: "Birat Medical College, Biratnagar", country: "Nepal", fee: "₹40-55 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "B & C Medical College, Birtamod", country: "Nepal", fee: "₹38-52 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "Chitwan Medical College, Bharatpur", country: "Nepal", fee: "₹40-55 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "College of Medical Science, Bharatpur", country: "Nepal", fee: "₹42-58 Lakh (Total)", neetRange: "150-320", recognition: "NMC, WHO" },
+  { name: "Devdaha Medical College, Butwal", country: "Nepal", fee: "₹38-50 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "Gandaki Medical College, Pokhara", country: "Nepal", fee: "₹40-55 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "Janaki Medical College, Janakpur", country: "Nepal", fee: "₹35-48 Lakh (Total)", neetRange: "140-280", recognition: "NMC, WHO" },
+  { name: "Kathmandu Medical College, Kathmandu", country: "Nepal", fee: "₹45-60 Lakh (Total)", neetRange: "180-350", recognition: "NMC, WHO" },
+  { name: "Kathmandu University (KUSMS), Dhulikhel", country: "Nepal", fee: "₹42-58 Lakh (Total)", neetRange: "170-320", recognition: "NMC, WHO" },
+  { name: "Karnali Academy of Health Science", country: "Nepal", fee: "₹30-42 Lakh (Total)", neetRange: "130-250", recognition: "NMC, WHO" },
+  { name: "KIST Medical College, Kathmandu", country: "Nepal", fee: "₹40-55 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "Lumbini Medical College, Palpa", country: "Nepal", fee: "₹38-52 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "Manipal College of Medical Science, Pokhara", country: "Nepal", fee: "₹48-65 Lakh (Total)", neetRange: "200-380", recognition: "NMC, WHO" },
+  { name: "National Medical College, Birgunj", country: "Nepal", fee: "₹40-55 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "Nepal Medical College, Kathmandu", country: "Nepal", fee: "₹42-58 Lakh (Total)", neetRange: "160-320", recognition: "NMC, WHO" },
+  { name: "Nepalgunj Medical College, Nepalgunj", country: "Nepal", fee: "₹38-50 Lakh (Total)", neetRange: "140-280", recognition: "NMC, WHO" },
+  { name: "Nobel Medical College, Biratnagar", country: "Nepal", fee: "₹40-55 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+  { name: "Universal Medical College, Bhairahawa", country: "Nepal", fee: "₹38-52 Lakh (Total)", neetRange: "150-300", recognition: "NMC, WHO" },
+
+  // GEORGIA - 23 Universities
+  { name: "Tbilisi State Medical University (TSMU)", country: "Georgia", fee: "₹20-25 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC, WFME" },
   { name: "Batumi Shota Rustaveli State University", country: "Georgia", fee: "₹18-22 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
-  { name: "David Tvildiani Medical University", country: "Georgia", fee: "₹22-28 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC" },
-  { name: "European University (Georgia)", country: "Georgia", fee: "₹20-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
-  { name: "Caucasus International University", country: "Georgia", fee: "₹18-22 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
+  { name: "David Tvildiani Medical University (DTMU)", country: "Georgia", fee: "₹22-28 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC" },
+  { name: "European University (EU)", country: "Georgia", fee: "₹20-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Caucasus International University (CIU)", country: "Georgia", fee: "₹18-22 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
+  { name: "Akaki Tsereteli State University", country: "Georgia", fee: "₹18-24 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Alte University School of Medicine", country: "Georgia", fee: "₹20-26 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Avicenna - Batumi Medical University", country: "Georgia", fee: "₹19-24 Lakh (Total)", neetRange: "190-330", recognition: "WHO, NMC" },
+  { name: "BAU International University", country: "Georgia", fee: "₹20-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Caucasus University (CU)", country: "Georgia", fee: "₹18-23 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Central University of Europe, Kutaisi", country: "Georgia", fee: "₹17-22 Lakh (Total)", neetRange: "170-300", recognition: "WHO, NMC" },
+  { name: "Central University of Europe, Tbilisi", country: "Georgia", fee: "₹18-24 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "East European University (EEU)", country: "Georgia", fee: "₹19-24 Lakh (Total)", neetRange: "190-330", recognition: "WHO, NMC" },
+  { name: "East-West University (EWU)", country: "Georgia", fee: "₹18-23 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
+  { name: "Geomedi University", country: "Georgia", fee: "₹17-22 Lakh (Total)", neetRange: "170-290", recognition: "WHO, NMC" },
+  { name: "Georgian American University (GAU)", country: "Georgia", fee: "₹20-26 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Georgian National University (SEU)", country: "Georgia", fee: "₹19-24 Lakh (Total)", neetRange: "190-330", recognition: "WHO, NMC" },
+  { name: "Grigol Robakidze University", country: "Georgia", fee: "₹18-23 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "International Black Sea University", country: "Georgia", fee: "₹19-24 Lakh (Total)", neetRange: "190-330", recognition: "WHO, NMC" },
+  { name: "Ilia State University", country: "Georgia", fee: "₹20-26 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Ivane Javakhishvili Tbilisi State University", country: "Georgia", fee: "₹21-28 Lakh (Total)", neetRange: "220-380", recognition: "WHO, NMC" },
+  { name: "New Vision University", country: "Georgia", fee: "₹18-24 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Petre Shotadze Tbilisi Medical Academy", country: "Georgia", fee: "₹19-25 Lakh (Total)", neetRange: "190-340", recognition: "WHO, NMC" },
+  { name: "University of Georgia (UG)", country: "Georgia", fee: "₹20-26 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+
+  // KYRGYZSTAN - 11 Universities
   { name: "Osh State University", country: "Kyrgyzstan", fee: "₹15-20 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
   { name: "Jalal-Abad State University", country: "Kyrgyzstan", fee: "₹14-18 Lakh (Total)", neetRange: "170-280", recognition: "WHO, NMC" },
   { name: "International School of Medicine (ISM)", country: "Kyrgyzstan", fee: "₹16-22 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
   { name: "Kyrgyz State Medical Academy", country: "Kyrgyzstan", fee: "₹15-20 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "IHSM Central Campus", country: "Kyrgyzstan", fee: "₹16-22 Lakh (Total)", neetRange: "190-340", recognition: "WHO, NMC" },
+  { name: "IHSM Issyk-Kul Campus", country: "Kyrgyzstan", fee: "₹15-21 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "International Medical University", country: "Kyrgyzstan", fee: "₹16-22 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Kyrgyz National University", country: "Kyrgyzstan", fee: "₹14-19 Lakh (Total)", neetRange: "170-290", recognition: "WHO, NMC" },
+  { name: "Kyrgyz-Russian Slavic University", country: "Kyrgyzstan", fee: "₹15-20 Lakh (Total)", neetRange: "180-310", recognition: "WHO, NMC" },
+  { name: "Osh International Medical University", country: "Kyrgyzstan", fee: "₹16-21 Lakh (Total)", neetRange: "190-330", recognition: "WHO, NMC" },
+  { name: "S. Tentishev Asian Medical Institute", country: "Kyrgyzstan", fee: "₹14-19 Lakh (Total)", neetRange: "170-290", recognition: "WHO, NMC" },
+  { name: "University Of South Asia", country: "Kyrgyzstan", fee: "₹16-22 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+
+  // RUSSIA - 68 Universities
   { name: "Bashkir State Medical University", country: "Russia", fee: "₹25-35 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC, ECFMG" },
-  { name: "Kazan Federal University", country: "Russia", fee: "₹28-38 Lakh (Total)", neetRange: "280-450", recognition: "WHO, NMC, ECFMG" },
-  { name: "Crimea Federal University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-380", recognition: "WHO, NMC" },
+  { name: "Kazan Federal University (KFU)", country: "Russia", fee: "₹28-38 Lakh (Total)", neetRange: "280-450", recognition: "WHO, NMC, ECFMG" },
+  { name: "Crimean Federal University (CFU)", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-380", recognition: "WHO, NMC" },
   { name: "Orenburg State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "230-380", recognition: "WHO, NMC" },
-  { name: "Kazakh National Medical University", country: "Kazakhstan", fee: "₹20-28 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC" },
-  { name: "Al-Farabi Kazakh National University", country: "Kazakhstan", fee: "₹22-30 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC" },
-  { name: "Semey Medical University", country: "Kazakhstan", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Altai State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Amur State Medical Academy", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Astrakhan State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Chita State Medical Academy", country: "Russia", fee: "₹18-26 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Chuvash State University", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Dagestan State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Far Eastern Federal University (FEFU)", country: "Russia", fee: "₹26-35 Lakh (Total)", neetRange: "260-420", recognition: "WHO, NMC, ECFMG" },
+  { name: "First Moscow State Medical University", country: "Russia", fee: "₹35-50 Lakh (Total)", neetRange: "350-550", recognition: "WHO, NMC, ECFMG" },
+  { name: "Immanuel Kant Baltic Federal University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Ingush State University", country: "Russia", fee: "₹18-25 Lakh (Total)", neetRange: "170-300", recognition: "WHO, NMC" },
+  { name: "Irkutsk State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Ivanovo State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Izhevsk State Medical Academy (ISMA)", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Kabardino-Balkarian State University", country: "Russia", fee: "₹18-26 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Kadyrov Chechen State University", country: "Russia", fee: "₹18-25 Lakh (Total)", neetRange: "170-300", recognition: "WHO, NMC" },
+  { name: "Kazan State Medical University", country: "Russia", fee: "₹26-36 Lakh (Total)", neetRange: "260-420", recognition: "WHO, NMC, ECFMG" },
+  { name: "Kemerovo State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Kirov State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Krasnoyarsk State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Kuban State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Kursk State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Lobachevsky State University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Lomonosov Moscow State University", country: "Russia", fee: "₹40-55 Lakh (Total)", neetRange: "400-600", recognition: "WHO, NMC, ECFMG" },
+  { name: "Mari State University", country: "Russia", fee: "₹18-26 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Maykop State University", country: "Russia", fee: "₹18-25 Lakh (Total)", neetRange: "170-300", recognition: "WHO, NMC" },
+  { name: "Murmansk Arctic State University", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "N.P. Ogarev Mordovia State University", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "North Caucasian State Academy (NCSA)", country: "Russia", fee: "₹18-26 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "North Ossetian State Medical Academy", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "North-Western State Medical University", country: "Russia", fee: "₹26-36 Lakh (Total)", neetRange: "260-420", recognition: "WHO, NMC, ECFMG" },
+  { name: "Northern State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Novosibirsk State University", country: "Russia", fee: "₹28-38 Lakh (Total)", neetRange: "280-450", recognition: "WHO, NMC, ECFMG" },
+  { name: "Omsk State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Orel State University", country: "Russia", fee: "₹18-26 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Pacific State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Penza State University", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "People's Friendship University RUDN", country: "Russia", fee: "₹28-40 Lakh (Total)", neetRange: "300-480", recognition: "WHO, NMC, ECFMG" },
+  { name: "Perm State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Petrozavodsk State University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Pirogov Russian National Research Medical University", country: "Russia", fee: "₹30-42 Lakh (Total)", neetRange: "320-500", recognition: "WHO, NMC, ECFMG" },
+  { name: "Privolzhsky Research Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Pskov State University", country: "Russia", fee: "₹18-25 Lakh (Total)", neetRange: "170-300", recognition: "WHO, NMC" },
+  { name: "Rostov State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Ryazan State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Samara State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Saratov State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Sevastopol State University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Siberian State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Smolensk State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "South-Ural State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Stavropol State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Surgut State University", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Tambov State University", country: "Russia", fee: "₹18-26 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Tula State University", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Tver State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Tyumen State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Ulyanovsk State University", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Ural State Medical University", country: "Russia", fee: "₹24-32 Lakh (Total)", neetRange: "240-400", recognition: "WHO, NMC" },
+  { name: "Volgograd State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Voronezh State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Yaroslav-the-Wise Novgorod State University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Yaroslavl State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+
+  // KAZAKHSTAN - 10 Universities
+  { name: "Al-Farabi Kazakh National University", country: "Kazakhstan", fee: "₹20-28 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC" },
+  { name: "Asfendiyarov Kazakh National University", country: "Kazakhstan", fee: "₹20-28 Lakh (Total)", neetRange: "250-400", recognition: "WHO, NMC" },
+  { name: "Caspian International School of Medicine", country: "Kazakhstan", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Karaganda Medical University", country: "Kazakhstan", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Kazakh-Russian Medical University", country: "Kazakhstan", fee: "₹18-24 Lakh (Total)", neetRange: "190-330", recognition: "WHO, NMC" },
   { name: "Astana Medical University", country: "Kazakhstan", fee: "₹20-28 Lakh (Total)", neetRange: "220-380", recognition: "WHO, NMC" },
-  { name: "Tashkent Medical Academy", country: "Uzbekistan", fee: "₹15-22 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
-  { name: "Samarkand State Medical University", country: "Uzbekistan", fee: "₹14-20 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Semey Medical University", country: "Kazakhstan", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Kokshetau State University", country: "Kazakhstan", fee: "₹16-22 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
+  { name: "South Kazakhstan Medical Academy", country: "Kazakhstan", fee: "₹16-22 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
+  { name: "West Kazakhstan Medical University", country: "Kazakhstan", fee: "₹18-24 Lakh (Total)", neetRange: "190-330", recognition: "WHO, NMC" },
+
+  // UZBEKISTAN - 13 Universities
+  { name: "Asia International University", country: "Uzbekistan", fee: "₹13-18 Lakh (Total)", neetRange: "160-280", recognition: "WHO, NMC" },
+  { name: "Andijan State Medical Institute", country: "Uzbekistan", fee: "₹12-17 Lakh (Total)", neetRange: "150-260", recognition: "WHO, NMC" },
   { name: "Bukhara State Medical Institute", country: "Uzbekistan", fee: "₹13-18 Lakh (Total)", neetRange: "170-300", recognition: "WHO, NMC" },
-  { name: "Pham Ngoc Thach University", country: "Vietnam", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
-  { name: "Hanoi Medical University", country: "Vietnam", fee: "₹20-28 Lakh (Total)", neetRange: "220-380", recognition: "WHO, NMC" },
-  { name: "Ho Chi Minh City Medicine & Pharmacy", country: "Vietnam", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Fergana Medical Institute of Public Health", country: "Uzbekistan", fee: "₹12-17 Lakh (Total)", neetRange: "150-260", recognition: "WHO, NMC" },
+  { name: "Karakalpakstan Medical Institute", country: "Uzbekistan", fee: "₹12-16 Lakh (Total)", neetRange: "140-250", recognition: "WHO, NMC" },
+  { name: "Namangan State University", country: "Uzbekistan", fee: "₹12-17 Lakh (Total)", neetRange: "150-260", recognition: "WHO, NMC" },
+  { name: "Samarkand State Medical University", country: "Uzbekistan", fee: "₹14-20 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Tashkent Medical Academy, Tashkent", country: "Uzbekistan", fee: "₹15-22 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Tashkent Medical Academy, Chirchiq", country: "Uzbekistan", fee: "₹14-20 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Tashkent Medical Academy, Termez", country: "Uzbekistan", fee: "₹14-20 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Tashkent Medical Academy, Urgench", country: "Uzbekistan", fee: "₹14-20 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Tashkent Pediatric Medical Institute", country: "Uzbekistan", fee: "₹14-20 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
+  { name: "Tashkent State Dental Institute", country: "Uzbekistan", fee: "₹12-18 Lakh (Total)", neetRange: "150-280", recognition: "WHO, NMC" },
+
+  // VIETNAM - 7 Universities
+  { name: "Hanoi Medical University (HMU)", country: "Vietnam", fee: "₹20-28 Lakh (Total)", neetRange: "220-380", recognition: "WHO, NMC" },
+  { name: "University of Medicine and Pharmacy at HCMC", country: "Vietnam", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Hue University of Medicine and Pharmacy", country: "Vietnam", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
+  { name: "Can Tho University of Medicine and Pharmacy", country: "Vietnam", fee: "₹16-22 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
+  { name: "Thai Nguyen University of Medicine and Pharmacy", country: "Vietnam", fee: "₹16-22 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
+  { name: "Hai Phong University of Medicine and Pharmacy", country: "Vietnam", fee: "₹16-22 Lakh (Total)", neetRange: "180-300", recognition: "WHO, NMC" },
+  { name: "Pham Ngoc Thach University of Medicine", country: "Vietnam", fee: "₹18-25 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
 ];
 
 function parseRange(range) {
@@ -56,10 +197,10 @@ function predictColleges(neetScore, budget, country) {
   });
 }
 
-// Budget Calculator Data
+// Budget Calculator Data - Countries for each program type
 const budgetCountries = {
   MBBS: ["Nepal", "Georgia", "Kyrgyzstan", "Russia", "Kazakhstan", "Uzbekistan", "Vietnam"],
-  MASTERS: ["USA", "UK", "Germany", "Australia", "Europe", "Ireland", "Canada"],
+  MASTERS: ["USA", "Australia", "United Kingdom", "Germany", "Europe", "Canada", "Ireland"],
 };
 
 function calculateBudget(programType, country, livingPref) {
