@@ -321,13 +321,32 @@ function PredictorForm() {
   const [results, setResults] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
-  const handlePredict = (e) => {
+  const handlePredict = async (e) => {
     e.preventDefault();
     const score = parseInt(formData.neetScore);
     if (isNaN(score) || score < 0 || score > 720) return;
     const predicted = predictColleges(score, formData.budget[0], formData.country);
     setResults(predicted);
     setSubmitted(true);
+
+    // Save to database
+    try {
+      await fetch("/api/college-predictor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          neetScore: score,
+          category: formData.category,
+          budget: formData.budget[0],
+          country: formData.country,
+          matchedColleges: predicted.length,
+        }),
+      });
+    } catch (err) {
+      console.error("Failed to save predictor data:", err);
+    }
   };
 
   const handleWhatsApp = () => {
@@ -469,11 +488,31 @@ function BudgetForm() {
 
   const availableCountries = formData.programType ? budgetCountries[formData.programType] || [] : [];
 
-  const handleCalculate = (e) => {
+  const handleCalculate = async (e) => {
     e.preventDefault();
     if (!formData.programType || !formData.country || !formData.livingPreference) return;
     const result = calculateBudget(formData.programType, formData.country, formData.livingPreference);
     setEstimate(result);
+
+    // Save to database
+    try {
+      await fetch("/api/budget-calculator", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          programType: formData.programType,
+          country: formData.country,
+          university: formData.university,
+          livingPreference: formData.livingPreference,
+          courseType: formData.courseType,
+          estimatedBudget: result.totalEstimate,
+        }),
+      });
+    } catch (err) {
+      console.error("Failed to save budget calculator data:", err);
+    }
   };
 
   const handleWhatsApp = () => {

@@ -5,6 +5,7 @@ import { Send, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
 import Image from "next/image";
 
 export const Contact = () => {
@@ -14,10 +15,38 @@ export const Contact = () => {
     phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Our team will get back to you within 24 hours.",
+          variant: "success",
+        });
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        throw new Error("Failed to submit");
+      }
+    } catch (err) {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -79,8 +108,8 @@ export const Contact = () => {
                   className="min-h-[120px] rounded-xl resize-none"
                 />
               </div>
-              <Button type="submit" variant="accent" size="lg" className="w-full group">
-                Send Message
+              <Button type="submit" variant="accent" size="lg" className="w-full group" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
                 <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>

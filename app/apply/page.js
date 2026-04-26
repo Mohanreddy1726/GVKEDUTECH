@@ -29,6 +29,7 @@ const countries = [
 
 const ApplyPage = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     fatherName: "",
@@ -55,8 +56,9 @@ const ApplyPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const message = `
 *New Application from GVK Edutech Website*
@@ -84,13 +86,50 @@ Caste: ${formData.caste}
 ${formData.message || "N/A"}
     `.trim();
 
-    const whatsappUrl = `https://api.whatsapp.com/send/?phone=919010060000&text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+    try {
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Application Submitted!",
-      description: "You will be redirected to WhatsApp to complete your application.",
-    });
+      const whatsappUrl = `https://api.whatsapp.com/send/?phone=919010060000&text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
+
+      if (res.ok) {
+        toast({
+          title: "Application Submitted Successfully!",
+          description: "Our team will contact you shortly. Redirecting to WhatsApp...",
+          variant: "success",
+        });
+        setFormData({
+          fullName: "",
+          fatherName: "",
+          motherName: "",
+          gender: "",
+          dob: "",
+          email: "",
+          phone: "",
+          address: "",
+          country: "",
+          passportStatus: "",
+          neetScore: "",
+          caste: "",
+          percentage: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to submit");
+      }
+    } catch (err) {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -350,9 +389,9 @@ ${formData.message || "N/A"}
 
                 {/* Submit Button */}
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <Button type="submit" variant="accent" size="lg" className="flex-1 md:flex-none">
+                  <Button type="submit" variant="accent" size="lg" className="flex-1 md:flex-none" disabled={isSubmitting}>
                     <Send className="w-5 h-5 mr-2" />
-                    Submit Application
+                    {isSubmitting ? "Submitting..." : "Submit Application"}
                   </Button>
                   <Button
                     type="button"
