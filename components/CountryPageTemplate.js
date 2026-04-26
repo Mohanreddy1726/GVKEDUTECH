@@ -55,15 +55,15 @@ export const CountryPageTemplate = ({
 
           <div className="flex flex-wrap gap-4 mt-8">
             <Button variant="accent" size="lg" asChild>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <a href="/apply">
                 <MessageCircle className="w-5 h-5 mr-2" />
-                Chat with Expert
+                Apply Now
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href="tel:+919010060000">
-                <Phone className="w-5 h-5 mr-2" />
-                Call Now
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Chat with Expert
               </a>
             </Button>
           </div>
@@ -386,16 +386,16 @@ export const CountryPageTemplate = ({
             Connect with us today and take the first step toward a successful global career with GVK Edutech.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="hero" size="lg" asChild>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-0" asChild>
+              <a href="/apply">
                 <MessageCircle className="w-5 h-5 mr-2" />
-                Chat with Expert
+                Apply Now
               </a>
             </Button>
             <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20" asChild>
-              <a href="tel:+919010060000">
-                <Phone className="w-5 h-5 mr-2" />
-                Call: +91 90100 60000
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Chat with Expert
               </a>
             </Button>
           </div>
