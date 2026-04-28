@@ -1,28 +1,34 @@
 "use client";
 
-import { useState } from "react";
-import { Play, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Play, X, RefreshCw, VideoOff } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
-const allVideos = [
-  { id: "N-wi2Y1QVCw", title: "Dr. Priya's Journey to Georgia", university: "Tbilisi State Medical University", country: "Georgia" },
-  { id: "N-wi2Y1QVCw", title: "Rahul's MBBS Experience in Russia", university: "Kazan Federal University", country: "Russia" },
-  { id: "N-wi2Y1QVCw", title: "Sneha's Success in Kazakhstan", university: "Kazakh National Medical University", country: "Kazakhstan" },
-  { id: "N-wi2Y1QVCw", title: "Arun's Masters in UK", university: "University of Birmingham", country: "UK" },
-  { id: "N-wi2Y1QVCw", title: "Kavya's MBBS in Kyrgyzstan", university: "Osh State University", country: "Kyrgyzstan" },
-  { id: "N-wi2Y1QVCw", title: "Vikram's Journey to Australia", university: "University of Melbourne", country: "Australia" },
-  { id: "N-wi2Y1QVCw", title: "Meera's MBBS in Uzbekistan", university: "Tashkent Medical Academy", country: "Uzbekistan" },
-  { id: "N-wi2Y1QVCw", title: "Ravi's Masters in USA", university: "Boston University", country: "USA" },
-  { id: "N-wi2Y1QVCw", title: "Anitha's Journey to Germany", university: "Heidelberg University", country: "Germany" },
-  { id: "N-wi2Y1QVCw", title: "Suresh's MBBS in Vietnam", university: "Hanoi Medical University", country: "Vietnam" },
-  { id: "N-wi2Y1QVCw", title: "Divya's Masters in Europe", university: "Charles University Prague", country: "Europe" },
-  { id: "N-wi2Y1QVCw", title: "Kiran's Success Story", university: "Georgian National University", country: "Georgia" },
-];
-
 const GalleryPage = () => {
+  const [allVideos, setAllVideos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [modalVideo, setModalVideo] = useState(null);
+
+  useEffect(() => {
+    fetchVideos();
+  }, []);
+
+  const fetchVideos = async () => {
+    setIsLoading(true);
+    try {
+      const res = await fetch("/api/video-testimonials/");
+      if (res.ok) {
+        const data = await res.json();
+        setAllVideos(data);
+      }
+    } catch (err) {
+      console.error("Failed to fetch videos:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -50,7 +56,7 @@ const GalleryPage = () => {
             </button>
             <div className="aspect-video rounded-2xl overflow-hidden bg-black">
               <iframe
-                src={`https://www.youtube.com/embed/${modalVideo.id}?autoplay=1&rel=0`}
+                src={`https://www.youtube.com/embed/${modalVideo.youtubeId}?autoplay=1&rel=0`}
                 title={modalVideo.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -68,32 +74,44 @@ const GalleryPage = () => {
       {/* Video Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allVideos.map((video, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl overflow-hidden bg-card border border-border shadow-lg group cursor-pointer"
-                onClick={() => setModalVideo(video)}
-              >
-                <div className="aspect-video relative">
-                  <img
-                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                    alt={video.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
-                    <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform">
-                      <Play className="w-7 h-7 text-white fill-white ml-1" />
+          {isLoading ? (
+            <div className="flex items-center justify-center py-20">
+              <RefreshCw className="w-8 h-8 animate-spin text-accent" />
+            </div>
+          ) : allVideos.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <VideoOff className="w-16 h-16 text-muted-foreground mb-4" />
+              <h3 className="text-xl font-semibold text-foreground mb-2">No Testimonials Uploaded</h3>
+              <p className="text-muted-foreground">Video testimonials will appear here once uploaded from the admin panel.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {allVideos.map((video) => (
+                <div
+                  key={video._id}
+                  className="rounded-2xl overflow-hidden bg-card border border-border shadow-lg group cursor-pointer"
+                  onClick={() => setModalVideo(video)}
+                >
+                  <div className="aspect-video relative">
+                    <img
+                      src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                      <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform">
+                        <Play className="w-7 h-7 text-white fill-white ml-1" />
+                      </div>
                     </div>
                   </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-foreground mb-1">{video.title}</h3>
+                    <p className="text-sm text-muted-foreground">{video.university} • {video.country}</p>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-foreground mb-1">{video.title}</h3>
-                  <p className="text-sm text-muted-foreground">{video.university} • {video.country}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

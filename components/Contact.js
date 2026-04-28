@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import Image from "next/image";
+import { validateEmail, validatePhone } from "@/utils/validation";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,11 +15,53 @@ export const Contact = () => {
     email: "",
     phone: "",
     message: "",
+    website: "", // honeypot field
   });
+  const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (field, value) => {
+    setFormData({ ...formData, [field]: value });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: "" });
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your name";
+    }
+
+    const emailValidation = validateEmail(formData.email);
+    if (!emailValidation.valid) {
+      newErrors.email = emailValidation.message;
+    }
+
+    const phoneValidation = validatePhone(formData.phone);
+    if (!phoneValidation.valid) {
+      newErrors.phone = phoneValidation.message;
+    }
+
+    return newErrors;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Honeypot spam protection
+    if (formData.website) {
+      return;
+    }
+
+    // Validate form
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -34,7 +77,8 @@ export const Contact = () => {
           description: "Our team will get back to you within 24 hours.",
           variant: "success",
         });
-        setFormData({ name: "", email: "", phone: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", message: "", website: "" });
+        setErrors({});
       } else {
         throw new Error("Failed to submit");
       }
@@ -70,45 +114,69 @@ export const Contact = () => {
             <h3 className="text-2xl font-bold text-foreground mb-6">
               Send us a Message
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+              {/* Honeypot - hidden from users, only bots will fill */}
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div>
                 <Input
+                  id="contact-home-name"
                   placeholder="Your Name *"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="h-12 rounded-xl"
+                  onChange={(e) => handleChange("name", e.target.value)}
+                  className={`h-12 rounded-xl ${errors.name ? "border-red-500" : ""}`}
                   required
+                  aria-required="true"
+                  aria-invalid={!!errors.name}
                 />
+                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
               </div>
               <div>
                 <Input
+                  id="contact-home-email"
                   type="email"
                   placeholder="Email Address *"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="h-12 rounded-xl"
+                  onChange={(e) => handleChange("email", e.target.value)}
+                  className={`h-12 rounded-xl ${errors.email ? "border-red-500" : ""}`}
                   required
+                  aria-required="true"
+                  aria-invalid={!!errors.email}
                 />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
               <div>
                 <Input
+                  id="contact-home-phone"
                   type="tel"
                   placeholder="Phone Number *"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="h-12 rounded-xl"
+                  onChange={(e) => handleChange("phone", e.target.value)}
+                  className={`h-12 rounded-xl ${errors.phone ? "border-red-500" : ""}`}
                   required
+                  aria-required="true"
+                  aria-invalid={!!errors.phone}
                 />
+                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
               </div>
               <div>
                 <Textarea
+                  id="contact-home-message"
                   placeholder="Your Message..."
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) => handleChange("message", e.target.value)}
                   className="min-h-[120px] rounded-xl resize-none"
                 />
               </div>
-              <Button type="submit" variant="accent" size="lg" className="w-full group" disabled={isSubmitting}>
+              <Button type="submit" variant="accent" size="lg" className="w-full group" disabled={isSubmitting} aria-busy={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Send Message"}
                 <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>

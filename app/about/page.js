@@ -73,7 +73,7 @@ const AboutPage = () => {
 
       <div className="container mx-auto px-4 py-16">
         {/* Introduction */}
-        <section className="max-w-4xl mx-auto text-center mb-20">
+        <section className="max-w-6xl mx-auto text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             About GVK EduTech – Top Overseas Education Consultants
           </h2>
@@ -84,7 +84,7 @@ const AboutPage = () => {
 
         {/* Founder's Message */}
         <section className="mb-20">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <Card className="border-border overflow-hidden">
               <CardContent className="p-0">
                 <div className="grid lg:grid-cols-2">
@@ -110,8 +110,8 @@ const AboutPage = () => {
         </section>
 
         {/* Director's Message */}
-        <section className="mb-20 section-muted rounded-2xl p-8 lg:p-12">
-          <div className="max-w-4xl mx-auto">
+        <section className="mb-20 max-w-6xl mx-auto section-muted rounded-2xl p-8 lg:p-12">
+          <div>
             <h3 className="text-2xl font-bold text-foreground mb-6">Directors Message</h3>
             <p className="text-muted-foreground leading-relaxed">
               As a doctor and foreign medical graduate, I was inspired by my brothers vision to create GVK EDUTECH—a platform guiding aspiring students through the challenges of studying medicine abroad. From adapting to new curricula to managing finances and lifestyle changes, we offer 24/7 expert counseling and support to students and parents. My goal is to turn their dreams into reality through personalized, professional assistance, making GVK EDUTECH a trusted partner in their journey.
@@ -122,7 +122,7 @@ const AboutPage = () => {
         {/* Core Team */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold text-foreground text-center mb-12">Our Core Team</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {coreTeam.map((member, index) => (
               <Card key={index} className="border-border text-center hover:shadow-lg transition-smooth">
                 <CardContent className="p-8">
@@ -162,7 +162,7 @@ const AboutPage = () => {
         {/* Operational Team */}
         <section className="mb-20 section-muted rounded-2xl p-8 lg:p-12">
           <h2 className="text-3xl font-bold text-foreground text-center mb-12">Operational Team</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
             {operationalTeam.map((member, index) => (
               <Card key={index} className="border-border text-center">
                 <CardContent className="p-4">
@@ -183,7 +183,7 @@ const AboutPage = () => {
         {/* Why Choose Us */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold text-foreground text-center mb-12">Why Choose GVK EduTech?</h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {whyChooseUs.map((reason, index) => (
               <Card key={index} className="border-border hover:shadow-lg transition-smooth">
                 <CardContent className="p-6">
@@ -201,7 +201,7 @@ const AboutPage = () => {
 
         {/* Mission & Vision */}
         <section className="mb-20">
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <Card className="border-border bg-gradient-to-br from-primary/5 to-primary/10">
               <CardContent className="p-8">
                 <div className="flex items-center gap-4 mb-4">
@@ -250,7 +250,7 @@ const AboutPage = () => {
         </section>
 
         {/* Success Stats */}
-        <section className="mb-20 bg-gradient-to-br from-primary to-secondary rounded-2xl p-12 text-center">
+        <section className="mb-20 bg-gradient-to-br from-primary to-secondary rounded-2xl p-12 text-center max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-primary-foreground mb-8">
             Join Thousands of Successful Students
           </h2>

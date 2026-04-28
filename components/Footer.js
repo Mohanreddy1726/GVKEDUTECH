@@ -37,18 +37,18 @@ const supportLinks = [
 ];
 
 const externalLinks = [
-  { label: "NMC Guidelines for MBBS Abroad", href: "https://www.nmc.org.in/international-corner/nmc-act/", external: true },
-  { label: "WHO World Directory of Medical Schools", href: "https://www.whd.edu/", external: true },
-  { label: "WES Credential Evaluation", href: "https://www.wes.org/", external: true },
-  { label: "EAQ Medical School Recognition", href: "https://www.ecfmg.org/", external: true },
+  { label: "NMC Guidelines for MBBS Abroad", href: "/resources/nmc-guidelines" },
+  { label: "WHO World Directory of Medical Schools", href: "/resources/who-recognition" },
+  { label: "WES Credential Evaluation", href: "/resources/credential-evaluation" },
+  { label: "USMLE & ECFMG Certification", href: "/resources/usmle-ecfmg" },
 ];
 
 const socialLinks = [
-  { icon: FacebookLogoIcon, href: "#", label: "Facebook" },
-  { icon: InstagramLogoIcon, href: "#", label: "Instagram" },
-  { icon: YoutubeLogoIcon, href: "#", label: "YouTube" },
+  { icon: FacebookLogoIcon, href: "https://www.facebook.com/gvkedutec/", label: "Facebook" },
+  { icon: InstagramLogoIcon, href: "https://www.instagram.com/gvkedutech_mbbsabroad/", label: "Instagram" },
+  { icon: YoutubeLogoIcon, href: "https://www.youtube.com/@gvkedutech", label: "YouTube" },
   { icon: XLogoIcon, href: "#", label: "Twitter" },
-  { icon: LinkedinLogoIcon, href: "#", label: "LinkedIn" },
+  { icon: LinkedinLogoIcon, href: "https://www.linkedin.com/company/gvk-edutech/posts/?feedView=all", label: "LinkedIn" },
 ];
 
 export const Footer = () => {
@@ -128,18 +128,12 @@ export const Footer = () => {
             <ul className="space-y-3">
               {externalLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
                     className="text-white/70 hover:text-accent transition-colors"
-                    aria-label={`External link: ${link.label}`}
                   >
                     {link.label}
-                    <svg className="inline w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

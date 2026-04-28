@@ -39,6 +39,7 @@ const navItems = [
   { label: "Partner Universities", href: "/partner-universities" },
   { label: "Services", href: "/services" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -137,8 +138,11 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 hover:bg-muted rounded-lg transition-smooth"
+            className="lg:hidden p-2 hover:bg-muted rounded-lg transition-smooth focus:ring-2 focus:ring-accent focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -150,7 +154,7 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border animate-fade-in max-h-[80vh] overflow-y-auto">
+          <div id="mobile-menu" className="lg:hidden py-4 border-t border-border animate-fade-in max-h-[80vh] overflow-y-auto">
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.submenu ? (

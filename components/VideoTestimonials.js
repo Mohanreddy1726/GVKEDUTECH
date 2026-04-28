@@ -1,52 +1,34 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Play, ArrowRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { ChevronLeft, ChevronRight, Play, ArrowRight, VideoOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-const testimonials = [
-  {
-    id: "N-wi2Y1QVCw",
-    title: "Dr. Priya's Journey to Georgia",
-    university: "Tbilisi State Medical University",
-    country: "Georgia",
-  },
-  {
-    id: "72cA_Aq9Jsc",
-    title: "Rahul's MBBS Experience in Russia",
-    university: "Kazan Federal University",
-    country: "Russia",
-  },
-  {
-    id: "N-wi2Y1QVCw",
-    title: "Sneha's Success in Kazakhstan",
-    university: "Kazakh National Medical University",
-    country: "Kazakhstan",
-  },
-  {
-    id: "N-wi2Y1QVCw",
-    title: "Arun's Masters in UK",
-    university: "University of Birmingham",
-    country: "UK",
-  },
-  {
-    id: "N-wi2Y1QVCw",
-    title: "Kavya's MBBS in Kyrgyzstan",
-    university: "Osh State University",
-    country: "Kyrgyzstan",
-  },
-  {
-    id: "N-wi2Y1QVCw",
-    title: "Vikram's Journey to Australia",
-    university: "University of Melbourne",
-    country: "Australia",
-  },
-];
-
 export const VideoTestimonials = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [activeVideo, setActiveVideo] = useState(null);
   const scrollRef = useRef(null);
+
+  useEffect(() => {
+    fetchVideos();
+  }, []);
+
+  const fetchVideos = async () => {
+    try {
+      const res = await fetch("/api/video-testimonials/");
+      if (res.ok) {
+        const data = await res.json();
+        // Get latest 6 videos sorted by createdAt (already sorted from API)
+        setTestimonials(data.slice(0, 6));
+      }
+    } catch (err) {
+      console.error("Failed to fetch videos:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const scroll = (dir) => {
     if (scrollRef.current) {
@@ -57,8 +39,6 @@ export const VideoTestimonials = () => {
       });
     }
   };
-
-  const visibleTestimonials = testimonials;
 
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted/30 overflow-hidden">
@@ -77,67 +57,78 @@ export const VideoTestimonials = () => {
         </div>
 
         {/* Carousel */}
-        <div className="relative group">
-          <button
-            onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-background/90 border border-border rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity -translate-x-1/2"
-          >
-            <ChevronLeft className="w-5 h-5 text-foreground" />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-background/90 border border-border rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-x-1/2"
-          >
-            <ChevronRight className="w-5 h-5 text-foreground" />
-          </button>
+        {isLoading ? (
+          <div className="flex items-center justify-center py-12">
+            <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : testimonials.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-12 text-center">
+            <VideoOff className="w-12 h-12 text-muted-foreground mb-4" />
+            <p className="text-muted-foreground">No testimonials uploaded yet</p>
+          </div>
+        ) : (
+          <div className="relative group">
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-background/90 border border-border rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity -translate-x-1/2"
+            >
+              <ChevronLeft className="w-5 h-5 text-foreground" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-background/90 border border-border rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-x-1/2"
+            >
+              <ChevronRight className="w-5 h-5 text-foreground" />
+            </button>
 
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {visibleTestimonials.map((video, idx) => (
-              <div
-                key={idx}
-                className="flex-shrink-0 w-[340px] snap-start"
-              >
-                <div className="relative rounded-2xl overflow-hidden bg-card border border-border shadow-lg group/card">
-                  {activeVideo === `${video.id}-${idx}` ? (
-                    <div className="aspect-video">
-                      <iframe
-                        src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`}
-                        title={video.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="aspect-video relative cursor-pointer"
-                      onClick={() => setActiveVideo(`${video.id}-${idx}`)}
-                    >
-                      <img
-                        src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                        alt={video.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover/card:bg-black/40 transition-colors">
-                        <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-xl transform group-hover/card:scale-110 transition-transform">
-                          <Play className="w-7 h-7 text-white fill-white ml-1" />
+            <div
+              ref={scrollRef}
+              className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {testimonials.map((video, idx) => (
+                <div
+                  key={video._id}
+                  className="flex-shrink-0 w-[340px] snap-start"
+                >
+                  <div className="relative rounded-2xl overflow-hidden bg-card border border-border shadow-lg group/card">
+                    {activeVideo === `${video.youtubeId}-${idx}` ? (
+                      <div className="aspect-video">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
+                          title={video.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-full"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="aspect-video relative cursor-pointer"
+                        onClick={() => setActiveVideo(`${video.youtubeId}-${idx}`)}
+                      >
+                        <img
+                          src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                          alt={video.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover/card:bg-black/40 transition-colors">
+                          <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-xl transform group-hover/card:scale-110 transition-transform">
+                            <Play className="w-7 h-7 text-white fill-white ml-1" />
+                          </div>
                         </div>
                       </div>
+                    )}
+                    <div className="p-4">
+                      <h3 className="font-semibold text-foreground text-sm mb-1">{video.title}</h3>
+                      <p className="text-xs text-muted-foreground">{video.university} • {video.country}</p>
                     </div>
-                  )}
-                  <div className="p-4">
-                    <h3 className="font-semibold text-foreground text-sm mb-1">{video.title}</h3>
-                    <p className="text-xs text-muted-foreground">{video.university} • {video.country}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* View More */}
         <div className="text-center mt-10">

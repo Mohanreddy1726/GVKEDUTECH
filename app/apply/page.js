@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Send, MessageCircle, Phone } from "lucide-react";
+import { validateEmail, validatePhone, validateDOB } from "@/utils/validation";
 
 const countries = [
   "Kyrgyzstan",
@@ -30,6 +31,7 @@ const countries = [
 const ApplyPage = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     fullName: "",
     fatherName: "",
@@ -50,14 +52,92 @@ const ApplyPage = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user types
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
   const handleSelectChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user selects
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Validate email
+    const emailValidation = validateEmail(formData.email);
+    if (!emailValidation.valid) {
+      newErrors.email = emailValidation.message;
+    }
+
+    // Validate phone
+    const phoneValidation = validatePhone(formData.phone);
+    if (!phoneValidation.valid) {
+      newErrors.phone = phoneValidation.message;
+    }
+
+    // Validate DOB - must be 18+
+    const dobValidation = validateDOB(formData.dob);
+    if (!dobValidation.valid) {
+      newErrors.dob = dobValidation.message;
+    }
+
+    // Required fields
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
+    if (!formData.fatherName.trim()) {
+      newErrors.fatherName = "Father's name is required";
+    }
+    if (!formData.motherName.trim()) {
+      newErrors.motherName = "Mother's name is required";
+    }
+    if (!formData.gender) {
+      newErrors.gender = "Please select gender";
+    }
+    if (!formData.dob) {
+      newErrors.dob = "Date of birth is required";
+    }
+    if (!formData.address.trim()) {
+      newErrors.address = "Address is required";
+    }
+    if (!formData.country) {
+      newErrors.country = "Please select a country";
+    }
+    if (!formData.passportStatus) {
+      newErrors.passportStatus = "Please select passport status";
+    }
+    if (!formData.neetScore) {
+      newErrors.neetScore = "NEET score is required";
+    }
+    if (!formData.caste) {
+      newErrors.caste = "Please select caste";
+    }
+
+    return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate form
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      // Scroll to first error
+      const firstErrorField = Object.keys(validationErrors)[0];
+      const element = document.getElementById(firstErrorField);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      return;
+    }
+
     setIsSubmitting(true);
 
     const message = `
@@ -182,7 +262,9 @@ ${formData.message || "N/A"}
                         onChange={handleInputChange}
                         required
                         placeholder="Enter your full name"
+                        className={errors.fullName ? "border-destructive" : ""}
                       />
+                      {errors.fullName && <p className="text-destructive text-sm">{errors.fullName}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -194,7 +276,9 @@ ${formData.message || "N/A"}
                         onChange={handleInputChange}
                         required
                         placeholder="Enter father's name"
+                        className={errors.fatherName ? "border-destructive" : ""}
                       />
+                      {errors.fatherName && <p className="text-destructive text-sm">{errors.fatherName}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -206,7 +290,9 @@ ${formData.message || "N/A"}
                         onChange={handleInputChange}
                         required
                         placeholder="Enter mother's name"
+                        className={errors.motherName ? "border-destructive" : ""}
                       />
+                      {errors.motherName && <p className="text-destructive text-sm">{errors.motherName}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -214,7 +300,7 @@ ${formData.message || "N/A"}
                       <Select
                         onValueChange={(value) => handleSelectChange("gender", value)}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className={errors.gender ? "border-destructive" : ""}>
                           <SelectValue placeholder="Select gender" />
                         </SelectTrigger>
                         <SelectContent>
@@ -222,6 +308,7 @@ ${formData.message || "N/A"}
                           <SelectItem value="female">Female</SelectItem>
                         </SelectContent>
                       </Select>
+                      {errors.gender && <p className="text-destructive text-sm">{errors.gender}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -233,7 +320,10 @@ ${formData.message || "N/A"}
                         value={formData.dob}
                         onChange={handleInputChange}
                         required
+                        className={errors.dob ? "border-destructive" : ""}
+                        max="2008-12-31"
                       />
+                      {errors.dob && <p className="text-destructive text-sm">{errors.dob}</p>}
                     </div>
                   </div>
                 </div>
@@ -255,7 +345,9 @@ ${formData.message || "N/A"}
                         onChange={handleInputChange}
                         required
                         placeholder="Enter your email"
+                        className={errors.email ? "border-destructive" : ""}
                       />
+                      {errors.email && <p className="text-destructive text-sm">{errors.email}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -268,7 +360,9 @@ ${formData.message || "N/A"}
                         onChange={handleInputChange}
                         required
                         placeholder="Enter phone number"
+                        className={errors.phone ? "border-destructive" : ""}
                       />
+                      {errors.phone && <p className="text-destructive text-sm">{errors.phone}</p>}
                     </div>
                   </div>
 
@@ -282,7 +376,9 @@ ${formData.message || "N/A"}
                       required
                       placeholder="Enter your complete address"
                       rows={3}
+                      className={errors.address ? "border-destructive" : ""}
                     />
+                    {errors.address && <p className="text-destructive text-sm">{errors.address}</p>}
                   </div>
                 </div>
 
@@ -298,7 +394,7 @@ ${formData.message || "N/A"}
                       <Select
                         onValueChange={(value) => handleSelectChange("country", value)}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className={errors.country ? "border-destructive" : ""}>
                           <SelectValue placeholder="Select country" />
                         </SelectTrigger>
                         <SelectContent>
@@ -309,6 +405,7 @@ ${formData.message || "N/A"}
                           ))}
                         </SelectContent>
                       </Select>
+                      {errors.country && <p className="text-destructive text-sm">{errors.country}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -316,7 +413,7 @@ ${formData.message || "N/A"}
                       <Select
                         onValueChange={(value) => handleSelectChange("passportStatus", value)}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className={errors.passportStatus ? "border-destructive" : ""}>
                           <SelectValue placeholder="Select passport status" />
                         </SelectTrigger>
                         <SelectContent>
@@ -325,6 +422,7 @@ ${formData.message || "N/A"}
                           <SelectItem value="not-applied">Not Applied</SelectItem>
                         </SelectContent>
                       </Select>
+                      {errors.passportStatus && <p className="text-destructive text-sm">{errors.passportStatus}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -332,11 +430,16 @@ ${formData.message || "N/A"}
                       <Input
                         id="neetScore"
                         name="neetScore"
+                        type="number"
+                        min="0"
+                        max="720"
                         value={formData.neetScore}
                         onChange={handleInputChange}
                         required
                         placeholder="Enter your NEET score"
+                        className={errors.neetScore ? "border-destructive" : ""}
                       />
+                      {errors.neetScore && <p className="text-destructive text-sm">{errors.neetScore}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -344,7 +447,7 @@ ${formData.message || "N/A"}
                       <Select
                         onValueChange={(value) => handleSelectChange("caste", value)}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className={errors.caste ? "border-destructive" : ""}>
                           <SelectValue placeholder="Select your caste" />
                         </SelectTrigger>
                         <SelectContent>
@@ -354,6 +457,7 @@ ${formData.message || "N/A"}
                           <SelectItem value="sc">SC</SelectItem>
                         </SelectContent>
                       </Select>
+                      {errors.caste && <p className="text-destructive text-sm">{errors.caste}</p>}
                     </div>
 
                     <div className="space-y-2">

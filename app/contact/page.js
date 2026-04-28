@@ -9,6 +9,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { validateEmail, validatePhone } from "@/utils/validation";
 
 
 const offices = [
@@ -128,15 +129,54 @@ const ContactPage = () => {
     email: "",
     phone: "",
     message: "",
+    website: "",
   });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Honeypot spam protection
+    if (formData.website) return;
+
+    // Validate fields
+    const newErrors = {};
+    const emailValidation = validateEmail(formData.email);
+    const phoneValidation = validatePhone(formData.phone);
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your name";
+    }
+    if (!emailValidation.valid) {
+      newErrors.email = emailValidation.message;
+    }
+    if (!phoneValidation.valid) {
+      newErrors.phone = phoneValidation.message;
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    setIsSubmitting(true);
+
     const whatsappMessage = `Hi, I'm ${formData.name}. ${formData.message}. Contact: ${formData.phone}, Email: ${formData.email}`;
     window.open(
       `https://api.whatsapp.com/send/?phone=919885852424&text=${encodeURIComponent(whatsappMessage)}`,
       "_blank"
     );
+
+    setTimeout(() => setIsSubmitting(false), 1000);
+  };
+
+  const handleChange = (field, value) => {
+    setFormData({ ...formData, [field]: value });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: "" });
+    }
   };
 
   return (
@@ -271,60 +311,91 @@ const ContactPage = () => {
               </h2>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              {/* Honeypot field - hidden from users, only bots will fill it */}
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="contact-name" className="block text-sm font-medium text-foreground mb-2">
                     Your Name *
                   </label>
                   <Input
+                    id="contact-name"
                     required
                     placeholder="Enter your name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="h-12"
+                    onChange={(e) => handleChange("name", e.target.value)}
+                    className={`h-12 ${errors.name ? "border-destructive focus:border-destructive" : ""}`}
+                    aria-required="true"
+                    aria-invalid={!!errors.name}
                   />
+                  {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="contact-email" className="block text-sm font-medium text-foreground mb-2">
                     Email Address *
                   </label>
                   <Input
+                    id="contact-email"
                     required
                     type="email"
                     placeholder="Enter your email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="h-12"
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    className={`h-12 ${errors.email ? "border-destructive focus:border-destructive" : ""}`}
+                    aria-required="true"
+                    aria-invalid={!!errors.email}
                   />
+                  {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="contact-phone" className="block text-sm font-medium text-foreground mb-2">
                   Phone Number *
                 </label>
                 <Input
+                  id="contact-phone"
                   required
                   type="tel"
                   placeholder="Enter your phone number"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="h-12"
+                  onChange={(e) => handleChange("phone", e.target.value)}
+                  className={`h-12 ${errors.phone ? "border-destructive focus:border-destructive" : ""}`}
+                  aria-required="true"
+                  aria-invalid={!!errors.phone}
                 />
+                {errors.phone && <p className="text-destructive text-sm mt-1">{errors.phone}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-medium text-foreground mb-2">
                   Message
                 </label>
                 <Textarea
+                  id="contact-message"
                   placeholder="Share your study abroad aspirations with us..."
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) => handleChange("message", e.target.value)}
                   className="min-h-32"
                 />
               </div>
-              <Button type="submit" variant="accent" size="xl" className="w-full">
-                Send Message via WhatsApp
+              <Button
+                type="submit"
+                variant="accent"
+                size="xl"
+                className="w-full"
+                disabled={isSubmitting}
+                aria-busy={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send Message via WhatsApp"}
               </Button>
             </form>
           </div>

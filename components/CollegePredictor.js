@@ -7,6 +7,7 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { GraduationCap, Stethoscope, TrendingUp, Sparkles, ArrowRight, CheckCircle2, Calculator, BookOpen } from "lucide-react";
+import { validateEmail, validatePhone } from "@/utils/validation";
 
 // MBBS College Predictor Data - All 7 Countries
 const mbbsCountries = [
@@ -320,11 +321,36 @@ function PredictorForm() {
   });
   const [results, setResults] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validatePredictorForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your name";
+    }
+    const phoneValidation = validatePhone(formData.phone);
+    if (!phoneValidation.valid) {
+      newErrors.phone = phoneValidation.message;
+    }
+    if (!formData.neetScore || formData.neetScore < 0 || formData.neetScore > 720) {
+      newErrors.neetScore = "Please enter a valid NEET score (0-720)";
+    }
+    if (!formData.category) {
+      newErrors.category = "Please select a category";
+    }
+    return newErrors;
+  };
 
   const handlePredict = async (e) => {
     e.preventDefault();
+    const validationErrors = validatePredictorForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
+
     const score = parseInt(formData.neetScore);
-    if (isNaN(score) || score < 0 || score > 720) return;
     const predicted = predictColleges(score, formData.budget[0], formData.country);
     setResults(predicted);
     setSubmitted(true);
@@ -365,11 +391,13 @@ function PredictorForm() {
         <div className="grid md:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Full Name *</label>
-            <Input required placeholder="Your full name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="h-12 border-border/50 focus:border-accent" />
+            <Input required placeholder="Your full name" value={formData.name} onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors({ ...errors, name: "" }); }} className={`h-12 border-border/50 focus:border-accent ${errors.name ? "border-red-500" : ""}`} />
+            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
           </div>
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Phone Number *</label>
-            <Input required type="tel" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="h-12 border-border/50 focus:border-accent" />
+            <Input required type="tel" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={(e) => { setFormData({ ...formData, phone: e.target.value }); setErrors({ ...errors, phone: "" }); }} className={`h-12 border-border/50 focus:border-accent ${errors.phone ? "border-red-500" : ""}`} />
+            {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
           </div>
         </div>
 
@@ -381,7 +409,8 @@ function PredictorForm() {
                 NEET Score (0-720) *
               </span>
             </label>
-            <Input required type="number" min={0} max={720} placeholder="Enter NEET score" value={formData.neetScore} onChange={(e) => setFormData({ ...formData, neetScore: e.target.value })} className="h-12 border-border/50 focus:border-accent text-lg font-semibold" />
+            <Input required type="number" min={0} max={720} placeholder="Enter NEET score" value={formData.neetScore} onChange={(e) => { setFormData({ ...formData, neetScore: e.target.value }); setErrors({ ...errors, neetScore: "" }); }} className={`h-12 border-border/50 focus:border-accent text-lg font-semibold ${errors.neetScore ? "border-red-500" : ""}`} />
+            {errors.neetScore && <p className="text-red-500 text-xs mt-1">{errors.neetScore}</p>}
           </div>
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">
@@ -404,8 +433,8 @@ function PredictorForm() {
           </div>
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Category *</label>
-            <Select value={formData.category} onValueChange={(v) => setFormData({ ...formData, category: v })}>
-              <SelectTrigger className="h-12 border-border/50 bg-white">
+            <Select value={formData.category} onValueChange={(v) => { setFormData({ ...formData, category: v }); setErrors({ ...errors, category: "" }); }}>
+              <SelectTrigger className={`h-12 border-border/50 bg-white ${errors.category ? "border-red-500" : ""}`}>
                 <SelectValue placeholder="Select category" />
               </SelectTrigger>
               <SelectContent>
@@ -414,6 +443,7 @@ function PredictorForm() {
                 ))}
               </SelectContent>
             </Select>
+            {errors.category && <p className="text-red-500 text-xs mt-1">{errors.category}</p>}
           </div>
         </div>
 
@@ -477,6 +507,7 @@ function PredictorForm() {
 function BudgetForm() {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     phone: "",
     programType: "",
     country: "",
@@ -485,12 +516,44 @@ function BudgetForm() {
     courseType: "",
   });
   const [estimate, setEstimate] = useState(null);
+  const [errors, setErrors] = useState({});
 
   const availableCountries = formData.programType ? budgetCountries[formData.programType] || [] : [];
 
+  const validateBudgetForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your name";
+    }
+    const emailValidation = validateEmail(formData.email);
+    if (!emailValidation.valid) {
+      newErrors.email = emailValidation.message;
+    }
+    const phoneValidation = validatePhone(formData.phone);
+    if (!phoneValidation.valid) {
+      newErrors.phone = phoneValidation.message;
+    }
+    if (!formData.programType) {
+      newErrors.programType = "Please select a program type";
+    }
+    if (!formData.country) {
+      newErrors.country = "Please select a country";
+    }
+    if (!formData.livingPreference) {
+      newErrors.livingPreference = "Please select a living preference";
+    }
+    return newErrors;
+  };
+
   const handleCalculate = async (e) => {
     e.preventDefault();
-    if (!formData.programType || !formData.country || !formData.livingPreference) return;
+    const validationErrors = validateBudgetForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
+
     const result = calculateBudget(formData.programType, formData.country, formData.livingPreference);
     setEstimate(result);
 
@@ -501,6 +564,7 @@ function BudgetForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.name,
+          email: formData.email,
           phone: formData.phone,
           programType: formData.programType,
           country: formData.country,
@@ -531,11 +595,21 @@ function BudgetForm() {
         <div className="grid md:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Full Name *</label>
-            <Input required placeholder="Your full name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="h-12 border-border/50 focus:border-accent" />
+            <Input required placeholder="Your full name" value={formData.name} onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors({ ...errors, name: "" }); }} className={`h-12 border-border/50 focus:border-accent ${errors.name ? "border-red-500" : ""}`} />
+            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
           </div>
           <div>
+            <label className="block text-sm font-semibold text-foreground mb-2">Email Address *</label>
+            <Input required type="email" placeholder="your.email@example.com" value={formData.email} onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors({ ...errors, email: "" }); }} className={`h-12 border-border/50 focus:border-accent ${errors.email ? "border-red-500" : ""}`} />
+            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Phone Number *</label>
-            <Input required type="tel" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="h-12 border-border/50 focus:border-accent" />
+            <Input required type="tel" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={(e) => { setFormData({ ...formData, phone: e.target.value }); setErrors({ ...errors, phone: "" }); }} className={`h-12 border-border/50 focus:border-accent ${errors.phone ? "border-red-500" : ""}`} />
+            {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
           </div>
         </div>
 
@@ -547,8 +621,8 @@ function BudgetForm() {
                 Program Type *
               </span>
             </label>
-            <Select value={formData.programType} onValueChange={(v) => setFormData({ ...formData, programType: v, country: "", university: "" })}>
-              <SelectTrigger className="h-12 border-border/50 bg-white">
+            <Select value={formData.programType} onValueChange={(v) => { setFormData({ ...formData, programType: v, country: "", university: "" }); setErrors({ ...errors, programType: "" }); }}>
+              <SelectTrigger className={`h-12 border-border/50 bg-white ${errors.programType ? "border-red-500" : ""}`}>
                 <SelectValue placeholder="MBBS or Masters" />
               </SelectTrigger>
               <SelectContent>
@@ -556,11 +630,12 @@ function BudgetForm() {
                 <SelectItem value="MASTERS">Masters</SelectItem>
               </SelectContent>
             </Select>
+            {errors.programType && <p className="text-red-500 text-xs mt-1">{errors.programType}</p>}
           </div>
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Country *</label>
-            <Select value={formData.country} onValueChange={(v) => setFormData({ ...formData, country: v })} disabled={!formData.programType}>
-              <SelectTrigger className="h-12 border-border/50 bg-white">
+            <Select value={formData.country} onValueChange={(v) => { setFormData({ ...formData, country: v }); setErrors({ ...errors, country: "" }); }} disabled={!formData.programType}>
+              <SelectTrigger className={`h-12 border-border/50 bg-white ${errors.country ? "border-red-500" : ""}`}>
                 <SelectValue placeholder="Select country" />
               </SelectTrigger>
               <SelectContent>
@@ -569,6 +644,7 @@ function BudgetForm() {
                 ))}
               </SelectContent>
             </Select>
+            {errors.country && <p className="text-red-500 text-xs mt-1">{errors.country}</p>}
           </div>
         </div>
 
@@ -579,8 +655,8 @@ function BudgetForm() {
           </div>
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">Living Preference *</label>
-            <Select value={formData.livingPreference} onValueChange={(v) => setFormData({ ...formData, livingPreference: v })}>
-              <SelectTrigger className="h-12 border-border/50 bg-white">
+            <Select value={formData.livingPreference} onValueChange={(v) => { setFormData({ ...formData, livingPreference: v }); setErrors({ ...errors, livingPreference: "" }); }}>
+              <SelectTrigger className={`h-12 border-border/50 bg-white ${errors.livingPreference ? "border-red-500" : ""}`}>
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
@@ -604,6 +680,7 @@ function BudgetForm() {
             </Select>
           </div>
         </div>
+        {errors.livingPreference && <p className="text-red-500 text-xs -mt-4">{errors.livingPreference}</p>}
 
         <Button type="submit" variant="accent" size="xl" className="w-full group text-lg">
           <Calculator className="w-5 h-5 mr-2" />
