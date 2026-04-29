@@ -159,7 +159,12 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div id="mobile-menu" className="lg:hidden py-4 border-t border-border animate-fade-in max-h-[80vh] overflow-y-auto">
+          <>
+            <div
+              className="lg:hidden fixed inset-0 top-20 z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <div id="mobile-menu" className="lg:hidden py-4 border-t border-border animate-fade-in max-h-[80vh] overflow-y-auto relative z-50 bg-background">
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.submenu ? (
@@ -225,6 +230,7 @@ export const Navbar = () => {
               </Button>
             </div>
           </div>
+          </>
         )}
       </div>
     </nav>
