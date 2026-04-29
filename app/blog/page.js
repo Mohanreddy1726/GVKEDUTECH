@@ -13,11 +13,11 @@ import { ArrowRight, Clock, Calendar, Search, RefreshCw } from "lucide-react";
 
 const categories = [
   { name: "All", icon: "📚", value: "all" },
-  { name: "MBBS Abroad", icon: "🏥", value: "mbbs-abroad" },
-  { name: "Masters", icon: "🎓", value: "masters" },
-  { name: "Scholarships", icon: "💰", value: "scholarships" },
-  { name: "Visa Guide", icon: "📋", value: "visa-guide" },
-  { name: "Student Life", icon: "🌍", value: "student-life" },
+  { name: "MBBS Abroad", icon: "🏥", value: "MBBS Abroad" },
+  { name: "Masters", icon: "🎓", value: "Masters" },
+  { name: "Scholarships", icon: "💰", value: "Scholarships" },
+  { name: "Visa Guide", icon: "📋", value: "Visa Guide" },
+  { name: "Student Life", icon: "🌍", value: "Student Life" },
 ];
 
 const BlogPage = () => {
