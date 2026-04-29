@@ -10,8 +10,9 @@ import { ArrowRight, Clock, Calendar, Search } from "lucide-react";
 
 async function getPosts() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/blog`, { cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ""}/api/blog`, {
+      cache: "no-store",
+    });
     if (!res.ok) return [];
     return res.json();
   } catch {
