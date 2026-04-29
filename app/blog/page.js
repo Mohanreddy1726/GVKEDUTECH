@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,31 +9,44 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock, Calendar, Search } from "lucide-react";
-
-async function getPosts() {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ""}/api/blog`, {
-      cache: "no-store",
-    });
-    if (!res.ok) return [];
-    return res.json();
-  } catch {
-    return [];
-  }
-}
+import { ArrowRight, Clock, Calendar, Search, RefreshCw } from "lucide-react";
 
 const categories = [
-  { name: "All", icon: "📚" },
-  { name: "MBBS Abroad", icon: "🏥" },
-  { name: "Masters", icon: "🎓" },
-  { name: "Scholarships", icon: "💰" },
-  { name: "Visa Guide", icon: "📋" },
-  { name: "Student Life", icon: "🌍" },
+  { name: "All", icon: "📚", value: "all" },
+  { name: "MBBS Abroad", icon: "🏥", value: "mbbs-abroad" },
+  { name: "Masters", icon: "🎓", value: "masters" },
+  { name: "Scholarships", icon: "💰", value: "scholarships" },
+  { name: "Visa Guide", icon: "📋", value: "visa-guide" },
+  { name: "Student Life", icon: "🌍", value: "student-life" },
 ];
 
-const BlogPage = async () => {
-  const posts = await getPosts();
+const BlogPage = () => {
+  const [allPosts, setAllPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    setIsLoading(true);
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ""}/api/blog`);
+      if (res.ok) {
+        const data = await res.json();
+        setAllPosts(data);
+      }
+    } catch (err) {
+      console.error("Failed to fetch posts:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const filteredPosts = selectedCategory === "all"
+    ? allPosts
+    : allPosts.filter(post => post.category === selectedCategory);
 
   return (
     <PageLayout>
@@ -72,8 +88,13 @@ const BlogPage = async () => {
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((cat) => (
               <button
-                key={cat.name}
-                className="flex items-center gap-2 px-5 py-2 rounded-full bg-card border border-border hover:border-accent hover:bg-accent/5 transition-all text-sm font-medium"
+                key={cat.value}
+                onClick={() => setSelectedCategory(cat.value)}
+                className={`flex items-center gap-2 px-5 py-2 rounded-full bg-card border transition-all text-sm font-medium ${
+                  selectedCategory === cat.value
+                    ? "border-accent bg-accent/10 text-accent"
+                    : "border-border hover:border-accent hover:bg-accent/5 text-foreground"
+                }`}
               >
                 <span>{cat.icon}</span>
                 <span>{cat.name}</span>
@@ -84,29 +105,29 @@ const BlogPage = async () => {
       </section>
 
       {/* Featured Post */}
-      {posts.length > 0 && (
+      {!isLoading && filteredPosts.length > 0 && selectedCategory === "all" && (
         <section className="py-12">
           <div className="container mx-auto px-4">
             <ScrollReveal animation="scale">
-              <Link href={`/blog/${posts[0].slug}`} className="group block">
+              <Link href={`/blog/${filteredPosts[0].slug}`} className="group block">
                 <div className="relative h-[400px] rounded-3xl overflow-hidden">
                   <Image
-                    src={posts[0].image || "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200"}
-                    alt={posts[0].title}
+                    src={filteredPosts[0].image || "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200"}
+                    alt={filteredPosts[0].title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <Badge variant="secondary" className="mb-4">{posts[0].category || "Featured"}</Badge>
+                    <Badge variant="secondary" className="mb-4">{filteredPosts[0].category || "Featured"}</Badge>
                     <h3 className="text-3xl font-bold mb-3 group-hover:text-accent transition-colors">
-                      {posts[0].title}
+                      {filteredPosts[0].title}
                     </h3>
-                    <p className="text-white/80 mb-4 line-clamp-2">{posts[0].excerpt}</p>
+                    <p className="text-white/80 mb-4 line-clamp-2">{filteredPosts[0].excerpt}</p>
                     <div className="flex items-center gap-4 text-sm text-white/60">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        {new Date(posts[0].createdAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                        {new Date(filteredPosts[0].createdAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
@@ -125,17 +146,23 @@ const BlogPage = async () => {
       <section className="py-12 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground">Recent Articles</h2>
+            <h2 className="text-3xl font-bold text-foreground">
+              {selectedCategory === "all" ? "Recent Articles" : categories.find(c => c.value === selectedCategory)?.name || "Articles"}
+            </h2>
           </div>
 
-          {posts.length === 0 ? (
+          {isLoading ? (
+            <div className="flex items-center justify-center py-20">
+              <RefreshCw className="w-8 h-8 animate-spin text-accent" />
+            </div>
+          ) : filteredPosts.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-xl text-muted-foreground mb-4">No blog posts yet</p>
+              <p className="text-xl text-muted-foreground mb-4">No articles in this category</p>
               <p className="text-muted-foreground">Check back soon for informative articles about studying abroad!</p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.slice(1).map((post, index) => (
+              {(selectedCategory === "all" ? filteredPosts.slice(1) : filteredPosts).map((post, index) => (
                 <ScrollReveal key={post._id} animation="fade-up" delay={index * 100}>
                   <Link href={`/blog/${post.slug}`} className="group block">
                     <Card className="overflow-hidden border-border hover:border-accent hover:shadow-xl transition-all duration-300 h-full">
