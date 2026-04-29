@@ -8,8 +8,7 @@ import { Button } from "@/components/ui/button";
 
 async function getPost(slug) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/blog/${slug}/`, { cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ""}/api/blog/${slug}/`, { cache: "no-store" });
     if (!res.ok) return null;
     return res.json();
   } catch {
@@ -35,8 +34,7 @@ function formatContent(content) {
 
 async function getRecentPosts() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}/api/blog`, { cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ""}/api/blog`, { cache: "no-store" });
     if (!res.ok) return [];
     const posts = await res.json();
     return posts.slice(0, 3);
