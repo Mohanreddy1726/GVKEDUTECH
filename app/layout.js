@@ -48,9 +48,9 @@ export function generateMetadata(req) {
       "Masters abroad programs Hyderabad",
       "GVK EduTech Hyderabad",
     ],
-    authors: [{ name: "GVK EduTech" }],
-    creator: "GVK EduTech",
-    publisher: "GVK EduTech",
+    authors: [{ name: "Mohan reddy" }],
+    creator: "Mohan reddy",
+    publisher: "Mohan reddy",
     formatDetection: {
       email: false,
       address: false,

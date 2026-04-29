@@ -47,7 +47,7 @@ const socialLinks = [
   { icon: FacebookLogoIcon, href: "https://www.facebook.com/gvkedutec/", label: "Facebook" },
   { icon: InstagramLogoIcon, href: "https://www.instagram.com/gvkedutech_mbbsabroad/", label: "Instagram" },
   { icon: YoutubeLogoIcon, href: "https://www.youtube.com/@gvkedutech", label: "YouTube" },
-  { icon: XLogoIcon, href: "#", label: "Twitter" },
+  { icon: XLogoIcon, href: "https://x.com/GEdutech", label: "Twitter" },
   { icon: LinkedinLogoIcon, href: "https://www.linkedin.com/company/gvk-edutech/posts/?feedView=all", label: "LinkedIn" },
 ];
 

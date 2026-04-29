@@ -100,10 +100,10 @@ export const Hero = () => {
 
             {/* Location Banner */}
             <div className="flex flex-wrap gap-2 text-sm text-white/70 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-              <span className="px-3 py-1 bg-white/10 rounded-full"><span className="fi fi-in mr-1"></span>Hyderabad</span>
-              <span className="px-3 py-1 bg-white/10 rounded-full"><span className="fi fi-in mr-1"></span>Warangal</span>
-              <span className="px-3 py-1 bg-white/10 rounded-full"><span className="fi fi-in mr-1"></span>Vijayawada</span>
-              <span className="px-3 py-1 bg-white/10 rounded-full"><span className="fi fi-in mr-1"></span>Visakhapatnam</span>
+              <Link href="/branches/hyderabad"><span className="px-3 py-1 bg-white/10 rounded-full"><span className="fi fi-in mr-1"></span>Hyderabad</span></Link>
+              <Link href="/branches/warangal"><span className="px-3 py-1 bg-white/10 rounded-full"><span className="fi fi-in mr-1"></span>Warangal</span></Link>
+              <Link href="/branches/vijayawada"><span className="px-3 py-1 bg-white/10 rounded-full"><span className="fi fi-in mr-1"></span>Vijayawada</span></Link>
+              <Link href="/branches/visakhapatnam"><span className="px-3 py-1 bg-white/10 rounded-full"><span className="fi fi-in mr-1"></span>Visakhapatnam</span></Link>
             </div>
 
             <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
