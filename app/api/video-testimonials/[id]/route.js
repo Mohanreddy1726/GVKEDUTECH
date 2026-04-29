@@ -30,6 +30,7 @@ export async function PUT(req, { params }) {
     if (body.title) updateData.title = body.title;
     if (body.university) updateData.university = body.university;
     if (body.country) updateData.country = body.country;
+    if (body.category) updateData.category = body.category;
     if (body.order !== undefined) updateData.order = body.order;
     if (body.featured !== undefined) updateData.featured = body.featured;
 

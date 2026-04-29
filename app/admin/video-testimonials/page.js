@@ -22,9 +22,20 @@ export default function AdminVideoTestimonialsPage() {
     title: "",
     university: "",
     country: "",
+    category: "student-testimonial",
     featured: false,
     order: 0,
   });
+
+  const categories = [
+    { value: "student-testimonial", label: "Student Testimonial" },
+    { value: "parent-testimonial", label: "Parent Testimonial" },
+    { value: "chief-guest-speech", label: "Chief Guest Speech" },
+    { value: "government-official-speech", label: "Government Official Speech" },
+    { value: "regional-director-speech", label: "Regional Director Speech" },
+    { value: "director-speech", label: "Director Speech" },
+    { value: "others", label: "Others" },
+  ];
 
   const countries = [
     { value: "Georgia", label: "Georgia" },
@@ -88,6 +99,7 @@ export default function AdminVideoTestimonialsPage() {
       title: video.title,
       university: video.university || "",
       country: video.country || "",
+      category: video.category || "student-testimonial",
       featured: video.featured || false,
       order: video.order || 0,
     });
@@ -101,6 +113,7 @@ export default function AdminVideoTestimonialsPage() {
       title: "",
       university: "",
       country: "",
+      category: "student-testimonial",
       featured: false,
       order: 0,
     });
@@ -147,6 +160,7 @@ export default function AdminVideoTestimonialsPage() {
         Title: item.title || "N/A",
         University: item.university || "N/A",
         Country: item.country || "N/A",
+        Category: item.category || "N/A",
         "YouTube ID": item.youtubeId || "N/A",
         Featured: item.featured ? "Yes" : "No",
         Order: item.order || 0,
@@ -247,6 +261,9 @@ export default function AdminVideoTestimonialsPage() {
                     <h3 className="font-bold text-lg text-foreground line-clamp-1 mb-1">{video.title}</h3>
                     {video.university && <p className="text-sm text-muted-foreground line-clamp-1">{video.university}</p>}
                     {video.country && <p className="text-xs text-muted-foreground mt-1">{video.country}</p>}
+                    {video.category && video.category !== "student-testimonial" && (
+                      <p className="text-xs text-accent mt-1 font-medium">{categories.find(c => c.value === video.category)?.label || video.category}</p>
+                    )}
                   </CardContent>
                 </Card>
               ))}
@@ -322,6 +339,19 @@ export default function AdminVideoTestimonialsPage() {
                     >
                       <option value="">Select country</option>
                       {countries.map((c) => (
+                        <option key={c.value} value={c.value}>{c.label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Category</label>
+                    <select
+                      value={formData.category}
+                      onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                      className="w-full h-10 px-3 rounded-lg border border-border bg-white"
+                    >
+                      {categories.map((c) => (
                         <option key={c.value} value={c.value}>{c.label}</option>
                       ))}
                     </select>

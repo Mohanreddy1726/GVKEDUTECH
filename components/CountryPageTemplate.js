@@ -4,7 +4,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, Phone, CheckCircle, GraduationCap, Building } from "lucide-react";
+import { MessageCircle, Phone, CheckCircle, GraduationCap, Building, PhoneCall } from "lucide-react";
 
 export const CountryPageTemplate = ({
   country,
@@ -54,12 +54,21 @@ export const CountryPageTemplate = ({
           </div>
 
           <div className="flex flex-wrap gap-4 mt-8">
-            <Button variant="accent" size="lg" asChild>
-              <a href="/apply">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Apply Now
-              </a>
-            </Button>
+            {programType === "MBBS" ? (
+              <Button variant="accent" size="lg" asChild>
+                <a href="/apply">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Apply Now
+                </a>
+              </Button>
+            ) : (
+              <Button variant="accent" size="lg" asChild>
+                <a href="tel:+918886661877">
+                  <PhoneCall className="w-5 h-5 mr-2" />
+                  Call Now
+                </a>
+              </Button>
+            )}
             <Button variant="outline" size="lg" asChild>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5 mr-2" />
@@ -69,14 +78,14 @@ export const CountryPageTemplate = ({
           </div>
         </section>
 
-        {/* Why Choose Section */}
+        {/* Why Choose Section - Combined with Advantages */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
             Why Choose {country} for Your {programType}?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyChoose.map((reason, index) => (
-              <Card key={index} className="border-border hover:shadow-lg transition-smooth">
+              <Card key={`why-${index}`} className="border-border hover:shadow-lg transition-smooth">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
@@ -88,6 +97,16 @@ export const CountryPageTemplate = ({
               </Card>
             ))}
           </div>
+          {advantages && advantages.length > 0 && (
+            <div className="grid md:grid-cols-2 gap-4 mt-6">
+              {advantages.map((advantage, index) => (
+                <div key={`adv-${index}`} className="flex items-start gap-3 p-4 bg-card rounded-lg border border-border">
+                  <span className="text-accent font-bold">{String(index + 1).padStart(2, '0')}.</span>
+                  <p className="text-foreground">{advantage.text}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Climate Info (if available) */}
@@ -95,23 +114,6 @@ export const CountryPageTemplate = ({
           <section className="mb-16 section-muted rounded-2xl p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Climate Information</h2>
             <p className="text-muted-foreground leading-relaxed">{climateInfo}</p>
-          </section>
-        )}
-
-        {/* Advantages Section */}
-        {advantages && advantages.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-              Advantages of {programType} in {country}
-            </h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {advantages.map((advantage, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-card rounded-lg border border-border">
-                  <span className="text-accent font-bold">{String(index + 1).padStart(2, '0')}.</span>
-                  <p className="text-foreground">{advantage.text}</p>
-                </div>
-              ))}
-            </div>
           </section>
         )}
 
@@ -386,13 +388,22 @@ export const CountryPageTemplate = ({
             Connect with us today and take the first step toward a successful global career with GVK Edutech.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-0" asChild>
-              <a href="/apply">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Apply Now
-              </a>
-            </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20" asChild>
+            {programType === "MBBS" ? (
+              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-0" asChild>
+                <a href="/apply">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Apply Now
+                </a>
+              </Button>
+            ) : (
+              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white border-0" asChild>
+                <a href="tel:+918886661877">
+                  <PhoneCall className="w-5 h-5 mr-2" />
+                  Call Now
+                </a>
+              </Button>
+            )}
+            <Button variant={programType === "MBBS" ? "outline" : "accent"} size="lg" className={programType === "Masters" ? "bg-white/10 border-white/20 text-white hover:bg-white/20" : ""} asChild>
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Chat with Expert

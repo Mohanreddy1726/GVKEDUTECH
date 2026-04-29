@@ -67,6 +67,11 @@ export const Navbar = () => {
 
   const isHashLink = (href) => href.startsWith("#") || href.startsWith("/#");
 
+  const isActiveLink = (href) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto px-4">
@@ -90,7 +95,7 @@ export const Navbar = () => {
                   <a
                     href={item.href}
                     onClick={() => handleNavClick(item.href)}
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-smooth rounded-lg hover:bg-muted"
+                    className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-smooth rounded-lg hover:bg-muted ${isActiveLink(item.href) ? "text-accent bg-accent/10" : "text-foreground/80 hover:text-accent"}`}
                   >
                     {item.label}
                     {item.submenu && <ChevronDown className="w-4 h-4" />}
@@ -98,7 +103,7 @@ export const Navbar = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-smooth rounded-lg hover:bg-muted"
+                    className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-smooth rounded-lg hover:bg-muted ${isActiveLink(item.href) ? "text-accent bg-accent/10" : "text-foreground/80 hover:text-accent"}`}
                   >
                     {item.label}
                     {item.submenu && <ChevronDown className="w-4 h-4" />}
@@ -180,7 +185,7 @@ export const Navbar = () => {
                           <Link
                             key={subItem.label}
                             href={subItem.href}
-                            className="block px-4 py-2 text-sm text-foreground/60 hover:text-accent hover:bg-muted rounded-lg transition-smooth"
+                            className={`block px-4 py-2 text-sm rounded-lg transition-smooth ${isActiveLink(subItem.href) ? "text-accent bg-accent/10" : "text-foreground/60 hover:text-accent hover:bg-muted"}`}
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {subItem.label}
@@ -192,7 +197,7 @@ export const Navbar = () => {
                 ) : isHashLink(item.href) ? (
                   <a
                     href={item.href}
-                    className="block px-4 py-3 text-foreground/80 hover:text-accent hover:bg-muted rounded-lg transition-smooth"
+                    className={`block px-4 py-3 rounded-lg transition-smooth ${isActiveLink(item.href) ? "text-accent bg-accent/10" : "text-foreground/80 hover:text-accent hover:bg-muted"}`}
                     onClick={() => handleNavClick(item.href)}
                   >
                     {item.label}
@@ -200,7 +205,7 @@ export const Navbar = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block px-4 py-3 text-foreground/80 hover:text-accent hover:bg-muted rounded-lg transition-smooth"
+                    className={`block px-4 py-3 rounded-lg transition-smooth ${isActiveLink(item.href) ? "text-accent bg-accent/10" : "text-foreground/80 hover:text-accent hover:bg-muted"}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}

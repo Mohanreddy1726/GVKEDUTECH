@@ -6,10 +6,22 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+const categories = [
+  { value: "all", label: "All Videos" },
+  { value: "student-testimonial", label: "Student Testimonials" },
+  { value: "parent-testimonial", label: "Parent Testimonials" },
+  { value: "chief-guest-speech", label: "Chief Guest Speeches" },
+  { value: "government-official-speech", label: "Government Official Speeches" },
+  { value: "regional-director-speech", label: "Regional Directors Speeches" },
+  { value: "director-speech", label: "Directors Speeches" },
+  { value: "others", label: "Others" },
+];
+
 const GalleryPage = () => {
   const [allVideos, setAllVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [modalVideo, setModalVideo] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
     fetchVideos();
@@ -30,6 +42,15 @@ const GalleryPage = () => {
     }
   };
 
+  const filteredVideos = selectedCategory === "all"
+    ? allVideos
+    : allVideos.filter(video => video.category === selectedCategory);
+
+  const getCategoryLabel = (category) => {
+    const cat = categories.find(c => c.value === category);
+    return cat ? cat.label : category;
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -41,6 +62,28 @@ const GalleryPage = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Watch video testimonials from students who achieved their dreams with GVK Edutech
           </p>
+        </div>
+      </section>
+
+      {/* Category Filter */}
+      <section className="py-6 bg-background border-b border-border sticky top-16 z-40">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 overflow-x-auto scrollbar-hide">
+            <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Filter by:</span>
+            {categories.map((cat) => (
+              <button
+                key={cat.value}
+                onClick={() => setSelectedCategory(cat.value)}
+                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                  selectedCategory === cat.value
+                    ? "bg-accent text-white"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -66,6 +109,9 @@ const GalleryPage = () => {
             <div className="mt-4 text-white">
               <h3 className="text-xl font-bold">{modalVideo.title}</h3>
               <p className="text-white/70">{modalVideo.university} • {modalVideo.country}</p>
+              {modalVideo.category && modalVideo.category !== "student-testimonial" && (
+                <p className="text-white/50 text-sm mt-1">Category: {getCategoryLabel(modalVideo.category)}</p>
+              )}
             </div>
           </div>
         </div>
@@ -78,15 +124,15 @@ const GalleryPage = () => {
             <div className="flex items-center justify-center py-20">
               <RefreshCw className="w-8 h-8 animate-spin text-accent" />
             </div>
-          ) : allVideos.length === 0 ? (
+          ) : filteredVideos.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
               <VideoOff className="w-16 h-16 text-muted-foreground mb-4" />
-              <h3 className="text-xl font-semibold text-foreground mb-2">No Testimonials Uploaded</h3>
-              <p className="text-muted-foreground">Video testimonials will appear here once uploaded from the admin panel.</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">No Testimonials in This Category</h3>
+              <p className="text-muted-foreground">Video testimonials for this category will appear here once uploaded.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allVideos.map((video) => (
+              {filteredVideos.map((video) => (
                 <div
                   key={video._id}
                   className="rounded-2xl overflow-hidden bg-card border border-border shadow-lg group cursor-pointer"

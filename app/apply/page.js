@@ -33,6 +33,7 @@ const ApplyPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
+    programType: "mbbs",
     fullName: "",
     fatherName: "",
     motherName: "",
@@ -44,6 +45,8 @@ const ApplyPage = () => {
     country: "",
     passportStatus: "",
     neetScore: "",
+    englishExam: "",
+    englishScore: "",
     caste: "",
     percentage: "",
     message: "",
@@ -112,11 +115,18 @@ const ApplyPage = () => {
     if (!formData.passportStatus) {
       newErrors.passportStatus = "Please select passport status";
     }
-    if (!formData.neetScore) {
-      newErrors.neetScore = "NEET score is required";
-    }
     if (!formData.caste) {
       newErrors.caste = "Please select caste";
+    }
+
+    // MBBS specific - NEET required
+    if (formData.programType === "mbbs" && !formData.neetScore) {
+      newErrors.neetScore = "NEET score is required for MBBS";
+    }
+
+    // Masters specific - English exam optional but if selected, score required
+    if (formData.programType === "masters" && formData.englishExam && !formData.englishScore) {
+      newErrors.englishScore = "Please enter your score";
     }
 
     return newErrors;
@@ -142,6 +152,7 @@ const ApplyPage = () => {
 
     const message = `
 *New Application from GVK Edutech Website*
+*Program Type: ${formData.programType === "mbbs" ? "MBBS (Medical)" : "Masters"}*
 
 *Personal Details:*
 Name: ${formData.fullName}
@@ -158,7 +169,7 @@ Address: ${formData.address}
 *Academic Details:*
 Country Preference: ${formData.country}
 Passport Status: ${formData.passportStatus}
-NEET Score: ${formData.neetScore}
+${formData.programType === "mbbs" ? `NEET Score: ${formData.neetScore || "N/A"}` : `English Exam: ${formData.englishExam ? `${formData.englishExam.toUpperCase()} - ${formData.englishScore}` : "Not provided"}`}
 Caste: ${formData.caste}
 12th Percentage (PCB): ${formData.percentage}%
 
@@ -183,6 +194,7 @@ ${formData.message || "N/A"}
           variant: "success",
         });
         setFormData({
+          programType: "mbbs",
           fullName: "",
           fatherName: "",
           motherName: "",
@@ -194,6 +206,8 @@ ${formData.message || "N/A"}
           country: "",
           passportStatus: "",
           neetScore: "",
+          englishExam: "",
+          englishScore: "",
           caste: "",
           percentage: "",
           message: "",
@@ -390,6 +404,24 @@ ${formData.message || "N/A"}
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
+                      <Label htmlFor="programType">Program Type *</Label>
+                      <Select
+                        onValueChange={(value) => {
+                          handleSelectChange("programType", value);
+                          setFormData((prev) => ({ ...prev, programType: value, neetScore: "", englishExam: "", englishScore: "" }));
+                        }}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select program" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="mbbs">MBBS (Medical)</SelectItem>
+                          <SelectItem value="masters">Masters</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
                       <Label htmlFor="country">Country You Want To Apply For *</Label>
                       <Select
                         onValueChange={(value) => handleSelectChange("country", value)}
@@ -398,11 +430,27 @@ ${formData.message || "N/A"}
                           <SelectValue placeholder="Select country" />
                         </SelectTrigger>
                         <SelectContent>
-                          {countries.map((country) => (
-                            <SelectItem key={country} value={country.toLowerCase()}>
-                              {country}
-                            </SelectItem>
-                          ))}
+                          {formData.programType === "mbbs" ? (
+                            <>
+                              <SelectItem value="kyrgyzstan">Kyrgyzstan</SelectItem>
+                              <SelectItem value="georgia">Georgia</SelectItem>
+                              <SelectItem value="kazakhstan">Kazakhstan</SelectItem>
+                              <SelectItem value="uzbekistan">Uzbekistan</SelectItem>
+                              <SelectItem value="russia">Russia</SelectItem>
+                              <SelectItem value="vietnam">Vietnam</SelectItem>
+                              <SelectItem value="nepal">Nepal</SelectItem>
+                            </>
+                          ) : (
+                            <>
+                              <SelectItem value="usa">USA</SelectItem>
+                              <SelectItem value="uk">UK</SelectItem>
+                              <SelectItem value="australia">Australia</SelectItem>
+                              <SelectItem value="germany">Germany</SelectItem>
+                              <SelectItem value="europe">Europe</SelectItem>
+                              <SelectItem value="canada">Canada</SelectItem>
+                              <SelectItem value="ireland">Ireland</SelectItem>
+                            </>
+                          )}
                         </SelectContent>
                       </Select>
                       {errors.country && <p className="text-destructive text-sm">{errors.country}</p>}
@@ -425,22 +473,58 @@ ${formData.message || "N/A"}
                       {errors.passportStatus && <p className="text-destructive text-sm">{errors.passportStatus}</p>}
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="neetScore">NEET Score *</Label>
-                      <Input
-                        id="neetScore"
-                        name="neetScore"
-                        type="number"
-                        min="0"
-                        max="720"
-                        value={formData.neetScore}
-                        onChange={handleInputChange}
-                        required
-                        placeholder="Enter your NEET score"
-                        className={errors.neetScore ? "border-destructive" : ""}
-                      />
-                      {errors.neetScore && <p className="text-destructive text-sm">{errors.neetScore}</p>}
-                    </div>
+                    {formData.programType === "mbbs" ? (
+                      <div className="space-y-2">
+                        <Label htmlFor="neetScore">NEET Score *</Label>
+                        <Input
+                          id="neetScore"
+                          name="neetScore"
+                          type="number"
+                          min="0"
+                          max="720"
+                          value={formData.neetScore}
+                          onChange={handleInputChange}
+                          placeholder="Enter your NEET score"
+                          className={errors.neetScore ? "border-destructive" : ""}
+                        />
+                        {errors.neetScore && <p className="text-destructive text-sm">{errors.neetScore}</p>}
+                      </div>
+                    ) : (
+                      <>
+                        <div className="space-y-2">
+                          <Label htmlFor="englishExam">English Exam (Optional)</Label>
+                          <Select
+                            onValueChange={(value) => handleSelectChange("englishExam", value)}
+                          >
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select exam (if any)" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="ielts">IELTS</SelectItem>
+                              <SelectItem value="toefl">TOEFL</SelectItem>
+                              <SelectItem value="gre">GRE</SelectItem>
+                              <SelectItem value="pte">PTE</SelectItem>
+                              <SelectItem value="duolingo">Duolingo</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        {formData.englishExam && (
+                          <div className="space-y-2">
+                            <Label htmlFor="englishScore">{formData.englishExam.toUpperCase()} Score *</Label>
+                            <Input
+                              id="englishScore"
+                              name="englishScore"
+                              type="number"
+                              value={formData.englishScore}
+                              onChange={handleInputChange}
+                              placeholder={`Enter your ${formData.englishExam.toUpperCase()} score`}
+                              className={errors.englishScore ? "border-destructive" : ""}
+                            />
+                            {errors.englishScore && <p className="text-destructive text-sm">{errors.englishScore}</p>}
+                          </div>
+                        )}
+                      </>
+                    )}
 
                     <div className="space-y-2">
                       <Label htmlFor="caste">Caste *</Label>

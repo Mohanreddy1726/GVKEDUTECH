@@ -25,6 +25,7 @@ export async function POST(req) {
       title: body.title || "",
       university: body.university || "",
       country: body.country || "",
+      category: body.category || "student-testimonial",
       order: body.order || 0,
       featured: body.featured || false,
       createdAt: new Date(),
