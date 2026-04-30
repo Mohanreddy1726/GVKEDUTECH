@@ -456,7 +456,6 @@ export default function AdminBlogPage() {
                         <option value="Scholarships">Scholarships</option>
                         <option value="Visa Guide">Visa Guide</option>
                         <option value="Student Life">Student Life</option>
-                        <option value="Career Tips">Career Tips</option>
                       </select>
                     </div>
                   </div>

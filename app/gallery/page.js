@@ -7,14 +7,14 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const categories = [
-  { value: "all", label: "All Videos" },
-  { value: "student-testimonial", label: "Student Testimonials" },
-  { value: "parent-testimonial", label: "Parent Testimonials" },
-  { value: "chief-guest-speech", label: "Chief Guest Speeches" },
-  { value: "government-official-speech", label: "Government Official Speeches" },
-  { value: "regional-director-speech", label: "Regional Directors Speeches" },
-  { value: "director-speech", label: "Directors Speeches" },
-  { value: "others", label: "Others" },
+  { value: "all", label: "All Videos", icon: "🎬" },
+  { value: "student-testimonial", label: "Student Testimonials", icon: "👨‍🎓" },
+  { value: "parent-testimonial", label: "Parent Testimonials", icon: "👨‍👩‍👧" },
+  { value: "chief-guest-speech", label: "Chief Guest Speeches", icon: "🎤" },
+  { value: "government-official-speech", label: "Government Official Speeches", icon: "🏛️" },
+  { value: "regional-director-speech", label: "Regional Directors Speeches", icon: "📍" },
+  { value: "director-speech", label: "Directors Speeches", icon: "🎯" },
+  { value: "others", label: "Others", icon: "📌" },
 ];
 
 const GalleryPage = () => {
@@ -68,19 +68,20 @@ const GalleryPage = () => {
       {/* Category Filter */}
       <section className="py-6 bg-background border-b border-border sticky top-16 z-40">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 overflow-x-auto scrollbar-hide">
-            <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Filter by:</span>
+          <div className="flex flex-wrap justify-center gap-3">
+            <span className="text-sm font-medium text-muted-foreground whitespace-nowrap w-full sm:w-auto text-center">Filter by:</span>
             {categories.map((cat) => (
               <button
                 key={cat.value}
                 onClick={() => setSelectedCategory(cat.value)}
-                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
                   selectedCategory === cat.value
                     ? "bg-accent text-white"
                     : "bg-muted text-muted-foreground hover:bg-muted/80"
                 }`}
               >
-                {cat.label}
+                <span>{cat.icon}</span>
+                <span>{cat.label}</span>
               </button>
             ))}
           </div>
