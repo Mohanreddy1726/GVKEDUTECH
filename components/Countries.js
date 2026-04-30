@@ -118,7 +118,7 @@ export const Countries = () => {
         <ScrollReveal animation="fade-up">
           <div className="text-center mt-16">
             <Button asChild variant="accent" size="xl">
-              <a href="https://api.whatsapp.com/send/?phone=919885852424&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me.">
+              <a href="https://api.whatsapp.com/send/?phone=919010060000&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me.">
                 Book Free Counseling
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>

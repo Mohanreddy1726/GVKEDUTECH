@@ -228,7 +228,7 @@ export const Contact = () => {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://api.whatsapp.com/send/?phone=919885852424&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me."
+              href="https://api.whatsapp.com/send/?phone=919010060000&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-6 bg-[#25D366] rounded-2xl text-white card-hover group"

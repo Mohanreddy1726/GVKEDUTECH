@@ -132,7 +132,7 @@ export const Navbar = () => {
           <div className="hidden lg:block">
             <Button variant="accent" size="lg" asChild>
               <a
-                href="https://api.whatsapp.com/send/?phone=919885852424&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me."
+                href="https://api.whatsapp.com/send/?phone=919010060000&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me."
                 target="_blank"
                 rel="noOpener noreferrer"
               >
@@ -221,7 +221,7 @@ export const Navbar = () => {
             <div className="px-4 pt-4">
               <Button variant="accent" className="w-full" asChild>
                 <a
-                  href="https://api.whatsapp.com/send/?phone=919885852424&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me."
+                  href="https://api.whatsapp.com/send/?phone=919010060000&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me."
                   target="_blank"
                   rel="noopener noreferrer"
                 >

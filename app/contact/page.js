@@ -165,7 +165,7 @@ const ContactPage = () => {
 
     const whatsappMessage = `Hi, I'm ${formData.name}. ${formData.message}. Contact: ${formData.phone}, Email: ${formData.email}`;
     window.open(
-      `https://api.whatsapp.com/send/?phone=919885852424&text=${encodeURIComponent(whatsappMessage)}`,
+      `https://api.whatsapp.com/send/?phone=919010060000&text=${encodeURIComponent(whatsappMessage)}`,
       "_blank"
     );
 

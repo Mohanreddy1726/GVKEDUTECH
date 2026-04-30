@@ -377,7 +377,7 @@ function PredictorForm() {
 
   const handleWhatsApp = () => {
     const msg = `Hi, I'm ${formData.name}. My NEET score is ${formData.neetScore}, category: ${formData.category || "N/A"}, budget ₹${formData.budget[0]} Lakh, preferred: ${formData.country === "all" ? "any country" : formData.country}. Phone: ${formData.phone}. Please guide me for MBBS abroad.`;
-    window.open(`https://api.whatsapp.com/send/?phone=919885852424&text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`https://api.whatsapp.com/send/?phone=919010060000&text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   return (
@@ -581,7 +581,7 @@ function BudgetForm() {
 
   const handleWhatsApp = () => {
     const msg = `Hi, I'm ${formData.name}. I'm interested in ${formData.programType} in ${formData.country}${formData.university ? ` at ${formData.university}` : ""}. Living: ${formData.livingPreference}. Course type: ${formData.courseType || "N/A"}. Phone: ${formData.phone}. Please help me with budget planning.`;
-    window.open(`https://api.whatsapp.com/send/?phone=919885852424&text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`https://api.whatsapp.com/send/?phone=919010060000&text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   return (

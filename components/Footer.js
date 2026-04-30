@@ -33,7 +33,7 @@ const companyLinks = [
 const supportLinks = [
   { label: "Apply Now", href: "/apply" },
   { label: "Partner Universities", href: "/partner-universities" },
-  { label: "Book Counseling", href: "https://api.whatsapp.com/send/?phone=919885852424&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me." },
+  { label: "Book Counseling", href: "https://api.whatsapp.com/send/?phone=919010060000&text=Hi%2C+I+am+interested+in+studying+abroad.+Please+guide+me." },
 ];
 
 const externalLinks = [
