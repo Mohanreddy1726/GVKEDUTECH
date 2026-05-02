@@ -1,6 +1,7 @@
 import { Poppins, Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { OrganizationSchema, ArticleSchema, WebSiteSchema } from "@/components/SEO";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -111,6 +112,7 @@ export default function RootLayout({ children }) {
         <OrganizationSchema />
         {children}
         <Toaster />
+        <SpeedInsights />
       </body>
     </html>
   );
