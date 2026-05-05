@@ -12,10 +12,10 @@ export const ColorfulHeading = ({ text, className = "", size = "2xl" }) => {
 
   return (
     <h2 className={`font-bold ${sizeClass} ${className} flex flex-wrap justify-center`}>
-      <span className="text-primary">
+      <span className="text-primary mr-1">
         {firstHalf.join(" ")}
       </span>
-      <span className="text-accent">
+      <span className="text-accent ml-1">
         {secondHalf.join(" ")}
       </span>
     </h2>

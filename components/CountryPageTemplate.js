@@ -46,15 +46,15 @@ export const CountryPageTemplate = ({
 
       <div className="container mx-auto px-4 py-16">
         {/* Introduction Section */}
-        <section className="max-w-4xl mx-auto mb-16">
-          <div className="prose prose-lg max-w-none">
+        <section className="mb-16">
+          <div className="mx-auto prose prose-lg max-w-4xl">
             <ColorfulHeading
               text={programType === "MBBS" ? `Study MBBS in ${country}` : `Pursue Your ${programType} in ${country}`}
               size="3xl"
               className="mb-6"
             />
             <p className="text-muted-foreground leading-relaxed">{introduction}</p>
-          </div>
+          
 
           <div className="flex flex-wrap gap-4 mt-8">
             {programType === "MBBS" ? (
@@ -78,6 +78,7 @@ export const CountryPageTemplate = ({
                 Chat with Expert
               </a>
             </Button>
+          </div>
           </div>
         </section>
 
