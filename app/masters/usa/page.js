@@ -17,18 +17,18 @@ const USAPage = () => {
       country="USA"
       programType="Masters"
       heroImage="https://gvkedutech.com/site/assets/images/countries/usamastersspg.jpg"
-      introduction="The USA remains the #1 destination for international students aiming to pursue a Master's (MS) degree. Its global reputation for academic excellence, technological advancement, and career opportunities makes it the preferred choice for aspiring professionals across the world."
+      introduction="The USA remains the #1 global destination for international students pursuing a Master's degree. Home to Ivy League institutions and world-renowned research universities, the US offers unparalleled academic excellence, cutting-edge technology, and exceptional career pathways. With STEM OPT extending up to 3 years post-graduation, students gain valuable work experience while building a global professional network."
       whyChoose={[
-        "Globally Ranked Universities: Over 4,000 institutions, many in the top 100 globally (MIT, Stanford, Harvard, UC Berkeley)",
-        "STEM OPT Advantage: STEM graduates can work up to 3 years post-graduation",
-        "World-Class Research Facilities: Access to leading-edge labs and tech incubators",
-        "Excellent Career Outcomes: Strong links with global employers, on-campus recruitment",
-        "Global Network: Build worldwide professional network through alumni associations",
-        "Innovation Ecosystem: Access to Silicon Valley, Boston Tech Hub, Austin Startup Scene",
-        "Cultural Diversity: Welcoming society with robust international student support",
+        "World-Class Universities: MIT, Stanford, Harvard, and 4,000+ institutions in QS rankings",
+        "STEM OPT Benefit: Work up to 3 years after graduation in your field",
+        "Research Excellence: Access to Nobel-winning labs and innovation hubs like Silicon Valley",
+        "Diverse Program Options: 1-year accelerated to 2-year comprehensive programs",
+        "Strong Career Outcomes: On-campus recruitment from Fortune 500 companies",
+        "Cultural Diversity: Thriving international community with robust support systems",
+        "Flexible Admissions: GRE/GMAT-optional at many universities",
       ]}
       gvkAdvantages={[
-        "Free personalised counselling",
+        "Free personalized counseling",
         "University shortlisting based on profile & budget",
         "End-to-end application support (SOP, LOR, documentation)",
         "Visa guidance & mock interviews",
@@ -36,34 +36,33 @@ const USAPage = () => {
         "Travel, accommodation, and insurance support",
       ]}
       courseOptions={[
-        { level: "Undergraduate", duration: "4 years", requirements: "Minimum 60% in 12th Grade, IELTS 6.0–6.5 / TOEFL 80+, SAT (optional)" },
-        { level: "Postgraduate (MS)", duration: "1–2 years", requirements: "Bachelor's degree, IELTS 6.5+ / TOEFL 90+, GRE/GMAT varies" },
-        { level: "MBA", duration: "2 years", requirements: "Bachelor's degree, IELTS 6.5+, GMAT, 2+ years experience preferred" },
+        { level: "Postgraduate (MS)", duration: "1–2 years", requirements: "Bachelor's degree, IELTS 6.5+ / TOEFL 90+, GRE/GMAT (varies by university)" },
+        { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, IELTS 6.5+, GMAT, 2+ years work experience" },
+        { level: "Research Programs (PhD)", duration: "3–5 years", requirements: "Master's degree, research proposal, IELTS 7.0+, GRE" },
       ]}
       feeStructure={[
-        { category: "Tuition Fees", cost: "$20,000 – $45,000/year" },
-        { category: "Living Expenses", cost: "$10,000 – $18,000/year" },
-        { category: "Health Insurance", cost: "$800 – $2,000/year" },
-        { category: "Total (approximate)", cost: "$30,000 – $60,000/year" },
+        { category: "Tuition Fees", cost: "$25,000 – $50,000/year" },
+        { category: "Living Expenses", cost: "$12,000 – $20,000/year" },
+        { category: "Health Insurance", cost: "$1,500 – $2,500/year" },
+        { category: "Total (Approximate)", cost: "$40,000 – $75,000/year" },
       ]}
       specializations={[
-        "Computer Science",
-        "Artificial Intelligence & Machine Learning",
+        "Computer Science & AI/ML",
         "Data Science & Business Analytics",
         "Cybersecurity",
         "Electrical & Electronics Engineering",
         "Mechanical Engineering",
-        "Robotics & Mechatronics",
-        "Pharmaceutical Sciences & Biotechnology",
+        "Robotics & Automation",
+        "Finance & Business Analytics",
+        "Healthcare & Public Health",
         "Environmental Engineering",
-        "Public Health & Health Informatics",
       ]}
       scholarships={[
-        "Fulbright & Global UGRAD Scholarships",
-        "University-specific merit-based scholarships",
-        "Research Assistantships (RA) & Teaching Assistantships (TA)",
-        "Graduate Fellowships",
-        "On-campus part-time jobs (20 hrs/week during term)",
+        "Fulbright Scholarship",
+        "Global Graduate Merit Scholarships",
+        "University-specific Merit Awards",
+        "Research & Teaching Assistantships",
+        "STEM Field Grants",
       ]}
       universities={[
         { name: "Harvard University" },
@@ -72,7 +71,7 @@ const USAPage = () => {
         { name: "University of California, Berkeley" },
         { name: "Arizona State University" },
         { name: "Northeastern University" },
-        { name: "University of Texas at San Antonio" },
+        { name: "University of Texas at Austin" },
         { name: "University of South Florida" },
       ]}
     />

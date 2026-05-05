@@ -17,18 +17,16 @@ const EuropePage = () => {
       country="Europe"
       programType="Masters"
       heroImage="https://gvkedutech.com/site/assets/images/countries/europeeemastergvkk.jpg"
-      introduction="Europe is a global hub for higher education, known for its academic excellence, cutting-edge research, and cultural richness. Whether you're looking to study in Germany's innovation-driven institutes, France's business schools, or the tech-savvy universities of the Netherlands and Sweden, Europe offers something for every aspiring student. And with GVK Edutech as your trusted study abroad partner, you can navigate your journey confidently—from application to arrival."
+      introduction="Europe offers incredible diversity for international students seeking a Master's degree. From France's prestigious business schools to Switzerland's cutting-edge research institutions, Netherlands' tech-savvy universities to Sweden's innovative programs, Europe has something for every aspirant. With affordable tuition in many countries and access to the Schengen area, studying in Europe provides exceptional value and global career opportunities."
       whyChoose={[
-        "Top-Ranked Universities: Over 400 universities in the QS World University Rankings",
-        "English-Taught Programs: Thousands of MS programs available in English",
-        "Affordable or Free Tuition: Germany, Norway, Finland offer zero or low tuition fees",
-        "Post-Study Work Visas: 1–2 years of work opportunities (Germany: 18 months, Ireland: 2 years)",
-        "Multicultural Exposure: Highly inclusive, international environment",
-        "World-Class Research & Innovation: Access to European R&D projects and funding",
-        "Easy Visa & Immigration Pathways: Streamlined processes with PR options",
-        "Freedom to Travel: Travel freely across 27+ Schengen countries",
-        "Excellent Quality of Life: High rankings for healthcare, safety, infrastructure",
-        "Flexible Intakes: Multiple admissions intakes (Fall, Spring, Summer)",
+        "Diverse Destinations: France, Netherlands, Sweden, Ireland, Switzerland, and more",
+        "Affordable Education: Many countries offer low or no tuition fees",
+        "English-Taught Programs: Thousands of programs available across Europe",
+        "Post-Study Work Visas: 1–2 years work permits in Ireland, Netherlands, Sweden",
+        "Schengen Access: Travel freely across 27 European countries",
+        "World-Class Research: Access to EU-funded research projects and innovation hubs",
+        "Cultural Experience: Immerse in rich history, art, and diverse cultures",
+        "Central Location: Gateway to explore multiple countries during studies",
       ]}
       gvkAdvantages={[
         "Personalized University & Program Selection",
@@ -39,45 +37,46 @@ const EuropePage = () => {
         "Post-Arrival Support & Accommodation Tips",
       ]}
       courseOptions={[
-        { level: "Bachelor's (Undergraduate)", duration: "3–4 years", requirements: "12th Grade, IELTS 6.0 (or as per country/institution)" },
-        { level: "MS / MSc (Postgraduate)", duration: "1–2 years", requirements: "Bachelor's Degree, IELTS 6.5 (or TOEFL/PTE equivalents)" },
-        { level: "MBA / Executive Master's", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years experience, IELTS 6.5+, GMAT (if required)" },
+        { level: "Master's (MSc/MA)", duration: "1–2 years", requirements: "Bachelor's Degree, IELTS 6.5+ (or TOEFL/PTE)" },
+        { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years experience, IELTS 6.5+, GMAT" },
+        { level: "Research Programs (PhD)", duration: "3–5 years", requirements: "Master's degree, research proposal, IELTS 7.0+" },
+      ]}
+      feeStructure={[
+        { category: "Tuition Fees", cost: "€0 – 20,000/year (varies by country)" },
+        { category: "Living Expenses", cost: "€8,000 – 15,000/year" },
+        { category: "Health Insurance", cost: "€500 – 1,500/year" },
+        { category: "Total (Approximate)", cost: "€10,000 – 35,000/year" },
       ]}
       specializations={[
         "Artificial Intelligence & Machine Learning",
-        "Data Science & Big Data",
+        "Data Science & Business Analytics",
         "Cybersecurity & Information Systems",
-        "Software Engineering",
-        "Automotive & Mechanical Engineering",
-        "Robotics & Embedded Systems",
-        "Environmental Engineering & Sustainability",
-        "Renewable Energy & Green Tech",
-        "International Business & Global Marketing",
-        "Financial Engineering & Banking",
-        "Healthcare & Public Health",
-        "Molecular Biology, Biotechnology & Biomedical Science",
-        "Design, Architecture & Urban Studies",
-        "Supply Chain & Logistics",
-        "Tourism & Hospitality Management",
+        "International Business & Marketing",
+        "Finance & Economics",
+        "Sustainable Energy & Environmental Engineering",
+        "Biotechnology & Life Sciences",
+        "Design, Architecture & Urban Planning",
+        "European Studies & International Relations",
+        " Tourism & Hospitality Management",
       ]}
       scholarships={[
-        "Erasmus+ Scholarships – Full or partial funding for joint programs",
-        "DAAD (Germany) – Highly competitive scholarships for Indian students",
-        "French Government & Eiffel Scholarships – For science, business, law students",
-        "Swedish Institute Scholarships – Covers full tuition + living costs",
-        "Netherlands Orange Tulip & Holland Scholarships – For academic achievers",
-        "University-Specific Grants – Merit-based or need-based awards",
-        "Industry Sponsorships – From companies seeking skilled graduates",
+        "Erasmus+ Scholarships",
+        "French Government & Eiffel Scholarships",
+        "Swedish Institute Scholarships",
+        "Netherlands Orange Tulip & Holland Scholarships",
+        "Ireland Government Scholarships",
+        "University-Specific Merit Awards",
+        "Industry Sponsorships",
       ]}
       universities={[
         { name: "ETH Zurich (Switzerland)" },
         { name: "University of Amsterdam (Netherlands)" },
-        { name: "Technical University of Munich (Germany)" },
         { name: "Sciences Po (France)" },
-        { name: "Charles University – Prague" },
-        { name: "Semmelweis University – Budapest" },
-        { name: "University of Pécs" },
-        { name: "Rīga Stradiņš University" },
+        { name: "Uppsala University (Sweden)" },
+        { name: "Trinity College Dublin (Ireland)" },
+        { name: "Charles University (Czech Republic)" },
+        { name: "University of Pécs (Hungary)" },
+        { name: "University of Bologna (Italy)" },
       ]}
     />
   );

@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Target, Eye, MessageCircle, Phone } from "lucide-react";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 
 export const metadata = {
   title: "About Us - GVK EduTech | Top Overseas Education Consultants",
@@ -76,11 +77,11 @@ const AboutPage = () => {
 
       <div className="container mx-auto px-4 py-16">
         {/* Introduction */}
-        <section className="max-w-6xl mx-auto text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            About GVK EduTech – Top Overseas Education Consultants
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+        <section className="mb-20">
+          <div className="text-center max-w-6xl mx-auto">
+            <ColorfulHeading text="Welcome to GVK EduTech" className="mb-6 justify-center" size="3xl" />
+          </div>
+          <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
             Welcome to GVK EduTech – Your Trusted Partner for Global Education Opportunities. As one of the best study abroad consultants, we specialize in guiding students toward premier MBBS abroad programs and Masters degrees in top-ranked universities worldwide. With a commitment to excellence, transparency, and personalized mentorship, we turn academic dreams into reality.
           </p>
         </section>
@@ -113,8 +114,8 @@ const AboutPage = () => {
         </section>
 
         {/* Director's Message */}
-        <section className="mb-20 max-w-6xl mx-auto section-muted rounded-2xl p-8 lg:p-12">
-          <div>
+        <section className="mb-20 section-muted rounded-2xl p-8 lg:p-12">
+          <div className="max-w-6xl mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-6">Directors Message</h3>
             <p className="text-muted-foreground leading-relaxed">
               As a doctor and foreign medical graduate, I was inspired by my brothers vision to create GVK EDUTECH—a platform guiding aspiring students through the challenges of studying medicine abroad. From adapting to new curricula to managing finances and lifestyle changes, we offer 24/7 expert counseling and support to students and parents. My goal is to turn their dreams into reality through personalized, professional assistance, making GVK EDUTECH a trusted partner in their journey.
@@ -124,7 +125,7 @@ const AboutPage = () => {
 
         {/* Core Team */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-12">Our Core Team</h2>
+          <ColorfulHeading text="Our Core Team" className="text-center mb-12" size="3xl" />
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {coreTeam.map((member, index) => (
               <Card key={index} className="border-border text-center hover:shadow-lg transition-smooth">
@@ -143,7 +144,7 @@ const AboutPage = () => {
 
         {/* Regional Directors */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-12">Regional Directors</h2>
+          <ColorfulHeading text="Regional Directors" className="text-center mb-12" size="3xl" />
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
             {regionalDirectors.map((director, index) => (
               <Card key={index} className="border-border text-center hover:shadow-md transition-smooth">
@@ -164,7 +165,7 @@ const AboutPage = () => {
 
         {/* Operational Team */}
         <section className="mb-20 section-muted rounded-2xl p-8 lg:p-12">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-12">Operational Team</h2>
+          <ColorfulHeading text="Operational Team" className="text-center mb-12" size="3xl" />
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
             {operationalTeam.map((member, index) => (
               <Card key={index} className="border-border text-center">
@@ -185,7 +186,7 @@ const AboutPage = () => {
 
         {/* Why Choose Us */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-12">Why Choose GVK EduTech?</h2>
+          <ColorfulHeading text="Why Choose GVK EduTech?" className="text-center mb-12" size="3xl" />
           <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {whyChooseUs.map((reason, index) => (
               <Card key={index} className="border-border hover:shadow-lg transition-smooth">
@@ -236,7 +237,7 @@ const AboutPage = () => {
 
         {/* Core Values */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-12">Our Core Values</h2>
+          <ColorfulHeading text="Our Core Values" className="text-center mb-12" size="3xl" />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {coreValues.map((value, index) => (
               <Card key={index} className="border-border text-center hover:shadow-lg transition-smooth">
@@ -253,8 +254,9 @@ const AboutPage = () => {
         </section>
 
         {/* Success Stats */}
-        <section className="mb-20 bg-gradient-to-br from-primary to-secondary rounded-2xl p-12 text-center max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-primary-foreground mb-8">
+        <section className="mb-20 bg-gradient-to-br from-primary to-secondary rounded-2xl p-12 text-center">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-primary-foreground mb-8">
             Join Thousands of Successful Students
           </h2>
           <p className="text-primary-foreground/80 max-w-3xl mx-auto mb-8">
@@ -273,6 +275,7 @@ const AboutPage = () => {
                 Call: +91 90100 60000
               </a>
             </Button>
+          </div>
           </div>
         </section>
       </div>

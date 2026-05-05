@@ -6,6 +6,7 @@ import { ArrowRight, GraduationCap, Globe2, BadgeCheck, Stethoscope, BookOpen, U
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { StethoscopeDecoration, HeartbeatDecoration, DNADecoration } from "@/components/ThematicDecorations";
 import { FAQSchema, ArticleSchema } from "@/components/SEO";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
@@ -144,9 +145,7 @@ const MBBSPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <ScrollReveal animation="fade-up">
             <div className="max-w-4xl mx-auto text-center space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-                Why Choose <span className="text-accent">MBBS Abroad</span>?
-              </h2>
+              <ColorfulHeading text="Why Choose MBBS Abroad?" size="3xl" />
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Pursuing an MBBS degree abroad provides access to exceptional medical education at a fraction
                 of the cost compared to private institutions in India. With internationally recognized degrees,
@@ -168,9 +167,7 @@ const MBBSPage = () => {
               <span className="text-accent font-semibold tracking-wide uppercase text-sm">
                 Advantages
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-                Key Benefits of MBBS Abroad
-              </h2>
+              <ColorfulHeading text="Key Benefits of MBBS Abroad" className="mt-2" size="3xl" />
             </div>
           </ScrollReveal>
 
@@ -200,9 +197,7 @@ const MBBSPage = () => {
               <span className="text-accent font-semibold tracking-wide uppercase text-sm">
                 Destinations
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-                Premier Destinations for MBBS
-              </h2>
+              <ColorfulHeading text="Premier Destinations for MBBS" className="mt-2" size="3xl" />
             </div>
           </ScrollReveal>
 

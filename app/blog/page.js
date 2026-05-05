@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import Image from "next/image";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 import Link from "next/link";
 import { ArrowRight, Clock, Calendar, Search, RefreshCw } from "lucide-react";
 
@@ -63,9 +64,7 @@ const BlogPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <ScrollReveal animation="fade-up">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                Latest <span className="text-accent">Insights</span> & Tips
-              </h2>
+              <ColorfulHeading text="Latest Articles & Insights" className="mb-4" size="4xl" />
               <p className="text-lg text-muted-foreground">
                 Expert advice, student stories, and comprehensive guides to help you make informed decisions about your education abroad.
               </p>
@@ -146,9 +145,10 @@ const BlogPage = () => {
       <section className="py-12 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground">
-              {selectedCategory === "all" ? "Recent Articles" : categories.find(c => c.value === selectedCategory)?.name || "Articles"}
-            </h2>
+            <ColorfulHeading
+              text={selectedCategory === "all" ? "Recent Articles" : categories.find(c => c.value === selectedCategory)?.name || "Articles"}
+              size="3xl"
+            />
           </div>
 
           {isLoading ? (

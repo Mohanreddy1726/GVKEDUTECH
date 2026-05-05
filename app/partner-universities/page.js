@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle2, GraduationCap } from "lucide-react";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 import Link from "next/link";
 
 import "flag-icons/css/flag-icons.min.css";
@@ -356,9 +357,7 @@ const PartnerUniversitiesPage = () => {
               <GraduationCap className="w-5 h-5 text-primary" />
               <span className="text-primary font-medium">300+ Partner Universities</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-              Your Gateway to <span className="text-primary">Elite Universities</span> for Masters Abroad
-            </h2>
+            <ColorfulHeading text="Your Gateway to Elite Universities for Masters Abroad" size="3xl" />
             <p className="text-lg text-muted-foreground leading-relaxed">
               Selecting the right university for your postgraduate education is a pivotal decision
               that shapes your future. At GVK Edutech, we are dedicated to guiding you toward the
@@ -378,9 +377,7 @@ const PartnerUniversitiesPage = () => {
             <span className="text-primary font-semibold tracking-wide uppercase text-sm">
               Our Network
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-              Universities by Country
-            </h2>
+            <ColorfulHeading text="Universities by Country" className="mt-2" size="3xl" />
           </div>
 
           <Accordion type="single" collapsible defaultValue="mbbs" className="space-y-4">

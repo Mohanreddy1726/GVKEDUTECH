@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, Phone, CheckCircle, GraduationCap, Building, PhoneCall } from "lucide-react";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 
 export const CountryPageTemplate = ({
   country,
@@ -47,9 +48,11 @@ export const CountryPageTemplate = ({
         {/* Introduction Section */}
         <section className="max-w-4xl mx-auto mb-16">
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-foreground mb-6">
-              {programType === "MBBS" ? `Study MBBS in ${country}` : `Pursue Your ${programType} in ${country}`}
-            </h2>
+            <ColorfulHeading
+              text={programType === "MBBS" ? `Study MBBS in ${country}` : `Pursue Your ${programType} in ${country}`}
+              size="3xl"
+              className="mb-6"
+            />
             <p className="text-muted-foreground leading-relaxed">{introduction}</p>
           </div>
 
@@ -80,9 +83,11 @@ export const CountryPageTemplate = ({
 
         {/* Why Choose Section - Combined with Advantages */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-            Why Choose {country} for Your {programType}?
-          </h2>
+          <ColorfulHeading
+            text={`Why Choose ${country} for Your ${programType}?`}
+            size="3xl"
+            className="mb-8 text-center"
+          />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyChoose.map((reason, index) => (
               <Card key={`why-${index}`} className="border-border hover:shadow-lg transition-smooth">
@@ -112,7 +117,7 @@ export const CountryPageTemplate = ({
         {/* Climate Info (if available) */}
         {climateInfo && (
           <section className="mb-16 section-muted rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Climate Information</h2>
+            <ColorfulHeading text="Climate Information" className="mb-4" />
             <p className="text-muted-foreground leading-relaxed">{climateInfo}</p>
           </section>
         )}
@@ -120,9 +125,7 @@ export const CountryPageTemplate = ({
         {/* GVK Advantages */}
         {gvkAdvantages && gvkAdvantages.length > 0 && (
           <section className="mb-16 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
-              GVK Edutech Advantages
-            </h2>
+            <ColorfulHeading text="GVK Edutech Advantages" className="text-center" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {gvkAdvantages.map((advantage, index) => (
                 <div key={index} className="flex items-center gap-3">
@@ -137,7 +140,7 @@ export const CountryPageTemplate = ({
         {/* Program Structure */}
         {programStructure && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Program Structure</h2>
+            <ColorfulHeading text="Program Structure" />
             <Card className="border-border">
               <CardContent className="p-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -161,7 +164,7 @@ export const CountryPageTemplate = ({
         {/* Fee Structure */}
         {feeStructure && feeStructure.length > 0 && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Fee Structure</h2>
+            <ColorfulHeading text="Fee Structure" />
             <Card className="border-border overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -188,7 +191,7 @@ export const CountryPageTemplate = ({
         {/* Course Options Table */}
         {courseOptions && courseOptions.length > 0 && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Course Options & Requirements</h2>
+            <ColorfulHeading text="Course Options & Requirements" />
             <Card className="border-border overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -217,7 +220,7 @@ export const CountryPageTemplate = ({
         {/* Specializations */}
         {specializations && specializations.length > 0 && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Popular Specializations</h2>
+            <ColorfulHeading text="Popular Specializations" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               {specializations.map((spec, index) => (
                 <div key={index} className="flex items-center gap-2 p-3 bg-card rounded-lg border border-border">
@@ -232,7 +235,7 @@ export const CountryPageTemplate = ({
         {/* Eligibility */}
         {eligibility && eligibility.length > 0 && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Eligibility Criteria</h2>
+            <ColorfulHeading text="Eligibility Criteria" />
             <Card className="border-border">
               <CardContent className="p-6">
                 <ul className="space-y-3">
@@ -251,7 +254,7 @@ export const CountryPageTemplate = ({
         {/* Documents Required */}
         {documents && documents.length > 0 && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Documents Required</h2>
+            <ColorfulHeading text="Documents Required" />
             <Card className="border-border">
               <CardContent className="p-6">
                 <ol className="space-y-2">
@@ -272,7 +275,7 @@ export const CountryPageTemplate = ({
         {/* Curriculum */}
         {curriculum && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">{programType} Curriculum</h2>
+            <ColorfulHeading text={`${programType} Curriculum`} />
             <div className="grid md:grid-cols-3 gap-6">
               {curriculum.preClinical && (
                 <Card className="border-border">
@@ -317,7 +320,7 @@ export const CountryPageTemplate = ({
         {/* Scholarships */}
         {scholarships && scholarships.length > 0 && (
           <section className="mb-16 bg-gradient-to-br from-accent/5 to-highlight/5 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Scholarships & Financial Aid</h2>
+            <ColorfulHeading text="Scholarships & Financial Aid" />
             <div className="grid md:grid-cols-2 gap-4">
               {scholarships.map((scholarship, index) => (
                 <div key={index} className="flex items-start gap-3">
@@ -332,7 +335,7 @@ export const CountryPageTemplate = ({
         {/* Career Opportunities */}
         {careerOpportunities && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Career Opportunities</h2>
+            <ColorfulHeading text="Career Opportunities" />
             <Card className="border-border">
               <CardContent className="p-6">
                 <p className="text-muted-foreground leading-relaxed">{careerOpportunities}</p>
@@ -343,9 +346,11 @@ export const CountryPageTemplate = ({
 
         {/* Universities */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-            Partner Universities in {country}
-          </h2>
+          <ColorfulHeading
+            text={`Partner Universities in ${country}`}
+            size="3xl"
+            className="mb-8 text-center"
+          />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {universities.map((university, index) => (
               <Card key={index} className="border-border hover:shadow-lg transition-smooth group">
@@ -363,9 +368,11 @@ export const CountryPageTemplate = ({
         {/* FAQs */}
         {faqs && faqs.length > 0 && (
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
+            <ColorfulHeading
+              text="Frequently Asked Questions"
+              size="3xl"
+              className="mb-8 text-center"
+            />
             <div className="max-w-3xl mx-auto space-y-4">
               {faqs.map((faq, index) => (
                 <Card key={index} className="border-border">

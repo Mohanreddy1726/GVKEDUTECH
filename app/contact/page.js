@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 import Link from "next/link";
 import { validateEmail, validatePhone } from "@/utils/validation";
 
@@ -214,9 +215,7 @@ const ContactPage = () => {
             <span className="text-accent font-semibold tracking-wide uppercase text-sm">
               Our Locations
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-              Regional Offices Across India
-            </h2>
+            <ColorfulHeading text="Regional Offices Across India" className="mt-2" size="3xl" />
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               Visit any of our conveniently located offices for personalized counseling and comprehensive guidance on your study abroad journey
             </p>
@@ -306,9 +305,7 @@ const ContactPage = () => {
               <span className="text-accent font-semibold tracking-wide uppercase text-sm">
                 Get In Touch
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-                Send Us a Message
-              </h2>
+              <ColorfulHeading text="Send Us a Message" className="mt-2" size="3xl" />
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>

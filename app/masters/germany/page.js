@@ -17,18 +17,16 @@ const GermanyPage = () => {
       country="Germany"
       programType="Masters"
       heroImage="https://gvkedutech.com/site/assets/images/countries/GermanyMASTERS.jpg"
-      introduction="Germany is a global hub for higher education, known for its academic excellence, cutting-edge research, and cultural richness. Whether you're looking to study in Germany's innovation-driven institutes, the tech-savvy universities of the Netherlands and Sweden, Germany offers something for every aspiring student. And with GVK Edutech as your trusted study abroad partner, you can navigate your journey confidently—from application to arrival."
+      introduction="Germany is a global leader in higher education, known for its academic excellence, cutting-edge research, andtuition-free or low-cost programs at public universities. With a strong economy and innovation ecosystem, Germany offers international students excellent post-study work opportunities and access to the entire Schengen area. Study at world-renowned technical universities and benefit from Germany's engineering and technology expertise."
       whyChoose={[
-        "Top-Ranked Universities: Over 400 universities in the QS World University Rankings",
-        "English-Taught Programs: Thousands of MS programs available in English",
-        "Affordable or Free Tuition: Germany offers zero or low tuition fees for international students",
-        "Post-Study Work Visas: 18 months post-study work opportunity",
-        "Multicultural Exposure: Highly inclusive, international environment",
-        "World-Class Research & Innovation: Access to German R&D projects and funding",
-        "Easy Visa & Immigration Pathways: Streamlined processes with PR options",
-        "Freedom to Travel: Travel freely across 27+ Schengen countries",
-        "Excellent Quality of Life: High rankings for healthcare, safety, infrastructure",
-        "Flexible Intakes: Multiple admissions intakes (Fall, Spring, Summer)",
+        "Tuition-Free Education: Most public universities charge no tuition fees",
+        "Top-Ranked Universities: Technical University of Munich, Heidelberg, RWTH Aachen in QS rankings",
+        "English-Taught Programs: Thousands of Master's programs available in English",
+        "Post-Study Work Visa: 18 months to find a job after graduation",
+        "Research Excellence: Access to world-class R&D facilities and funding",
+        "Strong Economy: Gateway to Europe with leading multinational companies",
+        "Schengen Access: Travel freely across 27 European countries",
+        "High Quality of Life: Excellent healthcare, safety, and infrastructure",
       ]}
       gvkAdvantages={[
         "Personalized University & Program Selection",
@@ -39,9 +37,15 @@ const GermanyPage = () => {
         "Post-Arrival Support & Accommodation Tips",
       ]}
       courseOptions={[
-        { level: "Bachelor's (Undergraduate)", duration: "3–4 years", requirements: "12th Grade, IELTS 6.0 (or as per institution)" },
-        { level: "MS / MSc (Postgraduate)", duration: "1–2 years", requirements: "Bachelor's Degree, IELTS 6.5 (or TOEFL/PTE equivalents)" },
-        { level: "MBA / Executive Master's", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years experience, IELTS 6.5+, GMAT (if required)" },
+        { level: "Master's (MSc/MA)", duration: "1–2 years", requirements: "Bachelor's Degree, IELTS 6.5+ (or TOEFL/PTE)" },
+        { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years experience, IELTS 6.5+, GMAT" },
+        { level: "Research Programs (PhD)", duration: "3–5 years", requirements: "Master's degree, research proposal, IELTS 7.0+" },
+      ]}
+      feeStructure={[
+        { category: "Tuition Fees", cost: "€0 – 3,000/semester (public universities)" },
+        { category: "Living Expenses", cost: "€10,000 – 12,000/year" },
+        { category: "Semester Contribution", cost: "€150 – 350/semester" },
+        { category: "Total (Approximate)", cost: "€10,000 – 15,000/year" },
       ]}
       specializations={[
         "Artificial Intelligence & Machine Learning",
@@ -52,20 +56,15 @@ const GermanyPage = () => {
         "Robotics & Embedded Systems",
         "Environmental Engineering & Sustainability",
         "Renewable Energy & Green Tech",
-        "International Business & Global Marketing",
-        "Financial Engineering & Banking",
-        "Healthcare & Public Health",
-        "Molecular Biology, Biotechnology & Biomedical Science",
-        "Design, Architecture & Urban Studies",
-        "Supply Chain & Logistics",
-        "Tourism & Hospitality Management",
+        "International Business & Marketing",
+        "Finance & Banking",
       ]}
       scholarships={[
-        "DAAD Scholarships – Highly competitive scholarships for Indian students",
-        "Erasmus+ Scholarships – Full or partial funding for joint programs",
-        "Deutschland Stipendium – National merit-based scholarship",
-        "University-Specific Grants – Merit-based or need-based awards",
-        "Industry Sponsorships – From companies seeking skilled graduates in STEM",
+        "DAAD Scholarships",
+        "Deutschland Stipendium",
+        "University-Specific Grants",
+        "Erasmus+ Scholarships",
+        "Industry Sponsorships",
       ]}
       universities={[
         { name: "Technical University of Munich" },

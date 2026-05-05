@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone } from "lucide-react";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 
 export const metadata = {
   title: "Our Services - GVK EduTech | Complete Study Abroad Support",
@@ -91,11 +92,11 @@ const ServicesPage = () => {
 
       <div className="container mx-auto px-4 py-16">
         {/* Introduction */}
-        <section className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Comprehensive Support for Your Study Abroad Journey
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+        <section className="mb-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <ColorfulHeading text="Our Services" className="mb-6 justify-center" size="3xl" />
+          </div>
+          <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
             At GVK Edutech, we guide students and parents in making informed decisions about higher education, helping them find the right university that aligns with their goals and academic profile. Our expert counselors offer end-to-end support—including career counseling, university selection, application assistance, visa guidance, and more. With our personalized approach and global expertise, we turn aspirations into achievements, one student at a time.
           </p>
         </section>

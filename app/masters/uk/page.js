@@ -17,52 +17,61 @@ const UKPage = () => {
       country="United Kingdom"
       programType="Masters"
       heroImage="https://gvkedutech.com/site/assets/images/countries/UK-University.jpg"
-      introduction="Indian students can pursue a Master of Medicine (MMed) or related postgraduate degrees in the UK, which offer advanced clinical and research training. These degrees are ideal for medical graduates seeking specialisation, academic careers, or leadership roles in healthcare. The UK boasts a robust medical system and prestigious institutions, making it a desirable destination for postgraduate studies."
+      introduction="The United Kingdom is home to some of the world's oldest and most prestigious universities, offering Master's programs that are globally recognized and highly valued by employers. With the iconic 1-year Master's format, you can earn a world-class degree in less time and at a lower cost than many other countries. The Graduate Route visa allows you to work in the UK for up to 2 years post-graduation."
       whyChoose={[
-        "Eligibility: Recognized medical degree (MBBS or equivalent) usually required",
-        "Language Proficiency: IELTS 6.5-7.5 overall or TOEFL/PTE Academic",
-        "Tuition Fees: £10,300 to £35,000 per year depending on program",
-        "Course Duration: Typically 1-2 years full-time; part-time options available",
-        "Scholarships available: University, Chevening, Commonwealth, and others",
+        "World-Class Universities: Oxford, Cambridge, Imperial, and 150+ QS-ranked institutions",
+        "1-Year Master's Programs: Save time and money with intensive, comprehensive courses",
+        "Graduate Route Visa: Work up to 2 years in the UK after graduation",
+        "Global Recognition: UK degrees are respected by employers worldwide",
+        "Research Excellence: Access to pioneering research facilities and funding",
+        "Cultural Hub: Experience British heritage while studying in a global city",
+        "Strong Alumni Network: Connect with influential professionals across industries",
       ]}
       gvkAdvantages={[
         "250+ University Partners",
-        "Expert guidance on GMC registration",
+        "Free personalized counseling",
+        "End-to-end application support (SOP, LOR, documentation)",
         "Visa guidance & mock interviews",
         "Pre-departure orientation",
-        "End-to-end application support",
+        "Post-arrival support",
       ]}
       courseOptions={[
-        { level: "Postgraduate Diploma / Master's", duration: "1–2 years", requirements: "Bachelor's degree, IELTS 6.5+, relevant experience" },
-        { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years experience, IELTS 6.5+, GMAT" },
-        { level: "PhD / Research Programs", duration: "3–4 years", requirements: "Master's degree, research proposal, IELTS 7.0+" },
+        { level: "Master's (MSc/MA)", duration: "1 year", requirements: "Bachelor's degree, IELTS 6.5+ (no band below 6.0)" },
+        { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years work experience, IELTS 6.5+, GMAT" },
+        { level: "Research Programs (PhD)", duration: "3–4 years", requirements: "Master's degree, research proposal, IELTS 7.0+" },
+      ]}
+      feeStructure={[
+        { category: "Tuition Fees", cost: "£12,000 – 35,000/year" },
+        { category: "Living Expenses", cost: "£12,000 – 18,000/year" },
+        { category: "Health Insurance (IHS)", cost: "£470 – 1,000/year" },
+        { category: "Total (Approximate)", cost: "£25,000 – 55,000/year" },
       ]}
       specializations={[
-        "Clinical Research & Clinical Practice",
-        "Medical Education",
-        "Health Leadership",
-        "Public Health",
-        "Molecular Medicine",
-        "Surgical Science",
-        "Global Health Policy",
-        "Clinical Neuroscience",
+        "Computer Science & Artificial Intelligence",
+        "Data Science & Business Analytics",
+        "Finance, Accounting & Economics",
+        "Engineering (Mechanical, Electrical, Civil)",
+        "Marketing & International Business",
+        "Public Health & Healthcare Management",
+        "Environmental Science & Sustainability",
+        "Education & Teaching",
       ]}
       scholarships={[
-        "University-Specific Scholarships",
         "Chevening Scholarships",
         "Commonwealth Scholarships",
         "GREAT Scholarships",
+        "University-Specific Merit Awards",
         "Research Council Funding",
       ]}
       universities={[
-        { name: "Middlesex University London" },
-        { name: "University of Hertfordshire" },
-        { name: "Heriot Watt University" },
-        { name: "University of Worcester" },
-        { name: "Anglia Ruskin University" },
-        { name: "London South Bank University" },
-        { name: "University of Dundee" },
-        { name: "Cardiff Metropolitan University" },
+        { name: "University of Oxford" },
+        { name: "University of Cambridge" },
+        { name: "Imperial College London" },
+        { name: "University College London (UCL)" },
+        { name: "London School of Economics (LSE)" },
+        { name: "University of Edinburgh" },
+        { name: "University of Manchester" },
+        { name: "King's College London" },
       ]}
     />
   );

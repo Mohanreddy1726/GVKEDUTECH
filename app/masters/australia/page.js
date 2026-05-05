@@ -17,49 +17,56 @@ const AustraliaPage = () => {
       country="Australia"
       programType="Masters"
       heroImage="https://gvkedutech.com/site/assets/images/masters/countries/australia.jpg"
-      introduction="Australia is one of the top destinations for international students seeking to pursue a Master of Science (MS) degree. Renowned for its world-class education, vibrant student life, and stunning natural beauty, Australia is not just a place to study—it's a place to thrive. With cutting-edge research, industry-driven programs, and pathways to permanent residency, studying in Australia opens doors to a brighter future. GVK Edutech is here to guide you on every step of this exciting journey!"
+      introduction="Australia is a top destination for international students seeking a Master's degree, offering world-class education, vibrant student life, and stunning natural landscapes. With globally recognized universities, industry-driven programs, and pathways to permanent residency, studying in Australia opens doors to a bright future. The country provides excellent post-study work opportunities and a safe, multicultural environment."
       whyChoose={[
-        "Top-Notch Education: Home to world's highest-ranking universities with focus on research and innovation",
-        "Global Recognition: Australian degrees are respected by employers worldwide",
-        "Work While You Study: Work up to 40 hours per fortnight during semester",
-        "Post-Study Work Visa: Up to 4 years for practical experience and PR pathway",
-        "Safe, Friendly, and Multicultural Environment",
-        "Stunning Quality of Life with great work-life balance",
+        "Globally Recognized Degrees: Universities ranked in QS top 100 worldwide",
+        "Post-Study Work Visa: Up to 4 years to gain work experience and PR pathway",
+        "Work While Studying: Up to 48 hours per fortnight during semester",
+        "Research Excellence: Cutting-edge facilities in all major disciplines",
+        "Safe & Multicultural: Welcoming environment for international students",
+        "Beautiful Lifestyle: Excellent work-life balance with stunning landscapes",
+        "Pathway to PR: Clear immigration pathways for skilled graduates",
       ]}
       gvkAdvantages={[
-        "Expert Guidance",
-        "Free Counseling",
-        "Application Support",
-        "Pre-Departure Assistance",
-        "Fast-Track Applications",
-        "Guided Documentation",
+        "Free personalized counseling",
+        "University shortlisting based on profile & budget",
+        "End-to-end application support (SOP, LOR, documentation)",
+        "Visa guidance & mock interviews",
+        "Pre-departure orientation",
+        "Post-arrival support & accommodation help",
       ]}
       courseOptions={[
-        { level: "Undergraduate Degree", duration: "3–4 years", requirements: "Completion of 12th Grade, IELTS 6.0 overall (no band less than 5.5)" },
-        { level: "Postgraduate Diploma / Master's (MS)", duration: "1–2 years", requirements: "Recognized bachelor's degree, IELTS 6.5 overall (no band less than 6.0)" },
-        { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years work experience, IELTS 6.5, GMAT/GRE" },
+        { level: "Postgraduate (MS)", duration: "1–2 years", requirements: "Bachelor's degree, IELTS 6.5+ (no band below 6.0)" },
+        { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years work experience, IELTS 6.5+, GMAT" },
+        { level: "Research Programs (PhD)", duration: "3–4 years", requirements: "Master's degree, research proposal, IELTS 7.0+" },
+      ]}
+      feeStructure={[
+        { category: "Tuition Fees", cost: "AUD 25,000 – 50,000/year" },
+        { category: "Living Expenses", cost: "AUD 15,000 – 25,000/year" },
+        { category: "Health Insurance (OSHC)", cost: "AUD 500 – 1,500/year" },
+        { category: "Total (Approximate)", cost: "AUD 40,000 – 80,000/year" },
       ]}
       specializations={[
-        "Computer Science, AI, Data Science, Machine Learning, Cybersecurity",
-        "Civil, Mechanical, Electrical, and Chemical Engineering",
-        "Environmental Science, Renewable Energy, Climate Change",
+        "Computer Science, AI & Data Science",
+        "Engineering (Civil, Mechanical, Electrical)",
+        "Environmental Science & Sustainability",
         "Biotechnology & Life Sciences",
-        "Business Analytics, Finance, Marketing, Management",
-        "Public Health, Nursing, Biomedical Science",
-        "Robotics & Automation",
-        "Digital Media, Design, Communication",
+        "Business Analytics, Finance & Management",
+        "Public Health & Healthcare",
+        "Media, Design & Communication",
       ]}
       scholarships={[
-        "University-Specific Scholarships: Merit-based scholarships for international students",
-        "Government Scholarships: Australia Awards and Research Training Program (RTP)",
-        "External Scholarships: Private organizations and international bodies",
-        "Work and Study Support: Part-time work opportunities",
+        "Australia Awards Scholarships",
+        "Research Training Program (RTP)",
+        "University Merit-based Scholarships",
+        "Destination Australia Scholarships",
+        "Part-time Work Opportunities",
       ]}
       universities={[
         { name: "University of Melbourne" },
         { name: "Australian National University (ANU)" },
         { name: "University of Sydney" },
-        { name: "University of New South Wales (UNSW Sydney)" },
+        { name: "University of New South Wales (UNSW)" },
         { name: "University of Queensland" },
         { name: "Monash University" },
         { name: "University of Adelaide" },

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, GraduationCap, Globe2, Briefcase, Award, Building2, Lightbulb } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AirplaneDecoration, GraduationCapDecoration, GlobeDecoration, FlightPathDecoration } from "@/components/ThematicDecorations";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
@@ -132,9 +133,10 @@ const MastersPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <ScrollReveal animation="fade-up">
             <div className="max-w-4xl mx-auto text-center space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-                Why Pursue <span className="text-primary">Masters Abroad</span>?
-              </h2>
+              <ColorfulHeading
+                text="Why Pursue Masters Abroad?"
+                className="text-primary"
+              />
               <p className="text-lg text-muted-foreground leading-relaxed">
                 A Master's degree from a distinguished international university unlocks unparalleled
                 global career opportunities, enhanced earning potential, and accelerated professional
@@ -158,9 +160,10 @@ const MastersPage = () => {
               <span className="text-primary font-semibold tracking-wide uppercase text-sm">
                 Advantages
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-                Transformative Benefits of Masters Abroad
-              </h2>
+              <ColorfulHeading
+                text="Transformative Benefits of Masters Abroad"
+                className="mt-2"
+              />
             </div>
           </ScrollReveal>
 
@@ -190,9 +193,10 @@ const MastersPage = () => {
               <span className="text-primary font-semibold tracking-wide uppercase text-sm">
                 Destinations
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-                Premier Destinations for Masters
-              </h2>
+              <ColorfulHeading
+                text="Premier Destinations for Masters"
+                className="mt-2"
+              />
             </div>
           </ScrollReveal>
 

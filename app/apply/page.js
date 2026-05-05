@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
 import {
   Select,
   SelectContent,
@@ -257,7 +258,7 @@ ${formData.message || "N/A"}
         <section className="max-w-4xl mx-auto">
           <Card className="border-border">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-8">Application Form</h2>
+              <ColorfulHeading text="Application Form" className="mb-8" />
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Personal Information */}
