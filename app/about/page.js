@@ -24,7 +24,7 @@ const coreTeam = [
 
 const regionalDirectors = [
   { name: "Mrs. Reena Kamal", city: "Hyderabad (Head Office)", qualification: "B.Com, MBA", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Reena.png?updatedAt=1776335169935" },
-  { name: "Mrs. Geetha Rejesh", city: "Warangal", qualification: "MA, B.Sc, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/geeta.png?updatedAt=1776335170035" },
+  { name: "Mrs. Geetha Rajesh", city: "Warangal", qualification: "MA, B.Sc, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/geeta.png?updatedAt=1776335170035" },
   { name: "Mr. Kiran Kumar", city: "Visakhapatnam", qualification: "M.Sc, M.A, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/kiran.png?updatedAt=1776335169934" },
   { name: "Dr. Siva Sai Varanasi", city: "Vijayawada", qualification: "MBBS", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/vijaywada.png?updatedAt=1778135548450" },
   { name: "Mr. Nandu", city: "Karimnagar", qualification: "B.Sc", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nandu.png?updatedAt=1776335169859" },
