@@ -84,7 +84,7 @@ export const Hero = () => {
                 onClick={() => scrollToPredictor("budget")}
                 className="relative flex items-center gap-3 px-6 py-4 rounded-2xl text-white font-bold text-base group overflow-hidden hero-feature-card cursor-pointer"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-highlight to-highlight/70 opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/70 opacity-90" />
                 <div className="absolute inset-0 hero-shimmer" />
                 <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-highlight via-white/50 to-highlight opacity-60 blur-sm animate-pulse" style={{ zIndex: -1, animationDelay: "1s" }} />
                 <div className="relative flex items-center justify-center w-10 h-10 bg-white/20 rounded-xl backdrop-blur-sm">

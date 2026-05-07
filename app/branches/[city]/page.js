@@ -4,7 +4,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, ArrowLeft, MessageCircle, Star } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowLeft, MessageCircle, Star, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -19,7 +19,9 @@ const offices = [
     phones: ["+91 8331 077770", "888666 1876"],
     mapLink: "https://maps.app.goo.gl/HSBuYGWVxe46562SA",
     image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/hyderabad-charminar.jpg?updatedAt=1776492282091",
-    monument: "Charminar"
+    monument: "Charminar",
+    regionalDirector: "Mrs. Reena Kamal",
+    qualification: "B.Com, MBA"
   },
   {
     city: "Warangal",
@@ -28,43 +30,9 @@ const offices = [
     phones: ["+91 7287 077770", "888666 1877"],
     mapLink: "https://maps.app.goo.gl/hjC7b2FAPNQYTr3k8",
     image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/warangal-thousand-pillar-temple.jpg?updatedAt=1776492282027",
-    monument: "Thousand Pillar Temple"
-  },
-  {
-    city: "Karimnagar",
-    type: "Regional Office",
-    address: "2nd Floor, Radhakrishna nivas, Opp: PVP mall, Labbipet, Karimnagar",
-    phones: ["+91 8499 077770", "888666 2442"],
-    mapLink: "https://www.google.com/maps/place/GVK+EDUTECH+SERVICES+-+Best+MBBS+Consultancy+in+Karimnagar+%7C+MBBS+in+Abroad+%7C+Best+Overseas+Educational+Consultancy/@18.4372006,79.1240267,1220m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bccd9ea035775b3:0xdb03b029ee1e7138!8m2!3d18.4372006!4d79.1240267!16s%2Fg%2F11ydr3jw8q?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/karimnagar-elgandal-fort.jpg?updatedAt=1776492281954",
-    monument: "Elgandal Fort"
-  },
-  {
-    city: "Khammam",
-    type: "Regional Office",
-    address: "2nd Floor, Radhakrishna nivas, Opp: PVP mall, Labbipet, Khammam",
-    phones: ["+91 7036 077770", "888666 1441"],
-    mapLink: "https://maps.app.goo.gl/kHAdjoyymQoupSie6",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/khammam-fort.jpg?updatedAt=1776492282078",
-    monument: "Khammam Fort"
-  },
-  {
-    city: "Vijayawada",
-    type: "Regional Office",
-    address: "2nd Floor, Radhakrishna nivas, Opp: PVP mall, Labbipet, Beside Malabar lane, Vijayawada, Andhra Pradesh, Pincode: 520002",
-    phones: ["+91 8464 077770", "888666 1875"],
-    mapLink: "https://maps.app.goo.gl/kHAdjoyymQoupSie6",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/vijayawada-kanaka-durga-temple.jpg?updatedAt=1776492282159",
-    monument: "Kanaka Durga Temple"
-  },
-  {
-    city: "Vishakapatnam",
-    type: "Regional Office",
-    address: "3rd floor, Sujatha nagar, Near 80 feet road, Sai sampath residence, Vishakapatnam",
-    phones: ["+91 8501 077770", "888666 1874"],
-    mapLink: "https://maps.app.goo.gl/K2wemTdSKxPvSWDz8",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/visakhapatnam-kailasagiri.jpg?updatedAt=1776492281959",
-    monument: "Kailasagiri"
+    monument: "Thousand Pillar Temple",
+    regionalDirector: "Mrs. Geetha Rejesh",
+    qualification: "MA, B.Sc, B.Ed"
   },
   {
     city: "Bangalore",
@@ -73,7 +41,9 @@ const offices = [
     phones: ["+91 7204 821775", "888 666 9980"],
     mapLink: "https://goo.gl/maps/bangalore",
     image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/bangalore-vidhana-soudha.jpg?updatedAt=1776492281129",
-    monument: "Vidhana Soudha"
+    monument: "Vidhana Soudha",
+    regionalDirector: "Mr. Chandan Singh",
+    qualification: "MBA"
   },
   {
     city: "Chennai",
@@ -82,25 +52,64 @@ const offices = [
     phones: ["+91 6369 828113", "958 120 0958"],
     mapLink: "https://goo.gl/maps/chennai",
     image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chennai-lighthouse.jpg?updatedAt=1776492281253",
-    monument: "Marina Beach Lighthouse"
+    monument: "Marina Beach Lighthouse",
+    regionalDirector: "Mrs. Aarathi Sukumar Reddy",
+    qualification: "M.Sc Biotechnology"
   },
   {
-    city: "Delhi",
+    city: "Nellore",
     type: "Regional Office",
-    address: "Ground floor, Delhi NCR",
-    phones: ["+91 79827 20433", "97182 13653"],
-    mapLink: "https://goo.gl/maps/delhi",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/delhi-india-gate.jpg?updatedAt=1776492281269",
-    monument: "India Gate"
+    address: "Nellore, Andhra Pradesh",
+    phones: ["+91 90100 60000"],
+    mapLink: "https://goo.gl/maps/nellore",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nellore-srisailam.jpg?updatedAt=1776492282000",
+    monument: "Srisailam Dam",
+    regionalDirector: "Mr. Amarnath Reddy & Mrs. Rajeswari Reddy",
+    qualification: "M.Sc Biotechnology & M.Sc Organic Chemistry"
   },
   {
-    city: "Mahabubnagar",
+    city: "Vijayawada",
     type: "Regional Office",
-    address: "Ground floor, Mahabubnagar",
-    phones: ["+91 70957 16338", "95506 40306"],
-    mapLink: "https://goo.gl/maps/mahabubnagar",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/mahabubnagar-pillalamarri.jpg?updatedAt=1776492282139",
-    monument: "Pillalamarri Banyan Tree"
+    address: "2nd Floor, Radhakrishna nivas, Opp: PVP mall, Labbipet, Beside Malabar lane, Vijayawada, Andhra Pradesh, Pincode: 520002",
+    phones: ["+91 8464 077770", "888666 1875"],
+    mapLink: "https://maps.app.goo.gl/kHAdjoyymQoupSie6",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/vijayawada-kanaka-durga-temple.jpg?updatedAt=1776492282159",
+    monument: "Kanaka Durga Temple",
+    regionalDirector: "Dr. Siva Sai Varanasi",
+    qualification: "MBBS"
+  },
+  {
+    city: "Tirupati",
+    type: "Regional Office",
+    address: "Tirupati, Andhra Pradesh",
+    phones: ["+91 90100 60000"],
+    mapLink: "https://goo.gl/maps/tirupati",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/tirupati-tirumala.jpg?updatedAt=1776492281950",
+    monument: "Tirumala Temple",
+    regionalDirector: "Mr. Aluvala Madhu",
+    qualification: "B.Sc(B.Z.C), B.P.Ed"
+  },
+  {
+    city: "Suryapet",
+    type: "Regional Office",
+    address: "Suryapet, Telangana",
+    phones: ["+91 90100 60000"],
+    mapLink: "https://goo.gl/maps/suryapet",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/suryapet-kuntala-falls.jpg?updatedAt=1776492281980",
+    monument: "Kuntala Falls",
+    regionalDirector: "Mrs. Shoba Rani",
+    qualification: "B.A"
+  },
+  {
+    city: "Visakhapatnam",
+    type: "Regional Office",
+    address: "3rd floor, Sujatha nagar, Near 80 feet road, Sai sampath residence, Vishakapatnam",
+    phones: ["+91 8501 077770", "888666 1874"],
+    mapLink: "https://maps.app.goo.gl/K2wemTdSKxPvSWDz8",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/visakhapatnam-kailasagiri.jpg?updatedAt=1776492281959",
+    monument: "Kailasagiri",
+    regionalDirector: "Mr. Kiran Kumar",
+    qualification: "M.Sc, M.A, B.Ed"
   },
   {
     city: "Nalgonda",
@@ -109,16 +118,20 @@ const offices = [
     phones: ["+91 7729 077770", "7729 077770"],
     mapLink: "https://goo.gl/maps/nalgonda",
     image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nalgonda-nagarjuna-sagar.jpg?updatedAt=1776492281884",
-    monument: "Nagarjuna Sagar Dam"
+    monument: "Nagarjuna Sagar Dam",
+    regionalDirector: "Mr. Venkanna",
+    qualification: "M.A, M.Ed"
   },
   {
-    city: "Nizamabad",
+    city: "Karimnagar",
     type: "Regional Office",
-    address: "Ground floor, Nizamabad",
-    phones: ["+91 83095 23891", "95506 40306"],
-    mapLink: "https://goo.gl/maps/nizamabad",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nizamabad-fort.jpg?updatedAt=1776492281955",
-    monument: "Nizamabad Fort"
+    address: "2nd Floor, Radhakrishna nivas, Opp: PVP mall, Labbipet, Karimnagar",
+    phones: ["+91 8499 077770", "888666 2442"],
+    mapLink: "https://www.google.com/maps/place/GVK+EDUTECH+SERVICES+-+Best+MBBS+Consultancy+in+Karimnagar+%7C+MBBS+in+Abroad+%7C+Best+Overseas+Educational+Consultancy/@18.4372006,79.1240267,1220m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bccd9ea035775b3:0xdb03b029ee1e7138!8m2!3d18.4372006!4d79.1240267!16s%2Fg%2F11ydr3jw8q?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/karimnagar-elgandal-fort.jpg?updatedAt=1776492281954",
+    monument: "Elgandal Fort",
+    regionalDirector: "Mr. Nandu",
+    qualification: "B.Sc"
   },
 ];
 
@@ -197,6 +210,24 @@ const BranchPage = () => {
                   Visit us at our {office.type.toLowerCase()} for personalized counseling and guidance
                 </p>
               </div>
+
+              {/* Regional Director Info */}
+              {office.regionalDirector && (
+                <Card className="border-accent bg-gradient-to-r from-accent/5 to-accent/10">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center">
+                        <User className="w-7 h-7 text-accent" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">Regional Director</p>
+                        <p className="font-bold text-foreground text-lg">{office.regionalDirector}</p>
+                        <p className="text-accent text-sm font-medium">{office.qualification}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
 
               <Card className="border-border">
                 <CardContent className="p-6 space-y-4">
@@ -365,9 +396,9 @@ const BranchPage = () => {
 
 function getFlagForCity(city) {
   const flags = {
-    hyderabad: "in", warangal: "in", karimnagar: "in", khammam: "in",
-    vijayawada: "in", vishakapatnam: "in", bangalore: "in", chennai: "in",
-    delhi: "in", mahabubnagar: "in", nalgonda: "in", nizamabad: "in"
+    hyderabad: "in", warangal: "in", bangalore: "in", chennai: "in",
+    nellore: "in", vijayawada: "in", tirupati: "in", suryapet: "in",
+    visakhapatnam: "in", nalgonda: "in", karimnagar: "in"
   };
   return flags[city.toLowerCase()] || "in";
 }

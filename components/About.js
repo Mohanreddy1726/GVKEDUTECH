@@ -76,8 +76,8 @@ export const About = () => {
                   <span className="text-3xl font-bold text-primary">5000+</span>
                   <span className="text-sm text-muted-foreground">Success<br />Stories</span>
                 </div>
-                <div className="flex items-center gap-3 px-5 py-3 bg-highlight/10 rounded-xl">
-                  <span className="text-3xl font-bold text-highlight">98%</span>
+                <div className="flex items-center gap-3 px-5 py-3 bg-primary/10 rounded-xl">
+                  <span className="text-3xl font-bold text-primary">98%</span>
                   <span className="text-sm text-muted-foreground">Visa<br />Success</span>
                 </div>
               </div>

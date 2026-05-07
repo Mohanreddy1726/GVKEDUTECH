@@ -23,31 +23,36 @@ const coreTeam = [
 ];
 
 const regionalDirectors = [
-  { name: "Mrs. Reena", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Reena.png?updatedAt=1776335169935" },
-  { name: "Mrs. Geetha", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/geeta.png?updatedAt=1776335170035" },
-  { name: "Mr. Kiran", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/kiran.png?updatedAt=1776335169934" },
-  { name: "Dr. Shiva", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shiva.png?updatedAt=1776335169698" },
-  { name: "Mr. Nandhu", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nandu.png?updatedAt=1776335169859" },
-  { name: "Mr. Athmaram", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/athmaram.png?updatedAt=1776335169869" },
-  { name: "Mr. Yella Goud", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/yellagoud.png?updatedAt=1776335169197" },
-  { name: "Mrs. Shoba Rani", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shobarani.png?updatedAt=1776335169676" },
-  { name: "Mr. Gangadhar", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/gangadhar.png?updatedAt=1776335169867" },
-  { name: "Mr. Chandan", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chandan.png?updatedAt=1776335169838" },
-  { name: "Dr. Mohan", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/mohan.png?updatedAt=1776335169879" },
-  { name: "Dr. Prakash", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/prakash.png?updatedAt=1776335169955" },
+  { name: "Mrs. Reena Kamal", city: "Hyderabad (Head Office)", qualification: "B.Com, MBA", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Reena.png?updatedAt=1776335169935" },
+  { name: "Mrs. Geetha Rejesh", city: "Warangal", qualification: "MA, B.Sc, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/geeta.png?updatedAt=1776335170035" },
+  { name: "Mr. Kiran Kumar", city: "Visakhapatnam", qualification: "M.Sc, M.A, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/kiran.png?updatedAt=1776335169934" },
+  { name: "Dr. Siva Sai Varanasi", city: "Vijayawada", qualification: "MBBS", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/vijaywada.png?updatedAt=1778135548450" },
+  { name: "Mr. Nandu", city: "Karimnagar", qualification: "B.Sc", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nandu.png?updatedAt=1776335169859" },
+  { name: "Mr. Amarnath Reddy", city: "Nellore", qualification: "M.Sc Biotechnology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/NELLORE.jpeg" },
+  { name: "Mrs. Rajeswari Reddy", city: "Nellore", qualification: "M.Sc Organic Chemistry", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/12x18-4.jpg%20(1).jpeg" },
+  { name: "Mrs. Shoba Rani", city: "Suryapet", qualification: "B.A", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shobarani.png?updatedAt=1776335169676" },
+  { name: "Mrs. Aarathi Sukumar Reddy", city: "Chennai", qualification: "M.Sc Biotechnology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/chennai.jpeg" },
+  { name: "Mr. Aluvala Madhu", city: "Tirupati", qualification: "B.Sc(B.Z.C), B.P.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/tirupathi.jpeg" },
+  { name: "Mr. Venkanna", city: "Nalgonda", qualification: "M.A, M.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/nalgonda.jpeg" },
+  { name: "Mr. Chandan Singh", city: "Bangalore", qualification: "MBA", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chandan.png?updatedAt=1776335169838" },
 ];
 
 const operationalTeam = [
-  { name: "Mr. Bala Gangadhar", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-04-30%20at%2010.56.06%20AM.jpeg" },
-  { name: "Mrs. Vandana", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Vandama%20mam%20img.jpeg" },
-  { name: "Mr. Mohan Reddy", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/CamScanner_04-21-2022_06.21__1_-removebg-preview.png" },
-  { name: "Mr. Shiva", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Shiva%20imag.jpeg" },
-  { name: "Mrs. Padma", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/padma.png?updatedAt=1776335169846" },
-  { name: "Mr. Siddhartha", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Sidhu%20img.jpeg" },
-  { name: "Mr. Shivam", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Shivam%20img.jpeg" },
-  { name: "Mr. Hanok Srikar", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/DSC02875.JPG.jpeg" },
-  { name: "Mr. Rakesh", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/rakesh.png?updatedAt=1776335169665" },
-  { name: "Mr. Subbi Reddy", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/subbireddy.png?updatedAt=1776335169616" }
+  { name: "Mr. Bala Gangadhar", qualification: "B.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-04-30%20at%2010.56.06%20AM.jpeg" },
+  { name: "Mrs. Vandana", qualification: "M.A, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Vandama%20mam%20img.jpeg" },
+  { name: "Mr. Hanok Srikar", qualification: "B.Com, LLB", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/DSC02875.JPG.jpeg" },
+  { name: "Mr. Shivam", qualification: "MBBS", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Shivam%20img.jpeg" },
+  { name: "Mrs. Padma", qualification: "Degree", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/padma.png?updatedAt=1776335169846" },
+  { name: "Mr. Subbi Reddy", qualification: "", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/subbireddy.png?updatedAt=1776335169616" },
+  { name: "Mr. Praveen", qualification: "B.Com", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.06.40%20PM%20(1).jpeg" },
+  { name: "Mr. Murali", qualification: "M.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.06.40%20PM.jpeg" },
+];
+
+const itTeam = [
+  { name: "Mr. Mohan Reddy", qualification: "B.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/CamScanner_04-21-2022_06.21__1_-removebg-preview.png" },
+  { name: "Mr. Rakesh", qualification: "B.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.43.36%20PM.jpeg" },
+  { name: "Mr. Shiva", qualification: "B.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Shiva%20imag.jpeg" },
+  { name: "Mr. Siddhartha", qualification: "BBA", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/IMG_9061.jpg" },
 ];
 
 const whyChooseUs = [
@@ -145,18 +150,20 @@ const AboutPage = () => {
         {/* Regional Directors */}
         <section className="mb-20">
           <ColorfulHeading text="Regional Directors" className="text-center mb-12" size="3xl" />
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {regionalDirectors.map((director, index) => (
               <Card key={index} className="border-border text-center hover:shadow-md transition-smooth">
                 <CardContent className="p-4">
-                  <div className="w-16 h-16 rounded-full bg-muted mx-auto mb-3 flex items-center justify-center text-2xl overflow-hidden">
+                  <div className="w-20 h-20 rounded-full bg-muted mx-auto mb-3 flex items-center justify-center text-2xl overflow-hidden">
                     {director.image ? (
                       <img src={director.image} alt={director.name} className="w-full h-full object-cover rounded-full" />
                     ) : (
-                      <span>👤</span>
+                      <span className="text-3xl">👤</span>
                     )}
                   </div>
-                  <p className="font-medium text-foreground text-sm">{director.name}</p>
+                  <p className="font-bold text-foreground text-sm">{director.name}</p>
+                  <p className="text-accent text-xs font-medium">{director.city}</p>
+                  <p className="text-muted-foreground text-xs mt-1">{director.qualification}</p>
                 </CardContent>
               </Card>
             ))}
@@ -178,6 +185,29 @@ const AboutPage = () => {
                     )}
                   </div>
                   <p className="font-medium text-foreground text-xs">{member.name}</p>
+                  <p className="text-muted-foreground text-xs">{member.qualification}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* IT Team */}
+        <section className="mb-20 bg-card rounded-2xl p-8 lg:p-12">
+          <ColorfulHeading text="IT Team" className="text-center mb-12" size="3xl" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {itTeam.map((member, index) => (
+              <Card key={index} className="border-border text-center">
+                <CardContent className="p-4">
+                  <div className="w-20 h-20 rounded-full bg-primary/10 mx-auto mb-3 flex items-center justify-center text-xl overflow-hidden">
+                    {member.image ? (
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover rounded-full" />
+                    ) : (
+                      <span>👤</span>
+                    )}
+                  </div>
+                  <p className="font-medium text-foreground text-sm">{member.name}</p>
+                  <p className="text-muted-foreground text-xs">{member.qualification}</p>
                 </CardContent>
               </Card>
             ))}
