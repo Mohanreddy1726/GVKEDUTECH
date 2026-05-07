@@ -24,7 +24,7 @@ const coreTeam = [
 
 const regionalDirectors = [
   { name: "Mrs. Reena Kamal", city: "Hyderabad (Head Office)", qualification: "B.Com, MBA", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Reena.png?updatedAt=1776335169935" },
-  { name: "Mrs. Geetha Rejesh", city: "Warangal", qualification: "MA, B.Sc, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/geeta.png?updatedAt=1776335170035" },
+  { name: "Mrs. Geetha Rajesh", city: "Warangal", qualification: "MA, B.Sc, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/geeta.png?updatedAt=1776335170035" },
   { name: "Mr. Kiran Kumar", city: "Visakhapatnam", qualification: "M.Sc, M.A, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/kiran.png?updatedAt=1776335169934" },
   { name: "Dr. Siva Sai Varanasi", city: "Vijayawada", qualification: "MBBS", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/vijaywada.png?updatedAt=1778135548450" },
   { name: "Mr. Nandu", city: "Karimnagar", qualification: "B.Sc", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nandu.png?updatedAt=1776335169859" },
@@ -42,8 +42,8 @@ const operationalTeam = [
   { name: "Mrs. Vandana", qualification: "M.A, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Vandama%20mam%20img.jpeg" },
   { name: "Mr. Hanok Srikar", qualification: "B.Com, LLB", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/DSC02875.JPG.jpeg" },
   { name: "Mr. Shivam", qualification: "MBBS", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Shivam%20img.jpeg" },
-  { name: "Mrs. Padma", qualification: "Degree", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/padma.png?updatedAt=1776335169846" },
-  { name: "Mr. Subbi Reddy", qualification: "", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/subbireddy.png?updatedAt=1776335169616" },
+  { name: "Mrs. Padma", qualification: "B.Com", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/padma.png?updatedAt=1776335169846" },
+  { name: "Mr. Subbi Reddy", qualification: "M.Sc Zoology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/subbireddy.png?updatedAt=1776335169616" },
   { name: "Mr. Praveen", qualification: "B.Com", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.06.40%20PM%20(1).jpeg" },
   { name: "Mr. Murali", qualification: "M.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.06.40%20PM.jpeg" },
 ];
