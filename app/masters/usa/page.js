@@ -36,7 +36,7 @@ const USAPage = () => {
         "Travel, accommodation, and insurance support",
       ]}
       courseOptions={[
-        { level: "Postgraduate (MS)", duration: "1–2 years", requirements: "Bachelor's degree, IELTS 6.5+ / TOEFL 90+, GRE/GMAT (varies by university)" },
+        { level: "Postgraduate (MS)", duration: "1–2 years", requirements: "Bachelor's degree, IELTS 5.5+ / TOEFL 90+, GRE/GMAT (varies by university)" },
         { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, IELTS 6.5+, GMAT, 2+ years work experience" },
         { level: "Research Programs (PhD)", duration: "3–5 years", requirements: "Master's degree, research proposal, IELTS 7.0+, GRE" },
       ]}

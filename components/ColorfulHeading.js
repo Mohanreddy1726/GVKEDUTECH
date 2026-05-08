@@ -11,7 +11,7 @@ export const ColorfulHeading = ({ text, className = "", size = "2xl" }) => {
                    "text-2xl";
 
   return (
-    <h2 className={`font-bold ${sizeClass} ${className} flex flex-wrap justify-center`}>
+    <h2 className={`font-bold ${sizeClass} ${className} flex flex-wrap justify-center mb-4`}>
       <span className="text-primary mr-1">
         {firstHalf.join(" ")}
       </span>

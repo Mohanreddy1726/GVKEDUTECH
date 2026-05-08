@@ -37,7 +37,7 @@ const GermanyPage = () => {
         "Post-Arrival Support & Accommodation Tips",
       ]}
       courseOptions={[
-        { level: "Master's (MSc/MA)", duration: "1–2 years", requirements: "Bachelor's Degree, IELTS 6.5+ (or TOEFL/PTE)" },
+        { level: "Master's (MSc/MA)", duration: "1–2 years", requirements: "Bachelor's Degree, IELTS 5.5+ (or TOEFL/PTE)" },
         { level: "MBA", duration: "1–2 years", requirements: "Bachelor's degree, 2+ years experience, IELTS 6.5+, GMAT" },
         { level: "Research Programs (PhD)", duration: "3–5 years", requirements: "Master's degree, research proposal, IELTS 7.0+" },
       ]}
