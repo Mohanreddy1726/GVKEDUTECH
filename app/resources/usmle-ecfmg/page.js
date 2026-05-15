@@ -100,7 +100,7 @@ export default function USMLEECFmgPage() {
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
               <Image
-                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK%20Images/Blog%20Images/study-abroad-MBBS.webp"
+                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-05-11_160637558.png?updatedAt=1778495803776"
                 alt="USMLE ECFMG Guide"
                 fill
                 className="object-cover"

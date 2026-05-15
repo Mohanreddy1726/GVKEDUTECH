@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { FloatingButtons } from "@/components/FloatingButtons";
 
 export const PageLayout = ({ children }) => {
   return (
@@ -16,7 +16,7 @@ export const PageLayout = ({ children }) => {
       <Navbar />
       <main id="main-content" className="pt-20" tabIndex={-1}>{children}</main>
       <Footer />
-      <WhatsAppButton />
+      <FloatingButtons />
     </div>
   );
 };

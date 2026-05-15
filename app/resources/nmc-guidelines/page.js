@@ -90,7 +90,7 @@ export default function NMCGuidelinesPage() {
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
               <Image
-                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/study-abroad-MBBS.webp"
+                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-05-11_172348372.png?updatedAt=1778500432427"
                 alt="NMC Guidelines for MBBS Abroad"
                 fill
                 className="object-cover"

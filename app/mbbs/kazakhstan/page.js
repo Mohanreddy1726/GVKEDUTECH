@@ -16,7 +16,7 @@ const KazakhstanPage = () => {
     <CountryPageTemplate
       country="Kazakhstan"
       programType="MBBS"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/kazakhstan.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114652294.png?updatedAt=1778825819983"
       introduction="Kazakhstan is now a leading destination for Indian students aspiring to pursue MBBS abroad. With internationally recognized universities, cost-effective education, English-medium instruction, and substantial clinical training, Kazakhstan offers an ideal environment for aspiring medical professionals. At GVK Edutech, we provide end-to-end support, ensuring a smooth, transparent, and reliable admission journey."
       whyChoose={[
         "Affordable Tuition: A budget-friendly option compared to Indian private medical colleges",

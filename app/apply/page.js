@@ -237,9 +237,9 @@ ${formData.message || "N/A"}
         ]}
       />
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 max-w-4xl mx-auto">
         {/* Disclaimer */}
-        <section className="max-w-4xl mx-auto mb-12">
+        <section className="mb-12">
           <Card className="border-accent/30 bg-accent/5">
             <CardContent className="p-6">
               <h3 className="font-bold text-foreground mb-2">

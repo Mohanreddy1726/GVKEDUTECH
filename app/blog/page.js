@@ -118,7 +118,7 @@ const BlogPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <Badge variant="secondary" className="mb-4">{filteredPosts[0].category || "Featured"}</Badge>
+                    <Badge variant="secondary" className="mb-4 text-[#FF0008]">{filteredPosts[0].category || "Featured"}</Badge>
                     <h3 className="text-3xl font-bold mb-3 group-hover:text-accent transition-colors">
                       {filteredPosts[0].title}
                     </h3>
@@ -174,7 +174,7 @@ const BlogPage = () => {
                           className="object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                         <div className="absolute top-4 left-4">
-                          <Badge variant="secondary" className="bg-white/90 backdrop-blur-sm">
+                          <Badge variant="primary" className="bg-white/90 backdrop-blur-sm text-[#FF0008]">
                             {post.category || "Article"}
                           </Badge>
                         </div>
@@ -207,7 +207,7 @@ const BlogPage = () => {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-16 bg-gradient-to-r from-accent to-accent/80">
+      {/* <section className="py-16 bg-gradient-to-r from-[#253775] to-[#162248]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Stay Updated</h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
@@ -224,7 +224,7 @@ const BlogPage = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </PageLayout>
   );
 };

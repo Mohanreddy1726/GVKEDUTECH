@@ -16,7 +16,7 @@ const UKPage = () => {
     <CountryPageTemplate
       country="United Kingdom"
       programType="Masters"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/UK-University.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_112850461.png?updatedAt=1778824739608"
       introduction="The United Kingdom is home to some of the world's oldest and most prestigious universities, offering Master's programs that are globally recognized and highly valued by employers. With the iconic 1-year Master's format, you can earn a world-class degree in less time and at a lower cost than many other countries. The Graduate Route visa allows you to work in the UK for up to 2 years post-graduation."
       whyChoose={[
         "World-Class Universities: Oxford, Cambridge, Imperial, and 150+ QS-ranked institutions",

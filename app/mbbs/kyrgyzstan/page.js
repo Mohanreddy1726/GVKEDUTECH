@@ -16,7 +16,7 @@ const KyrgyzstanPage = () => {
     <CountryPageTemplate
       country="Kyrgyzstan"
       programType="MBBS"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/kyrgyzstan-01.png"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142254461.png?updatedAt=1778748810723"
       introduction="For Indian students aspiring to become doctors, Kyrgyzstan is quickly becoming a leading destination for quality medical education abroad. With globally recognized universities, English-medium instruction, and hands-on clinical training, Kyrgyzstan offers a comprehensive MBBS program at a cost significantly lower than private medical colleges in India. It's an ideal blend of affordability, academic excellence, and global recognition — making it a smart choice for the doctors of tomorrow."
       whyChoose={[
         "Affordable Tuition: Study medicine at a fraction of Indian private college fees",

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Play, X, RefreshCw, VideoOff } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { FloatingButtons } from "@/components/FloatingButtons";
 
 const categories = [
   { value: "all", label: "All Videos", icon: "🎬" },
@@ -163,7 +163,7 @@ const GalleryPage = () => {
       </section>
 
       <Footer />
-      <WhatsAppButton />
+      <FloatingButtons />
     </div>
   );
 };

@@ -16,7 +16,7 @@ const AustraliaPage = () => {
     <CountryPageTemplate
       country="Australia"
       programType="Masters"
-      heroImage="https://gvkedutech.com/site/assets/images/masters/countries/australia.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142106384.png?updatedAt=1778748733242"
       introduction="Australia is a top destination for international students seeking a Master's degree, offering world-class education, vibrant student life, and stunning natural landscapes. With globally recognized universities, industry-driven programs, and pathways to permanent residency, studying in Australia opens doors to a bright future. The country provides excellent post-study work opportunities and a safe, multicultural environment."
       whyChoose={[
         "Globally Recognized Degrees: Universities ranked in QS top 100 worldwide",

@@ -16,7 +16,7 @@ const GermanyPage = () => {
     <CountryPageTemplate
       country="Germany"
       programType="Masters"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/GermanyMASTERS.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142156365.png?updatedAt=1778748734891"
       introduction="Germany is a global leader in higher education, known for its academic excellence, cutting-edge research, andtuition-free or low-cost programs at public universities. With a strong economy and innovation ecosystem, Germany offers international students excellent post-study work opportunities and access to the entire Schengen area. Study at world-renowned technical universities and benefit from Germany's engineering and technology expertise."
       whyChoose={[
         "Tuition-Free Education: Most public universities charge no tuition fees",

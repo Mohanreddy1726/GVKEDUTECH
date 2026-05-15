@@ -46,49 +46,49 @@ const mbbsCountries = [
     name: "Nepal",
     flag: "np",
     link: "/mbbs/nepal",
-    monument: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142225739.png?updatedAt=1778748808091",
     highlights: ["NMC Approved", "Cultural Proximity", "Affordable"],
   },
   {
     name: "Georgia",
     flag: "ge",
     link: "/mbbs/georgia",
-    monument: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142235537.png?updatedAt=1778748810531",
     highlights: ["WHO Recognized", "English Medium", "Low Cost"],
   },
   {
     name: "Kyrgyzstan",
     flag: "kg",
     link: "/mbbs/kyrgyzstan",
-    monument: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142254461.png?updatedAt=1778748810723",
     highlights: ["NMC Approved", "Affordable Fees", "Safe Environment"],
   },
   {
     name: "Russia",
     flag: "ru",
     link: "/mbbs/russia",
-    monument: "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142244856.png?updatedAt=1778748810968",
     highlights: ["Top Rankings", "Advanced Labs", "Global Recognition"],
   },
   {
     name: "Kazakhstan",
     flag: "kz",
     link: "/mbbs/kazakhstan",
-    monument: "https://images.unsplash.com/photo-1625657799852-3d2bd008a050?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114652294.png?updatedAt=1778825819983",
     highlights: ["MCI Recognized", "Modern Infrastructure", "Low Tuition"],
   },
   {
     name: "Uzbekistan",
     flag: "uz",
     link: "/mbbs/uzbekistan",
-    monument: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114749638.png?updatedAt=1778825875602",
     highlights: ["Emerging Destination", "Quality Education", "Cultural Heritage"],
   },
   {
     name: "Vietnam",
     flag: "vn",
     link: "/mbbs/vietnam",
-    monument: "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114910639.png?updatedAt=1778825958215",
     highlights: ["WHO Listed", "Clinical Exposure", "Tropical Medicine"],
   },
 ];
@@ -134,6 +134,7 @@ const MBBSPage = () => {
         title="Study MBBS Abroad"
         subtitle="Your Gateway to a World-Class Medical Education"
         breadcrumb="MBBS Abroad"
+        backgroundImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142208533.png?updatedAt=1778748733612"
       />
 
       {/* Introduction */}
@@ -208,20 +209,26 @@ const MBBSPage = () => {
                   href={country.link}
                   className="group relative overflow-hidden rounded-2xl border border-border hover:border-accent transition-all duration-300 block"
                 >
-                  {/* Background Monument Image */}
+                  {/* Banner Monument Image */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                    style={{ backgroundImage: `url(${country.monument})` }}
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url(${country.monument})`,
+                      filter: 'brightness(1.1)',
+                      transform: country.name === 'Russia' ? 'scale(1.02) translateY(-10px)' : 'none'
+                    }}
                   />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/10 to-black/5" />
 
-                  <div className="relative p-8 bg-card/90 backdrop-blur-sm">
+                  <div className="relative p-8 pt-24 min-h-[280px] flex flex-col justify-end">
                     <div className="flex items-center gap-4 mb-4">
                       <span className={`fi fi-${country.flag} text-5xl`}></span>
                       <div>
-                        <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
+                        <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors">
                           {country.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground">MBBS Program</p>
+                        <p className="text-sm text-white/70">MBBS Program</p>
                       </div>
                     </div>
 
@@ -229,14 +236,14 @@ const MBBSPage = () => {
                       {country.highlights.map((highlight, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full"
+                          className="px-3 py-1 text-xs font-medium bg-white/20 text-white backdrop-blur-sm rounded-full"
                         >
                           {highlight}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex items-center text-accent font-medium">
+                    <div className="flex items-center text-white font-medium">
                       Explore Program
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </div>

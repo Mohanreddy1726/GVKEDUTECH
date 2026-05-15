@@ -93,7 +93,7 @@ export default function CredentialEvaluationPage() {
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
               <Image
-                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK%20Images/Blog%20Images/study-abroad-MBBS.webp"
+                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-05-14_173233996.png"
                 alt="WES Credential Evaluation"
                 fill
                 className="object-cover"

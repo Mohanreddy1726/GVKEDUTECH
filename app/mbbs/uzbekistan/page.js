@@ -16,7 +16,7 @@ const UzbekistanPage = () => {
     <CountryPageTemplate
       country="Uzbekistan"
       programType="MBBS"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/uzbekistan.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114749638.png?updatedAt=1778825875602"
       introduction="Uzbekistan is a nation in Central Asia. It is encircled by five landlocked nations: Kazakhstan toward the north; Kyrgyzstan toward the upper east; Tajikistan toward the southeast; Afghanistan toward the south and Turkmenistan toward the south-west. The capital and biggest city of Uzbekistan is Tashkent."
       climateInfo="The atmosphere in Uzbekistan broadly relates to the German climate conditions. It is cool, wet and a couple of pleasant late spring months are also occurring. A while of the year it is warm to hot at temperatures consistently over 25 degrees centigrade, at times up to 37 degrees. The best opportunity for venturing out is from May to September."
       whyChoose={[

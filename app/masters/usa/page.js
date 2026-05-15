@@ -16,7 +16,7 @@ const USAPage = () => {
     <CountryPageTemplate
       country="USA"
       programType="Masters"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/usamastersspg.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/85eb56eb-ba7e-4dfa-b0c9-d23f708d5433.png"
       introduction="The USA remains the #1 global destination for international students pursuing a Master's degree. Home to Ivy League institutions and world-renowned research universities, the US offers unparalleled academic excellence, cutting-edge technology, and exceptional career pathways. With STEM OPT extending up to 3 years post-graduation, students gain valuable work experience while building a global professional network."
       whyChoose={[
         "World-Class Universities: MIT, Stanford, Harvard, and 4,000+ institutions in QS rankings",

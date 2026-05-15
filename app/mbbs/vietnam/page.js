@@ -16,7 +16,7 @@ const VietnamPage = () => {
     <CountryPageTemplate
       country="Vietnam"
       programType="MBBS"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/Vietnam.png"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114910639.png?updatedAt=1778825958215"
       introduction="Vietnam is rapidly establishing itself as a distinguished hub for medical education, offering Indian students a compelling blend of academic excellence, affordability, and international recognition. With state-of-the-art infrastructure, English-medium programs, and a curriculum aligned with global medical standards, Vietnam presents an ideal environment for aspiring healthcare professionals."
       whyChoose={[
         "Affordable Tuition & Living Costs",

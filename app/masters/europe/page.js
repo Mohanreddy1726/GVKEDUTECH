@@ -16,7 +16,7 @@ const EuropePage = () => {
     <CountryPageTemplate
       country="Europe"
       programType="Masters"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/europeeemastergvkk.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142139625.png?updatedAt=1778748734818"
       introduction="Europe offers incredible diversity for international students seeking a Master's degree. From France's prestigious business schools to Switzerland's cutting-edge research institutions, Netherlands' tech-savvy universities to Sweden's innovative programs, Europe has something for every aspirant. With affordable tuition in many countries and access to the Schengen area, studying in Europe provides exceptional value and global career opportunities."
       whyChoose={[
         "Diverse Destinations: France, Netherlands, Sweden, Ireland, Switzerland, and more",

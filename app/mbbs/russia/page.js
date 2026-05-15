@@ -16,7 +16,7 @@ const RussiaPage = () => {
     <CountryPageTemplate
       country="Russia"
       programType="MBBS"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/russia-01.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142244856.png?updatedAt=1778748810968"
       introduction="Russia is the largest country within the world, the ninth-most populous country, also because of the most populous country in Europe. Russia, a country that stretches over an enormous expanse of eastern Europe and northern Asia. Russia may be a land of superlatives for and faraway from the world's largest country, it covers nearly twice the territory of Canada, the second largest."
       climateInfo="A past of wars and insurgency pushed the nation to advance in innovation and clinical necessities. The topographically huge regions of the nation show record outrageous temperatures in summer at a boiling 45°C to a freezing -70°C too. Russia has consistently stepped up as one of the most dynamic nations working and picking up knowledge in space."
       whyChoose={[

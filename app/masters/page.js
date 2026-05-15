@@ -32,52 +32,59 @@ export const metadata = {
 
 const mastersCountries = [
   {
-    name: "Australia",
-    flag: "au",
-    link: "/masters/australia",
-    monument: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&auto=format&fit=crop",
-    highlights: ["Post-Study Work Visa", "Top QS Rankings", "Research Focus"],
-  },
-  {
     name: "United Kingdom",
     flag: "gb",
     link: "/masters/uk",
-    monument: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142116267.png?updatedAt=1778748734939",
     highlights: ["1-Year Programs", "Global Recognition", "Graduate Route Visa"],
+  },
+  {
+    name: "Australia",
+    flag: "au",
+    link: "/masters/australia",
+    monument: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1200&auto=format&fit=crop",
+    highlights: ["Post-Study Work Visa", "Top QS Rankings", "Research Focus"],
   },
   {
     name: "USA",
     flag: "us",
     link: "/masters/usa",
-    monument: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/85eb56eb-ba7e-4dfa-b0c9-d23f708d5433.png",
     highlights: ["OPT/CPT Options", "Ivy League Access", "Research Excellence"],
+  },
+  {
+    name: "Canada",
+    flag: "ca",
+    link: "/masters/canada",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114258828.png?updatedAt=1778825585001",
+    highlights: ["PR Pathway", "Co-op Programs", "PGWP Visa"],
+  },
+  {
+    name: "New Zealand",
+    flag: "nz",
+    link: "/masters/newzealand",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_113045327.png?updatedAt=1778824851891",
+    highlights: ["Post-Study Work Visa", "Safe Destination", "Work Permit"],
   },
   {
     name: "Europe",
     flag: "eu",
     link: "/masters/europe",
-    monument: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142139625.png?updatedAt=1778748734818",
     highlights: ["Schengen Access", "Low/No Tuition", "Cultural Diversity"],
   },
   {
     name: "Germany",
     flag: "de",
     link: "/masters/germany",
-    monument: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142156365.png?updatedAt=1778748734891",
     highlights: ["Free Education", "Engineering Hub", "Work Permit"],
-  },
-  {
-    name: "Canada",
-    flag: "ca",
-    link: "/masters/canada",
-    monument: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=800&auto=format&fit=crop",
-    highlights: ["PR Pathway", "Co-op Programs", "PGWP Visa"],
   },
   {
     name: "Ireland",
     flag: "ie",
     link: "/masters/ireland",
-    monument: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&auto=format&fit=crop",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114053196.png?updatedAt=1778825459744",
     highlights: ["Tech Hub", "Stay Back Option", "English Speaking"],
   },
 ];
@@ -122,6 +129,7 @@ const MastersPage = () => {
         title="Study Masters Abroad"
         subtitle="Elevate Your Career with a Global Postgraduate Degree"
         breadcrumb="Masters Abroad"
+        backgroundImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142046960.png?updatedAt=1778748651708"
       />
 
       {/* Introduction */}
@@ -207,20 +215,25 @@ const MastersPage = () => {
                   href={country.link}
                   className="group relative overflow-hidden rounded-2xl border border-border hover:border-primary transition-all duration-300 block"
                 >
-                  {/* Background Monument Image */}
+                  {/* Banner Monument Image */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                    style={{ backgroundImage: `url(${country.monument})` }}
+                    className="absolute inset-0 bg-cover"
+                    style={{
+                      backgroundImage: `url(${country.monument})`,
+                      filter: 'brightness(1.1)',
+                    }}
                   />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/10 to-black/5" />
 
-                  <div className="relative p-8 bg-card/90 backdrop-blur-sm">
+                  <div className="relative p-8 pt-24 min-h-[280px] flex flex-col justify-end">
                     <div className="flex items-center gap-4 mb-4">
                       <span className={`fi fi-${country.flag} text-5xl`}></span>
                       <div>
-                        <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
                           {country.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground">Masters Program</p>
+                        <p className="text-sm text-white/70">Masters Program</p>
                       </div>
                     </div>
 
@@ -228,14 +241,14 @@ const MastersPage = () => {
                       {country.highlights.map((highlight, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                          className="px-3 py-1 text-xs font-medium bg-white/20 text-white backdrop-blur-sm rounded-full"
                         >
                           {highlight}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex items-center text-primary font-medium">
+                    <div className="flex items-center text-white font-medium">
                       Explore Program
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </div>

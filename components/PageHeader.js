@@ -14,9 +14,10 @@ export const PageHeader = ({ title, breadcrumbs, breadcrumb, subtitle, backgroun
     <section
       className="relative py-24 bg-gradient-to-br from-primary via-primary/95 to-secondary overflow-hidden"
       style={backgroundImage ? {
-        backgroundImage: `linear-gradient(to bottom right, hsla(var(--primary) / 0.9), hsla(var(--secondary) / 0.85)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(to bottom right, hsla(var(--primary) / 0.3), hsla(var(--secondary) / 0.25)), url(${backgroundImage})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundPosition: 'center',
+        filter: 'brightness(1.1)'
       } : undefined}
     >
       {/* Decorative elements */}

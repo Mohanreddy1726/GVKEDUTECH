@@ -16,7 +16,7 @@ const NepalPage = () => {
     <CountryPageTemplate
       country="Nepal"
       programType="MBBS"
-      heroImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&auto=format&fit=crop"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142225739.png?updatedAt=1778748808091"
       introduction="Nepal has emerged as a preferred destination for Indian students seeking quality medical education at affordable costs. With its geographical proximity to India, cultural similarities, and English-medium MBBS programs recognized by NMC and WHO, Nepal offers an ideal environment for aspiring doctors. The country features modern medical colleges equipped with state-of-the-art infrastructure and extensive clinical training opportunities."
       whyChoose={[
         "Geographical Proximity: Easy travel between India and Nepal with no timezone difference",

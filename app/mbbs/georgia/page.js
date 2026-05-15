@@ -16,7 +16,7 @@ const GeorgiaPage = () => {
     <CountryPageTemplate
       country="Georgia"
       programType="MBBS"
-      heroImage="https://gvkedutech.com/site/assets/images/countries/georgia-01.jpg"
+      heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142235537.png?updatedAt=1778748810531"
       introduction="The capital of Georgia is Tbilisi (Tiflis). The climatic condition is quite pleasant due to the presence of the Black Sea and the large Mountain range. The students can be stress-free because of the suitable environment and resulting quality education with the encouragement of social skills and pleasant personality. The country has a rich historical aspect and was home to several independent kingdoms during classical times."
       climateInfo="The atmosphere of Georgia is a muggy subtropical atmosphere with a large portion of the state having short, gentle winters and long, sweltering summers. The Atlantic Ocean on the east bank of Georgia and the slope nation in the north affect the state's atmosphere. Summer daytime temperatures in Georgia often outperform 95 °F (35 °C)."
       whyChoose={[

@@ -252,8 +252,8 @@ const ContactPage = () => {
                   <div className="absolute bottom-4 left-4">
                     <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
                       office.type === "Head Office"
-                        ? "bg-accent text-white"
-                        : "bg-primary/20 text-primary"
+                        ? "bg-[#FF0008] text-white"
+                        : "bg-[#253775] text-white"
                     }`}>
                       {office.type}
                     </span>
@@ -266,26 +266,27 @@ const ContactPage = () => {
                   </h3>
 
                   {office.regionalDirector && (
-                    <div className="mb-4 p-3 bg-accent/10 rounded-lg">
-                      <p className="text-xs text-muted-foreground mb-1">Regional Director</p>
+                    <div className="mb-4 p-3 rounded-lg" style={{ background: office.type === "Head Office" ? "rgba(255,0,8,0.1)" : "rgba(37,55,117,0.1)" }}>
+                      <p className="text-xs text-muted-foreground mb-1">{office.type === "Head Office" ? "Director" : "Regional Director"}</p>
                       <p className="font-semibold text-foreground text-sm">{office.regionalDirector}</p>
-                      <p className="text-xs text-accent">{office.qualification}</p>
+                      <p className="text-xs" style={{ color: office.type === "Head Office" ? "#FF0008" : "#253775" }}>{office.qualification}</p>
                     </div>
                   )}
 
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start gap-3">
-                      <MapPin className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
+                      <MapPin className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: office.type === "Head Office" ? "#FF0008" : "#253775" }} />
                       <p className="text-muted-foreground line-clamp-2">{office.address}</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Phone className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
+                      <Phone className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: office.type === "Head Office" ? "#FF0008" : "#253775" }} />
                       <div className="text-muted-foreground">
                         {office.phones.map((phone, idx) => (
                           <a
                             key={idx}
                             href={`tel:${phone.replace(/\s/g, "")}`}
-                            className="hover:text-accent transition-colors block"
+                            className="hover:underline block"
+                            style={{ color: office.type === "Head Office" ? "#FF0008" : "#253775" }}
                           >
                             {phone}
                           </a>
@@ -299,14 +300,16 @@ const ContactPage = () => {
                       href={office.mapLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-accent font-medium text-sm hover:underline"
+                      className="inline-flex items-center font-medium text-sm hover:underline"
+                      style={{ color: office.type === "Head Office" ? "#FF0008" : "#253775" }}
                     >
                       <MapPin className="w-4 h-4 mr-1" />
                       View on Maps
                     </a>
                     <Link
                       href={`/branches/${office.city.toLowerCase()}`}
-                      className="inline-flex items-center text-primary font-medium text-sm hover:underline"
+                      className="inline-flex items-center font-medium text-sm hover:underline"
+                      style={{ color: office.type === "Head Office" ? "#FF0008" : "#253775" }}
                     >
                       View Details →
                     </Link>

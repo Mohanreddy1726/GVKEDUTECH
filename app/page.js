@@ -10,7 +10,7 @@ import { WhyBest } from "@/components/WhyBest";
 import { Founder } from "@/components/Founder";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { FloatingButtons } from "@/components/FloatingButtons";
 import { VideoTestimonials } from "@/components/VideoTestimonials";
 
 export const metadata = {
@@ -57,7 +57,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
+      <FloatingButtons />
     </div>
   );
 }
