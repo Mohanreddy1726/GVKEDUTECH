@@ -514,12 +514,13 @@ const AboutPage = () => {
 
   /* ── Achievement data (with optional achievement photos) ── */
   const founderAchievements = [
-    { title: "Pioneer in Overseas Medical Education – India", year: "2023", body: "Honored by the Federation of Indian Medical Education Consultants for establishing one of the earliest MBBS-abroad counseling networks in Telangana." },
-    { title: "Best Foreign Medical Graduate Mentor Award", year: "2022", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS in Russia and Eastern Europe." },
-    { title: "Excellence in Healthcare Education Leadership", year: "2021", body: "Awarded by the Telangana State Medical Education Forum for 15+ years of dedication to accessible overseas medical education for students from Andhra Pradesh & Telangana." },
+    { title: "Best Doctor Award – Telangana (6 Times Consecutive)", year: "2016-2021", body: "Recognized consecutively for 6 years as the Best Doctor in Telangana for outstanding contributions to medical education and patient care." },
+    { title: "Best Foreign Medical Graduate Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS in Russia and Eastern Europe." },
+    { title: "Excellence in Healthcare Education Leadership", year: "2025", body: "Awarded by the Telangana State Medical Education Forum for 15+ years of dedication to accessible overseas medical education for students from Andhra Pradesh & Telangana." },
   ];
 
   const vidyaAchievements = [
+    { title: "Appointed as Vice Dean for International Affairs – Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan, overseeing student welfare and academic coordination." },
     { title: "Young Entrepreneur Awardee", year: "2022", body: "Recognized for outstanding entrepreneurship in the education consultancy sector at a prestigious ceremony in Dubai." },
     { title: "Partner Appreciation Award", year: "2023", body: "Honored by international university partners for excellence in student placement and service quality in New Delhi." },
     { title: "G-20 Summit Global Icon Award", year: "2024", body: "Awarded for contributions to international education and student welfare at the G-20 Summit in Sri Lanka." },
@@ -675,7 +676,7 @@ const AboutPage = () => {
             <p className="text-muted-foreground mt-4 text-sm tracking-widest uppercase font-medium">Vice-Dean · MBBS Programs</p>
           </div>
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-5"
                 style={{ background: "linear-gradient(90deg, hsl(var(--primary)/0.12), hsl(var(--accent)/0.12))", color: "hsl(var(--accent))", border: "1px solid hsl(var(--accent)/0.25)" }}>
                 Director &amp; Vice-Dean
@@ -709,7 +710,7 @@ const AboutPage = () => {
                 ]}
               />
             </div>
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end order-1 lg:order-2">
               <FramedPhoto
                 src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0025.PNG"
                 alt="Dr. G. Vidya Kumar"
