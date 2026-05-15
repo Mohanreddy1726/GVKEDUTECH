@@ -43,8 +43,8 @@ const slides = [
       { flag: "ru", label: "Russia" },
       { flag: "kz", label: "Kazakhstan" },
       { flag: "ge", label: "Georgia" },
-      { flag: "bd", label: "Bangladesh" },
-      { flag: "cn", label: "China" },
+      { flag: "np", label: "Nepal" },
+      { flag: "uz", label: "Uzbekisthan" },
     ],
     centerCards: [
       { icon: Shield,     label: "Recognition",    value: "NMC / WHO",    accent: RED  },
@@ -56,7 +56,8 @@ const slides = [
       "Russia · 6 Years · ₹20–30L Total",
       "Kazakhstan · 5 Years · ₹22–28L Total",
       "Georgia · 6 Years · ₹25–32L Total",
-      "Bangladesh · 5 Years · ₹18–24L Total",
+      "Nepal · 6 Years · ₹20–25L Total",
+      "Uzbekisthan · 5 Years · ₹18–24L Total",
     ],
     awards: [
       { icon: "Trophy",  title: "Young Entrepreneur",        sub: "Dubai · 2022",       accent: RED,  pos: "tl" },
