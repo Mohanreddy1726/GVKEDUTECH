@@ -134,7 +134,7 @@ const MBBSPage = () => {
         title="Study MBBS Abroad"
         subtitle="Your Gateway to a World-Class Medical Education"
         breadcrumb="MBBS Abroad"
-        backgroundImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142208533.png?updatedAt=1778748733612"
+        backgroundImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/mbbs.png?updatedAt=1778841973678"
       />
 
       {/* Introduction */}
