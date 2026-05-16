@@ -69,14 +69,14 @@ const EuropePage = () => {
         "Industry Sponsorships",
       ]}
       universities={[
-        { name: "ETH Zurich (Switzerland)" },
-        { name: "University of Amsterdam (Netherlands)" },
-        { name: "Sciences Po (France)" },
-        { name: "Uppsala University (Sweden)" },
-        { name: "Trinity College Dublin (Ireland)" },
-        { name: "Charles University (Czech Republic)" },
-        { name: "University of Pécs (Hungary)" },
-        { name: "University of Bologna (Italy)" },
+        { name: "ETH Zurich (Switzerland)", website: "https://ethz.ch" },
+        { name: "University of Amsterdam (Netherlands)", website: "https://uva.nl" },
+        { name: "Sciences Po (France)", website: "https://sciencespo.fr" },
+        { name: "Uppsala University (Sweden)", website: "https://uu.se" },
+        { name: "Trinity College Dublin (Ireland)", website: "https://tcd.ie" },
+        { name: "Charles University (Czech Republic)", website: "https://cuni.cz" },
+        { name: "University of Pécs (Hungary)", website: "https://pte.hu" },
+        { name: "University of Bologna (Italy)", website: "https://unibo.it" },
       ]}
     />
   );

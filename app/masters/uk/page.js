@@ -64,14 +64,14 @@ const UKPage = () => {
         "Research Council Funding",
       ]}
       universities={[
-        { name: "University of Oxford" },
-        { name: "University of Cambridge" },
-        { name: "Imperial College London" },
-        { name: "University College London (UCL)" },
-        { name: "London School of Economics (LSE)" },
-        { name: "University of Edinburgh" },
-        { name: "University of Manchester" },
-        { name: "King's College London" },
+        { name: "University of Oxford", website: "https://ox.ac.uk", logo: "https://www.ox.ac.uk/themes/custom/numiko/dist/oxford-logo-DzIWfeXH.svg" },
+        { name: "University of Cambridge", website: "https://cam.ac.uk", logo: "https://www.cam.ac.uk/sites/all/themes/fresh/images/interface/cambridge_university2.svg" },
+        { name: "Imperial College London", website: "https://imperial.ac.uk" },
+        { name: "University College London (UCL)", website: "https://ucl.ac.uk" },
+        { name: "London School of Economics (LSE)", website: "https://lse.ac.uk" },
+        { name: "University of Edinburgh", website: "https://www.ed.ac.uk", logo: "https://www.ed.ac.uk/themes/upstream/wpp_theme/images/logo.png" },
+        { name: "University of Manchester", website: "https://manchester.ac.uk" },
+        { name: "King's College London", website: "https://kcl.ac.uk" },
       ]}
     />
   );

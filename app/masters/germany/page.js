@@ -67,14 +67,14 @@ const GermanyPage = () => {
         "Industry Sponsorships",
       ]}
       universities={[
-        { name: "Technical University of Munich" },
-        { name: "LMU Munich" },
-        { name: "Heidelberg University" },
-        { name: "RWTH Aachen University" },
-        { name: "Humboldt University of Berlin" },
-        { name: "University of Freiburg" },
-        { name: "University of Göttingen" },
-        { name: "Karlsruhe Institute of Technology" },
+        { name: "Technical University of Munich", website: "https://tum.de" },
+        { name: "LMU Munich", website: "https://lmu.de" },
+        { name: "Heidelberg University", website: "https://uni-heidelberg.de" },
+        { name: "RWTH Aachen University", website: "https://rwth-aachen.de" },
+        { name: "Humboldt University of Berlin", website: "https://hu-berlin.de" },
+        { name: "University of Freiburg", website: "https://uni-freiburg.de" },
+        { name: "University of Göttingen", website: "https://uni-goettingen.de" },
+        { name: "Karlsruhe Institute of Technology", website: "https://kit.edu" },
       ]}
     />
   );

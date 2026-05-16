@@ -35,7 +35,7 @@ const slides = [
     hl: 2,                             /* which line gets the RED accent */
     sub: "Study MBBS at NMC/WHO-approved universities across Russia, Kazakhstan & Europe — zero donation, English medium, complete support from day one.",
     photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0025.PNG",
-    photoName: "Dr. G. Vidya Kumar",
+    photoName: "Dr. G. Vidya Kumar (GVK)",
     photoRole: "Vice-Dean · MBBS Programs",
     photoQuote: "Every student deserves world-class medical education. We make it possible.",
     features: ["NMC / WHO Approved", "No Donation Fee", "English Medium", "Hostel Included"],
@@ -73,7 +73,7 @@ const slides = [
     hl: 2,
     sub: "Pursue MBA, MS and postgraduate programs at top-ranked universities in the UK, USA, Europe & Asia — scholarship guidance and visa support at every step.",
     photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0027.PNG",
-    photoName: "Dr. G. Vinod Kumar",
+    photoName: "Dr. G. Vinod Kumar (GVK) ",
     photoRole: "CEO · Masters & Global Programs",
     photoQuote: "International education transformed my life. Let it transform yours too.",
     features: ["Scholarship Support", "100+ Universities", "IELTS / GRE Help", "Visa Guidance"],
@@ -109,15 +109,15 @@ const slides = [
 const branches = [
   { label: "Hyderabad",     href: "/branches/hyderabad",      flag: "in" },
   { label: "Warangal",      href: "/branches/warangal",       flag: "in" },
-  { label: "Visakhapatnam", href: "/branches/visakhapatnam",  flag: "in" },
-  { label: "Vijayawada",    href: "/branches/vijayawada",     flag: "in" },
   { label: "Karimnagar",    href: "/branches/karimnagar",     flag: "in" },
-  { label: "Nellore",       href: "/branches/nellore",        flag: "in" },
-  { label: "Suryapet",      href: "/branches/suryapet",       flag: "in" },
   { label: "Chennai",       href: "/branches/chennai",        flag: "in" },
-  { label: "Tirupati",      href: "/branches/tirupati",       flag: "in" },
+  { label: "Vijayawada",    href: "/branches/vijayawada",     flag: "in" },
   { label: "Nalgonda",      href: "/branches/nalgonda",       flag: "in" },
   { label: "Bangalore",     href: "/branches/bangalore",      flag: "in" },
+  { label: "Visakhapatnam", href: "/branches/visakhapatnam",  flag: "in" },
+  { label: "Suryapet",      href: "/branches/suryapet",       flag: "in" },
+  { label: "Nellore",       href: "/branches/nellore",        flag: "in" },
+  { label: "Tirupati",      href: "/branches/tirupati",       flag: "in" },
 ];
 
 function useInterval(fn, delay, paused) {

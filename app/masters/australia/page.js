@@ -63,14 +63,14 @@ const AustraliaPage = () => {
         "Part-time Work Opportunities",
       ]}
       universities={[
-        { name: "University of Melbourne" },
-        { name: "Australian National University (ANU)" },
-        { name: "University of Sydney" },
-        { name: "University of New South Wales (UNSW)" },
-        { name: "University of Queensland" },
-        { name: "Monash University" },
-        { name: "University of Adelaide" },
-        { name: "University of Technology Sydney (UTS)" },
+        { name: "University of Melbourne", website: "https://unimelb.edu.au" },
+        { name: "Australian National University (ANU)", website: "https://anu.edu.au" },
+        { name: "University of Sydney", website: "https://sydney.edu.au" },
+        { name: "University of New South Wales (UNSW)", website: "https://unsw.edu.au" },
+        { name: "University of Queensland", website: "https://uq.edu.au" },
+        { name: "Monash University", website: "https://monash.edu" },
+        { name: "University of Adelaide", website: "https://adelaide.edu.au" },
+        { name: "University of Technology Sydney (UTS)", website: "https://uts.edu.au" },
       ]}
     />
   );

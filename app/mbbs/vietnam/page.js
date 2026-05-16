@@ -62,13 +62,13 @@ const VietnamPage = () => {
         clinical: ["Medicine", "Surgery", "OB-GYN", "Paediatrics", "Psychiatry", "Radiology"],
       }}
       universities={[
-        { name: "Hanoi Medical University (HMU)" },
-        { name: "University of Medicine and Pharmacy at HCMC" },
-        { name: "Hue University of Medicine and Pharmacy" },
-        { name: "Can Tho University of Medicine and Pharmacy" },
-        { name: "Thai Nguyen University of Medicine and Pharmacy" },
-        { name: "Hai Phong University of Medicine and Pharmacy" },
-        { name: "Pham Ngoc Thach University of Medicine" },
+        { name: "Hanoi Medical University (HMU)", website: "https://hmu.edu.vn", logo: "https://hmu.edu.vn/assets/img/Logoo.png" },
+        { name: "University of Medicine and Pharmacy at HCMC", website: "https://ump.edu.vn", logo: "https://scontent.fhyd14-3.fna.fbcdn.net/v/t39.30808-1/500656416_1758237908319198_3989486668577267209_n.png?stp=dst-png_s200x200&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=xRWZjAeunMsQ7kNvwGOE-ay&_nc_oc=AdryYc5mRUH_dh8GrkXsFZMRtkZsOtu3NnHsIk-Rtht69hw88PkY_sQHuVD1o31szqipH2NrKa4VCvBu5TVOp7BK&_nc_zt=24&_nc_ht=scontent.fhyd14-3.fna&_nc_gid=70QkkKu88bYby8mqnhnzbw&_nc_ss=7b2a8&oh=00_Af6XvwEgTrhpZdoFvv-TxR5p7voVT3BrlV1pUZMX2MKt-w&oe=6A0E1B5E" },
+        { name: "Hue University of Medicine and Pharmacy", website: "https://old.huemed-univ.edu.vn/en/", logo: "https://old.huemed-univ.edu.vn/en/images/logo.png" },
+        { name: "Can Tho University of Medicine and Pharmacy", website: "https://ctump.edu.vn", logo: "https://media.ctump.edu.vn/Media/1_TH1076/FolderFunc/202403/Images/logo-ctump-headee-20240325094834-e.png" },
+        { name: "Thai Nguyen University of Medicine and Pharmacy", website: "https://en.tump.edu.vn", logo: "https://en.tump.edu.vn/public/frontend/images/logo.png" },
+        { name: "Hai Phong University of Medicine and Pharmacy", website: "https://hpmu.edu.vn", logo: "https://hpmu.edu.vn/hpmu/images/hpmu_1.png" },
+        { name: "Pham Ngoc Thach University of Medicine", website: "https://pnt.edu.vn", logo: "https://pnt.edu.vn/Resources/Images/Subdomain/HomePage/logo/logo.png" },
       ]}
       faqs={[
         { question: "Is a medical degree from Vietnam recognised in India and abroad?", answer: "Yes. MBBS degrees from Vietnamese universities partnered with GVK Edutech are recognised by the NMC, WHO, and FAIMER. Graduates are eligible to appear for FMGE/NExT in India and can practice globally." },

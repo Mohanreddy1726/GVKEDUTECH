@@ -63,15 +63,14 @@ const IrelandPage = () => {
         "Industry-Sponsored Scholarships",
       ]}
       universities={[
-        { name: "Trinity College Dublin" },
-        { name: "University College Dublin" },
-        { name: "National University of Ireland Galway" },
-        { name: "University College Cork" },
-        { name: "Dublin City University" },
-        { name: "Technological University Dublin" },
-        { name: "Maynooth University" },
-        { name: "RCSI University of Medicine",
-          isMedical: true },
+        { name: "Trinity College Dublin", website: "https://tcd.ie" },
+        { name: "University College Dublin", website: "https://ucd.ie" },
+        { name: "National University of Ireland Galway", website: "https://nuigalway.ie" },
+        { name: "University College Cork", website: "https://ucc.ie" },
+        { name: "Dublin City University", website: "https://dcu.ie" },
+        { name: "Technological University Dublin", website: "https://tudublin.ie" },
+        { name: "Maynooth University", website: "https://mu.ie" },
+        { name: "RCSI University of Medicine", website: "https://rcsi.com", isMedical: true },
       ]}
     />
   );

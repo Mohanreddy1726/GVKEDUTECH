@@ -63,14 +63,14 @@ const CanadaPage = () => {
         "Indian Student Assistance Program",
       ]}
       universities={[
-        { name: "University of Toronto" },
-        { name: "University of British Columbia" },
-        { name: "McGill University" },
-        { name: "University of Alberta" },
-        { name: "University of Waterloo" },
-        { name: "Western University" },
-        { name: "Queen's University" },
-        { name: "Simon Fraser University" },
+        { name: "University of Toronto", website: "https://utoronto.ca" },
+        { name: "University of British Columbia", website: "https://ubc.ca" },
+        { name: "McGill University", website: "https://mcgill.ca" },
+        { name: "University of Alberta", website: "https://ualberta.ca" },
+        { name: "University of Waterloo", website: "https://uwaterloo.ca" },
+        { name: "Western University", website: "https://westernu.ca" },
+        { name: "Queen's University", website: "https://queensu.ca" },
+        { name: "Simon Fraser University", website: "https://sfu.ca" },
       ]}
     />
   );

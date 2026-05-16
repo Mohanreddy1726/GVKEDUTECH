@@ -61,17 +61,14 @@ const KyrgyzstanPage = () => {
         clinical: ["General Medicine", "Surgery", "Paediatrics", "OBG", "Psychiatry", "Radiology", "Ophthalmology", "Orthopaedics", "Dermatology"],
       }}
       universities={[
-        { name: "IHSM Central Campus" },
-        { name: "IHSM Issyk-Kul Campus" },
-        { name: "International Medical University" },
-        { name: "Jalal-Abad State University" },
-        { name: "Kyrgyz National University" },
-        { name: "Kyrgyz-Russian Slavic University" },
-        { name: "Kyrgyz State Medical Academy" },
-        { name: "Osh International Medical University" },
-        { name: "Osh State University" },
-        { name: "S. Tentishev Asian Medical Institute" },
-        { name: "University Of South Asia" },
+        { name: "IHSM Central Campus", website: "https://ism.edu.kg", logo: "https://static.tildacdn.one/tild3636-3838-4231-a632-613135383739/EN.svg" },
+        { name: "IHSM Issyk-Kul Campus", website: "https://ism.edu.kg", logo: "https://static.tildacdn.one/tild3636-3838-4231-a632-613135383739/EN.svg" },
+        { name: "International Medical University", website: "https://imu.edu.kg", logo: "https://imu.edu.kg/uploads/settings/17677111306185.svg" },
+        { name: "Jalal-Abad State University", website: "https://jasu.kg/wp-content/uploads/2021/04/jasu-logo-mobile.png" },
+        { name: "Kyrgyz National University", website: "https://www.knu.kg/ky/", logo: "https://scontent.fhyd14-4.fna.fbcdn.net/v/t39.30808-1/417439204_122106029996208460_7823921655215276121_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=111fe6&_nc_ohc=uMPKQCj6xykQ7kNvwEBN6PH&_nc_oc=Adp1Um1F9W1FTMTc30HwalXmOBNWIlnHO9tCkC2Ya6PZ605qtindUnZBJfaK2oCwmSbJ6CkjXEk8KyB_PPfMV-4n&_nc_zt=24&_nc_ht=scontent.fhyd14-4.fna&_nc_gid=nrbyUuTb8qFh6knyv7ykcg&_nc_ss=782a8&oh=00_Af6sFk7htD6GrL_ytJvYYjxXMX7cjpSevUrwIw5WouqzvA&oe=6A0E1A1D" },
+        { name: "Kyrgyz-Russian Slavic University", website: "https://krsmu.edu.kg", logo: "KRSU" },
+        { name: "Kyrgyz State Medical Academy", website: "https://ksma.edu.kg", logo: "https://ksma.edu.kg/images/icons/kgma_logo.png?v=2" },
+        { name: "Osh International Medical University", website: "https://oimu.kg/en", logo: "https://oimu.kg/imf/assets/img/logo/logo_1.png" },
       ]}
       faqs={[
         { question: "Is MBBS from Kyrgyzstan valid in India?", answer: "Yes. The degree is valid for FMGE/NExT and global practice. Universities are approved by NMC, WHO, and FAIMER." },

@@ -63,16 +63,14 @@ const KazakhstanPage = () => {
         clinical: ["Internal Medicine", "Surgery", "Paediatrics", "Gynaecology", "Psychiatry", "Dermatology", "Radiology"],
       }}
       universities={[
-        { name: "Al-Farabi Kazakh National University" },
-        { name: "Asfendiyarov Kazakh National University" },
-        { name: "Caspian International School of Medicine" },
-        { name: "Karaganda Medical University" },
-        { name: "Kazakh-Russian Medical University" },
-        { name: "Astana Medical University" },
-        { name: "Semey Medical University" },
-        { name: "Kokshetau State University" },
-        { name: "South Kazakhstan Medical Academy" },
-        { name: "West Kazakhstan Medical University" },
+        { name: "Al-Farabi Kazakh National University", website: "https://farabi.university/?lang=en", logo: "https://farabi.university/front/assets/img/icons/logonew1.png" },
+        { name: "Asfendiyarov Kazakh National University", website: "https://kaznmu.in", logo: "https://kaznmu.in/images/logo.png" },
+        { name: "Caspian International School of Medicine", website: "https://caspianuniversity.com", logo: "https://caspianuniversity.com/assets/img/logo-top.webp" },
+        { name: "Karaganda Medical University", website: "https://qmu.edu.kz/en/", logo: "https://qmu.edu.kz/local/templates/university/images/logo.png" },
+        { name: "Kazakh-Russian Medical University", website: "https://www.rmcedu.com/mbbs-abroad/mbbs-in-kazakhstan/kazakh-russian-medical-university/", logo: "https://www.rmcedu.com/_next/image/?url=%2Flogo.png&w=256&q=75" },
+        { name: "Astana Medical University", website: "https://www.astanamedicaluniversity.com", logo: "https://www.astanamedicaluniversity.com/wp-content/uploads/2018/08/astana-logo.png" },
+        { name: "Semey Medical University", website: "https://smu.edu.kz/en/", logo: "https://smu.edu.kz/wp-content/uploads/2025/06/new130new-logo.png" },
+        { name: "Kokshetau State University", website: "https://kokshetau.edu.kz", logo: "https://via.placeholder.com/128x128/8e24aa/ffffff?text=KSU" },
       ]}
       faqs={[
         { question: "Is your MBBS degree from Kazakhstan valid worldwide and approved in India?", answer: "Yes, all degrees are accredited by NMC, WHO, and FAIMER. Graduates are eligible for FMGE/NExT in India and can work globally." },

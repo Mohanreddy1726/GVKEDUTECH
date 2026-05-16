@@ -622,7 +622,7 @@ const AboutPage = () => {
                 Founder
               </div>
               <h3 className="text-3xl font-bold text-foreground mb-1">Dr. G. VIJAY KUMAR (GVK)</h3>
-              <p className="text-muted-foreground text-sm mb-6 font-medium">MBBS (India) · MS Ophthalmology  (India)</p>
+              <p className="text-muted-foreground text-sm mb-6 font-medium">MBBS (Osmania University) · MS Ophthalmology  (Osmania University)</p>
 
               {/* Tabbed content with Message + Achievements */}
               <TabbedContent

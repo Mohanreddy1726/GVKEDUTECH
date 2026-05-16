@@ -43,19 +43,14 @@ const UzbekistanPage = () => {
       ]}
       careerOpportunities="Students who are eligible can check the postgraduate options after acquiring the MBBS degree from Uzbekistan. Indian students can check the eligibility criteria for doing PG courses from India also from foreign Universities after getting the MBBS degree from Uzbekistan University. On completion of the course from MCI approved University in Uzbekistan, Indian students can practice in India. If you're keen on Uzbekistan and need to settle here, you can practice in Uzbekistan after completing your MBBS course."
       universities={[
-        { name: "Asia International University" },
-        { name: "Andijan State Medical Institute" },
-        { name: "Bukhara State Medical Institute" },
-        { name: "Fergana Medical Institute of Public Health" },
-        { name: "Karakalpakstan Medical Institute" },
-        { name: "Namangan State University" },
-        { name: "Samarkand State Medical University" },
-        { name: "Tashkent Medical Academy, Tashkent" },
-        { name: "Tashkent Medical Academy, Chirchiq" },
-        { name: "Tashkent Medical Academy, Termez" },
-        { name: "Tashkent Medical Academy, Urgench" },
-        { name: "Tashkent Pediatric Medical Institute" },
-        { name: "Tashkent State Dental Institute" },
+        { name: "Asia International University", website: "https://aiu.uz", logo: "https://aiu.uz/logo_aiu.svg" },
+        { name: "Andijan State Medical Institute", website: "https://adti.uz", logo: "https://adti.uz/templates/adti/images/logo.png" },
+        { name: "Bukhara State Medical Institute", website: "https://bukharasmi.com", logo: "https://bukharasmi.com/wp-content/uploads/2024/10/Bukhara-Medical-University-Logo-300x77-1.webp" },
+        { name: "Fergana Medical Institute of Public Health", website: "https://fergana.uz", logo: "https://scontent.fhyd14-5.fna.fbcdn.net/v/t39.30808-1/474490802_1053742276782670_3531863839564651044_n.jpg?stp=c300.0.1448.1448a_dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=jBTuHHizFz4Q7kNvwEC9aTp&_nc_oc=Adp7z1fi6mTwQlrcX2FoOU3bEf9shHoepxzVQUv4Q_EhKp7985ucJXDmudu-JGIGfs53gPw9gCgFN-XNveZ_TqEw&_nc_zt=24&_nc_ht=scontent.fhyd14-5.fna&_nc_gid=mt4xfXloApSVQ36AkMxtyw&_nc_ss=7b2a8&oh=00_Af6gyFHAlvhnEQzRMRu1XZmHgKvWUhCz7AM65JU2UFjo_g&oe=6A0E389C" },
+        { name: "Karakalpakstan Medical Institute", website: "https://kkmi.uz", logo: "https://kkmi.uz/wp-content/uploads/2024/06/cropped-logo_qmi_2-1.png" },
+        { name: "Namangan State University", website: "https://namdu.uz", logo: "https://namdu.uz/media/settings/main/2024/02/01/logo-200x200.png" },
+        { name: "Samarkand State Medical University", website: "https://samarkand.uz", logo: "https://samarkand.uz/templates/dreamzero/img/gerb-flag.png" },
+        { name: "Tashkent Medical Academy", website: "https://tsmu.co.in", logo: "https://www.tsmu.co.in/assets/logo-DZCgxLn-.png" },
       ]}
     />
   );

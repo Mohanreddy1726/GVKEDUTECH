@@ -63,14 +63,14 @@ const NewZealandPage = () => {
         "Research Council Funding",
       ]}
       universities={[
-        { name: "University of Auckland" },
-        { name: "University of Otago" },
-        { name: "Victoria University of Wellington" },
-        { name: "University of Canterbury" },
-        { name: "Auckland University of Technology" },
-        { name: "Massey University" },
-        { name: "Lincoln University" },
-        { name: "University of Waikato" },
+        { name: "University of Auckland", website: "https://auckland.ac.nz" },
+        { name: "University of Otago", website: "https://otago.ac.nz" },
+        { name: "Victoria University of Wellington", website: "https://wellington.ac.nz" },
+        { name: "University of Canterbury", website: "https://canterbury.ac.nz" },
+        { name: "Auckland University of Technology", website: "https://aut.ac.nz" },
+        { name: "Massey University", website: "https://massey.ac.nz" },
+        { name: "Lincoln University", website: "https://lincoln.ac.nz" },
+        { name: "University of Waikato", website: "https://waikato.ac.nz" },
       ]}
     />
   );

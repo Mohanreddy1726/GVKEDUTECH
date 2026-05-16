@@ -42,30 +42,14 @@ const GeorgiaPage = () => {
       ]}
       careerOpportunities="Away from the admission processes in India, seeking quality education in Georgia is easy where you get an opportunity to learn the most. Georgia is equipped with cutting-edge technology which gives students all the practical knowledge. A degree from the recognized University can be highly useful for your growth of the career you always dreamt of."
       universities={[
-        { name: "Akaki Tsereteli State University" },
-        { name: "Alte University School of Medicine" },
-        { name: "Avicenna - Batumi Medical University" },
-        { name: "Batumi Shota Rustaveli State University" },
-        { name: "BAU International University" },
-        { name: "Caucasus International University (CIU)" },
-        { name: "Caucasus University (CU)" },
-        { name: "Central University of Europe, Kutaisi" },
-        { name: "Central University of Europe, Tbilisi" },
-        { name: "David Tvildiani Medical University (DTMU)" },
-        { name: "East European University (EEU)" },
-        { name: "East-West University (EWU)" },
-        { name: "European University (EU)" },
-        { name: "Geomedi University" },
-        { name: "Georgian American University (GAU)" },
-        { name: "Georgian National University (SEU)" },
-        { name: "Grigol Robakidze University" },
-        { name: "International Black Sea University" },
-        { name: "Ilia State University" },
-        { name: "Ivane Javakhishvili Tbilisi State University" },
-        { name: "New Vision University" },
-        { name: "Petre Shotadze Tbilisi Medical Academy" },
-        { name: "Tbilisi State Medical University (TSMU)" },
-        { name: "University of Georgia (UG)" },
+        { name: "Akaki Tsereteli State University", website: "https://atsu.edu.ge", logo: "https://atsu.edu.ge/assets/images/logo_loading.png" },
+        { name: "Alte University School of Medicine", website: "https://alte.edu.ge", logo: "https://alte.edu.ge/_next/static/media/white-logo.4d7e8794.svg" },
+        { name: "Avicenna - Batumi Medical University", website: "https://avicenna.edu.ge", logo: "https://www.avicenna.edu.ge/images/logo-ge.png" },
+        { name: "Batumi Shota Rustaveli State University", website: "https://bsu.edu.ge", logo: "https://bsu.edu.ge/images/logo.png" },
+        { name: "BAU International University", website: "https://bau.edu.ge", logo: "https://bau.edu.ge/wp-content/uploads/2024/07/logo.png" },
+        { name: "Caucasus International University (CIU)", website: "https://ciu.edu.ge", logo: "https://admin.ciu.edu.ge/uploads/ciu_logo_dfbc4c5b14.svg" },
+        { name: "Caucasus University (CU)", website: "https://cu.edu.ge", logo: "https://cu.edu.ge/files/gallery/2024/SLIDER/For%20Web%20-.png" },
+        { name: "Central University of Europe, Kutaisi", website: "https://cue.edu.ge", logo: "https://cue.edu.ge/wp-content/uploads/2024/10/logo-cue.png" },
       ]}
     />
   );

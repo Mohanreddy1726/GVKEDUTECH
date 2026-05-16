@@ -65,14 +65,14 @@ const USAPage = () => {
         "STEM Field Grants",
       ]}
       universities={[
-        { name: "Harvard University" },
-        { name: "Massachusetts Institute of Technology (MIT)" },
-        { name: "Stanford University" },
-        { name: "University of California, Berkeley" },
-        { name: "Arizona State University" },
-        { name: "Northeastern University" },
-        { name: "University of Texas at Austin" },
-        { name: "University of South Florida" },
+        { name: "Harvard University", website: "https://harvard.edu" },
+        { name: "Massachusetts Institute of Technology (MIT)", website: "https://mit.edu" },
+        { name: "Stanford University", website: "https://stanford.edu" },
+        { name: "University of California, Berkeley", website: "https://berkeley.edu" },
+        { name: "Arizona State University", website: "https://asu.edu" },
+        { name: "Northeastern University", website: "https://northeastern.edu" },
+        { name: "University of Texas at Austin", website: "https://utexas.edu" },
+        { name: "University of South Florida", website: "https://usf.edu" },
       ]}
     />
   );

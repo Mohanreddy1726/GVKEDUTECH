@@ -37,15 +37,15 @@ const offices = [
     qualification: "MA, B.Sc, B.Ed"
   },
   {
-    city: "Bangalore",
+    city: "Karimnagar",
     type: "Regional Office",
-    address: "2nd floor, new bel road, chikkamaranahalli, near MS Ramaiah medical college, Bangalore, Pincode: 560094",
-    phones: ["+91 7204 821775", "888 666 9980"],
-    mapLink: "https://goo.gl/maps/bangalore",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/bangalore-vidhana-soudha.jpg?updatedAt=1776492281129",
-    monument: "Vidhana Soudha",
-    regionalDirector: "Mr. Chandan Singh",
-    qualification: "MBA"
+    address: "2nd Floor, Radhakrishna nivas, Opp: PVP mall, Labbipet, Karimnagar",
+    phones: ["+91 8499 077770", "888666 2442"],
+    mapLink: "https://www.google.com/maps/place/GVK+EDUTECH+SERVICES+-+Best+MBBS+Consultancy+in+Karimnagar+%7C+MBBS+in+Abroad+%7C+Best+Overseas+Educational+Consultancy/@18.4372006,79.1240267,1220m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bccd9ea035775b3:0xdb03b029ee1e7138!8m2!3d18.4372006!4d79.1240267!16s%2Fg%2F11ydr3jw8q?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/karimnagar-elgandal-fort.jpg?updatedAt=1776492281954",
+    monument: "Elgandal Fort",
+    regionalDirector: "Mr. Nandu",
+    qualification: "B.Sc"
   },
   {
     city: "Chennai",
@@ -59,17 +59,6 @@ const offices = [
     qualification: "M.Sc Biotechnology"
   },
   {
-    city: "Nellore",
-    type: "Regional Office",
-    address: "Nellore, Andhra Pradesh",
-    phones: ["+91 90100 60000"],
-    mapLink: "https://goo.gl/maps/nellore",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-05-07_115237409.png",
-    monument: "Srisailam Dam",
-    regionalDirector: "Mr. Amarnath Reddy & Mrs. Rajeswari Reddy",
-    qualification: "M.Sc Biotechnology & M.Sc Organic Chemistry"
-  },
-  {
     city: "Vijayawada",
     type: "Regional Office",
     address: "2nd Floor, Radhakrishna nivas, Opp: PVP mall, Labbipet, Beside Malabar lane, Vijayawada, Andhra Pradesh, Pincode: 520002",
@@ -80,16 +69,38 @@ const offices = [
     regionalDirector: "Dr. Siva Sai Varanasi",
     qualification: "MBBS"
   },
-  {
-    city: "Tirupati",
+   {
+    city: "Nalgonda",
     type: "Regional Office",
-    address: "Tirupati, Andhra Pradesh",
-    phones: ["+91 90100 60000"],
-    mapLink: "https://goo.gl/maps/tirupati",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-05-07_115255252.png",
-    monument: "Tirumala Temple",
-    regionalDirector: "Mr. Aluvala Madhu",
-    qualification: "B.Sc(B.Z.C), B.P.Ed"
+    address: "Ground floor, Nalgonda",
+    phones: ["+91 7729 077770", "7729 077770"],
+    mapLink: "https://goo.gl/maps/nalgonda",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nalgonda-nagarjuna-sagar.jpg?updatedAt=1776492281884",
+    monument: "Nagarjuna Sagar Dam",
+    regionalDirector: "Mr. Venkanna",
+    qualification: "M.A, M.Ed"
+  },
+  {
+    city: "Bangalore",
+    type: "Regional Office",
+    address: "2nd floor, new bel road, chikkamaranahalli, near MS Ramaiah medical college, Bangalore, Pincode: 560094",
+    phones: ["+91 7204 821775", "888 666 9980"],
+    mapLink: "https://goo.gl/maps/bangalore",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/bangalore-vidhana-soudha.jpg?updatedAt=1776492281129",
+    monument: "Vidhana Soudha",
+    regionalDirector: "Mr. Chandan Singh",
+    qualification: "MBA"
+  },
+    {
+    city: "Visakhapatnam",
+    type: "Regional Office",
+    address: "3rd floor, Sujatha nagar, Near 80 feet road, Sai sampath residence, Vishakapatnam",
+    phones: ["+91 8501 077770", "888666 1874"],
+    mapLink: "https://maps.app.goo.gl/K2wemTdSKxPvSWDz8",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/visakhapatnam-kailasagiri.jpg?updatedAt=1776492281959",
+    monument: "Kailasagiri",
+    regionalDirector: "Mr. Kiran Kumar",
+    qualification: "M.Sc, M.A, B.Ed"
   },
   {
     city: "Suryapet",
@@ -103,37 +114,26 @@ const offices = [
     qualification: "B.A"
   },
   {
-    city: "Visakhapatnam",
+    city: "Nellore",
     type: "Regional Office",
-    address: "3rd floor, Sujatha nagar, Near 80 feet road, Sai sampath residence, Vishakapatnam",
-    phones: ["+91 8501 077770", "888666 1874"],
-    mapLink: "https://maps.app.goo.gl/K2wemTdSKxPvSWDz8",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/visakhapatnam-kailasagiri.jpg?updatedAt=1776492281959",
-    monument: "Kailasagiri",
-    regionalDirector: "Mr. Kiran Kumar",
-    qualification: "M.Sc, M.A, B.Ed"
+    address: "Nellore, Andhra Pradesh",
+    phones: ["+91 90100 60000"],
+    mapLink: "https://goo.gl/maps/nellore",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-05-07_115237409.png",
+    monument: "Srisailam Dam",
+    regionalDirector: "Mr. Amarnath Reddy & Mrs. Rajeswari Reddy",
+    qualification: "M.Sc Biotechnology & M.Sc Organic Chemistry"
   },
   {
-    city: "Nalgonda",
+    city: "Tirupati",
     type: "Regional Office",
-    address: "Ground floor, Nalgonda",
-    phones: ["+91 7729 077770", "7729 077770"],
-    mapLink: "https://goo.gl/maps/nalgonda",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nalgonda-nagarjuna-sagar.jpg?updatedAt=1776492281884",
-    monument: "Nagarjuna Sagar Dam",
-    regionalDirector: "Mr. Venkanna",
-    qualification: "M.A, M.Ed"
-  },
-  {
-    city: "Karimnagar",
-    type: "Regional Office",
-    address: "2nd Floor, Radhakrishna nivas, Opp: PVP mall, Labbipet, Karimnagar",
-    phones: ["+91 8499 077770", "888666 2442"],
-    mapLink: "https://www.google.com/maps/place/GVK+EDUTECH+SERVICES+-+Best+MBBS+Consultancy+in+Karimnagar+%7C+MBBS+in+Abroad+%7C+Best+Overseas+Educational+Consultancy/@18.4372006,79.1240267,1220m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bccd9ea035775b3:0xdb03b029ee1e7138!8m2!3d18.4372006!4d79.1240267!16s%2Fg%2F11ydr3jw8q?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/karimnagar-elgandal-fort.jpg?updatedAt=1776492281954",
-    monument: "Elgandal Fort",
-    regionalDirector: "Mr. Nandu",
-    qualification: "B.Sc"
+    address: "Tirupati, Andhra Pradesh",
+    phones: ["+91 90100 60000"],
+    mapLink: "https://goo.gl/maps/tirupati",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-05-07_115255252.png",
+    monument: "Tirumala Temple",
+    regionalDirector: "Mr. Aluvala Madhu",
+    qualification: "B.Sc(B.Z.C), B.P.Ed"
   },
 ];
 

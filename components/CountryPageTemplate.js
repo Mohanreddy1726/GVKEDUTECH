@@ -4,8 +4,9 @@ import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, Phone, CheckCircle, GraduationCap, Building, PhoneCall } from "lucide-react";
+import { MessageCircle, Phone, CheckCircle, GraduationCap, Building, PhoneCall, ExternalLink } from "lucide-react";
 import { ColorfulHeading } from "@/components/ColorfulHeading";
+import { getUniversityLogo } from "@/data/universityLogos";
 
 export const CountryPageTemplate = ({
   country,
@@ -353,16 +354,36 @@ export const CountryPageTemplate = ({
             className="mb-8 text-center"
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {universities.map((university, index) => (
-              <Card key={index} className="border-border hover:shadow-lg transition-smooth group">
-                <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center group-hover:bg-accent/10 transition-smooth">
-                    <Building className="w-10 h-10 text-muted-foreground group-hover:text-accent transition-smooth" />
-                  </div>
-                  <h3 className="font-semibold text-foreground">{university.name}</h3>
-                </CardContent>
-              </Card>
-            ))}
+            {universities.map((university, index) => {
+              const logoUrl = university.logo || getUniversityLogo(university.name, university.website);
+              const UniversityCard = university.website ? 'a' : 'div';
+              const cardProps = university.website ? { href: university.website, target: '_blank', rel: 'noopener noreferrer' } : {};
+
+              return (
+                <Card key={index} className="border-border hover:shadow-lg transition-smooth group">
+                  <CardContent className="p-6 text-center" {...(university.website ? {} : {})}>
+                    {university.website ? (
+                      <UniversityCard {...cardProps} className="block">
+                        <div className="w-20 h-20 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center group-hover:bg-accent/10 transition-smooth overflow-hidden">
+                          <img src={logoUrl} alt={university.name} className="w-full h-full object-cover" />
+                        </div>
+                        <h3 className="font-semibold text-foreground">{university.name}</h3>
+                        <span className="text-xs text-primary flex items-center justify-center gap-1 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                          Visit Website <ExternalLink className="w-3 h-3" />
+                        </span>
+                      </UniversityCard>
+                    ) : (
+                      <>
+                        <div className="w-20 h-20 mx-auto mb-4 bg-muted rounded-lg flex items-center justify-center group-hover:bg-accent/10 transition-smooth">
+                          <Building className="w-10 h-10 text-muted-foreground group-hover:text-accent transition-smooth" />
+                        </div>
+                        <h3 className="font-semibold text-foreground">{university.name}</h3>
+                      </>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </section>
 
