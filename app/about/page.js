@@ -531,10 +531,10 @@ const AboutPage = () => {
   ];
 
   const vinodAchievements = [
-    { title: "London Global Excellence Award", year: "2024", body: "Recognized for excellence in international education consulting at a prestigious ceremony in London, UK." },
-    { title: "Governor's Recognition", year: "2023", body: "Honored by the Governor of Telangana for outstanding contributions to student education and career guidance." },
+    { title: "London Global Excellence Award - UK", year: "2024", body: "Recognized for excellence in international education consulting at a prestigious ceremony in London, UK." },
+    { title: "Governor's Recognition - Telangana", year: "2023", body: "Honored by the Governor of Telangana for outstanding contributions to student education and career guidance." },
     { title: "Global Change Makers Award", year: "2026", body: "Awarded for transformative impact on student lives through global education opportunities." },
-    { title: "UN Conference Speaker", year: "2026", body: "Featured speaker at United Nations conference in Bangkok on international higher education and student mobility." },
+    { title: "UN Conference Speaker - Bangkok", year: "2026", body: "Featured speaker at United Nations conference in Bangkok on international higher education and student mobility." },
   ];
 
   return (

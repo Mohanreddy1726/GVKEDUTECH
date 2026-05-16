@@ -219,7 +219,7 @@ export const Contact = () => {
                   <div>
                     <p className="text-white/70 text-sm mb-1">Our Offices</p>
                     <p className="font-semibold">
-                      <a  className="hover:text-accent transition-colors">Hyderabad</a> | <a className="hover:text-accent transition-colors">Warangal</a> | <a className="hover:text-accent transition-colors">Vijayawada</a> | <a  className="hover:text-accent transition-colors">Visakhapatnam</a>
+                      <a className="hover:text-accent transition-colors">Hyderabad</a> | <a className="hover:text-accent transition-colors">Warangal</a> | <a className="hover:text-accent transition-colors">Karimnagar</a> | <a className="hover:text-accent transition-colors">Chennai</a> | <a className="hover:text-accent transition-colors">Vijayawada</a> | <a className="hover:text-accent transition-colors">Nalgonda</a> | <a className="hover:text-accent transition-colors">Bangalore</a> | <a className="hover:text-accent transition-colors">Visakhapatnam</a> | <a className="hover:text-accent transition-colors">Suryapet</a> | <a className="hover:text-accent transition-colors">Nellore</a> | <a className="hover:text-accent transition-colors">Tirupati</a>
                     </p>
                   </div>
                 </div>
