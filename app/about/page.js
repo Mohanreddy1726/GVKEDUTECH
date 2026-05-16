@@ -520,14 +520,14 @@ const AboutPage = () => {
   ];
 
   const vidyaAchievements = [
-    { title: "Appointed as Vice Dean for International Affairs – Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan, overseeing student welfare and academic coordination." },
-    { title: "Young Entrepreneur Awardee", year: "2022", body: "Recognized for outstanding entrepreneurship in the education consultancy sector at a prestigious ceremony in Dubai." },
-    { title: "Partner Appreciation Award", year: "2023", body: "Honored by international university partners for excellence in student placement and service quality in New Delhi." },
-    { title: "G-20 Summit Global Icon Award", year: "2024", body: "Awarded for contributions to international education and student welfare at the G-20 Summit in Sri Lanka." },
+    { title: "Appointed as Vice Dean for International Affairs of India– Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan." },
+    { title: "Young Entrepreneur Awardee - Dubai", year: "2022", body: "Recognized for outstanding entrepreneurship in the education consultancy sector at a prestigious ceremony in Dubai." },
+    { title: "Partner Appreciation Award - New Delhi", year: "2023", body: "Honored by international university partners for excellence in student placement and service quality in New Delhi." },
+    { title: "G-20 Summit Global Icon Award - Sri Lanka", year: "2024", body: "Awarded for contributions to international education and student welfare at the G-20 Summit in Sri Lanka." },
     { title: "Excellence in Healthcare Award", year: "2026", body: "Recognized by Global Change Makers for outstanding contributions to healthcare education and student mentorship." },
-    { title: "Arise Excellence Award", year: "2026", body: "Prestigious award acknowledging excellence in guiding students toward successful medical careers in Telangana." },
-    { title: "Young Leadership Award", year: "2026", body: "Awarded in Mumbai for demonstrating exceptional leadership in the overseas education consultancy industry." },
-    { title: "UN Conference Speaker", year: "2026", body: "Invited as keynote speaker at United Nations conference in Bangkok to discuss global education mobility." },
+    { title: "Arise Excellence Award - Telangana", year: "2026", body: "Prestigious award acknowledging excellence in guiding students toward successful medical careers in Telangana." },
+    { title: "Young Leadership Award - Mumbai", year: "2026", body: "Awarded in Mumbai for demonstrating exceptional leadership in the overseas education consultancy industry." },
+    { title: "UN Conference Speaker - Bangkok", year: "2026", body: "Invited as keynote speaker at United Nations conference in Bangkok to discuss global education mobility." },
   ];
 
   const vinodAchievements = [

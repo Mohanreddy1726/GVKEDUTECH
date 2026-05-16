@@ -17,16 +17,16 @@ export const Founder = () => {
                   <Image src="https://ik.imagekit.io/abhobz66j/GVK%20Images/founder.png" alt="founderImage" width={180} height={180} priority />
                 </div>
                 <h3 className="text-2xl font-bold text-primary-foreground mb-2">
-                  Dr. GUNADALA VIJAY KUMAR
+                  Dr. GUNDALA VIJAY KUMAR (GVK)
                 </h3>
                 <p className="text-primary-foreground/80 font-medium">
-                  (GVK) - FOUNDER
+                    FOUNDER
                 </p>
                 <p className="text-primary-foreground/60 text-sm mt-1">
-                  MBBS (India) · MS Ophthalmology  (India)
+                  MBBS· MS Ophthalmology
                 </p>
                 <p className="text-primary-foreground/60 text-sm">
-                  Director & Vice-Dean
+                  Osmania University
                 </p>
               </div>
 
