@@ -525,7 +525,7 @@ const AboutPage = () => {
   ];
 
   const vidyaAchievements = [
-    { title: "Vice Dean for International Affairs – Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan." },
+    { title: "Vice Dean for International Affairs of India – Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan." },
     { title: "Young Entrepreneur Awardee - Dubai", year: "2022", body: "Recognized for outstanding entrepreneurship in the education consultancy sector at a prestigious ceremony in Dubai." },
     { title: "Partner Appreciation Award - New Delhi", year: "2023", body: "Honored by international university partners for excellence in student placement and service quality in New Delhi." },
     { title: "G-20 Summit Global Icon Award - Sri Lanka", year: "2024", body: "Awarded for contributions to international education and student welfare at the G-20 Summit in Sri Lanka." },
