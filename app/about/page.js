@@ -520,12 +520,12 @@ const AboutPage = () => {
   /* ── Achievement data (with optional achievement photos) ── */
   const founderAchievements = [
     { title: "Best Doctor Award – Telangana (6 Times Consecutive)", year: "2016-2021", body: "Recognized consecutively for 6 years as the Best Doctor in Telangana for outstanding contributions to medical education and patient care." },
-    { title: "Best Medical Graduate Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS and guiding them toward successful medical careers." },
+    { title: "Best Foreign Medical Graduate Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS and guiding them toward successful medical careers." },
     { title: "Excellence in Healthcare Education Leadership", year: "2025", body: "Awarded by the Telangana State Medical Education Forum for 15+ years of dedication to accessible overseas medical education for students from Andhra Pradesh & Telangana." },
   ];
 
   const vidyaAchievements = [
-    { title: "Vice Dean for International Affairs – Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan, overseeing student welfare and admissions for Indian students." },
+    { title: "Vice Dean for International Affairs – Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan." },
     { title: "Young Entrepreneur Awardee - Dubai", year: "2022", body: "Recognized for outstanding entrepreneurship in the education consultancy sector at a prestigious ceremony in Dubai." },
     { title: "Partner Appreciation Award - New Delhi", year: "2023", body: "Honored by international university partners for excellence in student placement and service quality in New Delhi." },
     { title: "G-20 Summit Global Icon Award - Sri Lanka", year: "2024", body: "Awarded for contributions to international education and student welfare at the G-20 Summit in Sri Lanka." },
