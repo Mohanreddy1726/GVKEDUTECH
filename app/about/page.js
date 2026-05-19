@@ -506,21 +506,26 @@ function AccredLogo({ logo, icon, name }) {
 const AboutPage = () => {
   /* Per-section hovered achievement photo state — removed */
   const [selectedCertIndex, setSelectedCertIndex] = useState(null);
+  const [imageErrors, setImageErrors] = useState({});
 
   const openCert  = (i) => setSelectedCertIndex(i);
   const closeCert = () => setSelectedCertIndex(null);
   const prevCert  = () => setSelectedCertIndex(i => (i - 1 + certificates.length) % certificates.length);
   const nextCert  = () => setSelectedCertIndex(i => (i + 1) % certificates.length);
 
+  const handleImageError = (index, type) => {
+    setImageErrors(prev => ({ ...prev, [`${type}-${index}`]: true }));
+  };
+
   /* ── Achievement data (with optional achievement photos) ── */
   const founderAchievements = [
     { title: "Best Doctor Award – Telangana (6 Times Consecutive)", year: "2016-2021", body: "Recognized consecutively for 6 years as the Best Doctor in Telangana for outstanding contributions to medical education and patient care." },
-    { title: "Best Foreign Medical Graduate Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS in Russia and Eastern Europe." },
+    { title: "Best Medical Graduate Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS and guiding them toward successful medical careers." },
     { title: "Excellence in Healthcare Education Leadership", year: "2025", body: "Awarded by the Telangana State Medical Education Forum for 15+ years of dedication to accessible overseas medical education for students from Andhra Pradesh & Telangana." },
   ];
 
   const vidyaAchievements = [
-    { title: "Appointed as Vice Dean for International Affairs of India– Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan." },
+    { title: "Vice Dean for International Affairs – Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan, overseeing student welfare and admissions for Indian students." },
     { title: "Young Entrepreneur Awardee - Dubai", year: "2022", body: "Recognized for outstanding entrepreneurship in the education consultancy sector at a prestigious ceremony in Dubai." },
     { title: "Partner Appreciation Award - New Delhi", year: "2023", body: "Honored by international university partners for excellence in student placement and service quality in New Delhi." },
     { title: "G-20 Summit Global Icon Award - Sri Lanka", year: "2024", body: "Awarded for contributions to international education and student welfare at the G-20 Summit in Sri Lanka." },
@@ -622,7 +627,7 @@ const AboutPage = () => {
                 Founder
               </div>
               <h3 className="text-3xl font-bold text-foreground mb-1">Dr. G. VIJAY KUMAR (GVK)</h3>
-              <p className="text-muted-foreground text-sm mb-6 font-medium">MBBS (Osmania University) · MS Ophthalmology  (Osmania University)</p>
+              <p className="text-muted-foreground text-sm mb-6 font-medium">MBBS · MS Ophthalmology ,  (Osmania University)</p>
 
               {/* Tabbed content with Message + Achievements */}
               <TabbedContent
@@ -1042,8 +1047,13 @@ const AboutPage = () => {
                     >
                       <div className="w-full h-full rounded-full overflow-hidden" style={{ padding: "2px", background: "hsl(var(--card))" }}>
                         <div className="w-full h-full rounded-full overflow-hidden">
-                          {director.image ? (
-                            <img src={director.image} alt={director.name} className="w-full h-full object-cover object-top" />
+                          {director.image && !imageErrors[`regional-${index}`] ? (
+                            <img
+                              src={director.image}
+                              alt={director.name}
+                              className="w-full h-full object-cover object-top"
+                              onError={() => handleImageError(index, 'regional')}
+                            />
                           ) : (
                             <div className="w-full h-full bg-primary/10 flex items-center justify-center text-2xl">👤</div>
                           )}
