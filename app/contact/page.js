@@ -207,7 +207,7 @@ const ContactPage = () => {
           <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5" />
-              <span>+91 9010060000</span>
+              <span>+91 9010060000, +91 8886661877</span>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5" />
