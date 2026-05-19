@@ -2,7 +2,7 @@
 
 import { Phone, MessageCircle, PhoneCall } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const PHONE_NUMBER_MBBS = "919010060000";
 const PHONE_NUMBER_MASTERS = "918886661877";
@@ -13,6 +13,33 @@ const MESSAGE_MASTERS = "Hi, I am interested in studying Masters abroad. Please 
 export const FloatingButtons = () => {
   const [showWhatsAppMenu, setShowWhatsAppMenu] = useState(false);
   const [showPhoneMenu, setShowPhoneMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const handleClickOutside = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setShowWhatsAppMenu(false);
+        setShowPhoneMenu(false);
+      }
+    };
+
+    if (showWhatsAppMenu || showPhoneMenu) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [isMobile, showWhatsAppMenu, showPhoneMenu]);
 
   const handleWhatsAppClick = (program) => {
     const phoneNumber = program === "mbbs" ? PHONE_NUMBER_MBBS : PHONE_NUMBER_MASTERS;
@@ -29,20 +56,27 @@ export const FloatingButtons = () => {
     setShowPhoneMenu(false);
   };
 
-  const toggleWhatsAppMenu = () => {
+  const toggleWhatsAppMenu = (e) => {
+    e.stopPropagation();
     setShowWhatsAppMenu(!showWhatsAppMenu);
     setShowPhoneMenu(false);
   };
 
-  const togglePhoneMenu = () => {
+  const togglePhoneMenu = (e) => {
+    e.stopPropagation();
     setShowPhoneMenu(!showPhoneMenu);
     setShowWhatsAppMenu(false);
   };
 
+  const closeMenus = () => {
+    setShowWhatsAppMenu(false);
+    setShowPhoneMenu(false);
+  };
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+    <div ref={containerRef} className="fixed bottom-6 right-6 z-50 flex flex-col gap-4" onClick={closeMenus}>
       {/* WhatsApp Button */}
-      <div className="relative group/whatsapp">
+      <div className="relative group/whatsapp" onClick={(e) => e.stopPropagation()}>
         {/* Glow effect */}
         <span className="absolute inset-0 rounded-full bg-[#25D366] blur-lg opacity-50 animate-whatsapp-glow" />
 
@@ -58,8 +92,12 @@ export const FloatingButtons = () => {
           <Image src="https://ik.imagekit.io/abhobz66j/GVK%20Images/whatsappLogoIcon.webp?updatedAt=1776492281833" alt="WhatsappLogo" width={75} height={70} className="text-white fill-white" />
         </button>
 
-        {/* Tooltip with MBBS/Masters selection - show on hover and click */}
-        <div className={`absolute bottom-full right-0 mb-2 min-w-[160px] bg-foreground text-background text-sm font-medium rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${showWhatsAppMenu ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+        {/* Tooltip - show on hover (desktop) or click (mobile) */}
+        <div className={`absolute bottom-full right-0 mb-2 min-w-[160px] bg-foreground text-background text-sm font-medium rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+          isMobile
+            ? (showWhatsAppMenu ? "opacity-100 visible" : "opacity-0 invisible")
+            : ("group-hover/whatsapp:opacity-100 group-hover/whatsapp:visible opacity-0 invisible")
+        }`}>
           <div className="p-2 text-center border-b border-background/20 font-semibold">
             Select Program
           </div>
@@ -82,7 +120,7 @@ export const FloatingButtons = () => {
       </div>
 
       {/* Phone Button */}
-      <div className="relative group/phone">
+      <div className="relative group/phone" onClick={(e) => e.stopPropagation()}>
         {/* Glow effect */}
         <span className="absolute inset-0 rounded-full bg-blue-600 blur-lg opacity-50 animate-whatsapp-glow" />
 
@@ -98,8 +136,12 @@ export const FloatingButtons = () => {
           <PhoneCall className="w-7 h-7 text-white" />
         </button>
 
-        {/* Tooltip with MBBS/Masters selection - show on hover and click */}
-        <div className={`absolute bottom-full right-0 mb-2 min-w-[160px] bg-foreground text-background text-sm font-medium rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${showPhoneMenu ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+        {/* Tooltip - show on hover (desktop) or click (mobile) */}
+        <div className={`absolute bottom-full right-0 mb-2 min-w-[160px] bg-foreground text-background text-sm font-medium rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+          isMobile
+            ? (showPhoneMenu ? "opacity-100 visible" : "opacity-0 invisible")
+            : ("group-hover/phone:opacity-100 group-hover/phone:visible opacity-0 invisible")
+        }`}>
           <div className="p-2 text-center border-b border-background/20 font-semibold">
             Select Program
           </div>
