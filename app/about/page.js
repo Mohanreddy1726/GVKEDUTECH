@@ -520,7 +520,7 @@ const AboutPage = () => {
   /* ── Achievement data (with optional achievement photos) ── */
   const founderAchievements = [
     { title: "Best Doctor Award – Telangana (6 Times Consecutive)", year: "2016-2021", body: "Recognized consecutively for 6 years as the Best Doctor in Telangana for outstanding contributions to medical education and patient care." },
-    { title: "Best Foreign Medical Graduate Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS and guiding them toward successful medical careers." },
+    { title: "Best Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS and guiding them toward successful medical careers." },
     { title: "Excellence in Healthcare Education Leadership", year: "2025", body: "Awarded by the Telangana State Medical Education Forum for 15+ years of dedication to accessible overseas medical education for students from Andhra Pradesh & Telangana." },
   ];
 
