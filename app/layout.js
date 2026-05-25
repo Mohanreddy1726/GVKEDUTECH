@@ -120,7 +120,11 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col font-inter">
         <WebSiteSchema />
         <OrganizationSchema />
+<<<<<<< HEAD
         {children}  
+=======
+        {children}
+>>>>>>> ceb38200cfedc5e8bbe1dc0ecf0f28ab26d4cd38
         <Toaster />
       </body>
     </html>
