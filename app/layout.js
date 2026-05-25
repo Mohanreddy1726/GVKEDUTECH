@@ -1,6 +1,11 @@
 import { Poppins, Inter } from "next/font/google";
+import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
-import { OrganizationSchema, ArticleSchema, WebSiteSchema } from "@/components/SEO";
+import {
+  OrganizationSchema,
+  ArticleSchema,
+  WebSiteSchema,
+} from "@/components/SEO";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -15,17 +20,23 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://gvkedutech.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://gvkedutech.com";
 
-export function generateMetadata(req) {
+const GA_ID = "G-DTPQWVYCS3";
+
+export function generateMetadata() {
   const lastModified = new Date().toISOString();
+
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: "Best MBBS Abroad Consultancy in Hyderabad | GVK EduTech - Top Medical University Admissions 2026",
+      default:
+        "Best MBBS Abroad Consultancy in Hyderabad | GVK EduTech - Top Medical University Admissions 2026",
       template: "%s | GVK EduTech Hyderabad",
     },
-    description: "Looking for the best MBBS abroad consultancy in Hyderabad? GVK EduTech offers expert guidance for MBBS in Russia, Georgia, Kyrgyzstan & more. 5000+ students placed. Free counseling. Call +91 9010060000",
+    description:
+      "Looking for the best MBBS abroad consultancy in Hyderabad? GVK EduTech offers expert guidance for MBBS in Russia, Georgia, Kyrgyzstan & more. 5000+ students placed. Free counseling. Call +91 9010060000",
     keywords: [
       "MBBS abroad consultancy in Hyderabad",
       "best MBBS abroad consultancy in Hyderabad",
@@ -65,7 +76,8 @@ export function generateMetadata(req) {
       url: SITE_URL,
       siteName: "GVK EduTech - Best MBBS Abroad Consultancy in Hyderabad",
       title: "Best MBBS Abroad Consultancy in Hyderabad | GVK EduTech",
-      description: "Top-rated MBBS abroad consultancy in Hyderabad. Expert guidance for MBBS in Russia, Georgia, Kyrgyzstan. 5000+ doctors placed. Free counseling available.",
+      description:
+        "Top-rated MBBS abroad consultancy in Hyderabad. Expert guidance for MBBS in Russia, Georgia, Kyrgyzstan. 5000+ doctors placed. Free counseling available.",
       images: [
         {
           url: "/og-image.png",
@@ -79,7 +91,8 @@ export function generateMetadata(req) {
     twitter: {
       card: "summary_large_image",
       title: "Best MBBS Abroad Consultancy in Hyderabad | GVK EduTech",
-      description: "Top MBBS abroad consultancy in Hyderabad. Low-cost medical universities in Russia, Georgia, Kyrgyzstan. 5000+ doctors placed.",
+      description:
+        "Top MBBS abroad consultancy in Hyderabad. Low-cost medical universities in Russia, Georgia, Kyrgyzstan. 5000+ doctors placed.",
       images: ["/og-image.png"],
       creator: "@gvkedutech",
     },
@@ -106,24 +119,26 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
-    <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DTPQWVYCS3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+      </head>
 
-  gtag('config', 'G-DTPQWVYCS3');
-</script>
-    </head>
       <body className="min-h-full flex flex-col font-inter">
         <WebSiteSchema />
         <OrganizationSchema />
-<<<<<<< HEAD
-        {children}  
-=======
         {children}
->>>>>>> ceb38200cfedc5e8bbe1dc0ecf0f28ab26d4cd38
         <Toaster />
       </body>
     </html>
