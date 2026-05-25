@@ -22,13 +22,13 @@ const regionalDirectors = [
   { name: "Mrs. Reena Kamal", city: "Hyderabad (Head Office)", qualification: "B.Com, MBA", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Reena.png?updatedAt=1776335169935" },
   { name: "Mrs. Geetha Rajesh", city: "Warangal", qualification: "MA, B.Sc, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/geeta.png?updatedAt=1776335170035" },
   { name: "Mr. Kiran Kumar", city: "Visakhapatnam", qualification: "M.Sc, M.A, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/kiran.png?updatedAt=1776335169934" },
-  { name: "Dr. Siva Sai Varanasi", city: "Vijayawada", qualification: "MBBS", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/vijaywada.png?updatedAt=1778135548450" },
+  { name: "Dr. Siva Sai Varanasi", city: "Vijayawada", qualification: "MBBS", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/vijaywada.png?updatedAt=1778492074689" },
   { name: "Mr. Nandu", city: "Karimnagar", qualification: "B.Sc", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nandu.png?updatedAt=1776335169859" },
   { name: "Mr. Amarnath Reddy", city: "Nellore", qualification: "M.Sc Biotechnology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/NELLORE.jpeg" },
-  { name: "Mrs. Rajeswari Reddy", city: "Nellore", qualification: "M.Sc Organic Chemistry", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/12x18-4.jpg%20(1).jpeg" },
+  { name: "Mrs. Rajeswari Reddy", city: "Nellore", qualification: "M.Sc Organic Chemistry", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/12x18-4.jpg%20(1).jpeg?updatedAt=1778144348973" },
   { name: "Mrs. Shoba Rani", city: "Suryapet", qualification: "B.A", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shobarani.png?updatedAt=1776335169676" },
-  { name: "Mrs. Aarathi Sukumar Reddy", city: "Chennai", qualification: "M.Sc Biotechnology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/chennai.jpeg" },
-  { name: "Mr. Aluvala Madhu", city: "Tirupati", qualification: "B.Sc(B.Z.C), B.P.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/tirupathi.jpeg" },
+  { name: "Mrs. Aarathi Sukumar Reddy", city: "Chennai", qualification: "M.Sc Biotechnology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chennai.jpeg?updatedAt=1778492063993" },
+  { name: "Mr. Aluvala Madhu", city: "Tirupati", qualification: "B.Sc(B.Z.C), B.P.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/tirupathi.jpeg?updatedAt=1778492063557" },
   { name: "Mr. Venkanna", city: "Nalgonda", qualification: "M.A, M.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/nalgonda.jpeg" },
   { name: "Mr. Chandan Singh", city: "Bangalore", qualification: "MBA", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chandan.png?updatedAt=1776335169838" },
 ];
@@ -511,21 +511,26 @@ function AccredLogo({ logo, icon, name }) {
 const AboutPage = () => {
   /* Per-section hovered achievement photo state — removed */
   const [selectedCertIndex, setSelectedCertIndex] = useState(null);
+  const [imageErrors, setImageErrors] = useState({});
 
   const openCert  = (i) => setSelectedCertIndex(i);
   const closeCert = () => setSelectedCertIndex(null);
   const prevCert  = () => setSelectedCertIndex(i => (i - 1 + certificates.length) % certificates.length);
   const nextCert  = () => setSelectedCertIndex(i => (i + 1) % certificates.length);
 
+  const handleImageError = (index, type) => {
+    setImageErrors(prev => ({ ...prev, [`${type}-${index}`]: true }));
+  };
+
   /* ── Achievement data (with optional achievement photos) ── */
   const founderAchievements = [
-    { title: "Best Doctor Award – Telangana (6 Times Consecutive)", year: "2016-2021", body: "Recognized consecutively for 6 years as the Best Doctor in Telangana for outstanding contributions to medical education and patient care." },
-    { title: "Best Foreign Medical Graduate Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for exceptional mentoring of students pursuing MBBS in Russia and Eastern Europe." },
+    { title: "Best Doctor Award – Telangana (6 Times Consecutive)", year: "2016-2021", body: "Recognized consecutively for 6 years for exceptional service in medical care, patient treatment, and dedication toward improving healthcare standards in Telangana." },
+    { title: "Best Mentor Award", year: "2023", body: "Recognized by the Indo-Russia Alumni Medical Network for over 10 years of mentoring students across India, especially from Telangana and Andhra Pradesh, guiding them toward successful medical careers." },
     { title: "Excellence in Healthcare Education Leadership", year: "2025", body: "Awarded by the Telangana State Medical Education Forum for 15+ years of dedication to accessible overseas medical education for students from Andhra Pradesh & Telangana." },
   ];
 
   const vidyaAchievements = [
-    { title: "Appointed as Vice Dean for International Affairs of India– Caspian University", year: "2021", body: "Appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan." },
+    { title: "Vice Dean for International Affairs of India – Caspian University", year: "2021", body: "Recognized for outstanding leadership in international medical education and appointed as Vice Dean for International Affairs of India at Caspian University, Kazakhstan." },
     { title: "Young Entrepreneur Awardee - Dubai", year: "2022", body: "Recognized for outstanding entrepreneurship in the education consultancy sector at a prestigious ceremony in Dubai." },
     { title: "Partner Appreciation Award - New Delhi", year: "2023", body: "Honored by international university partners for excellence in student placement and service quality in New Delhi." },
     { title: "G-20 Summit Global Icon Award - Sri Lanka", year: "2024", body: "Awarded for contributions to international education and student welfare at the G-20 Summit in Sri Lanka." },
@@ -627,7 +632,7 @@ const AboutPage = () => {
                 Founder
               </div>
               <h3 className="text-3xl font-bold text-foreground mb-1">Dr. G. VIJAY KUMAR (GVK)</h3>
-              <p className="text-muted-foreground text-sm mb-6 font-medium">MBBS (Osmania University) · MS Ophthalmology  (Osmania University)</p>
+              <p className="text-muted-foreground text-sm mb-6 font-medium">MBBS · MS Ophthalmology ,  (Osmania University)</p>
 
               {/* Tabbed content with Message + Achievements */}
               <TabbedContent
@@ -1047,8 +1052,13 @@ const AboutPage = () => {
                     >
                       <div className="w-full h-full rounded-full overflow-hidden" style={{ padding: "2px", background: "hsl(var(--card))" }}>
                         <div className="w-full h-full rounded-full overflow-hidden">
-                          {director.image ? (
-                            <img src={director.image} alt={director.name} className="w-full h-full object-cover object-top" />
+                          {director.image && !imageErrors[`regional-${index}`] ? (
+                            <img
+                              src={director.image}
+                              alt={director.name}
+                              className="w-full h-full object-cover object-top"
+                              onError={() => handleImageError(index, 'regional')}
+                            />
                           ) : (
                             <div className="w-full h-full bg-primary/10 flex items-center justify-center text-2xl">👤</div>
                           )}
