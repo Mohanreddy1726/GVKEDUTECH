@@ -106,10 +106,21 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
+    <head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DTPQWVYCS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DTPQWVYCS3');
+</script>
+    </head>
       <body className="min-h-full flex flex-col font-inter">
         <WebSiteSchema />
         <OrganizationSchema />
-        {children}
+        {children}  
         <Toaster />
       </body>
     </html>
