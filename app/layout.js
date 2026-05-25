@@ -2,7 +2,6 @@ import { Poppins, Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { OrganizationSchema, ArticleSchema, WebSiteSchema } from "@/components/SEO";
 import "./globals.css";
-// import Script from "next/script";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -111,15 +110,6 @@ export default function RootLayout({ children }) {
         <WebSiteSchema />
         <OrganizationSchema />
         {children}
-        {/* Google tag manager */}
-// <Script async src="https://www.googletagmanager.com/gtag/js?id=G-DTPQWVYCS3"></Script>
-// <Script>
-//   window.dataLayer = window.dataLayer || [];
-//   function gtag(){dataLayer.push(arguments)}
-//   gtag('js', new Date());
-
-//   gtag('config', 'G-DTPQWVYCS3');
-// </Script>
         <Toaster />
       </body>
     </html>
