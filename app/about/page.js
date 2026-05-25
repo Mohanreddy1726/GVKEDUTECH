@@ -124,6 +124,11 @@ const mediaPartners = [
   { name: "The Hindu", type: "English Daily", abbr: "TH", fg: "#fff", bg: "#880E4F", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Media%20logos/d1d95538-8de0-4c8b-bb52-62a76b365e1f.png" },
   { name: "Times of India", type: "English Daily", abbr: "TOI", fg: "#fff", bg: "#B71C1C", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Media%20logos/84be2e0a-50f1-4e57-8764-a8674c20d6e1.png" },
   { name: "Namaste Telangana", type: "Telugu Daily", abbr: "NT", fg: "#fff", bg: "#006064", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Media%20logos/image_2026-05-11_172555909.png" },
+  { name: "Vartha", type: "Telugu Daily", abbr: "VAR", fg: "#fff", bg: "#FF6F00", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Media%20logos/image_2026-05-19_112758342.png" },
+  { name: "Sakshi", type: "Telugu Daily", abbr: "SAK", fg: "#fff", bg: "#1A237E", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Media%20logos/image_2026-05-19_113115194.png" },
+  { name: "T News", type: "News Channel", abbr: "TN", fg: "#fff", bg: "#D32F2F", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Media%20logos/image_2026-05-19_113504601.png" },
+  { name: "Suman TV", type: "News Channel", abbr: "STV", fg: "#fff", bg: "#7B1FA2", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Media%20logos/image_2026-05-19_111911326-removebg-preview.png" },
+  { name: "I Dream", type: "News Channel", abbr: "IDR", fg: "#fff", bg: "#0288D1", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Media%20logos/download.jpg" },
 ];
 
 const accreditations = [
@@ -778,7 +783,7 @@ const AboutPage = () => {
             <ColorfulHeading text="Media Partners" className="justify-center mb-3" size="3xl" />
             <SectionDivider />
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-              Trusted and featured by leading media houses across Hyderabad, Telangana &amp; Andhra Pradesh
+              Trusted and featured by leading media houses across Telangana, Andhra Pradesh &amp; Tamil Nadu
             </p>
           </div>
 
@@ -1374,7 +1379,7 @@ const AboutPage = () => {
               <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20" asChild>
                 <a href="tel:+919010060000">
                   <Phone className="w-5 h-5 mr-2" />
-                  Call: +91 90100 60000
+                  Call: +91 9010060000
                 </a>
               </Button>
             </div>

@@ -195,7 +195,7 @@ export const Contact = () => {
                   <div>
                     <p className="text-white/70 text-sm mb-1">Call Us</p>
                     <p className="text-lg font-semibold group-hover:text-accent transition-colors">
-                      +91 90100 60000
+                      +91 9010060000
                     </p>
                   </div>
                 </a>

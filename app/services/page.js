@@ -134,7 +134,7 @@ const ServicesPage = () => {
             <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20" asChild>
               <a href="tel:+919010060000">
                 <Phone className="w-5 h-5 mr-2" />
-                Call: +91 90100 60000
+                Call: +91 9010060000
               </a>
             </Button>
           </div>
