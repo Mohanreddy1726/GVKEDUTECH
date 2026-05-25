@@ -107,7 +107,6 @@ export default function RootLayout({ children }) {
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
     <head>
-      <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DTPQWVYCS3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
