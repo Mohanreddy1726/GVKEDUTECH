@@ -73,6 +73,12 @@ const UKPage = () => {
         { name: "University of Manchester", website: "https://manchester.ac.uk" },
         { name: "King's College London", website: "https://kcl.ac.uk" },
       ]}
+      faqs={[
+        { question: "What is the cost of Masters in UK?", answer: "Tuition fees range from £12,000-35,000/year. Total cost including living expenses is approximately £25,000-55,000/year." },
+        { question: "Can I work after Masters in UK?", answer: "Yes, the Graduate Route visa allows you to work in the UK for up to 2 years after graduation." },
+        { question: "How long is a Masters program in UK?", answer: "Most Master's programs in the UK are 1 year long, making it a quick path to a world-class degree." },
+        { question: "What are the English language requirements?", answer: "Most universities require IELTS 5.5+ (no band below 6.0) for postgraduate programs." },
+      ]}
     />
   );
 };

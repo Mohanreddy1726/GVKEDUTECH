@@ -43,18 +43,11 @@ const faqs = [
 
 const mbbsCountries = [
   {
-    name: "Nepal",
-    flag: "np",
-    link: "/mbbs/nepal",
-    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142225739.png?updatedAt=1778748808091",
-    highlights: ["NMC Approved", "Cultural Proximity", "Affordable"],
-  },
-  {
-    name: "Georgia",
-    flag: "ge",
-    link: "/mbbs/georgia",
-    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142235537.png?updatedAt=1778748810531",
-    highlights: ["WHO Recognized", "English Medium", "Low Cost"],
+    name: "Kazakhstan",
+    flag: "kz",
+    link: "/mbbs/kazakhstan",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114652294.png?updatedAt=1778825819983",
+    highlights: ["MCI Recognized", "Modern Infrastructure", "Low Tuition"],
   },
   {
     name: "Kyrgyzstan",
@@ -71,18 +64,25 @@ const mbbsCountries = [
     highlights: ["Top Rankings", "Advanced Labs", "Global Recognition"],
   },
   {
-    name: "Kazakhstan",
-    flag: "kz",
-    link: "/mbbs/kazakhstan",
-    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114652294.png?updatedAt=1778825819983",
-    highlights: ["MCI Recognized", "Modern Infrastructure", "Low Tuition"],
+    name: "Georgia",
+    flag: "ge",
+    link: "/mbbs/georgia",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142235537.png?updatedAt=1778748810531",
+    highlights: ["WHO Recognized", "English Medium", "Low Cost"],
   },
-  {
+    {
     name: "Uzbekistan",
     flag: "uz",
     link: "/mbbs/uzbekistan",
     monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114749638.png?updatedAt=1778825875602",
     highlights: ["Emerging Destination", "Quality Education", "Cultural Heritage"],
+  },
+  {
+    name: "Nepal",
+    flag: "np",
+    link: "/mbbs/nepal",
+    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142225739.png?updatedAt=1778748808091",
+    highlights: ["NMC Approved", "Cultural Proximity", "Affordable"],
   },
   {
     name: "Vietnam",

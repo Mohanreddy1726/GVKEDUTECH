@@ -78,6 +78,12 @@ const EuropePage = () => {
         { name: "University of Pécs (Hungary)", website: "https://pte.hu" },
         { name: "University of Bologna (Italy)", website: "https://unibo.it" },
       ]}
+      faqs={[
+        { question: "Which countries offer affordable Masters in Europe?", answer: "Countries like Germany, Norway, Austria, and Czech Republic offer low or no tuition fees for international students." },
+        { question: "Can I travel across Europe with a student visa?", answer: "Yes, the Schengen area allows free movement across 27 European countries with a valid student residence permit." },
+        { question: "What is the cost of Masters in Europe?", answer: "Tuition fees range from €0-20,000/year. Total cost including living expenses is approximately €10,000-35,000/year." },
+        { question: "Can I work after Masters in Europe?", answer: "Many countries offer 1-2 years post-study work permits. Ireland, Netherlands, and Sweden are particularly welcoming." },
+      ]}
     />
   );
 };

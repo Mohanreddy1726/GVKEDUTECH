@@ -72,6 +72,12 @@ const AustraliaPage = () => {
         { name: "University of Adelaide", website: "https://adelaide.edu.au" },
         { name: "University of Technology Sydney (UTS)", website: "https://uts.edu.au" },
       ]}
+      faqs={[
+        { question: "What is the cost of Masters in Australia?", answer: "Tuition fees range from AUD 25,000-50,000/year. Total cost including living expenses is approximately AUD 40,000-80,000/year." },
+        { question: "Can I work while studying Masters in Australia?", answer: "Yes, you can work up to 48 hours per fortnight during semester and unlimited hours during breaks." },
+        { question: "What is the post-study work visa duration?", answer: "Australian Graduate Visa (subclass 485) allows 2-4 years of work stay depending on your qualification." },
+        { question: "What are the English language requirements?", answer: "Most universities require IELTS 6.0+ (no band below 5.5) for postgraduate programs." },
+      ]}
     />
   );
 };

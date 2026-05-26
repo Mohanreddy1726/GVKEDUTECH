@@ -72,6 +72,12 @@ const NewZealandPage = () => {
         { name: "Lincoln University", website: "https://lincoln.ac.nz" },
         { name: "University of Waikato", website: "https://waikato.ac.nz" },
       ]}
+      faqs={[
+        { question: "What is the cost of Masters in New Zealand?", answer: "Tuition fees range from NZD 25,000-40,000/year. Total cost including living expenses is approximately NZD 37,000-58,000/year." },
+        { question: "Can I work after Masters in New Zealand?", answer: "Yes, the post-study work visa allows you to work for up to 3 years after graduation." },
+        { question: "Is New Zealand safe for international students?", answer: "Yes, New Zealand is one of the safest countries in the world with a welcoming environment." },
+        { question: "What are the English language requirements?", answer: "Most universities require IELTS 6.5+ (no band below 6.0) for postgraduate programs." },
+      ]}
     />
   );
 };

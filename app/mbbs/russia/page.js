@@ -48,6 +48,12 @@ const RussiaPage = () => {
         { name: "Lobachevsky State University", website: "https://unn.ru" },
         { name: "Lomonosov Moscow State University", website: "https://msu.ru" },
       ]}
+      faqs={[
+        { question: "Is MBBS from Russia valid in India?", answer: "Yes. Degrees from NMC/WHO approved Russian medical universities are valid in India. Graduates can appear for FMGE/NExT and practice." },
+        { question: "What is the cost of MBBS in Russia?", answer: "The total cost ranges from ₹15-40 lakhs depending on the university, which is lower than private Indian medical colleges." },
+        { question: "Is MBBS in Russia taught in English?", answer: "Yes, most Russian universities offer MBBS programs entirely in English for international students." },
+        { question: "What is the duration of MBBS in Russia?", answer: "The MBBS program in Russia typically lasts 6 years including clinical training." },
+      ]}
     />
   );
 };

@@ -72,6 +72,12 @@ const IrelandPage = () => {
         { name: "Maynooth University", website: "https://mu.ie" },
         { name: "RCSI University of Medicine", website: "https://rcsi.com", isMedical: true },
       ]}
+      faqs={[
+        { question: "What is the cost of Masters in Ireland?", answer: "Tuition fees range from €10,000-25,000/year. Total cost including living expenses is approximately €18,000-38,000/year." },
+        { question: "Can I work after Masters in Ireland?", answer: "Yes, the Third Level Graduate Scheme allows you to work up to 2 years after graduation." },
+        { question: "Why is Ireland good for tech students?", answer: "Ireland is home to Google, Apple, Microsoft, and 1,000+ multinational companies, offering excellent job opportunities." },
+        { question: "What are the English language requirements?", answer: "Most universities require IELTS 6.5+ (no band below 6.0) for postgraduate programs." },
+      ]}
     />
   );
 };

@@ -74,6 +74,12 @@ const USAPage = () => {
         { name: "University of Texas at Austin", website: "https://utexas.edu" },
         { name: "University of South Florida", website: "https://usf.edu" },
       ]}
+      faqs={[
+        { question: "What is the cost of Masters in USA?", answer: "Tuition fees range from $25,000-50,000/year. Total cost including living expenses is approximately $40,000-75,000/year." },
+        { question: "What is STEM OPT?", answer: "STEM OPT (Optional Practical Training) allows STEM graduates to work in the US for up to 3 years after graduation." },
+        { question: "Are GRE/GMAT scores required?", answer: "Many universities have made GRE/GMAT optional. However, top institutions may still recommend them." },
+        { question: "What are the English language requirements?", answer: "Most universities require IELTS 5.5+ or TOEFL 90+ for postgraduate admission." },
+      ]}
     />
   );
 };

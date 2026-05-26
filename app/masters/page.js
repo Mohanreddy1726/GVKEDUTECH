@@ -6,6 +6,7 @@ import { ArrowRight, GraduationCap, Globe2, Briefcase, Award, Building2, Lightbu
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AirplaneDecoration, GraduationCapDecoration, GlobeDecoration, FlightPathDecoration } from "@/components/ThematicDecorations";
 import { ColorfulHeading } from "@/components/ColorfulHeading";
+import { FAQSchema } from "@/components/SEO";
 import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
@@ -29,6 +30,15 @@ export const metadata = {
     updated_time: new Date().toISOString(),
   },
 };
+
+const faqs = [
+  { question: "What is the duration of Masters abroad?", answer: "Most Masters programs abroad take 1-2 years to complete, depending on the country and course type." },
+  { question: "What are the requirements for Masters abroad?", answer: "Requirements typically include a Bachelor's degree, English proficiency test scores (IELTS/TOEFL), SOP, LOR, and sometimes GMAT/GRE." },
+  { question: "Can I work while studying Masters abroad?", answer: "Yes, most countries allow part-time work during studies. Post-study work visas also let you work after graduation." },
+  { question: "What is the average cost of Masters abroad?", answer: "The cost varies by country - UK: £12,000-35,000/year, USA: $20,000-50,000/year, Australia: $20,000-45,000/year, Germany: Free to €1,500/semester." },
+  { question: "Are scholarships available for Masters abroad?", answer: "Yes, many universities and governments offer scholarships for international students based on merit or need." },
+  { question: "Which countries are best for Masters abroad?", answer: "Popular destinations include UK, USA, Canada, Australia, Germany, Ireland, and New Zealand - each offering unique advantages." },
+];
 
 const mastersCountries = [
   {
@@ -125,6 +135,7 @@ const benefits = [
 const MastersPage = () => {
   return (
     <PageLayout>
+      <FAQSchema faqs={faqs} />
       <PageHeader
         title="Study Masters Abroad"
         subtitle="Elevate Your Career with a Global Postgraduate Degree"

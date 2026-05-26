@@ -30,6 +30,12 @@ const companyLinks = [
   { label: "Contact Us", href: "/contact" },
 ];
 
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
+  { label: "Disclaimer", href: "/disclaimer" },
+];
+
 const supportLinks = [
   { label: "Apply Now", href: "/apply" },
   { label: "Partner Universities", href: "/partner-universities" },
@@ -55,7 +61,7 @@ export const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-3">
@@ -113,6 +119,20 @@ export const Footer = () => {
             <h4 className="font-bold text-lg mb-5">Company</h4>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-white/70 hover:text-accent transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="font-bold text-lg mb-5">Legal</h4>
+            <ul className="space-y-3">
+              {legalLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-white/70 hover:text-accent transition-colors">
                     {link.label}

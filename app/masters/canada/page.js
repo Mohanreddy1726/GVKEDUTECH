@@ -72,6 +72,12 @@ const CanadaPage = () => {
         { name: "Queen's University", website: "https://queensu.ca" },
         { name: "Simon Fraser University", website: "https://sfu.ca" },
       ]}
+      faqs={[
+        { question: "What is the cost of Masters in Canada?", answer: "Tuition fees range from CAD 15,000-35,000/year. Total cost including living expenses is approximately CAD 25,000-50,000/year." },
+        { question: "Can I get PR after Masters in Canada?", answer: "Yes, Canada offers excellent PR pathways. PGWP holders can apply for permanent residency through Express Entry or Provincial Nominee Programs." },
+        { question: "What is the Post-Graduation Work Permit (PGWP)?", answer: "PGWP allows graduates to work in Canada for up to 3 years, depending on the program length." },
+        { question: "What are the English language requirements?", answer: "Most universities require IELTS 6.5+ (no band below 6.0) for postgraduate programs." },
+      ]}
     />
   );
 };

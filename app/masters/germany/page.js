@@ -76,6 +76,12 @@ const GermanyPage = () => {
         { name: "University of Göttingen", website: "https://uni-goettingen.de" },
         { name: "Karlsruhe Institute of Technology", website: "https://kit.edu" },
       ]}
+      faqs={[
+        { question: "Is Masters in Germany really free?", answer: "Yes, most public universities charge no tuition fees. You only pay a semester contribution of €150-350." },
+        { question: "What is the cost of living in Germany?", answer: "Living expenses are approximately €10,000-12,000/year, making Germany very affordable." },
+        { question: "Can I work after Masters in Germany?", answer: "Yes, you can stay for 18 months after graduation to find a job. Once employed, you can apply for a Blue Card." },
+        { question: "Are there English-taught programs?", answer: "Yes, thousands of Master's programs are offered entirely in English." },
+      ]}
     />
   );
 };

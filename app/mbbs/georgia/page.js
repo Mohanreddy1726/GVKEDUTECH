@@ -51,6 +51,12 @@ const GeorgiaPage = () => {
         { name: "Caucasus University (CU)", website: "https://cu.edu.ge", logo: "https://cu.edu.ge/files/gallery/2024/SLIDER/For%20Web%20-.png" },
         { name: "Central University of Europe, Kutaisi", website: "https://cue.edu.ge", logo: "https://cue.edu.ge/wp-content/uploads/2024/10/logo-cue.png" },
       ]}
+      faqs={[
+        { question: "Is MBBS from Georgia valid in India?", answer: "Yes. Degrees from NMC/WHO approved Georgian medical universities are valid in India. Graduates can appear for FMGE/NExT and practice." },
+        { question: "Is IELTS required for MBBS in Georgia?", answer: "No, most Georgian universities do not require IELTS or TOEFL for admission to MBBS programs." },
+        { question: "What is the cost of MBBS in Georgia?", answer: "The total cost ranges from ₹18-35 lakhs, which is significantly lower than private medical colleges in India." },
+        { question: "What is the duration of MBBS in Georgia?", answer: "The MBBS program in Georgia typically lasts 6 years including clinical training." },
+      ]}
     />
   );
 };

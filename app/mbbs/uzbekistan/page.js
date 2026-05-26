@@ -52,6 +52,12 @@ const UzbekistanPage = () => {
         { name: "Samarkand State Medical University", website: "https://samarkand.uz", logo: "https://samarkand.uz/templates/dreamzero/img/gerb-flag.png" },
         { name: "Tashkent Medical Academy", website: "https://tsmu.co.in", logo: "https://www.tsmu.co.in/assets/logo-DZCgxLn-.png" },
       ]}
+      faqs={[
+        { question: "Is MBBS from Uzbekistan valid in India?", answer: "Yes. Degrees from NMC/WHO approved Uzbek medical universities are valid in India. Graduates can appear for FMGE/NExT and practice." },
+        { question: "What is the cost of MBBS in Uzbekistan?", answer: "The total cost ranges from ₹12-25 lakhs, making it one of the most affordable MBBS destinations abroad." },
+        { question: "Is Indian food available in Uzbekistan?", answer: "Yes, most universities provide Indian mess facilities and vegetarian options for Indian students." },
+        { question: "What is the duration of MBBS in Uzbekistan?", answer: "The MBBS program in Uzbekistan typically lasts 6 years including clinical training." },
+      ]}
     />
   );
 };
