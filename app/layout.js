@@ -139,6 +139,7 @@ export default function RootLayout({ children }) {
         <WebSiteSchema />
         <OrganizationSchema />
         {children}
+         
         <Toaster />
       </body>
     </html>
