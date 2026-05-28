@@ -47,7 +47,7 @@ const operationalTeam = [
 const itTeam = [
   { name: "Mr. Mohan Reddy", qualification: "B.Tech", role: "Full Stack Developer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Mohan.png", isHead: true },
   { name: "Mr. Rakesh", qualification: "B.Tech", role: "Video Editor", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.43.36%20PM.jpeg", isHead: false },
-  { name: "Mr. Shiva", qualification: "B.Tech", role: "UI/UX Designer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Shiva%20imag.jpeg", isHead: false },
+  { name: "Mr. Shiva", qualification: "B.Tech", role: "UI/UX Designer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shiva-edited-photo-1254x1254.jpg.jpeg", isHead: false },
   { name: "Mr. Siddhartha", qualification: "BBA", role: "Digital Marketing", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/IMG_9061.jpg?updatedAt=1779103695589", isHead: false },
 ];
 
