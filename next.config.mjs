@@ -8,6 +8,22 @@ const nextConfig = {
 
   compress: true,
 
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.gvkedutech.com",
+          },
+        ],
+        destination: "https://gvkedutech.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   images: {
     remotePatterns: [
       // Existing Domains
