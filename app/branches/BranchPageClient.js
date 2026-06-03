@@ -8,7 +8,6 @@ import { MapPin, Phone, Mail, Clock, ArrowLeft, MessageCircle, Star, User } from
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { useParams } from "next/navigation";
 
 const offices = [
   {
@@ -134,12 +133,11 @@ const offices = [
   }
 ];
 
-const BranchPageClient = () => {
-  const params = useParams();
-  const city = params?.city || "hyderabad";
+const BranchPageClient = ({ city }) => {
+  const currentCity = city?.toLowerCase() || "hyderabad";
 
   const office = offices.find(
-    (o) => o.city.toLowerCase() === city.toLowerCase()
+    (o) => o.city.toLowerCase() === currentCity.toLowerCase()
   );
 
   if (!office) {
