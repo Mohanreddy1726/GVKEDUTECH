@@ -32,14 +32,14 @@ export function generateMetadata() {
     metadataBase: new URL(SITE_URL),
     title: {
       default:
-        "Best MBBS Abroad Consultancy in Hyderabad | GVK EduTech - Top Medical University Admissions 2026",
+        "Best Abroad Consultancy in Hyderabad | GVK EduTech - Top Medical University Admissions 2026",
       template: "%s | GVK EduTech Hyderabad",
     },
     description:
-      "Looking for the best MBBS abroad consultancy in Hyderabad? GVK EduTech offers expert guidance for MBBS in Russia, Georgia, Kyrgyzstan & more. 5000+ students placed. Free counseling. Call +91 9010060000",
+      "Looking for the best abroad consultancy in Hyderabad? GVK EduTech offers expert guidance for MBBS in Russia, Georgia, Kyrgyzstan & more. 5000+ students placed. Free counseling. Call +91 9010060000",
     keywords: [
       "MBBS abroad consultancy in Hyderabad",
-      "best MBBS abroad consultancy in Hyderabad",
+      "best abroad consultancy in Hyderabad",
       "MBBS in Hyderabad consultancy",
       "study MBBS abroad Hyderabad",
       "MBBS abroad for Indian students",
@@ -74,8 +74,8 @@ export function generateMetadata() {
       type: "website",
       locale: "en_IN",
       url: SITE_URL,
-      siteName: "GVK EduTech - Best MBBS Abroad Consultancy in Hyderabad",
-      title: "Best MBBS Abroad Consultancy in Hyderabad | GVK EduTech",
+      siteName: "GVK EduTech - Best Abroad Consultancy in Hyderabad",
+      title: "Best Abroad Consultancy in Hyderabad | GVK EduTech",
       description:
         "Top-rated MBBS abroad consultancy in Hyderabad. Expert guidance for MBBS in Russia, Georgia, Kyrgyzstan. 5000+ doctors placed. Free counseling available.",
       images: [
@@ -83,14 +83,14 @@ export function generateMetadata() {
           url: "/og-image.png",
           width: 1200,
           height: 630,
-          alt: "GVK EduTech - Best MBBS Abroad Consultancy in Hyderabad",
+          alt: "GVK EduTech - Best Abroad Consultancy in Hyderabad",
         },
       ],
       updated_time: lastModified,
     },
     twitter: {
       card: "summary_large_image",
-      title: "Best MBBS Abroad Consultancy in Hyderabad | GVK EduTech",
+      title: "Best Abroad Consultancy in Hyderabad | GVK EduTech",
       description:
         "Top MBBS abroad consultancy in Hyderabad. Low-cost medical universities in Russia, Georgia, Kyrgyzstan. 5000+ doctors placed.",
       images: ["/og-image.png"],
@@ -139,7 +139,16 @@ export default function RootLayout({ children }) {
         <WebSiteSchema />
         <OrganizationSchema />
         {children}
-         
+         <elevenlabs-convai
+  agent-id={
+    process.env.NEXT_PUBLIC_ELEVENLABS_AGENT_ID
+  }
+></elevenlabs-convai>
+
+        <Script
+          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+          strategy="afterInteractive"
+        />
         <Toaster />
       </body>
     </html>
