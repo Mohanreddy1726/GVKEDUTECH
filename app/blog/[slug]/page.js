@@ -6,6 +6,25 @@ import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, Share2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+export async function generateMetadata({ params }) {
+  const post = await getPost(params.slug);
+  if (!post) {
+    return {
+      title: "Blog Post Not Found | GVK EduTech",
+    };
+  }
+  return {
+    title: `${post.title} | GVK EduTech Blog`,
+    description: post.excerpt || post.content?.slice(0, 160) || "Read this blog post about MBBS abroad from GVK EduTech.",
+    keywords: post.tags || ["MBBS abroad", "study abroad", "medical education"],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || post.content?.slice(0, 160),
+      images: post.image ? [{ url: post.image }] : [],
+    },
+  };
+}
+
 async function getPost(slug) {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ""}/api/blog/${slug}/`, { cache: "no-store" });

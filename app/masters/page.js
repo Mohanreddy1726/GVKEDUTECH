@@ -10,7 +10,7 @@ import { FAQSchema } from "@/components/SEO";
 import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
-  title: "Study Masters Abroad 2026 | Top Universities in USA, UK, Australia, Germany",
+  title: "Study Masters Abroad 2026 | Top Universities Worldwide | GVK EduTech",
   description: "Pursue Masters abroad in top-ranked US, UK, Australian, German universities. Post-study work visas, scholarships available. Expert admission guidance.",
   keywords: [
     "Masters abroad for Indian students",

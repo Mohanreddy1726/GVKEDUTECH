@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study Masters in UK 2026 - Top Universities | GVK EduTech",
+  title: "Study Masters in UK 2026 | World-Class Education | GVK EduTech",
   description: "Pursue your Masters degree in UK at prestigious institutions. 1-year programs, global recognition, graduate route visa. Apply for UK Masters now.",
   keywords: ["Masters in UK", "study Masters UK", "UK university admission", "Masters degree UK", "graduate route visa UK"],
   openGraph: {

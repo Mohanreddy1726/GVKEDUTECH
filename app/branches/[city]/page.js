@@ -10,6 +10,14 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { useParams } from "next/navigation";
 
+export function generateMetadata({ params }) {
+  const city = params.city.charAt(0).toUpperCase() + params.city.slice(1);
+  return {
+    title: `Study Abroad Consultancy in ${city} | GVK EduTech`,
+    description: `GVK EduTech - Best study abroad consultancy in ${city}. Expert guidance for MBBS and Masters abroad. Contact our ${city} office for free counseling.`,
+    keywords: [`study abroad consultancy ${city}`, `MBBS abroad ${city}`, `education consultancy ${city}`, `GVK EduTech ${city}`],
+  };
+}
 
 const offices = [
   {

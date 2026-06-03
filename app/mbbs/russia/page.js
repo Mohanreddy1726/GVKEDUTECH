@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study MBBS in Russia 2026 - Top Medical Universities | GVK EduTech",
+  title: "Study MBBS in Russia 2026 | NMC-Approved Universities | GVK EduTech",
   description: "Study MBBS in Russia at top-ranked universities. Affordable fees, NMC/WHO approved, advanced labs. Apply for MBBS in Russia now.",
   keywords: ["MBBS in Russia", "study MBBS Russia", "Russia medical university", "MBBS abroad Russia"],
   openGraph: {

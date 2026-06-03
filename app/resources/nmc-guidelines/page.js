@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "NMC Guidelines for MBBS Abroad | GVK EduTech",
+  title: "NMC Guidelines for MBBS Abroad 2026 | Complete Information | GVK EduTech",
   description: "Official NMC guidelines for Indian students studying MBBS abroad. Understand eligibility criteria, return service obligation, and requirements for practicing in India after overseas medical education.",
   keywords: ["NMC guidelines MBBS abroad", "NMC international medical graduate", "MBBS abroad India rules", "NMC act foreign medical degree", "MBBS abroad eligibility India"],
 };

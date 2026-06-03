@@ -21,7 +21,7 @@ import { Send, MessageCircle, Phone } from "lucide-react";
 import { validatePhone } from "@/utils/validation";
 
 export const metadata = {
-  title: "Apply Online | GVK EduTech",
+  title: "Apply for MBBS Abroad | Free Admission Assistance | GVK EduTech",
   alternates: {
     canonical: "/apply",
   },

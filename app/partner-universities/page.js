@@ -14,7 +14,7 @@ import Link from "next/link";
 import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
-  title: "Partner Universities - GVK EduTech | Global University Network",
+  title: "Partner Universities | Top Medical & Global Universities | GVK EduTech",
   description: "Explore our network of 300+ partner universities worldwide for MBBS and Masters programs. Top-ranked institutions in Russia, Georgia, Kyrgyzstan, USA, UK, Australia and more.",
   keywords: ["partner universities", "MBBS universities abroad", "study abroad universities", "international universities network", "GVK EduTech university partners"],
   openGraph: {

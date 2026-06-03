@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study Masters in USA 2026 - Top Universities | GVK EduTech",
+  title: "Study Masters in USA 2026 | Top Universities | GVK EduTech",
   description: "Pursue your Masters degree in USA at Ivy League and top-ranked universities. STEM OPT up to 3 years, world-class research facilities. Apply for USA Masters now.",
   keywords: ["Masters in USA", "study Masters in USA", "USA university admission", "Masters degree USA", "STEM OPT"],
   openGraph: {

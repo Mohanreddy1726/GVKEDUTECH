@@ -10,7 +10,7 @@ import { ColorfulHeading } from "@/components/ColorfulHeading";
 import "flag-icons/css/flag-icons.min.css";
 
 export const metadata = {
-  title: "Study MBBS Abroad 2026 | Top Medical Universities in Russia, Georgia, Kyrgyzstan",
+  title: "Study MBBS Abroad 2026 | Top Medical Universities | GVK EduTech",
   description: "Study MBBS abroad in top NMC/WHO approved universities. Low fees in Russia, Georgia, Kyrgyzstan, Kazakhstan. 5000+ Indian doctors placed. Free counseling.",
   keywords: [
     "MBBS abroad for Indian students",

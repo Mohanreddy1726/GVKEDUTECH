@@ -4,6 +4,12 @@ import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
 import { ColorfulHeading } from "@/components/ColorfulHeading";
 
+export const metadata = {
+  title: "Terms & Conditions | GVK EduTech",
+  description: "GVK EduTech terms and conditions - Read our service terms, refund policy, and usage guidelines for study abroad consultancy services.",
+  keywords: ["terms and conditions", "GVK EduTech terms", "service terms"],
+};
+
 const TermsAndConditionsPage = () => {
   return (
     <PageLayout>

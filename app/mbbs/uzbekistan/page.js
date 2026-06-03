@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study MBBS in Uzbekistan 2026 - Top Medical Universities | GVK EduTech",
+  title: "Study MBBS in Uzbekistan 2026 | Top Medical Colleges | GVK EduTech",
   description: "Study MBBS in Uzbekistan at affordable fees. NMC/WHO approved, English medium, quality education. Apply for MBBS in Uzbekistan now.",
   keywords: ["MBBS in Uzbekistan", "study MBBS Uzbekistan", "Uzbekistan medical university", "MBBS abroad Uzbekistan"],
   openGraph: {

@@ -4,6 +4,12 @@ import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
 import { ColorfulHeading } from "@/components/ColorfulHeading";
 
+export const metadata = {
+  title: "Disclaimer | GVK EduTech",
+  description: "GVK EduTech disclaimer - Important information about website content, university information, and service limitations.",
+  keywords: ["disclaimer", "GVK EduTech disclaimer", "website disclaimer"],
+};
+
 const DisclaimerPage = () => {
   return (
     <PageLayout>

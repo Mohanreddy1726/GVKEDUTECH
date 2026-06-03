@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study MBBS in Georgia 2026 - Top Medical Universities | GVK EduTech",
+  title: "Study MBBS in Georgia 2026 | Affordable Medical Education | GVK EduTech",
   description: "Study MBBS in Georgia at WHO/NMC approved medical universities. Affordable fees, English medium education, no donation required. Apply for MBBS in Georgia now.",
   keywords: ["MBBS in Georgia", "study MBBS Georgia", "Georgia medical university", "MBBS abroad Georgia", "MBBS Tbilisi"],
   openGraph: {

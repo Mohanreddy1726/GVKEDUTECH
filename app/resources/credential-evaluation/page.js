@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "WES Credential Evaluation | GVK EduTech",
+  title: "WES Credential Evaluation Services | GVK EduTech",
   description: "Learn about WES credential evaluation for foreign medical degrees. Understand the process, requirements, and why credential evaluation is important for Indian students studying abroad.",
   keywords: ["WES credential evaluation", "foreign degree evaluation", "credential evaluation for MBBS abroad", "WES India", "educational credential evaluation"],
 };

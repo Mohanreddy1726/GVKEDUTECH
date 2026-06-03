@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study MBBS in Vietnam 2026 - Top Medical Universities | GVK EduTech",
+  title: "Study MBBS in Vietnam 2026 | Asian Medical Destination | GVK EduTech",
   description: "Study MBBS in Vietnam at WHO listed universities. Affordable fees, clinical exposure, tropical medicine focus. Apply for MBBS in Vietnam now.",
   keywords: ["MBBS in Vietnam", "study MBBS Vietnam", "Vietnam medical university", "MBBS abroad Vietnam"],
   openGraph: {

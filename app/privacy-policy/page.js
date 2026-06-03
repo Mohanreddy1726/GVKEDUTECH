@@ -4,6 +4,12 @@ import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
 import { ColorfulHeading } from "@/components/ColorfulHeading";
 
+export const metadata = {
+  title: "Privacy Policy | GVK EduTech",
+  description: "GVK EduTech privacy policy - Learn how we collect, use, and protect your personal information when you use our study abroad consultancy services.",
+  keywords: ["privacy policy", "GVK EduTech privacy", "data protection policy"],
+};
+
 const PrivacyPolicyPage = () => {
   return (
     <PageLayout>

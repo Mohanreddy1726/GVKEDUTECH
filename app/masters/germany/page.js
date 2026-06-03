@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study Masters in Germany 2026 - Top Universities | GVK EduTech",
+  title: "Study Masters in Germany 2026 | Free Tuition Available | GVK EduTech",
   description: "Pursue your Masters degree in Germany at world-class universities. Academic excellence, cutting-edge research, often tuition-free. Apply for Germany Masters now.",
   keywords: ["Masters in Germany", "study Masters Germany", "Germany university admission", "Masters degree Germany", "free education Germany"],
   openGraph: {

@@ -6,6 +6,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingButtons } from "@/components/FloatingButtons";
 
+export const metadata = {
+  title: "Student Gallery | MBBS Abroad Success Stories | GVK EduTech",
+  description: "Watch student and parent testimonials, success stories of MBBS graduates placed in top medical universities worldwide. See GVK EduTech's achievements and events.",
+  keywords: ["student gallery", "MBBS success stories", "student testimonials", "parent testimonials", "GVK EduTech achievements"],
+};
+
 const categories = [
   { value: "all", label: "All Videos", icon: "🎬" },
   { value: "student-testimonial", label: "Student Testimonials", icon: "👨‍🎓" },
