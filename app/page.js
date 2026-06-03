@@ -14,7 +14,7 @@ import { FloatingButtons } from "@/components/FloatingButtons";
 import { VideoTestimonials } from "@/components/VideoTestimonials";
 
 export const metadata = {
-  title: "GVK EduTech | MBBS Abroad for Indian Students - Top Medical Universities 2026",
+  title: "GVK EduTech | Best Abroad Consultancy for Indian Students - Top Universities 2026",
   description: "Expert MBBS abroad guidance for Indian students. Low-cost medical universities in Russia, Georgia, Kyrgyzstan, Kazakhstan. 5000+ doctors placed. Free counseling.",
   keywords: [
     "MBBS abroad for Indian students",
@@ -33,7 +33,7 @@ export const metadata = {
     "MBBS in Kazakhstan for Indian students",
   ],
   openGraph: {
-    title: "GVK EduTech | MBBS Abroad for Indian Students",
+    title: "GVK EduTech | Best Abroad Consultancy for Indian Students",
     description: "Expert MBBS abroad guidance for Indian students. Low-cost medical universities in Russia, Georgia, Kyrgyzstan, Kazakhstan. 5000+ doctors placed.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GVK EduTech - Medical Education Abroad" }],
   },
