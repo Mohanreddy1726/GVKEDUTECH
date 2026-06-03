@@ -12,11 +12,13 @@ import { ColorfulHeading } from "@/components/ColorfulHeading";
 import Link from "next/link";
 import { validateEmail, validatePhone } from "@/utils/validation";
 
-export const metadata = {
-  title: "Contact GVK EduTech | Study Abroad Consultancy in Hyderabad",
-  description: "Contact GVK EduTech for free counseling on MBBS and Masters abroad. Visit our Hyderabad office or call +91 9010060000. Multiple branch locations available.",
-  keywords: ["contact GVK EduTech", "study abroad consultancy Hyderabad", "MBBS abroad counseling", "education consultancy contact", "GVK EduTech office"],
-};
+export function generateMetadata() {
+  return {
+    title: "Contact GVK EduTech | Study Abroad Consultancy in Hyderabad",
+    description: "Contact GVK EduTech for free counseling on MBBS and Masters abroad. Visit our Hyderabad office or call +91 9010060000. Multiple branch locations available.",
+    keywords: ["contact GVK EduTech", "study abroad consultancy Hyderabad", "MBBS abroad counseling", "education consultancy contact", "GVK EduTech office"],
+  };
+}
 
 
 const offices = [
