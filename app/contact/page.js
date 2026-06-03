@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
