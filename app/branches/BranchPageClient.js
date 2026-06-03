@@ -448,7 +448,6 @@ const BranchPageClient = ({ city }) => {
               </h2>
             </div>
             <Link
-              href="/branches"
               className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               View all
@@ -466,7 +465,6 @@ const BranchPageClient = ({ city }) => {
           {/* mobile "view all" */}
           <div className="mt-8 flex justify-center sm:hidden">
             <Link
-              href="/branches"
               className="flex items-center gap-2 px-6 py-3 rounded-full border border-border text-sm font-medium hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))] transition-colors"
             >
               View all offices
