@@ -9,6 +9,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+const FALLBACK_IMAGE = "https://ik.imagekit.io/abhobz66j/GVK%20Images/logo.jpg";
+
 const offices = [
   {
     city: "Hyderabad",
@@ -16,7 +18,7 @@ const offices = [
     address: "3rd Floor, Shiva sai Commercial Building, Shivam X Road, Vidya Nagar Opp: Reliance Digital, Hyderabad, Telangana, Pin: 500044",
     phones: ["+91 8331077770", "+91 9010060000"],
     mapLink: "https://maps.app.goo.gl/HSBuYGWVxe46562SA",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/hyderabad-charminar.jpg?updatedAt=1776492282091",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/hyderabad-charminar.jpg",
     monument: "Charminar",
     regionalDirector: "Mrs. Reena Kamal",
     qualification: "B.Com, MBA"
@@ -27,7 +29,7 @@ const offices = [
     address: "3rd Floor S.V arcade, opp: Suprabha Hotel, Nakkalagutta, Hanamkonda, Warangal, Telangana, Pincode: 506001",
     phones: ["+91 7287077770", "+91 9505520297"],
     mapLink: "https://maps.app.goo.gl/hjC7b2FAPNQYTr3k8",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/warangal-thousand-pillar-temple.jpg?updatedAt=1776492282027",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/warangal-thousand-pillar-temple.jpg",
     monument: "Thousand Pillar Temple",
     regionalDirector: "Mrs. Geetha Rejesh",
     qualification: "MA, B.Sc, B.Ed"
@@ -38,7 +40,7 @@ const offices = [
     address: "2nd floor, new bel road, chikkamaranahalli, near MS Ramaiah medical college, Bangalore, Pincode: 560094",
     phones: ["+91 8147533806", "+91 7676167469"],
     mapLink: "https://goo.gl/maps/bangalore",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/bangalore-vidhana-soudha.jpg?updatedAt=1776492281129",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/bangalore-vidhana-soudha.jpg",
     monument: "Vidhana Soudha",
     regionalDirector: "Mr. Chandan Singh",
     qualification: "MBA"
@@ -49,7 +51,7 @@ const offices = [
     address: "No:14, 2nd Floor, B Block, ABO Junction, GST Road, Chromepet, Chennai, Tamil Nadu, Pincode: 600044",
     phones: ["+91 8754435016", "+91 7907757770"],
     mapLink: "https://goo.gl/maps/chennai",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chennai-marina-beach.jpg?updatedAt=1776492281356",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chennai-lighthouse.jpg?updatedAt=1776492281253",
     monument: "Marina Beach",
     regionalDirector: "Mrs. Vandana",
     qualification: "M.Com, MBA"
@@ -60,7 +62,7 @@ const offices = [
     address: "2nd Floor, Above Reliance Digital, Brindavan Complex, Near Gunaseema, Nellore, Andhra Pradesh, Pincode: 524001",
     phones: ["+91 8309966661", "+91 7997527770"],
     mapLink: "https://goo.gl/maps/nelore",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Nellore.jpeg",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-05-07_115237409.png?updatedAt=1778134962035",
     monument: "Sri Venkateswara Swami Devasthanam",
     regionalDirector: "Mr. Nandu",
     qualification: "B.Tech, MBA"
@@ -71,7 +73,7 @@ const offices = [
     address: "2nd Floor,Above Metro Shoes, Near Benz Circle, MG Road, Vijayawada, Andhra Pradesh, Pincode: 520010",
     phones: ["+91 9182667770", "+91 9100757770"],
     mapLink: "https://goo.gl/maps/vijayawada",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Vijayawada.jpg",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/vijayawada-kanaka-durga-temple.jpg?updatedAt=1776492282159",
     monument: "Prakasam Barrage",
     regionalDirector: "Mr. Rajesh",
     qualification: "M.Com, MBA"
@@ -82,7 +84,7 @@ const offices = [
     address: "2nd Floor, Near Railway Station, Tirupati, Andhra Pradesh, Pincode: 517501",
     phones: ["+91 7287077770", "+91 9505520297"],
     mapLink: "https://maps.app.goo.gl/tirupati",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Tirupati.jpg",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-05-07_115255252.png?updatedAt=1778134982235",
     monument: "Tirumala Temple",
     regionalDirector: "Mrs. Lakshmi",
     qualification: "M.Sc, B.Ed"
@@ -93,7 +95,7 @@ const offices = [
     address: "2nd Floor, opp: Bus Stand, Suryapet, Telangana, Pincode: 508213",
     phones: ["+91 7287077770", "+91 9505520297"],
     mapLink: "https://maps.app.goo.gl/suryapet",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Suryapet.jpg",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-05-07_115307375.png?updatedAt=1778134994086",
     monument: "Kcheck Suray Mandir",
     regionalDirector: "Mr. Shobarani",
     qualification: "B.Com, MBA"
@@ -104,7 +106,7 @@ const offices = [
     address: "2nd Floor, Dwaraka Nagar, Near Big Bazaar, Visakhapatnam, Andhra Pradesh, Pincode: 530016",
     phones: ["+91 7287077770", "+91 9505520297"],
     mapLink: "https://maps.app.goo.gl/visakhapatnam",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/visakhapatnam.jpg",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/visakhapatnam-kailasagiri.jpg?updatedAt=1776492283059",
     monument: "Kailasagiri",
     regionalDirector: "Mr. Srinivas",
     qualification: "M.Com, MBA"
@@ -115,7 +117,7 @@ const offices = [
     address: "2nd Floor, Opp: Police Station, Nalgonda, Telangana, Pincode: 508001",
     phones: ["+91 7287077770", "+91 9505520297"],
     mapLink: "https://maps.app.goo.gl/nalgonda",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Nalgonda.jpg",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nalgonda-nagarjuna-sagar.jpg?updatedAt=1776492281884",
     monument: "Nalgonda Fort",
     regionalDirector: "Mr. Ramesh",
     qualification: "B.Sc, B.Ed"
@@ -126,7 +128,7 @@ const offices = [
     address: "2nd Floor, Savitha Apartment, Opposite: Bus Stand, Karimnagar, Telangana, Pincode: 505001",
     phones: ["+91 7287077770", "+91 9505520297"],
     mapLink: "https://www.google.com/maps/place/GVK+EDUTECH+SERVICES+-+Best+MBBS+Consultancy+in+Karimnagar+%7C+MBBS+in+Abroad+%7C+Best+Overseas+Educational+Consultancy/@18.4372006,79.1240267,1220m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bccd9ea035775b3:0xdb03b029ee1e7138!8m2!3d18.4372006!4d79.1240267!16s%2Fg%2F11ydr3jw8q?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D",
-    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Karimnagar.jpg",
+    image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/karimnagar-elgandal-fort.jpg?updatedAt=1776492281954",
     monument: "Elgandal Fort",
     regionalDirector: "Mr. Shiva",
     qualification: "B.Com, MBA"
