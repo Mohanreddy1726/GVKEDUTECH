@@ -10,15 +10,15 @@ import { getUniversityLogo } from "@/data/universityLogos";
 
 import "flag-icons/css/flag-icons.min.css";
 
-export function generateMetadata({ params }) {
-  const slug = params.slug;
-  const countryName = slug.charAt(0).toUpperCase() + slug.slice(1);
-  return {
-    title: `Study MBBS in ${countryName} | Partner Universities | GVK EduTech`,
-    description: `Explore top medical universities in ${countryName}. GVK EduTech partners with NMC-approved institutions for MBBS abroad with affordable fees.`,
-    keywords: [`MBBS in ${countryName}`, `medical universities ${countryName}`, `study MBBS ${countryName}`, `partner universities ${countryName}`],
-  };
-}
+// export function generateMetadata({ params }) {
+//   const slug = params.slug;
+//   const countryName = slug.charAt(0).toUpperCase() + slug.slice(1);
+//   return {
+//     title: `Study MBBS in ${countryName} | Partner Universities | GVK EduTech`,
+//     description: `Explore top medical universities in ${countryName}. GVK EduTech partners with NMC-approved institutions for MBBS abroad with affordable fees.`,
+//     keywords: [`MBBS in ${countryName}`, `medical universities ${countryName}`, `study MBBS ${countryName}`, `partner universities ${countryName}`],
+//   };
+// }
 
 const universityData = {
   nepal: {
