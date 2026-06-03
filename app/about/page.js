@@ -8,13 +8,13 @@ import { CheckCircle, Target, Eye, MessageCircle, Phone, Award, BookOpen, Shield
 import { ColorfulHeading } from "@/components/ColorfulHeading";
 import { useState, useEffect, useRef } from "react";
 
-export function generateMetadata() {
-  return {
-    title: "About GVK EduTech | Best Study Abroad Consultancy in Hyderabad",
-    description: "GVK EduTech is the best study abroad consultancy in Hyderabad with 5000+ students placed in top medical universities worldwide. Expert guidance for MBBS and Masters abroad.",
-    keywords: ["about GVK EduTech", "study abroad consultancy Hyderabad", "best MBBS consultancy", "education consultancy India", "GVK EduTech history"],
-  };
-}
+// export function generateMetadata() {
+//   return {
+//     title: "About GVK EduTech | Best Study Abroad Consultancy in Hyderabad",
+//     description: "GVK EduTech is the best study abroad consultancy in Hyderabad with 5000+ students placed in top medical universities worldwide. Expert guidance for MBBS and Masters abroad.",
+//     keywords: ["about GVK EduTech", "study abroad consultancy Hyderabad", "best MBBS consultancy", "education consultancy India", "GVK EduTech history"],
+//   };
+// }
 
 /* ─────────────────────────────────────────────
    BRAND COLORS

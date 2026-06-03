@@ -12,13 +12,13 @@ import { ColorfulHeading } from "@/components/ColorfulHeading";
 import Link from "next/link";
 import { ArrowRight, Clock, Calendar, Search, RefreshCw } from "lucide-react";
 
-export function generateMetadata() {
-  return {
-    title: "MBBS Abroad Blog | Latest Updates & Guidance | GVK EduTech",
-    description: "Stay updated with the latest MBBS abroad news, university updates, NMC guidelines, and admission tips. Expert guidance for Indian students seeking medical education abroad.",
-    keywords: ["MBBS abroad blog", "study abroad updates", "medical education blog", "NMC guidelines latest", "MBBS admission tips"],
-  };
-}
+// export function generateMetadata() {
+//   return {
+//     title: "MBBS Abroad Blog | Latest Updates & Guidance | GVK EduTech",
+//     description: "Stay updated with the latest MBBS abroad news, university updates, NMC guidelines, and admission tips. Expert guidance for Indian students seeking medical education abroad.",
+//     keywords: ["MBBS abroad blog", "study abroad updates", "medical education blog", "NMC guidelines latest", "MBBS admission tips"],
+//   };
+// }
 
 const categories = [
   { name: "All", icon: "📚", value: "all" },
