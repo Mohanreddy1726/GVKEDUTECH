@@ -20,6 +20,13 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, MessageCircle, Phone } from "lucide-react";
 import { validatePhone } from "@/utils/validation";
 
+export const metadata = {
+  title: "Apply Online | GVK EduTech",
+  alternates: {
+    canonical: "/apply",
+  },
+};
+
 const countries = [
   "Kyrgyzstan",
   "Georgia",

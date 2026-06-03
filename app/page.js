@@ -36,6 +36,8 @@ export const metadata = {
     title: "GVK EduTech | Best Abroad Consultancy for Indian Students",
     description: "Expert MBBS abroad guidance for Indian students. Low-cost medical universities in Russia, Georgia, Kyrgyzstan, Kazakhstan. 5000+ doctors placed.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GVK EduTech - Medical Education Abroad" }],
+  }, alternates: {
+    canonical: "/",
   },
 };
 

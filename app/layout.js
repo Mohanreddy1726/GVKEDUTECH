@@ -67,9 +67,6 @@ export function generateMetadata() {
       address: false,
       telephone: false,
     },
-    alternates: {
-      canonical: "/",
-    },
     openGraph: {
       type: "website",
       locale: "en_IN",
