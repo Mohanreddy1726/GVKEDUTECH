@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study Masters in Australia 2026 | Top Universities | GVK EduTech",
+  title: "Study Masters in Australia 2026 | Top Universities",
   description: "Pursue your Masters degree in Australia at top-ranked universities. Post-study work visa, research excellence, vibrant student life. Apply for Australia Masters now.",
   keywords: ["Masters in Australia", "study Masters Australia", "Australia university admission", "Masters degree Australia", "post-study work visa Australia"],
   openGraph: {

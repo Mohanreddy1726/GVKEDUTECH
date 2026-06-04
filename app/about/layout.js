@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "About GVK EduTech | Best Study Abroad Consultancy in Hyderabad",
+  title: "About GVK EduTech | Best MBBS Abroad Consultancy",
   description: "GVK EduTech is the best study abroad consultancy in Hyderabad with 5000+ students placed in top medical universities worldwide. Expert guidance for MBBS and Masters abroad.",
 };
 

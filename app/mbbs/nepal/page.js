@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study MBBS in Nepal 2026 | Budget-Friendly Option | GVK EduTech",
+  title: "Study MBBS in Nepal 2026 | Budget-Friendly Option",
   description: "Study MBBS in Nepal at NMC/WHO approved universities. Affordable fees, English medium, cultural proximity. Apply for MBBS in Nepal now.",
   keywords: ["MBBS in Nepal", "study MBBS Nepal", "Nepal medical university", "MBBS abroad Nepal"],
   openGraph: {

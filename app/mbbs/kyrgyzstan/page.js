@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study MBBS in Kyrgyzstan 2026 | Low Cost MBBS | GVK EduTech",
+  title: "Study MBBS in Kyrgyzstan 2026 | Low Cost MBBS",
   description: "Study MBBS in Kyrgyzstan at NMC/WHO approved universities. Affordable fees, English medium, clinical training from 2nd year. Apply for MBBS in Kyrgyzstan now.",
   keywords: ["MBBS in Kyrgyzstan", "study MBBS Kyrgyzstan", "Kyrgyzstan medical university", "MBBS abroad Kyrgyzstan", "cheap MBBS abroad"],
   openGraph: {

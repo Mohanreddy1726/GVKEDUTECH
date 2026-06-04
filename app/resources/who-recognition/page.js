@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "WHO Recognition for Medical Universities | GVK EduTech",
+  title: "WHO Recognition for Medical Universities",
   description: "Verify your medical university recognition through WHO World Directory of Medical Schools. Learn why WHO listing is crucial for NMC approval and international medical practice.",
   keywords: ["WHO World Directory of Medical Schools", "medical school recognition", "NMC approved universities abroad", "WHO listed medical universities", "international medical education verification"],
 };

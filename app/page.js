@@ -14,7 +14,7 @@ import { FloatingButtons } from "@/components/FloatingButtons";
 import { VideoTestimonials } from "@/components/VideoTestimonials";
 
 export const metadata = {
-  title: "GVK EduTech | Best Abroad Consultancy for Indian Students - Top Universities 2026",
+  title: "Best MBBS Abroad Consultancy | GVK EduTech Hyderabad",
   description: "Expert MBBS abroad guidance for Indian students. Low-cost medical universities in Russia, Georgia, Kyrgyzstan, Kazakhstan. 5000+ doctors placed. Free counseling.",
   keywords: [
     "MBBS abroad for Indian students",

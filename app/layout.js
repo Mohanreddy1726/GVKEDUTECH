@@ -31,9 +31,7 @@ export function generateMetadata() {
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default:
-        "Best Abroad Consultancy in Hyderabad | GVK EduTech - Top Medical University Admissions 2026",
-      template: "%s | GVK EduTech Hyderabad",
+      default: "Best MBBS/MASTERS Abroad Consultancy | GVK EduTech Hyderabad",
     },
     description:
       "Looking for the best abroad consultancy in Hyderabad? GVK EduTech offers expert guidance for MBBS in Russia, Georgia, Kyrgyzstan & more. 5000+ students placed. Free counseling. Call +91 9010060000",

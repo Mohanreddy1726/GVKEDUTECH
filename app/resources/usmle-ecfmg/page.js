@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "USMLE & ECFMG Certification Guide | GVK EduTech",
+  title: "USMLE & ECFMG Certification Guide",
   description: "Learn about USMLE exam, ECFMG certification, and how Indian MBBS graduates can practice medicine in the USA. Complete guide for international medical graduates.",
   keywords: ["USMLE", "ECFMG", "USMLE exam for Indian students", "practice medicine USA", "international medical graduate USA", "USMLE preparation abroad"],
 };

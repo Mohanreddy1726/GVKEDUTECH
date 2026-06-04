@@ -6,7 +6,7 @@ import { MessageCircle, Phone } from "lucide-react";
 import { ColorfulHeading } from "@/components/ColorfulHeading";
 
 export const metadata = {
-  title: "Study Abroad Services Hyderabad | Complete Admission Support | GVK EduTech",
+  title: "Study Abroad Services | Complete Admission Support",
   description: "GVK EduTech offers comprehensive services including career counselling, university selection, visa assistance, and pre-departure briefings for MBBS and Masters abroad.",
   keywords: ["education consultancy services", "study abroad services", "visa assistance", "university admission help", "pre-departure briefing"],
   openGraph: {

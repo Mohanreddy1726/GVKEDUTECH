@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { ColorfulHeading } from "@/components/ColorfulHeading";
 
 export const metadata = {
-  title: "Disclaimer | GVK EduTech",
+  title: "Disclaimer",
   description: "GVK EduTech disclaimer - Important information about website content, university information, and service limitations.",
   keywords: ["disclaimer", "GVK EduTech disclaimer", "website disclaimer"],
 };

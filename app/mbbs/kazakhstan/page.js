@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study MBBS in Kazakhstan 2026 | Top Medical Universities | GVK EduTech",
+  title: "Study MBBS in Kazakhstan 2026 | Top Medical Universities",
   description: "Study MBBS in Kazakhstan at NMC/WHO approved universities. Affordable fees, English medium, modern infrastructure. Apply for MBBS in Kazakhstan now.",
   keywords: ["MBBS in Kazakhstan", "study MBBS Kazakhstan", "Kazakhstan medical university", "MBBS abroad Kazakhstan"],
   openGraph: {

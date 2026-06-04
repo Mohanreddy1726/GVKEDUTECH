@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study Masters in New Zealand 2026 | Work & Study Option | GVK EduTech",
+  title: "Study Masters in New Zealand 2026 | Work & Study Option",
   description: "Pursue your Masters degree in New Zealand at world-class institutions. Post-study work visa, safe environment, and quality education. Apply now.",
   keywords: ["Masters in New Zealand", "study Masters New Zealand", "New Zealand university admission", "Masters degree New Zealand", "New Zealand post-study visa"],
   openGraph: {

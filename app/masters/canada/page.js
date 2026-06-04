@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study Masters in Canada 2026 | Premium Education | GVK EduTech",
+  title: "Study Masters in Canada 2026 | Premium Education",
   description: "Pursue your Masters degree in Canada at globally recognized institutions. Post-graduation work permit, PR pathway, and world-class education. Apply now.",
   keywords: ["Masters in Canada", "study Masters Canada", "Canada university admission", "Masters degree Canada", "PGWP Canada"],
   openGraph: {

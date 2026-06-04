@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study Masters in Ireland 2026 | Global Career Opportunities | GVK EduTech",
+  title: "Study Masters in Ireland 2026 | Global Career Opportunities",
   description: "Pursue your Masters degree in Ireland at leading European institutions. English-speaking environment, tech hub, and stay-back options. Apply now.",
   keywords: ["Masters in Ireland", "study Masters Ireland", "Ireland university admission", "Masters degree Ireland", "Ireland stay back visa"],
   openGraph: {

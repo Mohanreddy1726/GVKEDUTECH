@@ -1,7 +1,7 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study Masters in Europe 2026 | Affordable Education | GVK EduTech",
+  title: "Study Masters in Europe 2026 | Affordable Education",
   description: "Pursue your Masters degree in Europe at top-ranked universities. Affordable fees, world-class research, Schengen visa benefits. Apply for Europe Masters now.",
   keywords: ["Masters in Europe", "study Masters Europe", "Europe university admission", "Masters degree Europe", "Schengen visa"],
   openGraph: {

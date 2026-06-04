@@ -3,7 +3,7 @@ import BranchPageClient from "../BranchPageClient";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Study Abroad Consultancy in Bangalore | GVK EduTech",
+  title: "Study Abroad Consultancy in Bangalore",
   description: "GVK EduTech - Best study abroad consultancy in Bangalore. Expert guidance for MBBS and Masters abroad. Visit our Bangalore office for free counseling.",
 };
 
