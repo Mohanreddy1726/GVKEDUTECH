@@ -1,11 +1,21 @@
 import { CountryPageTemplate } from "@/components/CountryPageTemplate";
 
 export const metadata = {
-  title: "Study MBBS in Russia 2026 | NMC-Approved Universities",
-  description: "Study MBBS in Russia at top-ranked universities. Affordable fees, NMC/WHO approved, advanced labs. Apply for MBBS in Russia now.",
-  keywords: ["MBBS in Russia", "study MBBS Russia", "Russia medical university", "MBBS abroad Russia"],
+  title: "MBBS in Russia for Indian Students 2026 | Top NMC Approved Universities",
+  description: "Study MBBS in Russia at NMC/WHO approved medical universities. Affordable fees starting from ₹15 lakh, English medium, world-class infrastructure. Apply now for 2026 batch.",
+  keywords: [
+    "MBBS in Russia",
+    "MBBS in Russia fees",
+    "study MBBS in Russia",
+    "MBBS in Russia for Indian students",
+    "medical universities in Russia",
+    "NMC approved universities in Russia",
+    "MBBS abroad Russia",
+    "Russia medical university fees",
+    "study medicine in Russia",
+  ],
   openGraph: {
-    title: "Study MBBS in Russia | GVK EduTech",
+    title: "MBBS in Russia for Indian Students | GVK EduTech",
     description: "Study MBBS in Russia at affordable fees with NMC/WHO approved degrees.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "MBBS in Russia" }],
   },
@@ -16,43 +26,85 @@ const RussiaPage = () => {
     <CountryPageTemplate
       country="Russia"
       programType="MBBS"
+      customHeading="MBBS in Russia for Indian Students 2026"
       heroImage="https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142244856.png?updatedAt=1778748810968"
-      introduction="Russia is the largest country within the world, the ninth-most populous country, also because of the most populous country in Europe. Russia, a country that stretches over an enormous expanse of eastern Europe and northern Asia. Russia may be a land of superlatives for and faraway from the world's largest country, it covers nearly twice the territory of Canada, the second largest."
-      climateInfo="A past of wars and insurgency pushed the nation to advance in innovation and clinical necessities. The topographically huge regions of the nation show record outrageous temperatures in summer at a boiling 45°C to a freezing -70°C too. Russia has consistently stepped up as one of the most dynamic nations working and picking up knowledge in space."
+      introduction="Russia has established itself as a premier destination for Indian students seeking world-class medical education. As the largest country in the world, Russia offers access to some of the oldest and most prestigious medical universities with cutting-edge infrastructure and advanced medical research facilities. Russian medical universities are recognized by NMC, WHO, FAIMER, and other international medical bodies, making the MBBS degree valid for practice in India and globally. The country provides affordable MBBS fees compared to private medical colleges in India, with English-medium instruction and comprehensive clinical training."
       whyChoose={[
-        "Most colleges are Government Universities of Russia",
-        "Simple Visa Process",
-        "High Caliber of instruction leading to superior MCI screening test results",
-        "Exclusive standard of living",
-        "WHO confirmed medical programs",
-        "Low accommodation and educational expenses",
+        "World-Class Government Universities: Most medical universities are prestigious government institutions",
+        "NMC/WHO/FAIMER Recognized: Degrees accepted for medical practice in India and globally",
+        "English Medium: MBBS programs entirely in English for international students",
+        "Advanced Infrastructure: State-of-the-art hospitals and research laboratories",
+        "Affordable Fees: Cost-effective education compared to Indian private medical colleges",
+        "Simple Visa Process: Straightforward student visa application process",
+        "High FMGE Pass Rate: Excellent track record in medical licensing exams",
       ]}
-      advantages={[
-        { text: "The vast majority of the colleges are Government Universities of Russia." },
-        { text: "Simple Visa Process." },
-        { text: "High Caliber of instruction which prompts superior outcomes in MCI screening tests." },
-        { text: "The exclusive requirement of living." },
-        { text: "WHO confirmed compositions." },
-        { text: "Low inn and educational expenses." },
-        { text: "Hassle-free affirmation measure." },
-        { text: "No need for any test." },
+      gvkAdvantages={[
+        "No Donation or Capitation Fees",
+        "Assistance with Education Loan & Documentation",
+        "Indian Hostels Managed by GVK Team",
+        "Daily Indian Meals by Certified Chefs",
+        "Exceptional FMGE Pass Rate",
+        "24/7 Student & Parent Support",
+        "Mentorship by Dr. Vidya Kumar Gundala",
+        "Airport Pickup & University Orientation",
       ]}
-      careerOpportunities="Emergency clinic Management - After finishing MBBS from Russia, the understudies can choose a postgraduate course in the emergency clinic on the board. MBBS graduates can join various exploration associations for seeking employment in research-situated chances. Government occupations - MBBS specialists can seek employment in government just as private areas in any nation of the world. The understudies can select finishing specialization programs in their particular fields and join emergency clinics as Specialists."
+      programStructure={{
+        duration: "6 Years (5 Years Academic + 1 Year Internship)",
+        medium: "English (with Russian language training for clinical practice)",
+        details: "Clinical training begins from the 2nd year with hospital rotations under senior doctors. Students get hands-on experience in affiliated hospitals.",
+      }}
+      feeStructure={[
+        { category: "Tuition Fees (Per Year)", cost: "$3,500 – $6,000 (₹3 – ₹5 lakh)" },
+        { category: "Living Expenses (Per Month)", cost: "$300 – $500 (₹25,000 – ₹40,000)" },
+        { category: "Total Program Cost (6 Years)", cost: "$25,000 – $40,000 (₹20 – ₹35 lakh)" },
+      ]}
+      eligibility={[
+        "Minimum 70% aggregate in Physics, Chemistry, and Biology at 12th-grade level",
+        "Valid NEET Scorecard (mandatory for admission year)",
+        "Minimum 17 years old at the time of admission",
+        "Good health condition with medical fitness certificate",
+        "Clean criminal background record",
+      ]}
+      documents={[
+        "12th Grade Mark Sheet & Passing Certificate",
+        "NEET Scorecard (current year)",
+        "Valid International Passport (min 18 months validity)",
+        "Aadhar Card (for Indian students)",
+        "PAN Card",
+        "Passport-Sized Photographs (10 copies with white background)",
+        "Medical Fitness Certificate",
+        "Police Clearance Certificate",
+      ]}
+      admissionProcess={[
+        "Submit application form with academic documents",
+        "Receive admission letter from selected university",
+        "Pay initial tuition fee to secure admission",
+        "Apply for student visa (GVK assists with documentation)",
+        "Receive visa approval and travel itinerary",
+        "Airport pickup and university orientation",
+        "Begin MBBS program",
+      ]}
+      hostelFacilities="GVK Edutech provides dedicated Indian hostels with round-the-clock security. Rooms are available on twin-sharing and triple-sharing basis with attached bathrooms. Indian meals are prepared daily by certified Indian chefs ensuring proper nutrition for students. Common areas for study and recreation are available. The hostels are located within campus premises or near the university for convenience and safety."
+      costOfLiving="The cost of living in Russia is affordable for Indian students. Monthly expenses including accommodation, food, transportation, and personal needs range from $250-$400 (₹20,000-₹35,000). International SIM cards and internet are readily available. Public transportation including metro in major cities is economical. Shopping for daily needs and Indian groceries is convenient near university areas."
+      visaProcess="Indian students require a student visa to study MBBS in Russia. The process involves: receiving admission letter from the university, submitting visa application with required documents including passport, admission letter, financial proof, and medical certificates. GVK Edutech assists with the complete visa documentation process. Processing time is typically 2-4 weeks."
+      careerOpportunities="After completing MBBS in Russia, graduates have diverse career paths: practice medicine in India after clearing FMGE/NExT, pursue postgraduate studies (MD/MS) in Russia, USA, UK, or other countries, work in hospitals in Russia or Gulf countries, appear for USMLE (USA) or PLAB (UK) for global practice, join medical research institutions, or work in healthcare NGOs. The global recognition of Russian medical degrees opens doors to opportunities worldwide."
+      climateInfo="Russia has a diverse climate ranging from temperate to arctic. Summer temperatures can reach 35-40°C in some regions, while winters can be extremely cold reaching -30°C to -40°C in northern areas. Most university cities have moderate climates suitable for Indian students."
       universities={[
         { name: "Immanuel Kant Baltic Federal University", website: "https://kantiana.ru" },
-        { name: "Ingush State University", website: "https://inggu.ru" },
-        { name: "Kadyrov Chechen State University", website: "https://csu.ru" },
         { name: "Kazan Federal University (KFU)", website: "https://kpfu.ru" },
         { name: "Krasnoyarsk State Medical University", website: "https://krasgmu.ru" },
         { name: "Kuban State Medical University", website: "https://ksma.ru" },
         { name: "Lobachevsky State University", website: "https://unn.ru" },
         { name: "Lomonosov Moscow State University", website: "https://msu.ru" },
+        { name: "First Moscow State Medical University", website: "https://mxsm.ru" },
+        { name: "Saint Petersburg State Medical University", website: "https://spmu.ru" },
       ]}
       faqs={[
-        { question: "Is MBBS from Russia valid in India?", answer: "Yes. Degrees from NMC/WHO approved Russian medical universities are valid in India. Graduates can appear for FMGE/NExT and practice." },
-        { question: "What is the cost of MBBS in Russia?", answer: "The total cost ranges from ₹15-40 lakhs depending on the university, which is lower than private Indian medical colleges." },
-        { question: "Is MBBS in Russia taught in English?", answer: "Yes, most Russian universities offer MBBS programs entirely in English for international students." },
-        { question: "What is the duration of MBBS in Russia?", answer: "The MBBS program in Russia typically lasts 6 years including clinical training." },
+        { question: "Is MBBS in Russia valid in India?", answer: "Yes, MBBS degree from Russia is valid in India. All universities are NMC approved, and graduates are eligible to practice in India after clearing the FMGE/NExT exam. The degree is also recognized by WHO, FAIMER, and medical councils of many countries." },
+        { question: "What is the fee structure for MBBS in Russia?", answer: "The total MBBS fees in Russia range from ₹20-35 lakh for the entire 6-year program. Annual tuition fees are approximately $3,500-$6,000 (₹3-5 lakh). Living expenses are additional at around ₹25,000-40,000 per month." },
+        { question: "Is NEET mandatory for MBBS in Russia?", answer: "Yes, NEET is mandatory for Indian students seeking admission to MBBS in Russia. A valid NEET scorecard for the current admission year is required as per NMC guidelines for Indian students planning to practice in India after graduation." },
+        { question: "How long is MBBS in Russia?", answer: "MBBS in Russia is a 6-year program consisting of 5 years of academic study and 1 year of mandatory internship. Clinical training starts from the second year with hospital rotations." },
+        { question: "Is IELTS required for MBBS in Russia?", answer: "No, IELTS is not required for MBBS in Russia. The entire MBBS program is conducted in English medium. However, basic English proficiency is expected for effective learning." },
       ]}
     />
   );

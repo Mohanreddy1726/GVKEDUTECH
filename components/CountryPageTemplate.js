@@ -28,6 +28,11 @@ export const CountryPageTemplate = ({
   courseOptions,
   specializations,
   scholarships,
+  admissionProcess,
+  hostelFacilities,
+  costOfLiving,
+  visaProcess,
+  customHeading,
 }) => {
   const whatsappLink = programType === "MBBS"
     ? "https://api.whatsapp.com/send/?phone=919010060000&text=Hi%2C+I+am+interested+in+studying+MBBS+in+" + country + ".+Please+guide+me."
@@ -50,7 +55,7 @@ export const CountryPageTemplate = ({
         <section className="mb-16">
           <div className="mx-auto prose prose-lg max-w-4xl">
             <ColorfulHeading
-              text={programType === "MBBS" ? `Study MBBS in ${country}` : `Pursue Your ${programType} in ${country}`}
+              text={customHeading || (programType === "MBBS" ? `Study MBBS in ${country}` : `Pursue Your ${programType} in ${country}`)}
               size="3xl"
               className="mb-6"
             />
@@ -271,6 +276,55 @@ export const CountryPageTemplate = ({
                 </ol>
               </CardContent>
             </Card>
+          </section>
+        )}
+
+        {/* Admission Process */}
+        {admissionProcess && admissionProcess.length > 0 && (
+          <section className="mb-16">
+            <ColorfulHeading text="Admission Process" />
+            <Card className="border-border">
+              <CardContent className="p-6">
+                <ol className="space-y-3">
+                  {admissionProcess.map((step, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center text-sm font-medium text-accent flex-shrink-0">
+                        {index + 1}
+                      </span>
+                      <span className="text-foreground">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </CardContent>
+            </Card>
+          </section>
+        )}
+
+        {/* Hostel Facilities */}
+        {hostelFacilities && (
+          <section className="mb-16 section-muted rounded-2xl p-8">
+            <ColorfulHeading text="Hostel Facilities" className="mb-4" />
+            <p className="text-muted-foreground leading-relaxed">{hostelFacilities}</p>
+          </section>
+        )}
+
+        {/* Cost of Living */}
+        {costOfLiving && (
+          <section className="mb-16">
+            <ColorfulHeading text="Cost of Living" />
+            <Card className="border-border">
+              <CardContent className="p-6">
+                <p className="text-muted-foreground leading-relaxed">{costOfLiving}</p>
+              </CardContent>
+            </Card>
+          </section>
+        )}
+
+        {/* Student Visa Process */}
+        {visaProcess && (
+          <section className="mb-16 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8">
+            <ColorfulHeading text="Student Visa Process" className="mb-4" />
+            <p className="text-muted-foreground leading-relaxed">{visaProcess}</p>
           </section>
         )}
 
