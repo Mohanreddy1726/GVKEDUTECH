@@ -106,6 +106,14 @@ const GeorgiaPage = () => {
         { question: "How long is MBBS in Georgia?", answer: "MBBS in Georgia is a 6-year program consisting of 5 years of academic study and 1 year of mandatory internship. Clinical training starts from the second year with hospital rotations." },
         { question: "Is IELTS required for MBBS in Georgia?", answer: "No, IELTS is not required for MBBS in Georgia. The entire MBBS program is conducted in English medium. However, basic English proficiency is expected for effective learning." },
       ]}
+      exploreCountries={[
+        { name: "Kazakhstan", link: "/mbbs/kazakhstan", flag: "🇰🇿" },
+        { name: "Russia", link: "/mbbs/russia", flag: "🇷🇺" },
+        { name: "Kyrgyzstan", link: "/mbbs/kyrgyzstan", flag: "🇰🇬" },
+        { name: "Nepal", link: "/mbbs/nepal", flag: "🇳🇵" },
+        { name: "Uzbekistan", link: "/mbbs/uzbekistan", flag: "🇺🇿" },
+        { name: "Vietnam", link: "/mbbs/vietnam", flag: "🇻🇳" },
+      ]}
     />
   );
 };

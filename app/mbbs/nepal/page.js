@@ -110,6 +110,14 @@ const NepalPage = () => {
         { question: "How long is MBBS in Nepal?", answer: "MBBS in Nepal is a 5.5-year program consisting of 4.5 years of academic study and 1 year of mandatory internship. Clinical training starts from the third year with hospital rotations." },
         { question: "Is IELTS required for MBBS in Nepal?", answer: "No, IELTS is not required for MBBS in Nepal. The entire MBBS program is conducted in English medium. However, basic English proficiency is expected for effective learning." },
       ]}
+      exploreCountries={[
+        { name: "Kazakhstan", link: "/mbbs/kazakhstan", flag: "🇰🇿" },
+        { name: "Georgia", link: "/mbbs/georgia", flag: "🇬🇪" },
+        { name: "Russia", link: "/mbbs/russia", flag: "🇷🇺" },
+        { name: "Kyrgyzstan", link: "/mbbs/kyrgyzstan", flag: "🇰🇬" },
+        { name: "Uzbekistan", link: "/mbbs/uzbekistan", flag: "🇺🇿" },
+        { name: "Vietnam", link: "/mbbs/vietnam", flag: "🇻🇳" },
+      ]}
     />
   );
 };

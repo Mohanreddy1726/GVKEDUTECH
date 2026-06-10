@@ -110,6 +110,14 @@ const KyrgyzstanPage = () => {
         { question: "How long is MBBS in Kyrgyzstan?", answer: "MBBS in Kyrgyzstan is a 6-year program consisting of 5 years of academic study and 1 year of mandatory internship. Clinical training starts from the second year with hospital rotations." },
         { question: "Is IELTS required for MBBS in Kyrgyzstan?", answer: "No, IELTS is not required for MBBS in Kyrgyzstan. The entire MBBS program is conducted in English medium. However, basic English proficiency is expected for effective learning." },
       ]}
+      exploreCountries={[
+        { name: "Kazakhstan", link: "/mbbs/kazakhstan", flag: "🇰🇿" },
+        { name: "Georgia", link: "/mbbs/georgia", flag: "🇬🇪" },
+        { name: "Russia", link: "/mbbs/russia", flag: "🇷🇺" },
+        { name: "Nepal", link: "/mbbs/nepal", flag: "🇳🇵" },
+        { name: "Uzbekistan", link: "/mbbs/uzbekistan", flag: "🇺🇿" },
+        { name: "Vietnam", link: "/mbbs/vietnam", flag: "🇻🇳" },
+      ]}
     />
   );
 };
