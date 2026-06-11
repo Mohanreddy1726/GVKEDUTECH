@@ -151,6 +151,14 @@ ing, retail, and hospitality. After graduation, you can stay for 18 months to fi
         { question: "What is the post-study work visa in Germany?", answer: "Germany offers an 18-month post-study work visa (Job Seeker Visa) after completing your Master's degree. You can stay in Germany to look for a job. Once employed, you can apply for an EU Blue Card or regular work permit." },
         { question: "Are scholarships available for Indian students?", answer: "Yes, scholarships for Indian students in Germany include DAAD Scholarships (full funding), Deutschland Stipendium, Erasmus+ Scholarships, and university-specific grants. Many German universities offer financial aid. GVK Edutech can help you find and apply for relevant scholarships." },
       ]}
+      exploreCountries={[
+        { name: "UK", link: "/masters/uk", flag: "🇬🇧" },
+        { name: "USA", link: "/masters/usa", flag: "🇺🇸" },
+        { name: "Australia", link: "/masters/australia", flag: "🇦🇺" },
+        { name: "Canada", link: "/masters/canada", flag: "🇨🇦" },
+        { name: "Ireland", link: "/masters/ireland", flag: "🇮🇪" },
+        { name: "New Zealand", link: "/masters/newzealand", flag: "🇳🇿" },
+      ]}
     />
   );
 };

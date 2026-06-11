@@ -147,6 +147,14 @@ const AustraliaPage = () => {
         { question: "What is the Australian Graduate Visa?", answer: "The Australian Graduate Visa (subclass 485) allows international students to work in Australia for 2-4 years after completing their Master's degree. The duration depends on your qualification - Master's by coursework gets 2 years, Master's by research gets 3-4 years." },
         { question: "Are scholarships available for Indian students?", answer: "Yes, scholarships for Indian students in Australia include Australia Awards Scholarships, Research Training Program (RTP), university merit awards, and Destination Australia Scholarships. Many Australian universities offer financial aid for international students. GVK Edutech can help you find and apply for relevant scholarships." },
       ]}
+      exploreCountries={[
+        { name: "UK", link: "/masters/uk", flag: "🇬🇧" },
+        { name: "USA", link: "/masters/usa", flag: "🇺🇸" },
+        { name: "Canada", link: "/masters/canada", flag: "🇨🇦" },
+        { name: "Germany", link: "/masters/germany", flag: "🇩🇪" },
+        { name: "Ireland", link: "/masters/ireland", flag: "🇮🇪" },
+        { name: "New Zealand", link: "/masters/newzealand", flag: "🇳🇿" },
+      ]}
     />
   );
 };

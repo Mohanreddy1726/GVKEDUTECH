@@ -148,6 +148,14 @@ const CanadaPage = () => {
         { question: "What is the Post-Graduation Work Permit (PGWP)?", answer: "The PGWP allows graduates to work in Canada for up to 3 years, depending on the program length. It's an open work permit allowing you to work for any employer. This is an excellent pathway to gain Canadian work experience and potentially apply for permanent residency." },
         { question: "Are scholarships available for Indian students?", answer: "Yes, scholarships for Indian students in Canada include Vanier Canada Graduate Scholarships, Canada Graduate Scholarships (CGS), university-specific merit awards, and Provincial Nominee Programs. Many Canadian universities offer financial aid for international students. GVK Edutech can help you find and apply." },
       ]}
+      exploreCountries={[
+        { name: "UK", link: "/masters/uk", flag: "🇬🇧" },
+        { name: "USA", link: "/masters/usa", flag: "🇺🇸" },
+        { name: "Australia", link: "/masters/australia", flag: "🇦🇺" },
+        { name: "Germany", link: "/masters/germany", flag: "🇩🇪" },
+        { name: "Ireland", link: "/masters/ireland", flag: "🇮🇪" },
+        { name: "New Zealand", link: "/masters/newzealand", flag: "🇳🇿" },
+      ]}
     />
   );
 };

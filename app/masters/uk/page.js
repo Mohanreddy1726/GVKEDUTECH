@@ -146,6 +146,14 @@ const UKPage = () => {
         { question: "What is the UK Graduate Route Visa?", answer: "The UK Graduate Route Visa (formerly PSW - Post Study Work Visa) allows international students to work in UK for 2 years after completing their Master's degree. You can work at any skill level and switch to a skilled worker visa if eligible. This is a great opportunity for Indian students to gain work experience in UK." },
         { question: "Are scholarships available for Indian students?", answer: "Yes, scholarships for Indian students in UK include Chevening Scholarships, Commonwealth Scholarships, GREAT Scholarships, and university-specific merit awards. Many UK universities offer financial aid for Indian students. GVK Edutech can help you find and apply for relevant scholarships." },
       ]}
+      exploreCountries={[
+        { name: "USA", link: "/masters/usa", flag: "🇺🇸" },
+        { name: "Australia", link: "/masters/australia", flag: "🇦🇺" },
+        { name: "Canada", link: "/masters/canada", flag: "🇨🇦" },
+        { name: "Germany", link: "/masters/germany", flag: "🇩🇪" },
+        { name: "Ireland", link: "/masters/ireland", flag: "🇮🇪" },
+        { name: "New Zealand", link: "/masters/newzealand", flag: "🇳🇿" },
+      ]}
     />
   );
 };

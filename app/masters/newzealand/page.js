@@ -146,6 +146,14 @@ const NewZealandPage = () => {
         { question: "What is the post-study work visa in New Zealand?", answer: "New Zealand's post-study work visa allows international students to work in New Zealand for 1-3 years after completing their Master's degree. The duration depends on your qualification and the institution. This is an excellent opportunity to gain work experience." },
         { question: "Are scholarships available for Indian students?", answer: "Yes, scholarships for Indian students in New Zealand include New Zealand International Scholarships (full funding), University of Auckland Scholarships, Victoria University of Wellington Scholarships, and university-specific merit awards. Many New Zealand universities offer financial aid. GVK Edutech can help you find and apply." },
       ]}
+      exploreCountries={[
+        { name: "UK", link: "/masters/uk", flag: "🇬🇧" },
+        { name: "USA", link: "/masters/usa", flag: "🇺🇸" },
+        { name: "Australia", link: "/masters/australia", flag: "🇦🇺" },
+        { name: "Canada", link: "/masters/canada", flag: "🇨🇦" },
+        { name: "Germany", link: "/masters/germany", flag: "🇩🇪" },
+        { name: "Ireland", link: "/masters/ireland", flag: "🇮🇪" },
+      ]}
     />
   );
 };

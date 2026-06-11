@@ -152,6 +152,14 @@ const EuropePage = () => {
         { question: "Can I travel across Europe with a student visa?", answer: "Yes, the Schengen area allows free movement across 27 European countries with a valid student residence permit. This includes countries like France, Germany, Netherlands, Sweden, Italy, Spain, and many more. You can explore multiple countries during your studies." },
         { question: "Are scholarships available for Indian students?", answer: "Yes, scholarships for Indian students in Europe include Erasmus+ Scholarships (full funding), French Government & Eiffel Scholarships, Swedish Institute Scholarships, Netherlands Orange Tulip & Holland Scholarships, and university-specific merit awards. Many European countries offer financial aid. GVK Edutech can help you find and apply." },
       ]}
+      exploreCountries={[
+        { name: "UK", link: "/masters/uk", flag: "🇬🇧" },
+        { name: "USA", link: "/masters/usa", flag: "🇺🇸" },
+        { name: "Australia", link: "/masters/australia", flag: "🇦🇺" },
+        { name: "Canada", link: "/masters/canada", flag: "🇨🇦" },
+        { name: "Germany", link: "/masters/germany", flag: "🇩🇪" },
+        { name: "Ireland", link: "/masters/ireland", flag: "🇮🇪" },
+      ]}
     />
   );
 };

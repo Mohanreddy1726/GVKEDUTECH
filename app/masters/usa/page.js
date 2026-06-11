@@ -148,6 +148,14 @@ const USAPage = () => {
         { question: "What is STEM OPT in USA?", answer: "STEM OPT (Optional Practical Training) allows graduates with STEM degrees to work in USA for up to 3 years after graduation. This is an extension of the standard 12-month OPT. You must work in a job related to your STEM field." },
         { question: "Are scholarships available for Indian students?", answer: "Yes, scholarships for Indian students in USA include Fulbright Scholarship, Global Graduate Merit Scholarships, university-specific awards, and research/teaching assistantships. Many US universities offer financial aid for international students. GVK Edutech can help you find and apply for relevant scholarships." },
       ]}
+      exploreCountries={[
+        { name: "UK", link: "/masters/uk", flag: "🇬🇧" },
+        { name: "Australia", link: "/masters/australia", flag: "🇦🇺" },
+        { name: "Canada", link: "/masters/canada", flag: "🇨🇦" },
+        { name: "Germany", link: "/masters/germany", flag: "🇩🇪" },
+        { name: "Ireland", link: "/masters/ireland", flag: "🇮🇪" },
+        { name: "New Zealand", link: "/masters/newzealand", flag: "🇳🇿" },
+      ]}
     />
   );
 };

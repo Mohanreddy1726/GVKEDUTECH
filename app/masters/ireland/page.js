@@ -147,6 +147,14 @@ const IrelandPage = () => {
         { question: "What is the Third Level Graduate Scheme?", answer: "Ireland's Third Level Graduate Scheme allows international students to stay and work in Ireland for up to 2 years after completing their Master's degree. You can work for any employer during this period. This is an excellent opportunity to gain work experience in Ireland." },
         { question: "Are scholarships available for Indian students?", answer: "Yes, scholarships for Indian students in Ireland include Irish Government Scholarships, Trinity College Dublin Global Excellence Scholarships, and university-specific merit awards. Many Irish universities offer financial aid for international students. GVK Edutech can help you find and apply for relevant scholarships." },
       ]}
+      exploreCountries={[
+        { name: "UK", link: "/masters/uk", flag: "🇬🇧" },
+        { name: "USA", link: "/masters/usa", flag: "🇺🇸" },
+        { name: "Australia", link: "/masters/australia", flag: "🇦🇺" },
+        { name: "Canada", link: "/masters/canada", flag: "🇨🇦" },
+        { name: "Germany", link: "/masters/germany", flag: "🇩🇪" },
+        { name: "New Zealand", link: "/masters/newzealand", flag: "🇳🇿" },
+      ]}
     />
   );
 };
