@@ -321,90 +321,92 @@ const ContactPage = () => {
       {headOffice && (
         <section className="py-16" style={{ background: T.surface }}>
           <div className="container mx-auto px-4">
-            <div className="contact-eyebrow" style={{ justifyContent: "flex-start" }}>
-              Head Office
-            </div>
-            <div
-              className="rounded-2xl overflow-hidden grid lg:grid-cols-2"
-              style={{ boxShadow: "0 8px 40px rgba(15,27,45,0.12)", border: `1px solid ${T.surfaceAlt}` }}
-            >
-              {/* Image side */}
-              <div className="relative h-64 lg:h-auto min-h-[280px] overflow-hidden">
-                <Image
-                  src={headOffice.image}
-                  alt={headOffice.monument}
-                  fill
-                  className="object-cover"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{ background: "linear-gradient(to right, transparent 50%, rgba(15,27,45,0.15))" }}
-                />
-                <div className="absolute bottom-5 left-5">
-                  <span
-                    className="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full"
-                    style={{ background: T.red, color: T.white }}
-                  >
-                    Head Office
-                  </span>
-                </div>
+            <Link href="/branches" className="block">
+              <div className="contact-eyebrow" style={{ justifyContent: "flex-start" }}>
+                Head Office
               </div>
-
-              {/* Info side */}
-              <div className="p-8 lg:p-10 bg-white flex flex-col justify-center">
-                <h2 className="text-2xl font-bold mb-1" style={{ color: T.navyMid }}>
-                  {headOffice.city}
-                </h2>
-                <span className="contact-rule mb-6" />
-
-                {/* Director badge */}
-                <div
-                  className="flex items-center gap-3 p-4 rounded-xl mb-6"
-                  style={{ background: T.red + "0C", border: `1px solid ${T.red}22` }}
-                >
-                  <span
-                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: T.red + "18" }}
-                  >
-                    <User className="w-5 h-5" style={{ color: T.red }} />
-                  </span>
-                  <div>
-                    <p className="text-xs" style={{ color: T.muted }}>Director</p>
-                    <p className="font-bold text-sm" style={{ color: T.navyMid }}>{headOffice.regionalDirector}</p>
-                    <p className="text-xs" style={{ color: T.red }}>{headOffice.qualification}</p>
+              <div
+                className="rounded-2xl overflow-hidden grid lg:grid-cols-2"
+                style={{ boxShadow: "0 8px 40px rgba(15,27,45,0.12)", border: `1px solid ${T.surfaceAlt}` }}
+              >
+                {/* Image side */}
+                <div className="relative h-64 lg:h-auto min-h-[280px] overflow-hidden">
+                  <Image
+                    src={headOffice.image}
+                    alt={headOffice.monument}
+                    fill
+                    className="object-cover"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: "linear-gradient(to right, transparent 50%, rgba(15,27,45,0.15))" }}
+                  />
+                  <div className="absolute bottom-5 left-5">
+                    <span
+                      className="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full"
+                      style={{ background: T.red, color: T.white }}
+                    >
+                      Head Office
+                    </span>
                   </div>
                 </div>
 
-                <div className="space-y-4 text-sm">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: T.red }} />
-                    <p style={{ color: T.muted }}>{headOffice.address}</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: T.red }} />
-                    <div className="flex flex-col gap-0.5">
-                      {headOffice.phones.map((p, i) => (
-                        <a key={i} href={`tel:${p.replace(/\s/g, "")}`}
-                          className="font-semibold hover:underline" style={{ color: T.red }}>
-                          {p}
-                        </a>
-                      ))}
+                {/* Info side */}
+                <div className="p-8 lg:p-10 bg-white flex flex-col justify-center">
+                  <h2 className="text-2xl font-bold mb-1" style={{ color: T.navyMid }}>
+                    {headOffice.city}
+                  </h2>
+                  <span className="contact-rule mb-6" />
+
+                  {/* Director badge */}
+                  <div
+                    className="flex items-center gap-3 p-4 rounded-xl mb-6"
+                    style={{ background: T.red + "0C", border: `1px solid ${T.red}22` }}
+                  >
+                    <span
+                      className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: T.red + "18" }}
+                    >
+                      <User className="w-5 h-5" style={{ color: T.red }} />
+                    </span>
+                    <div>
+                      <p className="text-xs" style={{ color: T.muted }}>Director</p>
+                      <p className="font-bold text-sm" style={{ color: T.navyMid }}>{headOffice.regionalDirector}</p>
+                      <p className="text-xs" style={{ color: T.red }}>{headOffice.qualification}</p>
                     </div>
                   </div>
-                </div>
 
-                <a
-                  href={headOffice.mapLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-xl text-sm font-semibold self-start"
-                  style={{ background: T.red, color: T.white, boxShadow: `0 4px 12px ${T.red}44` }}
-                >
-                  <MapPin className="w-4 h-4" /> Get Directions
-                  <ExternalLink className="w-3 h-3 opacity-70" />
-                </a>
+                  <div className="space-y-4 text-sm">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: T.red }} />
+                      <p style={{ color: T.muted }}>{headOffice.address}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: T.red }} />
+                      <div className="flex flex-col gap-0.5">
+                        {headOffice.phones.map((p, i) => (
+                          <a key={i} href={`tel:${p.replace(/\s/g, "")}`}
+                            className="font-semibold hover:underline" style={{ color: T.red }}>
+                            {p}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <a
+                    href={headOffice.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-xl text-sm font-semibold self-start"
+                    style={{ background: T.red, color: T.white, boxShadow: `0 4px 12px ${T.red}44` }}
+                  >
+                    <MapPin className="w-4 h-4" /> Get Directions
+                    <ExternalLink className="w-3 h-3 opacity-70" />
+                  </a>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </section>
       )}
