@@ -134,16 +134,6 @@ export default function RootLayout({ children }) {
         <WebSiteSchema />
         <OrganizationSchema />
         {children}
-         <elevenlabs-convai
-  agent-id={
-    process.env.NEXT_PUBLIC_ELEVENLABS_AGENT_ID
-  }
-></elevenlabs-convai>
-
-        <Script
-          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-          strategy="afterInteractive"
-        />
         <Toaster />
       </body>
     </html>

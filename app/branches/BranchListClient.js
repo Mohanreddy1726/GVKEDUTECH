@@ -22,7 +22,7 @@ const offices = [
     phones: ["+91 8331077770", "+91 9010060000"],
     mapLink: "https://maps.app.goo.gl/HSBuYGWVxe46562SA",
     image:
-      "https://ik.imagekit.io/abhobz66j/GVK%20Images/hyderabad-charminar.jpg",
+      "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-06-10_150932810.png",
     monument: "Charminar",
   },
   {
@@ -55,7 +55,7 @@ const offices = [
     phones: ["+91 8754435016", "+91 7907757770"],
     mapLink: "https://goo.gl/maps/chennai",
     image:
-      "https://ik.imagekit.io/abhobz66j/GVK%20Images/chennai-lighthouse.jpg?updatedAt=1776492281253",
+      "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-06-11_105545555.png",
     monument: "Marina Beach",
   },
   {
