@@ -253,7 +253,7 @@ export const Hero = () => {
       </div>
 
       {/* ── CONTENT ── */}
-      <div className="container mx-auto px-4 pt-44 pb-4 relative z-10">
+      <div className="container mx-auto px-4 pt-34 pb-4 relative z-10">
         <div className="grid lg:grid-cols-[1fr_380px_340px] gap-6 xl:gap-8 items-start">
 
           {/* ════════════════════════════
