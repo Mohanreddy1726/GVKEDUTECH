@@ -72,7 +72,7 @@ const socialLinks = [
 
 /* ── Helpers ── */
 const FooterLink = ({ href, children, external = false }) => {
-  const cls = "group flex items-center gap-1.5 text-sm transition-colors duration-150";
+  const cls = "group flex items-center justify-center lg:justify-start gap-1.5 text-sm transition-colors duration-150";
   const inner = (
     <>
       <span style={{ color: T.muted, transition: "color 0.15s" }}
@@ -91,7 +91,7 @@ const FooterLink = ({ href, children, external = false }) => {
 
 const ColHeading = ({ children }) => (
   <h4
-    className="text-xs font-bold uppercase tracking-widest mb-5 flex items-center gap-2"
+    className="text-xs font-bold uppercase tracking-widest mb-5 flex items-center justify-center gap-2"
     style={{ color: T.red }}
   >
     <span
@@ -130,7 +130,7 @@ export const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-4 text-sm" style={{ color: T.muted }}>
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm" style={{ color: T.muted }}>
               <span className="flex items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5" style={{ color: T.red }} />
                 <a href="mailto:info@gvkedutech.com" className="hover:text-white transition-colors">
@@ -151,8 +151,8 @@ export const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-10">
 
           {/* Brand — 3 cols */}
-          <div className="lg:col-span-3 space-y-6">
-            <Link href="/" className="flex items-center gap-3">
+          <div className="lg:col-span-3 space-y-6 text-center lg:text-left">
+            <Link href="/" className="flex items-center justify-center lg:justify-start gap-3">
               <Image
                 src="https://ik.imagekit.io/abhobz66j/GVK%20Images/logo.jpg?updatedAt=1776492281519"
                 width={40} height={40} alt="GVK Edutech"
@@ -176,7 +176,7 @@ export const Footer = () => {
               <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: T.muted }}>
                 Follow Us
               </p>
-              <div className="flex gap-2">
+              <div className="flex gap-2 justify-center lg:justify-start">
                 {socialLinks.map((s) => (
                   <a
                     key={s.label}
@@ -196,21 +196,23 @@ export const Footer = () => {
             </div>
 
             {/* Quick Apply CTA */}
-            <Link
-              href="/apply"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold"
-              style={{
-                background: `linear-gradient(135deg, ${T.red}, #A01828)`,
-                color: "#fff",
-                boxShadow: `0 4px 14px ${T.red}44`,
-              }}
-            >
-              Apply Now <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            <div className="flex justify-center lg:justify-start">
+              <Link
+                href="/apply"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold"
+                style={{
+                  background: `linear-gradient(135deg, ${T.red}, #A01828)`,
+                  color: "#fff",
+                  boxShadow: `0 4px 14px ${T.red}44`,
+                }}
+              >
+                Apply Now <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
 
           {/* MBBS — 2 cols */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 text-center lg:text-left">
             <ColHeading>MBBS Abroad</ColHeading>
             <ul className="space-y-2.5">
               {mbbsPrograms.map(l => (
@@ -220,7 +222,7 @@ export const Footer = () => {
           </div>
 
           {/* Masters — 2 cols */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 text-center lg:text-left">
             <ColHeading>Masters Abroad</ColHeading>
             <ul className="space-y-2.5">
               {mastersPrograms.map(l => (
@@ -230,7 +232,7 @@ export const Footer = () => {
           </div>
 
           {/* Company — 2 cols */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 text-center lg:text-left">
             <ColHeading>Company</ColHeading>
             <ul className="space-y-2.5">
               {companyLinks.map(l => (
@@ -248,7 +250,7 @@ export const Footer = () => {
           </div>
 
           {/* Resources — 3 cols */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 text-center lg:text-left">
             <ColHeading>Trusted Resources</ColHeading>
             <ul className="space-y-2.5">
               {resourceLinks.map(l => (

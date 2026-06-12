@@ -270,7 +270,6 @@ export const Navbar = () => {
         className="fixed left-0 right-0 z-50 transition-all duration-300"
         style={{
           top: (!scrolled && isDesktop) ? "34px" : "0",
-          transform: !scrolled ? undefined : undefined,
           background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.0)",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
@@ -279,7 +278,7 @@ export const Navbar = () => {
         }}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-[66px]">
+          <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
@@ -565,7 +564,7 @@ export const Navbar = () => {
       </nav>
 
       {/* Spacer: 66px on mobile, 100px on desktop (66 nav + 34 utility bar) when not scrolled */}
-      {/* <div style={{ height: (!scrolled && isDesktop) ? "100px" : "66px", transition: "height 0.3s ease" }} /> */}
+      {/* <div style={{ height: (!scrolled && isDesktop) ? "98px" : "64px", transition: "height 0.3s ease" }} /> */}
     </>
   );
 };

@@ -297,18 +297,18 @@ const ContactPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {quickContacts.map((item, i) => (
-              <div key={i} className="py-5 px-6 flex items-center justify-center gap-3">
+              <div key={i} className="py-4 md:py-5 px-4 md:px-6 flex items-start md:items-center gap-3">
                 <span
-                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-1 md:mt-0"
                   style={{ background: T.red + "25" }}
                 >
                   <item.icon className="w-4 h-4" style={{ color: T.red }} />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>{item.label}</p>
                   {item.href
-                    ? <a href={item.href} className="text-sm font-semibold text-white hover:underline">{item.value}</a>
-                    : <p className="text-sm font-semibold text-white">{item.value}</p>
+                    ? <a href={item.href} className="text-sm font-semibold text-white hover:underline block truncate">{item.value}</a>
+                    : <p className="text-sm font-semibold text-white whitespace-nowrap">{item.value}</p>
                   }
                 </div>
               </div>
