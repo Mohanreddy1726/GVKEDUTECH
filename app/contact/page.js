@@ -321,7 +321,7 @@ const ContactPage = () => {
       {headOffice && (
         <section className="py-16" style={{ background: T.surface }}>
           <div className="container mx-auto px-4">
-            <Link href="/branches" className="block">
+            <Link href="/branches/hyderabad" className="block">
               <div className="contact-eyebrow" style={{ justifyContent: "flex-start" }}>
                 Head Office
               </div>
@@ -428,7 +428,7 @@ const ContactPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {branchOffices.map((office, index) => (
-              <Link key={index} href="/branches" className="office-card block">
+              <Link key={index} href={`/branches/${office.city.toLowerCase()}`} className="office-card block">
                 {/* Image */}
                 <div className="relative h-44 overflow-hidden">
                   <Image
