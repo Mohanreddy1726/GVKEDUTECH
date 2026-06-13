@@ -186,15 +186,39 @@ const CountryAccordion = ({ country, defaultOpen = false }) => {
           className="px-5 pb-5 pt-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-2"
           style={{ borderTop: `1px solid ${T.surfaceAlt}` }}
         >
-          {country.universities.map((uni, i) => (
-            <div key={i} className="uni-chip">
-              <CheckCircle
-                className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
-                style={{ color: T.red }}
-              />
-              <span className="leading-snug">{uni}</span>
-            </div>
-          ))}
+          {country.universities.map((uni, i) => {
+            const isTSMU = uni.includes("Tbilisi State Medical University");
+            if (isTSMU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/tbilisi-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug">{uni}</span>
+                </Link>
+              );
+            }
+            // For MBBS countries, link to partner-universities/[country-slug]
+            const countrySlug = Object.keys(universityData).find(key => universityData[key].name === country.name);
+            return (
+              <Link
+                key={i}
+                href={`/partner-universities/${countrySlug}`}
+                className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+              >
+                <CheckCircle
+                  className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                  style={{ color: T.red }}
+                />
+                <span className="leading-snug">{uni}</span>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

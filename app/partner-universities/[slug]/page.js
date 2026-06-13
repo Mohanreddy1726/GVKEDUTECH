@@ -72,7 +72,7 @@ const universityData = {
       { name: "Ivane Javakhishvili Tbilisi State University", website: "https://tsu.edu.ge" },
       { name: "New Vision University", website: "https://nvision.edu.ge" },
       { name: "Petre Shotadze Tbilisi Medical Academy", website: "https://psma.edu.ge" },
-      { name: "Tbilisi State Medical University (TSMU)", website: "https://tsmu.edu.ge" },
+      { name: "Tbilisi State Medical University (TSMU)", website: "/partner-universities/tbilisi-state-medical-university" },
       { name: "University of Georgia (UG)", website: "https://ug.edu.ge" },
     ],
   },
@@ -492,29 +492,52 @@ const PartnerUniversityDetailPage = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {country.universities.map((uni, index) => (
-              <a
-                key={index}
-                href={uni.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:shadow-lg hover:border-primary/50 transition-all group"
-              >
-                <img
-                  src={getLogoUrl(uni.name, uni.website)}
-                  alt={uni.name}
-                  className="w-12 h-12 rounded-xl flex-shrink-0"
-                />
-                <div className="flex-1 min-w-0">
-                  <span className="text-foreground font-medium block truncate">
-                    {uni.name}
-                  </span>
-                  <span className="text-xs text-primary flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Visit Website <ExternalLink className="w-3 h-3" />
-                  </span>
-                </div>
-              </a>
-            ))}
+            {country.universities.map((uni, index) => {
+              const isInternal = uni.website && uni.website.startsWith("/");
+              return isInternal ? (
+                <Link
+                  key={index}
+                  href={uni.website}
+                  className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:shadow-lg hover:border-accent transition-all group"
+                >
+                  <img
+                    src={getLogoUrl(uni.name, uni.website)}
+                    alt={uni.name}
+                    className="w-12 h-12 rounded-xl flex-shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <span className="text-foreground font-medium block truncate">
+                      {uni.name}
+                    </span>
+                    <span className="text-xs text-accent flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      View Details <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </Link>
+              ) : (
+                <a
+                  key={index}
+                  href={uni.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:shadow-lg hover:border-primary/50 transition-all group"
+                >
+                  <img
+                    src={getLogoUrl(uni.name, uni.website)}
+                    alt={uni.name}
+                    className="w-12 h-12 rounded-xl flex-shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <span className="text-foreground font-medium block truncate">
+                      {uni.name}
+                    </span>
+                    <span className="text-xs text-primary flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      Visit Website <ExternalLink className="w-3 h-3" />
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
