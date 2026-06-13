@@ -118,13 +118,13 @@ const BlogPage = () => {
           <div className="container mx-auto px-4">
             <ScrollReveal animation="scale">
               <Link href={`/blog/${filteredPosts[0].slug}`} className="group block">
-                <div className="relative aspect-[3/2] rounded-3xl overflow-hidden">
+                <div className="relative h-[400px] rounded-3xl overflow-hidden">
                   <Image
                     src={filteredPosts[0].image || "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200"}
                     alt={filteredPosts[0].title}
                     fill
                     sizes="(max-width: 768px) 100vw, 1536px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
