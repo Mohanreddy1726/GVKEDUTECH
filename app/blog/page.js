@@ -118,11 +118,12 @@ const BlogPage = () => {
           <div className="container mx-auto px-4">
             <ScrollReveal animation="scale">
               <Link href={`/blog/${filteredPosts[0].slug}`} className="group block">
-                <div className="relative h-[400px] rounded-3xl overflow-hidden">
+                <div className="relative aspect-[3/2] rounded-3xl overflow-hidden">
                   <Image
                     src={filteredPosts[0].image || "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200"}
                     alt={filteredPosts[0].title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 1536px"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
@@ -175,12 +176,13 @@ const BlogPage = () => {
                 <ScrollReveal key={post._id} animation="fade-up" delay={index * 100}>
                   <Link href={`/blog/${post.slug}`} className="group block">
                     <Card className="overflow-hidden border-border hover:border-accent hover:shadow-xl transition-all duration-300 h-full">
-                      <div className="relative h-48 overflow-hidden">
+                      <div className="relative aspect-[3/2] overflow-hidden">
                         <Image
                           src={post.image || "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600"}
                           alt={post.title}
                           fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover object-center group-hover:scale-110 transition-transform duration-500"
                         />
                         <div className="absolute top-4 left-4">
                           <Badge variant="primary" className="bg-white/90 backdrop-blur-sm text-[#FF0008]">
