@@ -27,6 +27,7 @@ const categories = [
   { name: "Scholarships", icon: "💰", value: "Scholarships" },
   { name: "Visa Guide", icon: "📋", value: "Visa Guide" },
   { name: "Student Life", icon: "🌍", value: "Student Life" },
+  { name: "Local SEO", icon: "🔍", value: "Local SEO" },
 ];
 
 const BlogPage = () => {
