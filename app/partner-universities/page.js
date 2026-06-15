@@ -132,12 +132,53 @@ const pageStyles = (
       text-transform: uppercase; flex-shrink: 0;
       background: ${T.navy}16; color: ${T.navyMid};
     }
+    .search-hit {
+      background: #FFF3A8;
+      color: ${T.navy};
+      border-radius: 3px;
+      padding: 0 2px;
+      font-weight: 700;
+      box-shadow: 0 0 0 1px #F2C94C;
+    }
   `}</style>
 );
 
+/* ── Highlight matched substring ── */
+const Highlight = ({ text, q }) => {
+  if (!q) return <>{text}</>;
+  const query = q.trim();
+  if (!query) return <>{text}</>;
+  const lower = text.toLowerCase();
+  const ql = query.toLowerCase();
+  const parts = [];
+  let i = 0;
+  let idx = lower.indexOf(ql, i);
+  let key = 0;
+  while (idx !== -1) {
+    if (idx > i) parts.push(<span key={key++}>{text.slice(i, idx)}</span>);
+    parts.push(
+      <mark key={key++} className="search-hit">
+        {text.slice(idx, idx + ql.length)}
+      </mark>
+    );
+    i = idx + ql.length;
+    idx = lower.indexOf(ql, i);
+  }
+  if (i < text.length) parts.push(<span key={key++}>{text.slice(i)}</span>);
+  return <>{parts}</>;
+};
+
 /* ── Accordion item ── */
-const CountryAccordion = ({ country, defaultOpen = false }) => {
-  const [open, setOpen] = useState(defaultOpen);
+const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
+  const q = search.trim().toLowerCase();
+  const countryNameMatches = q && country.name.toLowerCase().includes(q);
+  const matchedUnis = q
+    ? country.universities.filter(u => u.toLowerCase().includes(q))
+    : country.universities;
+  const visibleUnis = q && !countryNameMatches ? matchedUnis : country.universities;
+
+  // Auto-open the accordion when a search is active and we have matches
+  const [open, setOpen] = useState(defaultOpen || (q && visibleUnis.length > 0));
 
   return (
     <div className={`country-accordion ${open ? "open" : ""}`}>
@@ -159,14 +200,16 @@ const CountryAccordion = ({ country, defaultOpen = false }) => {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
             <h3 className="font-bold text-base" style={{ color: T.navyMid }}>
-              {country.name}
+              <Highlight text={country.name} q={search} />
             </h3>
             <span className={country.category === "MBBS" ? "cat-badge-mbbs" : "cat-badge-masters"}>
               {country.category}
             </span>
           </div>
           <p className="text-xs mt-0.5" style={{ color: T.muted }}>
-            {country.universities.length} Partner {country.universities.length === 1 ? "University" : "Universities"}
+            {q && !countryNameMatches && matchedUnis.length > 0
+              ? `${matchedUnis.length} of ${country.universities.length} match`
+              : `${country.universities.length} Partner ${country.universities.length === 1 ? "University" : "Universities"}`}
           </p>
         </div>
 
@@ -180,14 +223,25 @@ const CountryAccordion = ({ country, defaultOpen = false }) => {
       {/* Body — height driven by JS ref for smooth animation */}
       <div
         className={`accordion-body ${open ? "open" : ""}`}
-        style={{ maxHeight: open ? `${country.universities.length * 60 + 48}px` : "0" }}
+        style={{ maxHeight: open ? `${visibleUnis.length * 60 + 48}px` : "0" }}
       >
+        {visibleUnis.length === 0 ? (
+          <div
+            className="px-6 py-6 text-center text-sm"
+            style={{ color: T.muted, borderTop: `1px solid ${T.surfaceAlt}` }}
+          >
+            No universities match "<strong style={{ color: T.navyMid }}>{search}</strong>" in {country.name}.
+          </div>
+        ) : (
         <div
           className="px-5 pb-5 pt-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-2"
           style={{ borderTop: `1px solid ${T.surfaceAlt}` }}
         >
-          {country.universities.map((uni, i) => {
+          {visibleUnis.map((uni, i) => {
+            // Hardcoded detail-page overrides (mirror TSMU pattern)
             const isTSMU = uni.includes("Tbilisi State Medical University");
+            const isKSMA = uni.includes("Kyrgyz State Medical Academy");
+            const isGreenwich = uni === "University of Greenwich";
             if (isTSMU) {
               return (
                 <Link
@@ -199,7 +253,37 @@ const CountryAccordion = ({ country, defaultOpen = false }) => {
                     className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
                     style={{ color: T.red }}
                   />
-                  <span className="leading-snug">{uni}</span>
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            if (isKSMA) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/kyrgyz-state-medical-academy"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            if (isGreenwich) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-greenwich"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
                 </Link>
               );
             }
@@ -215,11 +299,12 @@ const CountryAccordion = ({ country, defaultOpen = false }) => {
                   className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
                   style={{ color: T.red }}
                 />
-                <span className="leading-snug">{uni}</span>
+                <span className="leading-snug"><Highlight text={uni} q={search} /></span>
               </Link>
             );
           })}
         </div>
+        )}
       </div>
     </div>
   );
@@ -346,7 +431,7 @@ const PartnerUniversitiesPage = () => {
           {filtered.length > 0 ? (
             <div className="space-y-3">
               {filtered.map(([key, country], i) => (
-                <CountryAccordion key={key} country={country} defaultOpen={i === 0 && !search} />
+                <CountryAccordion key={key} country={country} defaultOpen={i === 0 && !search} search={search} />
               ))}
             </div>
           ) : (
