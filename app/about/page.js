@@ -768,7 +768,7 @@ const AboutPage = () => {
                     content: (
                       <div className="relative pl-6 border-l-2 border-[#253775]/30 space-y-4">
                         <div className="absolute -left-1.5 top-0 w-3 h-3 rounded-full" style={{ background: BLUE }} />
-                        <p className="text-muted-foreground leading-relaxed">Holding an MBA from the UK and a Ph.D from the USA, I've personally experienced how international education transforms careers and lives. This insight drives my work at GVK EduTech to expand Masters and postgraduate opportunities for Indian students.</p>
+                        <p className="text-muted-foreground leading-relaxed">Holding an MBA from the UK and a Ph.D from the USA, I &apos; ve personally experienced how international education transforms careers and lives. This insight drives my work at GVK EduTech to expand Masters and postgraduate opportunities for Indian students.</p>
                         <p className="text-muted-foreground leading-relaxed">We combine cutting-edge technology, strong industry partnerships, and our extensive global alumni network to ensure students secure admission and thrive academically and professionally on the world stage.</p>
                       </div>
                     ),

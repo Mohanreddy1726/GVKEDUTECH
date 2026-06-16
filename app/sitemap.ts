@@ -90,6 +90,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/tbilisi-state-medical-university",
     "/partner-universities/kyrgyz-state-medical-academy",
     "/partner-universities/university-of-greenwich",
+    "/partner-universities/kazakh-national-medical-university",
+    "/partner-universities/technical-university-of-munich",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
