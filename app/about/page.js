@@ -54,9 +54,10 @@ const operationalTeam = [
 
 const itTeam = [
   { name: "Mr. Mohan Reddy", qualification: "B.Tech", role: "Full Stack Developer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Mohan.png", isHead: true },
-  { name: "Mr. Rakesh", qualification: "B.Tech", role: "Video Editor", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.43.36%20PM.jpeg", isHead: false },
+  { name: "Mr. Rakesh", qualification: "B.Tech", role: "Ad Manager", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.43.36%20PM.jpeg", isHead: false },
   { name: "Mr. Shiva", qualification: "B.Tech", role: "UI/UX Designer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shiva-edited-photo-new-one.jpg.jpeg", isHead: false },
   { name: "Mr. Siddhartha", qualification: "BBA", role: "Digital Marketing", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/IMG_9061.jpg?updatedAt=1779103695589", isHead: false },
+  { name: "Mr. Mahesh", qualification: "MBA", role: "Video Editor", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/mahesh.JPG.jpeg", isHead: false },
 ];
 
 const itServices = [
@@ -1232,36 +1233,41 @@ const AboutPage = () => {
                       <div className="w-px h-8" style={{ background: "linear-gradient(to bottom, hsl(var(--primary)/0.6), hsl(var(--accent)/0.4))" }} />
                     </div>
                     {/* Horizontal connector */}
-                    <div className="absolute left-1/2 -translate-x-1/2 bottom-0" style={{ top: "calc(100% + 14px)", width: "340px", height: "1px", background: "linear-gradient(90deg, transparent, hsl(var(--accent)/0.5), transparent)" }} />
+                    <div className="absolute left-1/2 -translate-x-1/2 bottom-0" style={{ top: "calc(100% + 14px)", width: "480px", height: "1px", background: "linear-gradient(90deg, transparent, hsl(var(--accent)/0.5), transparent)" }} />
                   </div>
                 ))}
               </div>
 
-              {/* Bottom row — remaining 3 members */}
-              <div className="flex flex-wrap justify-center gap-5 mt-2">
+              {/* Bottom row — remaining 4 members */}
+              <div className="flex flex-wrap justify-center gap-4 mt-2">
                 {itTeam.filter(m => !m.isHead).map((member, index) => {
                   const tagColors = [
                     { bg: "hsl(var(--accent))", text: "#fff" },
                     { bg: "#8B5CF6", text: "#fff" },
                     { bg: "#10B981", text: "#fff" },
+                    { bg: "#F59E0B", text: "#fff" },
                   ];
                   const tc = tagColors[index % tagColors.length];
                   return (
                     <div key={index} className="relative group">
                       <div
-                        className="flex flex-col items-center gap-3 p-5 rounded-2xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        className="flex flex-col items-center gap-3 p-4 rounded-2xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                         style={{
                           background: "hsl(var(--card)/0.9)",
                           backdropFilter: "blur(8px)",
                           borderColor: "hsl(var(--border))",
-                          width: "160px",
+                          width: "150px",
                         }}
                       >
                         <div
-                          className="relative w-16 h-16 rounded-xl overflow-hidden group-hover:scale-105 transition-transform duration-300"
-                          style={{ boxShadow: `0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary)/0.25)` }}
+                          className="relative w-16 h-16 rounded-xl overflow-hidden group-hover:scale-105 transition-transform duration-300 flex items-center justify-center"
+                          style={{ boxShadow: `0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary)/0.25)`, background: "linear-gradient(135deg, hsl(var(--primary)/0.1), hsl(var(--accent)/0.1))" }}
                         >
-                          <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
+                          {member.image ? (
+                            <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center text-2xl">👤</div>
+                          )}
                         </div>
                         <div className="text-center">
                           <p className="font-bold text-foreground text-xs leading-snug">{member.name}</p>
@@ -1288,7 +1294,7 @@ const AboutPage = () => {
             <div className="relative z-10 max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h3 className="text-xl font-bold text-foreground mb-2">What We Do</h3>
-                <p className="text-muted-foreground text-sm">End-to-end digital services powering GVK EduTech's online presence</p>
+                <p className="text-muted-foreground text-sm">End-to-end digital services powering GVK EduTech&apos;s online presence</p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {itServices.map((svc, i) => {
