@@ -93,7 +93,7 @@ const GeorgiaPage = () => {
         { name: "Akaki Tsereteli State University", website: "https://atsu.edu.ge", logo: "https://atsu.edu.ge/assets/images/logo_loading.png" },
         { name: "Alte University School of Medicine", website: "https://alte.edu.ge", logo: "https://alte.edu.ge/_next/static/media/white-logo.4d7e8794.svg" },
         { name: "Avicenna - Batumi Medical University", website: "https://avicenna.edu.ge", logo: "https://www.avicenna.edu.ge/images/logo-ge.png" },
-        { name: "Batumi Shota Rustaveli State University", website: "https://bsu.edu.ge", logo: "https://bsu.edu.ge/images/logo.png" },
+        { name: "Batumi Shota Rustaveli State University", website: "/partner-universities/batumi-shota-rustaveli-state-university", logo: "https://bsu.edu.ge/images/logo.png" },
         { name: "BAU International University", website: "https://bau.edu.ge", logo: "https://bau.edu.ge/wp-content/uploads/2024/07/logo.png" },
         { name: "Caucasus International University (CIU)", website: "https://ciu.edu.ge", logo: "https://admin.ciu.edu.ge/uploads/ciu_logo_dfbc4c5b14.svg" },
         { name: "Caucasus University (CU)", website: "https://cu.edu.ge", logo: "https://cu.edu.ge/files/gallery/2024/SLIDER/For%20Web%20-.png" },
