@@ -94,6 +94,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/technical-university-of-munich",
     "/partner-universities/batumi-shota-rustaveli-state-university",
     "/partner-universities/university-of-manchester",
+    "/partner-universities/osh-state-university",
+    "/partner-universities/university-of-birmingham",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
