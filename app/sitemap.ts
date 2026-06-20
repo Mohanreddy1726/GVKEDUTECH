@@ -96,6 +96,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-manchester",
     "/partner-universities/osh-state-university",
     "/partner-universities/university-of-birmingham",
+    "/partner-universities/samarkand-state-medical-university",
+    "/partner-universities/university-of-leeds",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [

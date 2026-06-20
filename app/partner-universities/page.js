@@ -372,6 +372,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Samarkand State Medical University specific page
+            const isSSMU = uni.includes("Samarkand State Medical University");
+            if (isSSMU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/samarkand-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // University of Birmingham specific page
             const isBirmingham = uni === "University of Birmingham";
             if (isBirmingham) {
@@ -379,6 +396,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/university-of-birmingham"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Leeds specific page
+            const isLeeds = uni === "University of Leeds";
+            if (isLeeds) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-leeds"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle
