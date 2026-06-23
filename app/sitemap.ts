@@ -102,6 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-glasgow",
     "/partner-universities/andijan-state-medical-institute",
     "/partner-universities/university-of-liverpool",
+    "/partner-universities/teesside-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
