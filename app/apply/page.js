@@ -12,7 +12,10 @@ import { ColorfulHeading } from "@/components/ColorfulHeading";
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -20,13 +23,24 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, MessageCircle, Phone } from "lucide-react";
 import { validatePhone } from "@/utils/validation";
 
-const countries = [
-  "Kyrgyzstan",
-  "Georgia",
-  "Kazakhstan",
-  "Uzbekistan",
-  "Russia",
-  "Vietnam",
+const mbbsCountries = [
+  { slug: "nepal", name: "Nepal" },
+  { slug: "georgia", name: "Georgia" },
+  { slug: "kyrgyzstan", name: "Kyrgyzstan" },
+  { slug: "russia", name: "Russia" },
+  { slug: "kazakhstan", name: "Kazakhstan" },
+  { slug: "uzbekistan", name: "Uzbekistan" },
+  { slug: "vietnam", name: "Vietnam" },
+];
+
+const mastersCountries = [
+  { slug: "uk", name: "United Kingdom" },
+  { slug: "usa", name: "USA" },
+  { slug: "australia", name: "Australia" },
+  { slug: "canada", name: "Canada" },
+  { slug: "germany", name: "Germany" },
+  { slug: "ireland", name: "Ireland" },
+  { slug: "europe", name: "Rest of Europe" },
 ];
 
 const ApplyPage = () => {
@@ -232,13 +246,19 @@ ${formData.message || "Not provided"}
                           <SelectValue placeholder="Select country" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="kyrgyzstan">Kyrgyzstan</SelectItem>
-                          <SelectItem value="georgia">Georgia</SelectItem>
-                          <SelectItem value="kazakhstan">Kazakhstan</SelectItem>
-                          <SelectItem value="uzbekistan">Uzbekistan</SelectItem>
-                          <SelectItem value="russia">Russia</SelectItem>
-                          <SelectItem value="vietnam">Vietnam</SelectItem>
-                          <SelectItem value="nepal">Nepal</SelectItem>
+                          <SelectGroup>
+                            <SelectLabel className="font-bold text-accent">MBBS Destinations</SelectLabel>
+                            {mbbsCountries.map((c) => (
+                              <SelectItem key={c.slug} value={c.slug}>{c.name}</SelectItem>
+                            ))}
+                          </SelectGroup>
+                          <SelectSeparator />
+                          <SelectGroup>
+                            <SelectLabel className="font-bold text-accent">Masters Destinations</SelectLabel>
+                            {mastersCountries.map((c) => (
+                              <SelectItem key={c.slug} value={c.slug}>{c.name}</SelectItem>
+                            ))}
+                          </SelectGroup>
                         </SelectContent>
                       </Select>
                       {errors.country && <p className="text-destructive text-sm">{errors.country}</p>}
