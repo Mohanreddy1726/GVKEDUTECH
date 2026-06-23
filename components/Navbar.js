@@ -281,11 +281,11 @@ export const Navbar = () => {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-3 flex-shrink-0">
               <Image
                 src="https://ik.imagekit.io/abhobz66j/GVK%20Images/logo.jpg?updatedAt=1776492281519"
-                width={38} height={38} alt="GVK EduTech"
-                className="rounded-lg flex-shrink-0"
+                width={52} height={52} alt="GVK EduTech"
+                className="rounded-xl flex-shrink-0 shadow-md ring-1 ring-black/5"
                 priority
               />
               <Image

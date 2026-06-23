@@ -516,6 +516,30 @@ section {
   animation: float-gentle 4s ease-in-out infinite;
 }
 
+/* Slide-in-right (used by Smart Comparison step transitions) */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.45s ease-out;
+}
+
+/* Line clamp utility (used in column headers) */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .animate-dash {
   animation: dash 3s linear infinite;
 }

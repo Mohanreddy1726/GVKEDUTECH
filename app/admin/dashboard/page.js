@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play } from "lucide-react";
+import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2 } from "lucide-react";
 import * as XLSX from "xlsx";
 
 export default function DashboardPage() {
@@ -46,6 +46,7 @@ export default function DashboardPage() {
         collegePredictorSubmissions: [],
         budgetCalculatorSubmissions: [],
         applySubmissions: [],
+        smartComparisonSubmissions: [],
       };
 
       const blogPosts = blogRes.ok ? await blogRes.json() : [];
@@ -84,7 +85,10 @@ export default function DashboardPage() {
       dataArray.map((item) => {
         const row = {};
         headers.forEach((h) => {
-          row[h.label] = item[h.key] || "N/A";
+          const raw = item[h.key];
+          if (Array.isArray(raw)) row[h.label] = raw.join(", ");
+          else if (raw === undefined || raw === null || raw === "") row[h.label] = "N/A";
+          else row[h.label] = raw;
         });
         return row;
       })
@@ -99,6 +103,7 @@ export default function DashboardPage() {
     { id: "contact", label: "Contact Form", icon: MessageCircle, count: data.contactSubmissions.length },
     { id: "predictor", label: "College Predictor", icon: GraduationCap, count: data.collegePredictorSubmissions.length },
     { id: "budget", label: "Budget Calculator", icon: Calculator, count: data.budgetCalculatorSubmissions.length },
+    { id: "compare", label: "Smart Comparison", icon: GitCompareArrows, count: data.smartComparisonSubmissions?.length || 0 },
     { id: "apply", label: "Apply Form", icon: FileSpreadsheet, count: data.applySubmissions.length },
     { id: "blog", label: "Blog Management", icon: FileSpreadsheet, count: data.blogPosts?.length || 0 },
     { id: "videos", label: "Video Testimonials", icon: Play, count: data.videoTestimonials?.length || 0 },
@@ -151,6 +156,16 @@ export default function DashboardPage() {
     { label: "Author", key: "author" },
     { label: "Category", key: "category" },
     { label: "Tags", key: "tags" },
+    { label: "Date", key: "createdAt" },
+  ];
+
+  const smartCompareHeaders = [
+    { label: "Name", key: "name" },
+    { label: "Phone", key: "phone" },
+    { label: "Course", key: "courseType" },
+    { label: "Compare Type", key: "comparisonType" },
+    { label: "Items Count", key: "itemCount" },
+    { label: "Selected Items", key: "selectedItems" },
     { label: "Date", key: "createdAt" },
   ];
 
@@ -429,6 +444,68 @@ export default function DashboardPage() {
                         </CardContent>
                       </Card>
                     ))
+                  )}
+                </div>
+              )}
+
+              {activeTab === "compare" && (
+                <div className="grid gap-4">
+                  {renderExportButtons(data.smartComparisonSubmissions || [], "Smart_Comparison", smartCompareHeaders)}
+                  {(!data.smartComparisonSubmissions || data.smartComparisonSubmissions.length === 0) ? (
+                    <Card><CardContent className="p-8 text-center text-muted-foreground">No smart comparison submissions yet</CardContent></Card>
+                  ) : (
+                    data.smartComparisonSubmissions.map((item, index) => {
+                      const TypeIcon = item.comparisonType === "countries" ? Globe : Building2;
+                      return (
+                        <Card key={item._id || index} className="border-l-4 border-l-cyan-500">
+                          <CardContent className="p-6">
+                            <div className="flex justify-between items-start mb-4 gap-3">
+                              <div>
+                                <h3 className="font-bold text-lg">{item.name}</h3>
+                                <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Badge variant="outline" className="capitalize">{item.courseType || "—"}</Badge>
+                                <Badge variant="secondary" className="flex items-center gap-1">
+                                  <TypeIcon className="w-3 h-3" />
+                                  {item.comparisonType}
+                                </Badge>
+                              </div>
+                            </div>
+                            <div className="grid md:grid-cols-4 gap-4">
+                              <div>
+                                <p className="text-xs text-muted-foreground">Phone</p>
+                                <p className="font-medium">{item.phone || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Comparison Type</p>
+                                <p className="font-medium capitalize">{item.comparisonType || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Items Count</p>
+                                <p className="font-medium">{item.itemCount ?? (item.selectedItems?.length || 0)}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Course</p>
+                                <p className="font-medium">{item.courseType || "N/A"}</p>
+                              </div>
+                            </div>
+                            {item.selectedItems && item.selectedItems.length > 0 && (
+                              <div className="mt-4">
+                                <p className="text-xs text-muted-foreground mb-2">Selected {item.comparisonType}</p>
+                                <div className="flex flex-wrap gap-2">
+                                  {item.selectedItems.map((s, i) => (
+                                    <Badge key={i} variant="secondary" className="text-xs">
+                                      {s}
+                                    </Badge>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </CardContent>
+                        </Card>
+                      );
+                    })
                   )}
                 </div>
               )}

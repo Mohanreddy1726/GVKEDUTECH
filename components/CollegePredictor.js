@@ -6,8 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { GraduationCap, Stethoscope, TrendingUp, Sparkles, ArrowRight, CheckCircle2, Calculator, BookOpen } from "lucide-react";
+import { GraduationCap, Stethoscope, TrendingUp, Sparkles, ArrowRight, CheckCircle2, Calculator, BookOpen, GitCompareArrows } from "lucide-react";
 import { validateEmail, validatePhone } from "@/utils/validation";
+import { SmartComparison } from "@/components/SmartComparison";
 
 // MBBS College Predictor Data - All 7 Countries
 const mbbsCountries = [
@@ -273,35 +274,51 @@ export const CollegePredictor = () => {
 
         {/* Tab Switcher */}
         <div className="max-w-5xl mx-auto mb-8">
-          <div className="flex rounded-2xl border-2 border-accent/20 bg-card overflow-hidden max-w-lg mx-auto">
+          <div className="flex rounded-2xl border-2 border-accent/20 bg-card overflow-hidden max-w-2xl mx-auto">
             <button
               onClick={() => setActiveTab("predictor")}
-              className={`flex-1 flex items-center justify-center gap-2 py-4 px-6 font-bold text-sm transition-all duration-300 ${
+              className={`flex-1 flex items-center justify-center gap-2 py-4 px-4 sm:px-6 font-bold text-sm transition-all duration-300 ${
                 activeTab === "predictor"
                   ? "bg-accent text-white shadow-lg"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               }`}
             >
               <Stethoscope className="w-5 h-5" />
-              College Predictor
+              <span className="hidden sm:inline">College Predictor</span>
+              <span className="sm:hidden">Predictor</span>
             </button>
             <button
               onClick={() => setActiveTab("budget")}
-              className={`flex-1 flex items-center justify-center gap-2 py-4 px-6 font-bold text-sm transition-all duration-300 ${
+              className={`flex-1 flex items-center justify-center gap-2 py-4 px-4 sm:px-6 font-bold text-sm transition-all duration-300 ${
                 activeTab === "budget"
                   ? "bg-accent text-white shadow-lg"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               }`}
             >
               <Calculator className="w-5 h-5" />
-              Budget Calculator
+              <span className="hidden sm:inline">Budget Calculator</span>
+              <span className="sm:hidden">Budget</span>
+            </button>
+            <button
+              onClick={() => setActiveTab("compare")}
+              className={`flex-1 flex items-center justify-center gap-2 py-4 px-4 sm:px-6 font-bold text-sm transition-all duration-300 ${
+                activeTab === "compare"
+                  ? "bg-accent text-white shadow-lg"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+              }`}
+            >
+              <GitCompareArrows className="w-5 h-5" />
+              <span className="hidden sm:inline">Smart Compare</span>
+              <span className="sm:hidden">Compare</span>
             </button>
           </div>
         </div>
 
         <div className="max-w-5xl mx-auto">
           <ScrollReveal animation="scale">
-            {activeTab === "predictor" ? <PredictorForm /> : <BudgetForm />}
+            {activeTab === "predictor" && <PredictorForm />}
+            {activeTab === "budget" && <BudgetForm />}
+            {activeTab === "compare" && <SmartComparison />}
           </ScrollReveal>
         </div>
       </div>
