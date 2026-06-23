@@ -1,15 +1,91 @@
 # GVK EduTech - AI Visibility File
 
-## About
-GVK EduTech is a leading study abroad consultancy in Hyderabad, India, specializing in helping Indian students pursue MBBS and Masters degrees at top universities worldwide. With 5000+ students placed in medical universities globally, we provide expert guidance for MBBS abroad programs.
+> GVK EduTech is a leading study abroad consultancy in Hyderabad, India, specializing in helping Indian students pursue MBBS and Masters degrees at top universities worldwide. With 5000+ students placed in medical universities globally, we provide expert guidance for MBBS abroad programs.
 
-## Services
-- MBBS AbroadConsultancy
-- Masters Abroad Programs
-- University Selection & Admission
-- Visa Assistance
-- Pre-Departure Briefings
-- Post-Departure Support
+## Core Pages
+- [Home](https://gvkedutech.com/) - GVK EduTech official website
+- [About Us](https://gvkedutech.com/about) - Company overview
+- [Contact Us](https://gvkedutech.com/contact) - Get in touch
+- [Apply Now](https://gvkedutech.com/apply) - Start your application
+- [Partner Universities](https://gvkedutech.com/partner-universities) - Browse all partner universities
+- [MBBS Abroad](https://gvkedutech.com/mbbs) - MBBS programs worldwide
+- [Masters Abroad](https://gvkedutech.com/masters) - Masters programs worldwide
+
+## Services & Info Pages
+- [Services](https://gvkedutech.com/services) - Our consultancy services
+- [Gallery](https://gvkedutech.com/gallery) - Photo gallery
+- [Blog](https://gvkedutech.com/blog) - Latest updates and articles
+- [Branches](https://gvkedutech.com/branches) - All branch locations
+- [Disclaimer](https://gvkedutech.com/disclaimer) - Disclaimer
+- [Privacy Policy](https://gvkedutech.com/privacy-policy) - Privacy policy
+- [Terms and Conditions](https://gvkedutech.com/terms-and-conditions) - Terms and conditions
+
+## MBBS Country Pages
+- [MBBS in Russia](https://gvkedutech.com/mbbs/russia) - NMC-approved medical universities in Russia
+- [MBBS in Georgia](https://gvkedutech.com/mbbs/georgia) - Affordable medical education in Georgia
+- [MBBS in Kyrgyzstan](https://gvkedutech.com/mbbs/kyrgyzstan) - Low-cost MBBS programs in Kyrgyzstan
+- [MBBS in Kazakhstan](https://gvkedutech.com/mbbs/kazakhstan) - Top medical universities in Kazakhstan
+- [MBBS in Nepal](https://gvkedutech.com/mbbs/nepal) - Budget-friendly option in Nepal
+- [MBBS in Uzbekistan](https://gvkedutech.com/mbbs/uzbekistan) - Top medical colleges in Uzbekistan
+- [MBBS in Vietnam](https://gvkedutech.com/mbbs/vietnam) - Asian medical destination in Vietnam
+
+## Masters Country Pages
+- [Masters in USA](https://gvkedutech.com/masters/usa) - Top universities, STEM OPT
+- [Masters in UK](https://gvkedutech.com/masters/uk) - World-class education, 1-year programs
+- [Masters in Australia](https://gvkedutech.com/masters/australia) - Post-study work visa
+- [Masters in Canada](https://gvkedutech.com/masters/canada) - PGWP and PR pathway
+- [Masters in Germany](https://gvkedutech.com/masters/germany) - Free tuition available
+- [Masters in Ireland](https://gvkedutech.com/masters/ireland) - Global career opportunities
+- [Masters in New Zealand](https://gvkedutech.com/masters/newzealand) - Work & study option
+- [Masters in Europe](https://gvkedutech.com/masters/europe) - Affordable education in Europe
+
+## Resource Pages
+- [NMC Guidelines for MBBS Abroad](https://gvkedutech.com/resources/nmc-guidelines) - NMC guidelines
+- [WHO Recognition](https://gvkedutech.com/resources/who-recognition) - WHO recognition
+- [USMLE & ECFMG Certification](https://gvkedutech.com/resources/usmle-ecfmg) - USMLE & ECFMG
+- [Credential Evaluation](https://gvkedutech.com/resources/credential-evaluation) - Credential evaluation
+
+## Branch Locations
+- [GVK EduTech Hyderabad](https://gvkedutech.com/branches/hyderabad) - Head Office
+- [GVK EduTech Bangalore](https://gvkedutech.com/branches/bangalore)
+- [GVK EduTech Chennai](https://gvkedutech.com/branches/chennai)
+- [GVK EduTech Vijayawada](https://gvkedutech.com/branches/vijayawada)
+- [GVK EduTech Visakhapatnam](https://gvkedutech.com/branches/visakhapatnam)
+- [GVK EduTech Karimnagar](https://gvkedutech.com/branches/karimnagar)
+- [GVK EduTech Warangal](https://gvkedutech.com/branches/warangal)
+- [GVK EduTech Nalgonda](https://gvkedutech.com/branches/nalgonda)
+- [GVK EduTech Nellore](https://gvkedutech.com/branches/nellore)
+- [GVK EduTech Tirupati](https://gvkedutech.com/branches/tirupati)
+- [GVK EduTech Suryapet](https://gvkedutech.com/branches/suryapet)
+
+## Partner Universities - MBBS (Uzbekistan)
+- [Samarkand State Medical University](https://gvkedutech.com/partner-universities/samarkand-state-medical-university) - MBBS in Samarkand, Uzbekistan
+- [Bukhara State Medical Institute](https://gvkedutech.com/partner-universities/bukhara-state-medical-institute) - NMC approved MBBS in Bukhara
+- [Andijan State Medical Institute](https://gvkedutech.com/partner-universities/andijan-state-medical-institute) - NMC approved MBBS in Andijan
+
+## Partner Universities - MBBS (Georgia)
+- [Tbilisi State Medical University](https://gvkedutech.com/partner-universities/tbilisi-state-medical-university) - NMC approved, English medium MBBS in Georgia
+- [Batumi Shota Rustaveli State University](https://gvkedutech.com/partner-universities/batumi-shota-rustaveli-state-university) - Affordable MBBS in Georgia
+
+## Partner Universities - MBBS (Kyrgyzstan)
+- [Kyrgyz State Medical Academy](https://gvkedutech.com/partner-universities/kyrgyz-state-medical-academy) - Low-cost MBBS in Kyrgyzstan
+- [Osh State University](https://gvkedutech.com/partner-universities/osh-state-university) - MBBS in Kyrgyzstan
+
+## Partner Universities - MBBS (Kazakhstan)
+- [Kazakh National Medical University](https://gvkedutech.com/partner-universities/kazakh-national-medical-university) - Top MBBS in Kazakhstan
+
+## Partner Universities - Masters (UK)
+- [University of Manchester](https://gvkedutech.com/partner-universities/university-of-manchester) - Russell Group, World Top 30
+- [University of Birmingham](https://gvkedutech.com/partner-universities/university-of-birmingham) - Russell Group university
+- [University of Leeds](https://gvkedutech.com/partner-universities/university-of-leeds) - Top UK university
+- [University of Glasgow](https://gvkedutech.com/partner-universities/university-of-glasgow) - World Top 100
+- [University of Liverpool](https://gvkedutech.com/partner-universities/university-of-liverpool) - Russell Group, World Top 170
+
+## Partner Universities - Masters (Germany)
+- [Technical University of Munich](https://gvkedutech.com/partner-universities/technical-university-of-munich) - Top European university
+
+## Partner Universities - Masters (UK Business)
+- [University of Greenwich](https://gvkedutech.com/partner-universities/university-of-greenwich) - Business programs in London
 
 ## Study Destinations
 
@@ -32,37 +108,18 @@ GVK EduTech is a leading study abroad consultancy in Hyderabad, India, specializ
 - New Zealand - Work & study option
 - Europe - Affordable education
 
-## Branch Locations
-- Hyderabad (Head Office)
-- Bangalore
-- Chennai
-- Vijayawada
-- Visakhapatnam
-- Karimnagar
-- Warangal
-- Nalgonda
-- Nellore
-- Tirupati
-- Suryapet
+## Services
+- MBBS Abroad Consultancy
+- Masters Abroad Programs
+- University Selection & Admission
+- Visa Assistance
+- Pre-Departure Briefings
+- Post-Departure Support
 
-## Contact
+## Contact Information
 - Phone: +91 9010060000, +91 8331077770
 - Address: 3rd Floor, Shiva sai Commercial Building, Shivam X Road, Vidya Nagar, Hyderabad
-
-## Key Pages
-- / - Home
-- /about - About Us
-- /contact - Contact
-- /mbbs - MBBS Abroad
-- /masters - Masters Abroad
-- /blog - Blog
-- /services - Services
-- /partner-universities - Partner Universities
-
-## Resource Pages
-- /resources/nmc-guidelines - NMC Guidelines for MBBS Abroad
-- /resources/who-recognition - WHO Recognition
-- /resources/usmle-ecfmg - USMLE & ECFMG Certification
+- Website: https://gvkedutech.com
 
 ---
 Last updated: 2026
