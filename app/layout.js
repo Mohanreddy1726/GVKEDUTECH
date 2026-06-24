@@ -101,6 +101,9 @@ export function generateMetadata() {
     },
     verification: {
       google: "your-google-site-verification-token",
+      other: {
+        "facebook-domain-verification": "n2mzffg4bafm2fgezkrwwp212fh29l",
+      },
     },
   };
 }
