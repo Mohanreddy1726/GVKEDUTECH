@@ -103,6 +103,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/andijan-state-medical-institute",
     "/partner-universities/university-of-liverpool",
     "/partner-universities/teesside-university",
+    "/partner-universities/tashkent-medical-academy",
+    "/partner-universities/university-of-nottingham",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
