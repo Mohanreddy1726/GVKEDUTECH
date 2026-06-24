@@ -4,7 +4,7 @@ import {
   ArrowRight, Play, GraduationCap, Globe, Award, Stethoscope,
   Calculator, ChevronLeft, ChevronRight, MapPin, CheckCircle,
   Users, TrendingUp, BookOpen, Star, Zap, Shield,
-  Trophy, Medal, Crown, Mic
+  Trophy, Medal, Crown, Mic, GitCompareArrows, BarChart2
 } from "lucide-react";
 
 const AWARD_ICONS = { Trophy, Medal, Award, Star, Globe, Crown, Mic, World: Globe };
@@ -32,7 +32,7 @@ const slides = [
     id: "mbbs",
     tag: "MBBS Abroad",
     headline: ["Your Path to", "Becoming a", "Global Doctor"],
-    hl: 2,                             /* which line gets the RED accent */
+    hl: 2,
     sub: "Study MBBS at NMC/WHO-approved universities across Russia, Kazakhstan & Europe — zero donation, English medium, complete support from day one.",
     photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0025.PNG",
     photoName: "Dr. G. Vidya Kumar (GVK)",
@@ -97,10 +97,10 @@ const slides = [
       "MBA · Australia · 1.5 Years",
     ],
     awards: [
-      { icon: "Crown",   title: "London Global Award",       sub: "London · 2024",      accent: RED,  pos: "tl" },
-      { icon: "Star",    title: "Governor's Awardee",        sub: "Telangana · 2025",   accent: BLUE, pos: "tr" },
-      { icon: "Globe",   title: "Global Change Makers",      sub: "International · 2026", accent: RED, pos: "bl" },
-      { icon: "Mic",     title: "UN Conference Speaker",     sub: "Bangkok · 2026",     accent: BLUE, pos: "br" },
+      { icon: "Crown",   title: "London Global Award",       sub: "London · 2024",        accent: RED,  pos: "tl" },
+      { icon: "Star",    title: "Governor's Awardee",        sub: "Telangana · 2025",     accent: BLUE, pos: "tr" },
+      { icon: "Globe",   title: "Global Change Makers",      sub: "International · 2026", accent: RED,  pos: "bl" },
+      { icon: "Mic",     title: "UN Conference Speaker",     sub: "Bangkok · 2026",       accent: BLUE, pos: "br" },
     ],
   },
 ];
@@ -138,7 +138,7 @@ export const Hero = () => {
   const [progress, setProgress] = useState(0);
   const [tickIdx,  setTickIdx]  = useState(0);
 
-  const DURATION = 4000; /* 4 seconds per slide */
+  const DURATION = 4000;
 
   const yr      = new Date().getFullYear();
   const admYear = `${yr}-${yr + 1}`;
@@ -153,10 +153,8 @@ export const Hero = () => {
   const goNext = useCallback(() => goTo((active + 1) % slides.length), [active, goTo]);
   const goPrev = useCallback(() => goTo((active - 1 + slides.length) % slides.length), [active, goTo]);
 
-  /* auto advance */
   useInterval(goNext, DURATION, paused);
 
-  /* progress bar */
   useEffect(() => {
     if (paused) return;
     setProgress(0);
@@ -171,7 +169,6 @@ export const Hero = () => {
     return () => cancelAnimationFrame(raf);
   }, [active, paused]);
 
-  /* ticker */
   useInterval(() => setTickIdx(i => (i + 1) % slides[active].ticker.length), 2200, false);
 
   const scrollTo = (tab) => {
@@ -217,33 +214,28 @@ export const Hero = () => {
         .hpop { animation: hpop 0.5s cubic-bezier(.22,1,.36,1) both; }
         .htick-anim { animation: htick 2.1s ease both; }
         .aw-badge { position:absolute; display:flex; align-items:center; gap:10px; padding:10px 14px; border-radius:14px; backdrop-filter:blur(14px); z-index:20; pointer-events:none; min-width:158px; max-width:195px; }
-       .aw-tl { top:-42px; left:-62px; animation: aw-tl .55s cubic-bezier(.22,1,.36,1) both, aw-bob-a 6s ease-in-out infinite; }
-.aw-tr { top:-42px; right:-62px; animation: aw-tr .55s cubic-bezier(.22,1,.36,1) .14s both, aw-bob-b 7s ease-in-out infinite; }
-.aw-bl { bottom:-48px; left:-62px; animation: aw-bl .55s cubic-bezier(.22,1,.36,1) .28s both, aw-bob-c 5.5s ease-in-out infinite; }
-.aw-br { bottom:-48px; right:-62px; animation: aw-br .55s cubic-bezier(.22,1,.36,1) .42s both, aw-bob-d 6.5s ease-in-out infinite; }
+        .aw-tl { top:-42px; left:-62px; animation: aw-tl .55s cubic-bezier(.22,1,.36,1) both, aw-bob-a 6s ease-in-out infinite; }
+        .aw-tr { top:-42px; right:-62px; animation: aw-tr .55s cubic-bezier(.22,1,.36,1) .14s both, aw-bob-b 7s ease-in-out infinite; }
+        .aw-bl { bottom:-48px; left:-62px; animation: aw-bl .55s cubic-bezier(.22,1,.36,1) .28s both, aw-bob-c 5.5s ease-in-out infinite; }
+        .aw-br { bottom:-48px; right:-62px; animation: aw-br .55s cubic-bezier(.22,1,.36,1) .42s both, aw-bob-d 6.5s ease-in-out infinite; }
       `}</style>
 
       {/* ── SHARED DARK BACKGROUND ── */}
       <div className="absolute inset-0" style={{ background: BG }} />
 
-      {/* ── AMBIENT GLOWS — red top-right, blue bottom-left, always ── */}
+      {/* ── AMBIENT GLOWS ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Red glow — top right */}
         <div className="absolute rounded-full blur-[130px]"
           style={{ width:"55vw", height:"55vw", top:"-15%", right:"-8%", background: RED_GLOW, opacity:.55 }} />
-        {/* Blue glow — bottom left */}
         <div className="absolute rounded-full blur-[110px]"
           style={{ width:"45vw", height:"45vw", bottom:"-12%", left:"-6%", background: BLUE_GLOW, opacity:.55 }} />
-        {/* Subtle center glow */}
         <div className="absolute rounded-full blur-[90px]"
           style={{ width:"28vw", height:"35vw", top:"22%", left:"36%", background: BLUE_GLOW, opacity:.12 }} />
-        {/* Grid lines — red tint */}
         <div className="absolute inset-0 opacity-[0.028]"
           style={{
             backgroundImage: `linear-gradient(${RED}88 1px,transparent 1px),linear-gradient(90deg,${BLUE}88 1px,transparent 1px)`,
             backgroundSize: "56px 56px",
           }} />
-        {/* Diagonal accent stripe */}
         <div className="absolute pointer-events-none"
           style={{
             top: 0, right: "25%", width: "2px", height: "100%",
@@ -268,7 +260,6 @@ export const Hero = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                 Admissions Open {admYear}
               </span>
-              {/* Tag uses RED for MBBS, BLUE for Masters */}
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase"
                 style={{
                   background: active === 0 ? RED : BLUE,
@@ -281,7 +272,7 @@ export const Hero = () => {
               </span>
             </div>
 
-            {/* Headline — line[hl] in RED, rest white */}
+            {/* Headline */}
             <div key={`h-${animKey}`}>
               {s.headline.map((line, i) => (
                 <h1 key={i} className="hfu font-black leading-[1.06] tracking-tight"
@@ -296,7 +287,7 @@ export const Hero = () => {
               ))}
             </div>
 
-            {/* Animated underline — red to blue */}
+            {/* Animated underline */}
             <div key={`ul-${animKey}`}
               className="h-0.5 rounded-full"
               style={{
@@ -311,7 +302,7 @@ export const Hero = () => {
               {s.sub}
             </p>
 
-            {/* Feature pills — red border */}
+            {/* Feature pills */}
             <div key={`f-${animKey}`} className="hfu flex flex-wrap gap-2" style={{ animationDelay:"0.30s" }}>
               {s.features.map((f, i) => (
                 <span key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold"
@@ -322,7 +313,7 @@ export const Hero = () => {
               ))}
             </div>
 
-            {/* Countries — blue tint */}
+            {/* Countries */}
             <div key={`c-${animKey}`} className="hfu flex flex-wrap gap-2" style={{ animationDelay:"0.34s" }}>
               {s.countries.map((c, i) => (
                 <span key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
@@ -333,12 +324,20 @@ export const Hero = () => {
               ))}
             </div>
 
-            {/* AI Tool buttons */}
-            <div key={`t-${animKey}`} className="hfu flex flex-wrap gap-3" style={{ animationDelay:"0.38s" }}>
-              {/* College Predictor — RED */}
-              <button onClick={() => scrollTo("predictor")}
+            {/* ════════════════════════════
+                AI TOOL BUTTONS — all 4
+            ════════════════════════════ */}
+            <div key={`t-${animKey}`} className="w-150 hfu flex flex-wrap gap-3" style={{ animationDelay:"0.38s" }}>
+
+              {/* 1. College Predictor — RED */}
+              <button
+                onClick={() => scrollTo("predictor")}
                 className="group relative flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm overflow-hidden transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{ background:`linear-gradient(135deg,${RED},${RED_DARK})`, boxShadow:`0 8px 28px -6px ${RED_GLOW}`, border:`1px solid ${RED}60` }}>
+                style={{
+                  background: `linear-gradient(135deg,${RED},${RED_DARK})`,
+                  boxShadow: `0 8px 28px -6px ${RED_GLOW}`,
+                  border: `1px solid ${RED}60`,
+                }}>
                 <span className="absolute inset-y-0 w-1/2 -skew-x-12 pointer-events-none"
                   style={{ background:"linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)", animation:"hshm 2.8s ease-in-out infinite" }} />
                 <span className="relative w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
@@ -351,10 +350,15 @@ export const Hero = () => {
                 <ArrowRight className="relative w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
               </button>
 
-              {/* Budget Calculator — BLUE */}
-              <button onClick={() => scrollTo("budget")}
+              {/* 2. Budget Calculator — BLUE */}
+              <button
+                onClick={() => scrollTo("budget")}
                 className="group flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{ background:`linear-gradient(135deg,${BLUE},${BLUE_DARK})`, boxShadow:`0 8px 28px -6px ${BLUE_GLOW}`, border:`1px solid ${BLUE}60` }}>
+                style={{
+                  background: `linear-gradient(135deg,${BLUE},${BLUE_DARK})`,
+                  boxShadow: `0 8px 28px -6px ${BLUE_GLOW}`,
+                  border: `1px solid ${BLUE}60`,
+                }}>
                 <span className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
                   <Calculator className="w-3.5 h-3.5" />
                 </span>
@@ -364,18 +368,57 @@ export const Hero = () => {
                 </span>
                 <ArrowRight className="w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
               </button>
+
+              {/* 3. Smart Comparison — RED DARK with shimmer */}
+              <button
+                onClick={() => scrollTo("compare")}
+                className="group relative flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm overflow-hidden transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                style={{
+                  background: `linear-gradient(135deg,${RED_DARK},#6B0003)`,
+                  boxShadow: `0 8px 28px -6px ${RED_GLOW}`,
+                  border: `1px solid ${RED}50`,
+                }}>
+                <span className="absolute inset-y-0 w-1/2 -skew-x-12 pointer-events-none"
+                  style={{ background:"linear-gradient(90deg,transparent,rgba(255,255,255,0.10),transparent)", animation:"hshm 3.2s ease-in-out infinite" }} />
+                <span className="relative w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                  <GitCompareArrows className="w-3.5 h-3.5" />
+                </span>
+                <span className="relative text-left">
+                  <span className="block text-[9px] text-white/60 font-medium leading-none mb-0.5">Smart Tool</span>
+                  <span className="block text-sm leading-none">Compare Universities</span>
+                </span>
+                <ArrowRight className="relative w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+
+              {/* 4. ROI Planner — BLUE DARK */}
+              <button
+                onClick={() => scrollTo("roi")}
+                className="group flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                style={{
+                  background: `linear-gradient(135deg,${BLUE_DARK},#0A1530)`,
+                  boxShadow: `0 8px 28px -6px ${BLUE_GLOW}`,
+                  border: `1px solid ${BLUE}50`,
+                }}>
+                <span className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                  <BarChart2 className="w-3.5 h-3.5" />
+                </span>
+                <span className="text-left">
+                  <span className="block text-[9px] text-white/60 font-medium leading-none mb-0.5">AI Powered</span>
+                  <span className="block text-sm leading-none">ROI Planner</span>
+                </span>
+                <ArrowRight className="w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+
             </div>
 
             {/* Primary CTAs */}
             <div key={`p-${animKey}`} className="hfu flex flex-wrap gap-3" style={{ animationDelay:"0.44s" }}>
-              {/* Begin — RED */}
               <Link href="/apply"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
                 style={{ background:`linear-gradient(135deg,${RED},${RED_DARK})`, boxShadow:`0 10px 32px -8px ${RED_GLOW}` }}>
                 Begin Your Journey
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
-              {/* Watch — ghost */}
               <Link href="/gallery"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
                 style={{ background:"rgba(255,255,255,0.07)", border:"1px solid rgba(255,255,255,0.14)", backdropFilter:"blur(8px)" }}>
@@ -385,7 +428,7 @@ export const Hero = () => {
             </div>
 
             {/* ALL Branches */}
-            <div key={`br-${animKey}`} className="hfu" style={{ animationDelay:"0.50s",maxWidth:"430px" }}>
+            <div key={`br-${animKey}`} className="hfu" style={{ animationDelay:"0.50s", maxWidth:"430px" }}>
               <div className="flex items-center gap-2 mb-2">
                 <MapPin className="w-3.5 h-3.5 flex-shrink-0" style={{ color: RED }} />
                 <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color:"rgba(255,255,255,0.35)" }}>
@@ -433,7 +476,7 @@ export const Hero = () => {
               </div>
             </div>
 
-            {/* 2×2 stat cards — alternating red / blue */}
+            {/* 2×2 stat cards */}
             <div className="grid grid-cols-2 gap-2.5">
               {s.centerCards.map((card, i) => {
                 const Icon = card.icon;
@@ -476,7 +519,7 @@ export const Hero = () => {
               </div>
             </div>
 
-            {/* Free counseling CTA strip — red→blue gradient */}
+            {/* Free counseling CTA */}
             <Link href="/apply"
               className="group rounded-2xl px-4 py-3 flex items-center justify-between transition-all duration-200 hover:-translate-y-0.5"
               style={{ background:`linear-gradient(135deg,${RED}25,${BLUE}25)`, border:`1px solid rgba(255,255,255,0.09)` }}>
@@ -513,14 +556,14 @@ export const Hero = () => {
           <div className="relative flex flex-col items-center gap-3 order-3 pt-12">
 
             <div className="relative w-full max-w-[320px]">
-              {/* Outer glow — red + blue */}
+              {/* Outer glow */}
               <div className="absolute -inset-4 rounded-3xl pointer-events-none"
                 style={{
                   background: `radial-gradient(ellipse at 30% 30%, ${RED_GLOW} 0%, transparent 55%),
                                radial-gradient(ellipse at 70% 70%, ${BLUE_GLOW} 0%, transparent 55%)`,
                   filter: "blur(20px)",
                 }} />
-              {/* Spinning conic — red + blue */}
+              {/* Spinning conic */}
               <div className="absolute -inset-[2px] rounded-3xl pointer-events-none"
                 style={{
                   background: `conic-gradient(from 0deg, ${RED} 0%, transparent 30%, ${BLUE} 50%, transparent 80%, ${RED} 100%)`,
@@ -543,7 +586,6 @@ export const Hero = () => {
                       boxShadow: `0 0 0 1px ${aw.accent}20, 0 8px 32px ${glow}, 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)`,
                     }}
                   >
-                    {/* Icon circle with stronger glow */}
                     <div
                       className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center"
                       style={{
@@ -557,14 +599,11 @@ export const Hero = () => {
                     <div className="min-w-0">
                       <p className="text-white font-extrabold leading-tight" style={{ fontSize: "11px" }}>{aw.title}</p>
                       <p
-  className="font-semibold leading-tight mt-1 text-white"
-  style={{
-    fontSize: "10px",
-    opacity: 0.82
-  }}
->
-  {aw.sub}
-</p>
+                        className="font-semibold leading-tight mt-1 text-white"
+                        style={{ fontSize: "10px", opacity: 0.82 }}
+                      >
+                        {aw.sub}
+                      </p>
                     </div>
                   </div>
                 );
@@ -589,7 +628,7 @@ export const Hero = () => {
                     className="w-full h-full object-cover object-top transition-opacity duration-700" />
                   <div className="absolute bottom-0 left-0 right-0 h-2/5 pointer-events-none"
                     style={{ background:"linear-gradient(to top,rgba(6,4,14,0.97) 0%,transparent 100%)" }} />
-                  {/* Program badge — RED for MBBS, BLUE for Masters */}
+                  {/* Program badge */}
                   <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold"
                     style={{
                       background: active === 0 ? RED : BLUE,
@@ -608,39 +647,17 @@ export const Hero = () => {
                 {/* Name + quote */}
                 <div className="px-4 py-4 relative z-10">
                   <p className="font-extrabold text-white text-sm leading-tight">{s.photoName}</p>
-                  {/* Role in RED for MBBS, BLUE for Masters */}
                   <p className="text-[11px] font-semibold mt-0.5 mb-2.5"
                     style={{ color: active === 0 ? RED : BLUE }}>
                     {s.photoRole}
                   </p>
                   <blockquote className="text-[11px] text-white/48 leading-relaxed italic border-l-2 pl-2.5"
                     style={{ borderColor: active === 0 ? RED : BLUE }}>
-                    "{s.photoQuote}"
+                    {s.photoQuote}
                   </blockquote>
                 </div>
               </div>
             </div>
-
-            {/* Stats row — alternating red/blue icons */}
-            {/* <div className="grid grid-cols-3 gap-1.5 w-full max-w-[320px]">
-              {[
-                { n:"5000+", l:"Students",  icon: GraduationCap, ac: RED  },
-                { n:"15+",   l:"Years",     icon: Award,         ac: BLUE },
-                { n:"98%",   l:"Visa Rate", icon: Globe,         ac: RED  },
-              ].map((st, i) => (
-                <div key={i} className="hfu flex flex-col items-center gap-1 py-2.5 rounded-xl text-center"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: `1px solid ${st.ac}28`,
-                    backdropFilter: "blur(8px)",
-                    animationDelay: `${0.1 + i * 0.07}s`,
-                  }}>
-                  <st.icon className="w-3.5 h-3.5" style={{ color: st.ac }} />
-                  <span className="font-extrabold text-white text-sm leading-none">{st.n}</span>
-                  <span className="text-[9px] leading-tight" style={{ color:"rgba(255,255,255,0.38)" }}>{st.l}</span>
-                </div>
-              ))}
-            </div> */}
           </div>
         </div>
 
