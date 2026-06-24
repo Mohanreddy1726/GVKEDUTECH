@@ -248,7 +248,28 @@ export const CollegePredictor = () => {
       setActiveTab(e.detail);
     };
     window.addEventListener("switch-predictor-tab", handler);
-    return () => window.removeEventListener("switch-predictor-tab", handler);
+
+    const validTabs = new Set(["predictor", "budget", "compare", "roi"]);
+    const applyHash = () => {
+      const hash = (typeof window !== "undefined" ? window.location.hash : "")
+        .replace(/^#/, "")
+        .toLowerCase();
+      if (validTabs.has(hash)) {
+        setActiveTab(hash);
+        requestAnimationFrame(() => {
+          document
+            .getElementById("college-predictor")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+    };
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+
+    return () => {
+      window.removeEventListener("switch-predictor-tab", handler);
+      window.removeEventListener("hashchange", applyHash);
+    };
   }, []);
 
   return (
