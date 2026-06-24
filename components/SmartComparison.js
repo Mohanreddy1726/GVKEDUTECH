@@ -702,7 +702,8 @@ export const SmartComparison = () => {
 
   const handleWhatsApp = () => {
     const msg = `Hi, I'm ${leadData.name}. I'm interested in ${leadData.courseType}. I just compared ${comparisonType === "countries" ? "countries" : "universities"} (${(comparisonType === "countries" ? selectedCountries : selectedUniversities).join(", ")}). Please guide me further. Phone: ${leadData.phone}.`;
-    window.open(`https://api.whatsapp.com/send/?phone=919010060000&text=${encodeURIComponent(msg)}`, "_blank");
+    const phoneNumber = leadData.courseType === "Masters" ? "918886661877" : "919010060000";
+    window.open(`https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   const handleDownloadPDF = async () => {
