@@ -710,15 +710,15 @@ function Step3({
       </div>
 
       {/* Bottom buttons */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <Button type="button" variant="outline" size="lg" onClick={onBack} className="sm:w-auto">
+      <div className="grid sm:grid-cols-2 gap-3">
+        <Button type="button" variant="outline" size="lg" onClick={onBack} className="group">
           <ArrowLeft className="w-4 h-4 mr-2" /> Change path
         </Button>
         <Button
           type="button"
           size="lg"
           onClick={handleWhatsApp}
-          className="flex-1 bg-red-600 hover:bg-red-700 text-white group border-red-600"
+          className="bg-red-600 hover:bg-red-700 text-white group border-red-600"
         >
           <MessageCircle className="w-5 h-5 mr-2" />
           Talk to counsellor

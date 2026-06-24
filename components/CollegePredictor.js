@@ -612,7 +612,8 @@ function BudgetForm() {
 
   const handleWhatsApp = () => {
     const msg = `Hi, I'm ${formData.name}. I'm interested in ${formData.programType} in ${formData.country}${formData.university ? ` at ${formData.university}` : ""}. Living: ${formData.livingPreference}. Course type: ${formData.courseType || "N/A"}. Phone: ${formData.phone}. Please help me with budget planning.`;
-    window.open(`https://api.whatsapp.com/send/?phone=919010060000&text=${encodeURIComponent(msg)}`, "_blank");
+    const phoneNumber = formData.programType === "MASTERS" ? "918886661877" : "919010060000";
+    window.open(`https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   return (
