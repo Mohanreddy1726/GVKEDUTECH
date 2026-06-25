@@ -321,6 +321,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Astana Medical University specific page
+            const isAstana = uni.includes("Astana Medical University");
+            if (isAstana) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/astana-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // TUM specific page
             const isTUM = uni.includes("Technical University of Munich");
             if (isTUM) {
@@ -532,6 +549,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/teesside-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Sheffield specific page
+            const isSheffield = uni === "University of Sheffield";
+            if (isSheffield) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-sheffield"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

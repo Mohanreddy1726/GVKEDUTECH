@@ -105,6 +105,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/teesside-university",
     "/partner-universities/tashkent-medical-academy",
     "/partner-universities/university-of-nottingham",
+    "/partner-universities/astana-medical-university",
+    "/partner-universities/university-of-sheffield",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
