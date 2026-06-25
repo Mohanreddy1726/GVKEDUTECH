@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2 } from "lucide-react";
+import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2, TrendingUp } from "lucide-react";
 import * as XLSX from "xlsx";
 
 export default function DashboardPage() {
@@ -47,6 +47,7 @@ export default function DashboardPage() {
         budgetCalculatorSubmissions: [],
         applySubmissions: [],
         smartComparisonSubmissions: [],
+        roiPlannerSubmissions: [],
       };
 
       const blogPosts = blogRes.ok ? await blogRes.json() : [];
@@ -104,6 +105,7 @@ export default function DashboardPage() {
     { id: "predictor", label: "College Predictor", icon: GraduationCap, count: data.collegePredictorSubmissions.length },
     { id: "budget", label: "Budget Calculator", icon: Calculator, count: data.budgetCalculatorSubmissions.length },
     { id: "compare", label: "Smart Comparison", icon: GitCompareArrows, count: data.smartComparisonSubmissions?.length || 0 },
+    { id: "roi", label: "ROI Planner", icon: TrendingUp, count: data.roiPlannerSubmissions?.length || 0 },
     { id: "apply", label: "Apply Form", icon: FileSpreadsheet, count: data.applySubmissions.length },
     { id: "blog", label: "Blog Management", icon: FileSpreadsheet, count: data.blogPosts?.length || 0 },
     { id: "videos", label: "Video Testimonials", icon: Play, count: data.videoTestimonials?.length || 0 },
@@ -175,6 +177,18 @@ export default function DashboardPage() {
     { label: "Caption", key: "caption" },
     { label: "Location", key: "location" },
     { label: "Featured", key: "featured" },
+  ];
+
+  const roiHeaders = [
+    { label: "Name", key: "name" },
+    { label: "Phone", key: "phone" },
+    { label: "Course", key: "courseType" },
+    { label: "Country", key: "country" },
+    { label: "Specialisation", key: "specialisation" },
+    { label: "Budget", key: "budget" },
+    { label: "Score / CGPA", key: "scoreOrCgpa" },
+    { label: "Work Exp", key: "workExperience" },
+    { label: "Date", key: "createdAt" },
   ];
 
   const renderExportButtons = (dataArray, filename, headers) => (
@@ -500,6 +514,67 @@ export default function DashboardPage() {
                                     </Badge>
                                   ))}
                                 </div>
+                              </div>
+                            )}
+                          </CardContent>
+                        </Card>
+                      );
+                    })
+                  )}
+                </div>
+              )}
+
+              {activeTab === "roi" && (
+                <div className="grid gap-4">
+                  {renderExportButtons(
+                    (data.roiPlannerSubmissions || []).map((r) => ({
+                      ...r,
+                      scoreOrCgpa: r.courseType === "MBBS" ? (r.neetScore ?? "N/A") : (r.cgpa != null ? `${r.cgpa}%` : "N/A"),
+                    })),
+                    "ROI_Planner",
+                    roiHeaders
+                  )}
+                  {(!data.roiPlannerSubmissions || data.roiPlannerSubmissions.length === 0) ? (
+                    <Card><CardContent className="p-8 text-center text-muted-foreground">No ROI planner submissions yet</CardContent></Card>
+                  ) : (
+                    data.roiPlannerSubmissions.map((item, index) => {
+                      const isMbbs = item.courseType === "MBBS";
+                      return (
+                        <Card key={item._id || index} className="border-l-4 border-l-emerald-500">
+                          <CardContent className="p-6">
+                            <div className="flex justify-between items-start mb-4 gap-3">
+                              <div>
+                                <h3 className="font-bold text-lg">{item.name || "N/A"}</h3>
+                                <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Badge variant="outline">{isMbbs ? "MBBS" : "Masters"}</Badge>
+                                <Badge variant="secondary" className="capitalize">{item.country || "—"}</Badge>
+                              </div>
+                            </div>
+                            <div className="grid md:grid-cols-4 gap-4">
+                              <div className="flex items-center gap-2">
+                                <Phone className="w-4 h-4 text-muted-foreground" />
+                                <span className="font-medium">{item.phone || "N/A"}</span>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Specialisation</p>
+                                <p className="font-medium">{item.specialisation || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Budget</p>
+                                <p className="font-medium">{item.budget ? `₹${Math.round(item.budget / 100000)}L` : "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">{isMbbs ? "NEET Score" : "MBBS %"}</p>
+                                <p className="font-medium">
+                                  {isMbbs ? (item.neetScore ?? "N/A") : (item.cgpa != null ? `${item.cgpa}%` : "N/A")}
+                                </p>
+                              </div>
+                            </div>
+                            {!isMbbs && item.workExperience && (
+                              <div className="mt-3">
+                                <Badge variant="outline">{item.workExperience}</Badge>
                               </div>
                             )}
                           </CardContent>
