@@ -327,7 +327,7 @@ export const Hero = () => {
             {/* ════════════════════════════
                 AI TOOL BUTTONS — all 4
             ════════════════════════════ */}
-            <div key={`t-${animKey}`} className="w-150 hfu flex flex-wrap gap-3" style={{ animationDelay:"0.38s" }}>
+            <div key={`t-${animKey}`} className="hfu flex flex-wrap gap-3" style={{ animationDelay:"0.38s" }}>
 
               {/* 1. College Predictor — RED */}
               <button
