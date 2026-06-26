@@ -304,6 +304,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // University of Southampton specific page
+            const isSouthampton = uni === "University of Southampton";
+            if (isSouthampton) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-southampton"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // KazNMU specific page
             const isKazNMU = uni.includes("Kazakh National Medical University");
             if (isKazNMU) {
@@ -311,6 +328,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/kazakh-national-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Perm State Medical University specific page
+            const isPerm = uni === "Perm State Medical University";
+            if (isPerm) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/perm-state-medical-university"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle
