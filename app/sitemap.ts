@@ -108,6 +108,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/astana-medical-university",
     "/partner-universities/university-of-sheffield",
     "/partner-universities/perm-state-medical-university",
+    "/partner-universities/orenburg-state-medical-university",
+    "/partner-universities/university-of-york",
     "/partner-universities/university-of-southampton",
   ].map((route) => entry(route, { priority: 0.7 }));
 
