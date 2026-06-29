@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PageLayout } from "@/components/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2, TrendingUp } from "lucide-react";
+import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
 import * as XLSX from "xlsx";
 
 export default function DashboardPage() {
@@ -68,6 +68,157 @@ export default function DashboardPage() {
   const handleLogout = () => {
     sessionStorage.removeItem("adminLoggedIn");
     router.push("/admin/login");
+  };
+
+  // ─────────────────────────────────────────────────────────────────
+  // GROUPING HELPERS — group submissions by (name + phone) within
+  // each tool. UI-only aggregation; original DB rows untouched.
+  // ─────────────────────────────────────────────────────────────────
+  const [expandedGroups, setExpandedGroups] = useState({});
+
+  const normalizePhone = (raw) => {
+    if (raw === undefined || raw === null) return "";
+    const digits = String(raw).replace(/\D/g, "");
+    // Strip leading country code (91 for India) when 12+ digits
+    if (digits.length > 10 && digits.endsWith(digits.slice(-10))) {
+      return digits.slice(-10);
+    }
+    return digits || String(raw).trim().toLowerCase();
+  };
+
+  const normalizeName = (raw) =>
+    String(raw || "").trim().toLowerCase().replace(/\s+/g, " ");
+
+  const groupKey = (item) =>
+    `${normalizeName(item.name || item.fullName)}|${normalizePhone(item.phone)}`;
+
+  const groupSubmissions = (rows) => {
+    if (!Array.isArray(rows)) return [];
+    // Sort newest-first so .latest === rows[0] per group.
+    const sorted = [...rows].sort(
+      (a, b) =>
+        new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime()
+    );
+    const map = new Map();
+    for (const item of sorted) {
+      const key = groupKey(item);
+      if (!map.has(key)) {
+        map.set(key, {
+          key,
+          name: item.name || item.fullName || "Unknown",
+          phone: item.phone || "",
+          count: 0,
+          latest: item,
+          items: [],
+        });
+      }
+      const g = map.get(key);
+      g.count += 1;
+      g.items.push(item);
+      // First-seen in sorted order is the latest — keep it stable.
+      if (g.count === 1) g.latest = item;
+    }
+    return Array.from(map.values()).sort((a, b) => {
+      const ad = new Date(a.latest?.createdAt || 0).getTime();
+      const bd = new Date(b.latest?.createdAt || 0).getTime();
+      return bd - ad;
+    });
+  };
+
+  const toggleGroup = (tabKey, groupKeyStr) => {
+    setExpandedGroups((prev) => {
+      const tab = prev[tabKey] || {};
+      const next = { ...prev, [tabKey]: { ...tab } };
+      next[tabKey][groupKeyStr] = !tab[groupKeyStr];
+      return next;
+    });
+  };
+
+  // Per-tab grouped submissions (memoised)
+  const grouped = {
+    contact: useMemo(
+      () => groupSubmissions(data.contactSubmissions),
+      [data.contactSubmissions]
+    ),
+    predictor: useMemo(
+      () => groupSubmissions(data.collegePredictorSubmissions),
+      [data.collegePredictorSubmissions]
+    ),
+    budget: useMemo(
+      () => groupSubmissions(data.budgetCalculatorSubmissions),
+      [data.budgetCalculatorSubmissions]
+    ),
+    apply: useMemo(
+      () => groupSubmissions(data.applySubmissions),
+      [data.applySubmissions]
+    ),
+    compare: useMemo(
+      () => groupSubmissions(data.smartComparisonSubmissions),
+      [data.smartComparisonSubmissions]
+    ),
+    roi: useMemo(
+      () => groupSubmissions(data.roiPlannerSubmissions),
+      [data.roiPlannerSubmissions]
+    ),
+  };
+
+  // Convenience wrapper to render a grouped list using a per-row component
+  // and a per-tab tint.
+  const GroupedList = ({ tabKey, groups, renderRow, tintClass }) => {
+    if (groups.length === 0) return null;
+    return (
+      <div className="grid gap-4">
+        {groups.map((g) => {
+          const isOpen = !!expandedGroups[tabKey]?.[g.key];
+          return (
+            <div key={g.key} className="grid gap-2">
+              {/* LATEST (always visible) */}
+              <div className="relative">
+                {renderRow(g.latest, g.key, false, g.count)}
+                {g.count > 1 && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => toggleGroup(tabKey, g.key)}
+                    className="absolute top-4 right-4 gap-1"
+                    aria-label={isOpen ? "Hide older submissions" : "Show older submissions"}
+                  >
+                    {g.count > 1 && (
+                      <Badge
+                        variant="accent"
+                        className="mr-1 px-2 py-0.5 text-[10px] leading-5"
+                      >
+                        {g.count} {g.count === 1 ? "submission" : "submissions"}
+                      </Badge>
+                    )}
+                    {isOpen ? (
+                      <>
+                        <ChevronUp className="w-3.5 h-3.5" /> Hide
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="w-3.5 h-3.5" /> View all
+                      </>
+                    )}
+                  </Button>
+                )}
+              </div>
+
+              {/* OLDER (expanded view) */}
+              {isOpen && g.count > 1 && (
+                <div className="grid gap-2 pl-4 border-l-2 border-dashed border-accent/30 ml-3">
+                  {g.items.slice(1).map((item, idx) => (
+                    <div key={item._id || idx} className="opacity-90">
+                      {renderRow(item, `${g.key}__${idx}`, true, 1)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    );
   };
 
   const formatDate = (date) => {
@@ -251,240 +402,78 @@ export default function DashboardPage() {
           ) : (
             <>
               {activeTab === "contact" && (
-                <div className="grid gap-4">
+                <div>
                   {renderExportButtons(data.contactSubmissions, "Contact_Submissions", contactHeaders)}
                   {data.contactSubmissions.length === 0 ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No contact form submissions yet</CardContent></Card>
                   ) : (
-                    data.contactSubmissions.map((item, index) => (
-                      <Card key={item._id || index} className="border-l-4 border-l-accent">
-                        <CardContent className="p-6">
-                          <div className="flex justify-between items-start mb-4">
-                            <div>
-                              <h3 className="font-bold text-lg">{item.name}</h3>
-                              <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                    (() => {
+                      const renderContactRow = (item, rowKey, isOlder) => (
+                        <Card
+                          key={rowKey}
+                          className={`border-l-4 border-l-accent ${isOlder ? "bg-muted/30" : ""}`}
+                        >
+                          <CardContent className="p-6">
+                            <div className="flex justify-between items-start mb-4 pr-40">
+                              <div>
+                                <h3 className="font-bold text-lg">{item.name || "Unknown"}</h3>
+                                <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                              </div>
+                              <Badge variant="outline">Contact</Badge>
                             </div>
-                            <Badge variant="outline">Contact</Badge>
-                          </div>
-                          <div className="grid md:grid-cols-3 gap-4">
-                            <div className="flex items-center gap-2">
-                              <Phone className="w-4 h-4 text-muted-foreground" />
-                              <span>{item.phone || "N/A"}</span>
+                            <div className="grid md:grid-cols-3 gap-4">
+                              <div className="flex items-center gap-2">
+                                <Phone className="w-4 h-4 text-muted-foreground" />
+                                <span>{item.phone || "N/A"}</span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Mail className="w-4 h-4 text-muted-foreground" />
+                                <span className="text-sm">{item.email || "N/A"}</span>
+                              </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <Mail className="w-4 h-4 text-muted-foreground" />
-                              <span className="text-sm">{item.email || "N/A"}</span>
-                            </div>
-                          </div>
-                          {item.message && (
-                            <div className="mt-4 p-3 bg-muted rounded-lg">
-                              <p className="text-sm font-medium mb-1">Message:</p>
-                              <p className="text-sm text-muted-foreground">{item.message}</p>
-                            </div>
-                          )}
-                        </CardContent>
-                      </Card>
-                    ))
+                            {item.message && (
+                              <div className="mt-4 p-3 bg-muted rounded-lg">
+                                <p className="text-sm font-medium mb-1">Message:</p>
+                                <p className="text-sm text-muted-foreground">{item.message}</p>
+                              </div>
+                            )}
+                          </CardContent>
+                        </Card>
+                      );
+                      return (
+                        <GroupedList
+                          tabKey="contact"
+                          groups={grouped.contact}
+                          renderRow={(item, key, isOlder) =>
+                            renderContactRow(item, key, isOlder)
+                          }
+                          tintClass="border-l-accent"
+                        />
+                      );
+                    })()
                   )}
                 </div>
               )}
 
               {activeTab === "predictor" && (
-                <div className="grid gap-4">
+                <div>
                   {renderExportButtons(data.collegePredictorSubmissions, "College_Predictor", predictorHeaders)}
                   {data.collegePredictorSubmissions.length === 0 ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No college predictor submissions yet</CardContent></Card>
                   ) : (
-                    data.collegePredictorSubmissions.map((item, index) => (
-                      <Card key={item._id || index} className="border-l-4 border-l-blue-500">
-                        <CardContent className="p-6">
-                          <div className="flex justify-between items-start mb-4">
-                            <div>
-                              <h3 className="font-bold text-lg">{item.name}</h3>
-                              <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
-                            </div>
-                            <Badge variant="outline">Predictor</Badge>
-                          </div>
-                          <div className="grid md:grid-cols-4 gap-4">
-                            <div>
-                              <p className="text-xs text-muted-foreground">Phone</p>
-                              <p className="font-medium">{item.phone || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">NEET Score</p>
-                              <p className="font-medium">{item.neetScore || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Category</p>
-                              <p className="font-medium">{item.category || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Budget</p>
-                              <p className="font-medium">₹{item.budget || "N/A"} Lakh</p>
-                            </div>
-                          </div>
-                          <div className="mt-4">
-                            <p className="text-xs text-muted-foreground">Preferred Country</p>
-                            <p className="font-medium">{item.country === "all" ? "All Countries" : item.country || "N/A"}</p>
-                          </div>
-                          <div className="mt-2">
-                            <Badge variant="secondary">{item.matchedColleges || 0} Colleges Matched</Badge>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))
-                  )}
-                </div>
-              )}
-
-              {activeTab === "budget" && (
-                <div className="grid gap-4">
-                  {renderExportButtons(data.budgetCalculatorSubmissions, "Budget_Calculator", budgetHeaders)}
-                  {data.budgetCalculatorSubmissions.length === 0 ? (
-                    <Card><CardContent className="p-8 text-center text-muted-foreground">No budget calculator submissions yet</CardContent></Card>
-                  ) : (
-                    data.budgetCalculatorSubmissions.map((item, index) => (
-                      <Card key={item._id || index} className="border-l-4 border-l-purple-500">
-                        <CardContent className="p-6">
-                          <div className="flex justify-between items-start mb-4">
-                            <div>
-                              <h3 className="font-bold text-lg">{item.name}</h3>
-                              <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
-                            </div>
-                            <Badge variant="outline">Budget</Badge>
-                          </div>
-                          <div className="grid md:grid-cols-4 gap-4">
-                            <div>
-                              <p className="text-xs text-muted-foreground">Phone</p>
-                              <p className="font-medium">{item.phone || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Program</p>
-                              <p className="font-medium">{item.programType || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Country</p>
-                              <p className="font-medium">{item.country || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Living</p>
-                              <p className="font-medium">{item.livingPreference || "N/A"}</p>
-                            </div>
-                          </div>
-                          {item.estimatedBudget && (
-                            <div className="mt-4">
-                              <Badge variant="secondary" className="text-lg px-3 py-1">{item.estimatedBudget}</Badge>
-                            </div>
-                          )}
-                        </CardContent>
-                      </Card>
-                    ))
-                  )}
-                </div>
-              )}
-
-              {activeTab === "apply" && (
-                <div className="grid gap-4">
-                  {renderExportButtons(data.applySubmissions, "Apply_Form", applyHeaders)}
-                  {data.applySubmissions.length === 0 ? (
-                    <Card><CardContent className="p-8 text-center text-muted-foreground">No apply form submissions yet</CardContent></Card>
-                  ) : (
-                    data.applySubmissions.map((item, index) => (
-                      <Card key={item._id || index} className="border-l-4 border-l-green-500">
-                        <CardContent className="p-6">
-                          <div className="flex justify-between items-start mb-4">
-                            <div>
-                              <h3 className="font-bold text-lg">{item.fullName}</h3>
-                              <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
-                            </div>
-                            <Badge variant="outline">Application</Badge>
-                          </div>
-                          <div className="grid md:grid-cols-4 gap-4 mb-4">
-                            <div>
-                              <p className="text-xs text-muted-foreground">Father&apos;s Name</p>
-                              <p className="font-medium">{item.fatherName || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Mother&apos;s Name</p>
-                              <p className="font-medium">{item.motherName || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Gender</p>
-                              <p className="font-medium">{item.gender || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">DOB</p>
-                              <p className="font-medium">{item.dob || "N/A"}</p>
-                            </div>
-                          </div>
-                          <div className="grid md:grid-cols-4 gap-4">
-                            <div>
-                              <p className="text-xs text-muted-foreground">Email</p>
-                              <p className="font-medium text-sm">{item.email || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Phone</p>
-                              <p className="font-medium">{item.phone || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Country</p>
-                              <p className="font-medium">{item.country || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Passport</p>
-                              <p className="font-medium">{item.passportStatus || "N/A"}</p>
-                            </div>
-                          </div>
-                          <div className="grid md:grid-cols-3 gap-4 mt-4">
-                            <div>
-                              <p className="text-xs text-muted-foreground">NEET Score</p>
-                              <p className="font-medium">{item.neetScore || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">Caste</p>
-                              <p className="font-medium">{item.caste || "N/A"}</p>
-                            </div>
-                            <div>
-                              <p className="text-xs text-muted-foreground">12th %</p>
-                              <p className="font-medium">{item.percentage ? `${item.percentage}%` : "N/A"}</p>
-                            </div>
-                          </div>
-                          {item.message && (
-                            <div className="mt-4 p-3 bg-muted rounded-lg">
-                              <p className="text-sm font-medium mb-1">Message:</p>
-                              <p className="text-sm text-muted-foreground">{item.message}</p>
-                            </div>
-                          )}
-                        </CardContent>
-                      </Card>
-                    ))
-                  )}
-                </div>
-              )}
-
-              {activeTab === "compare" && (
-                <div className="grid gap-4">
-                  {renderExportButtons(data.smartComparisonSubmissions || [], "Smart_Comparison", smartCompareHeaders)}
-                  {(!data.smartComparisonSubmissions || data.smartComparisonSubmissions.length === 0) ? (
-                    <Card><CardContent className="p-8 text-center text-muted-foreground">No smart comparison submissions yet</CardContent></Card>
-                  ) : (
-                    data.smartComparisonSubmissions.map((item, index) => {
-                      const TypeIcon = item.comparisonType === "countries" ? Globe : Building2;
-                      return (
-                        <Card key={item._id || index} className="border-l-4 border-l-cyan-500">
+                    (() => {
+                      const renderPredictorRow = (item, rowKey, isOlder) => (
+                        <Card
+                          key={rowKey}
+                          className={`border-l-4 border-l-blue-500 ${isOlder ? "bg-muted/30" : ""}`}
+                        >
                           <CardContent className="p-6">
-                            <div className="flex justify-between items-start mb-4 gap-3">
+                            <div className="flex justify-between items-start mb-4 pr-40">
                               <div>
-                                <h3 className="font-bold text-lg">{item.name}</h3>
+                                <h3 className="font-bold text-lg">{item.name || "Unknown"}</h3>
                                 <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
                               </div>
-                              <div className="flex items-center gap-2">
-                                <Badge variant="outline" className="capitalize">{item.courseType || "—"}</Badge>
-                                <Badge variant="secondary" className="flex items-center gap-1">
-                                  <TypeIcon className="w-3 h-3" />
-                                  {item.comparisonType}
-                                </Badge>
-                              </div>
+                              <Badge variant="outline">Predictor</Badge>
                             </div>
                             <div className="grid md:grid-cols-4 gap-4">
                               <div>
@@ -492,40 +481,277 @@ export default function DashboardPage() {
                                 <p className="font-medium">{item.phone || "N/A"}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-muted-foreground">Comparison Type</p>
-                                <p className="font-medium capitalize">{item.comparisonType || "N/A"}</p>
+                                <p className="text-xs text-muted-foreground">NEET Score</p>
+                                <p className="font-medium">{item.neetScore || "N/A"}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-muted-foreground">Items Count</p>
-                                <p className="font-medium">{item.itemCount ?? (item.selectedItems?.length || 0)}</p>
+                                <p className="text-xs text-muted-foreground">Category</p>
+                                <p className="font-medium">{item.category || "N/A"}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-muted-foreground">Course</p>
-                                <p className="font-medium">{item.courseType || "N/A"}</p>
+                                <p className="text-xs text-muted-foreground">Budget</p>
+                                <p className="font-medium">₹{item.budget || "N/A"} Lakh</p>
                               </div>
                             </div>
-                            {item.selectedItems && item.selectedItems.length > 0 && (
+                            <div className="mt-4">
+                              <p className="text-xs text-muted-foreground">Preferred Country</p>
+                              <p className="font-medium">{item.country === "all" ? "All Countries" : item.country || "N/A"}</p>
+                            </div>
+                            <div className="mt-2">
+                              <Badge variant="secondary">{item.matchedColleges || 0} Colleges Matched</Badge>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      );
+                      return (
+                        <GroupedList
+                          tabKey="predictor"
+                          groups={grouped.predictor}
+                          renderRow={(item, key, isOlder) =>
+                            renderPredictorRow(item, key, isOlder)
+                          }
+                          tintClass="border-l-blue-500"
+                        />
+                      );
+                    })()
+                  )}
+                </div>
+              )}
+
+              {activeTab === "budget" && (
+                <div>
+                  {renderExportButtons(data.budgetCalculatorSubmissions, "Budget_Calculator", budgetHeaders)}
+                  {data.budgetCalculatorSubmissions.length === 0 ? (
+                    <Card><CardContent className="p-8 text-center text-muted-foreground">No budget calculator submissions yet</CardContent></Card>
+                  ) : (
+                    (() => {
+                      const renderBudgetRow = (item, rowKey, isOlder) => (
+                        <Card
+                          key={rowKey}
+                          className={`border-l-4 border-l-purple-500 ${isOlder ? "bg-muted/30" : ""}`}
+                        >
+                          <CardContent className="p-6">
+                            <div className="flex justify-between items-start mb-4 pr-40">
+                              <div>
+                                <h3 className="font-bold text-lg">{item.name || "Unknown"}</h3>
+                                <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                              </div>
+                              <Badge variant="outline">Budget</Badge>
+                            </div>
+                            <div className="grid md:grid-cols-4 gap-4">
+                              <div>
+                                <p className="text-xs text-muted-foreground">Phone</p>
+                                <p className="font-medium">{item.phone || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Program</p>
+                                <p className="font-medium">{item.programType || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Country</p>
+                                <p className="font-medium">{item.country || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Living</p>
+                                <p className="font-medium">{item.livingPreference || "N/A"}</p>
+                              </div>
+                            </div>
+                            {item.estimatedBudget && (
                               <div className="mt-4">
-                                <p className="text-xs text-muted-foreground mb-2">Selected {item.comparisonType}</p>
-                                <div className="flex flex-wrap gap-2">
-                                  {item.selectedItems.map((s, i) => (
-                                    <Badge key={i} variant="secondary" className="text-xs">
-                                      {s}
-                                    </Badge>
-                                  ))}
-                                </div>
+                                <Badge variant="secondary" className="text-lg px-3 py-1">{item.estimatedBudget}</Badge>
                               </div>
                             )}
                           </CardContent>
                         </Card>
                       );
-                    })
+                      return (
+                        <GroupedList
+                          tabKey="budget"
+                          groups={grouped.budget}
+                          renderRow={(item, key, isOlder) =>
+                            renderBudgetRow(item, key, isOlder)
+                          }
+                          tintClass="border-l-purple-500"
+                        />
+                      );
+                    })()
+                  )}
+                </div>
+              )}
+
+              {activeTab === "apply" && (
+                <div>
+                  {renderExportButtons(data.applySubmissions, "Apply_Form", applyHeaders)}
+                  {data.applySubmissions.length === 0 ? (
+                    <Card><CardContent className="p-8 text-center text-muted-foreground">No apply form submissions yet</CardContent></Card>
+                  ) : (
+                    (() => {
+                      const renderApplyRow = (item, rowKey, isOlder) => (
+                        <Card
+                          key={rowKey}
+                          className={`border-l-4 border-l-green-500 ${isOlder ? "bg-muted/30" : ""}`}
+                        >
+                          <CardContent className="p-6">
+                            <div className="flex justify-between items-start mb-4 pr-40">
+                              <div>
+                                <h3 className="font-bold text-lg">{item.fullName || "Unknown"}</h3>
+                                <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                              </div>
+                              <Badge variant="outline">Application</Badge>
+                            </div>
+                            <div className="grid md:grid-cols-4 gap-4 mb-4">
+                              <div>
+                                <p className="text-xs text-muted-foreground">Father&apos;s Name</p>
+                                <p className="font-medium">{item.fatherName || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Mother&apos;s Name</p>
+                                <p className="font-medium">{item.motherName || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Gender</p>
+                                <p className="font-medium">{item.gender || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">DOB</p>
+                                <p className="font-medium">{item.dob || "N/A"}</p>
+                              </div>
+                            </div>
+                            <div className="grid md:grid-cols-4 gap-4">
+                              <div>
+                                <p className="text-xs text-muted-foreground">Email</p>
+                                <p className="font-medium text-sm">{item.email || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Phone</p>
+                                <p className="font-medium">{item.phone || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Country</p>
+                                <p className="font-medium">{item.country || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Passport</p>
+                                <p className="font-medium">{item.passportStatus || "N/A"}</p>
+                              </div>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-4 mt-4">
+                              <div>
+                                <p className="text-xs text-muted-foreground">NEET Score</p>
+                                <p className="font-medium">{item.neetScore || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Caste</p>
+                                <p className="font-medium">{item.caste || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">12th %</p>
+                                <p className="font-medium">{item.percentage ? `${item.percentage}%` : "N/A"}</p>
+                              </div>
+                            </div>
+                            {item.message && (
+                              <div className="mt-4 p-3 bg-muted rounded-lg">
+                                <p className="text-sm font-medium mb-1">Message:</p>
+                                <p className="text-sm text-muted-foreground">{item.message}</p>
+                              </div>
+                            )}
+                          </CardContent>
+                        </Card>
+                      );
+                      return (
+                        <GroupedList
+                          tabKey="apply"
+                          groups={grouped.apply}
+                          renderRow={(item, key, isOlder) =>
+                            renderApplyRow(item, key, isOlder)
+                          }
+                          tintClass="border-l-green-500"
+                        />
+                      );
+                    })()
+                  )}
+                </div>
+              )}
+
+              {activeTab === "compare" && (
+                <div>
+                  {renderExportButtons(data.smartComparisonSubmissions || [], "Smart_Comparison", smartCompareHeaders)}
+                  {(!data.smartComparisonSubmissions || data.smartComparisonSubmissions.length === 0) ? (
+                    <Card><CardContent className="p-8 text-center text-muted-foreground">No smart comparison submissions yet</CardContent></Card>
+                  ) : (
+                    (() => {
+                      const renderCompareRow = (item, rowKey, isOlder) => {
+                        const TypeIcon = item.comparisonType === "countries" ? Globe : Building2;
+                        return (
+                          <Card
+                            key={rowKey}
+                            className={`border-l-4 border-l-cyan-500 ${isOlder ? "bg-muted/30" : ""}`}
+                          >
+                            <CardContent className="p-6">
+                              <div className="flex justify-between items-start mb-4 gap-3 pr-40">
+                                <div>
+                                  <h3 className="font-bold text-lg">{item.name || "Unknown"}</h3>
+                                  <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <Badge variant="outline" className="capitalize">{item.courseType || "—"}</Badge>
+                                  <Badge variant="secondary" className="flex items-center gap-1">
+                                    <TypeIcon className="w-3 h-3" />
+                                    {item.comparisonType}
+                                  </Badge>
+                                </div>
+                              </div>
+                              <div className="grid md:grid-cols-4 gap-4">
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Phone</p>
+                                  <p className="font-medium">{item.phone || "N/A"}</p>
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Comparison Type</p>
+                                  <p className="font-medium capitalize">{item.comparisonType || "N/A"}</p>
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Items Count</p>
+                                  <p className="font-medium">{item.itemCount ?? (item.selectedItems?.length || 0)}</p>
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Course</p>
+                                  <p className="font-medium">{item.courseType || "N/A"}</p>
+                                </div>
+                              </div>
+                              {item.selectedItems && item.selectedItems.length > 0 && (
+                                <div className="mt-4">
+                                  <p className="text-xs text-muted-foreground mb-2">Selected {item.comparisonType}</p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {item.selectedItems.map((s, i) => (
+                                      <Badge key={i} variant="secondary" className="text-xs">
+                                        {s}
+                                      </Badge>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </CardContent>
+                          </Card>
+                        );
+                      };
+                      return (
+                        <GroupedList
+                          tabKey="compare"
+                          groups={grouped.compare}
+                          renderRow={(item, key, isOlder) =>
+                            renderCompareRow(item, key, isOlder)
+                          }
+                          tintClass="border-l-cyan-500"
+                        />
+                      );
+                    })()
                   )}
                 </div>
               )}
 
               {activeTab === "roi" && (
-                <div className="grid gap-4">
+                <div>
                   {renderExportButtons(
                     (data.roiPlannerSubmissions || []).map((r) => ({
                       ...r,
@@ -537,50 +763,65 @@ export default function DashboardPage() {
                   {(!data.roiPlannerSubmissions || data.roiPlannerSubmissions.length === 0) ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No ROI planner submissions yet</CardContent></Card>
                   ) : (
-                    data.roiPlannerSubmissions.map((item, index) => {
-                      const isMbbs = item.courseType === "MBBS";
+                    (() => {
+                      const renderRoiRow = (item, rowKey, isOlder) => {
+                        const isMbbs = item.courseType === "MBBS";
+                        return (
+                          <Card
+                            key={rowKey}
+                            className={`border-l-4 border-l-emerald-500 ${isOlder ? "bg-muted/30" : ""}`}
+                          >
+                            <CardContent className="p-6">
+                              <div className="flex justify-between items-start mb-4 gap-3 pr-40">
+                                <div>
+                                  <h3 className="font-bold text-lg">{item.name || "Unknown"}</h3>
+                                  <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <Badge variant="outline">{isMbbs ? "MBBS" : "Masters"}</Badge>
+                                  <Badge variant="secondary" className="capitalize">{item.country || "—"}</Badge>
+                                </div>
+                              </div>
+                              <div className="grid md:grid-cols-4 gap-4">
+                                <div className="flex items-center gap-2">
+                                  <Phone className="w-4 h-4 text-muted-foreground" />
+                                  <span className="font-medium">{item.phone || "N/A"}</span>
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Specialisation</p>
+                                  <p className="font-medium">{item.specialisation || "N/A"}</p>
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Budget</p>
+                                  <p className="font-medium">{item.budget ? `₹${Math.round(item.budget / 100000)}L` : "N/A"}</p>
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">{isMbbs ? "NEET Score" : "MBBS %"}</p>
+                                  <p className="font-medium">
+                                    {isMbbs ? (item.neetScore ?? "N/A") : (item.cgpa != null ? `${item.cgpa}%` : "N/A")}
+                                  </p>
+                                </div>
+                              </div>
+                              {!isMbbs && item.workExperience && (
+                                <div className="mt-3">
+                                  <Badge variant="outline">{item.workExperience}</Badge>
+                                </div>
+                              )}
+                            </CardContent>
+                          </Card>
+                        );
+                      };
                       return (
-                        <Card key={item._id || index} className="border-l-4 border-l-emerald-500">
-                          <CardContent className="p-6">
-                            <div className="flex justify-between items-start mb-4 gap-3">
-                              <div>
-                                <h3 className="font-bold text-lg">{item.name || "N/A"}</h3>
-                                <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                <Badge variant="outline">{isMbbs ? "MBBS" : "Masters"}</Badge>
-                                <Badge variant="secondary" className="capitalize">{item.country || "—"}</Badge>
-                              </div>
-                            </div>
-                            <div className="grid md:grid-cols-4 gap-4">
-                              <div className="flex items-center gap-2">
-                                <Phone className="w-4 h-4 text-muted-foreground" />
-                                <span className="font-medium">{item.phone || "N/A"}</span>
-                              </div>
-                              <div>
-                                <p className="text-xs text-muted-foreground">Specialisation</p>
-                                <p className="font-medium">{item.specialisation || "N/A"}</p>
-                              </div>
-                              <div>
-                                <p className="text-xs text-muted-foreground">Budget</p>
-                                <p className="font-medium">{item.budget ? `₹${Math.round(item.budget / 100000)}L` : "N/A"}</p>
-                              </div>
-                              <div>
-                                <p className="text-xs text-muted-foreground">{isMbbs ? "NEET Score" : "MBBS %"}</p>
-                                <p className="font-medium">
-                                  {isMbbs ? (item.neetScore ?? "N/A") : (item.cgpa != null ? `${item.cgpa}%` : "N/A")}
-                                </p>
-                              </div>
-                            </div>
-                            {!isMbbs && item.workExperience && (
-                              <div className="mt-3">
-                                <Badge variant="outline">{item.workExperience}</Badge>
-                              </div>
-                            )}
-                          </CardContent>
-                        </Card>
+                        <GroupedList
+                          tabKey="roi"
+                          groups={grouped.roi}
+                          renderRow={(item, key, isOlder) =>
+                            renderRoiRow(item, key, isOlder)
+                          }
+                          tintClass="border-l-emerald-500"
+                        />
                       );
-                    })
+                    })()
                   )}
                 </div>
               )}
