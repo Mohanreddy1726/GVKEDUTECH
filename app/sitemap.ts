@@ -111,6 +111,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/orenburg-state-medical-university",
     "/partner-universities/university-of-york",
     "/partner-universities/university-of-southampton",
+    "/partner-universities/bashkir-state-medical-university",
+    "/partner-universities/university-of-bristol",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
