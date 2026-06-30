@@ -113,6 +113,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-southampton",
     "/partner-universities/bashkir-state-medical-university",
     "/partner-universities/university-of-bristol",
+    "/partner-universities/pirogov-russian-national-medical-university",
+    "/partner-universities/university-of-exeter",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
