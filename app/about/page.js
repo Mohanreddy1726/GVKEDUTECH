@@ -57,7 +57,6 @@ const itTeam = [
   { name: "Mr. Rakesh", qualification: "B.Tech", role: "Ad Manager", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.43.36%20PM.jpeg", isHead: false },
   { name: "Mr. Shiva", qualification: "B.Tech", role: "UI/UX Designer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shiva-edited-photo-new-one.jpg.jpeg", isHead: false },
   { name: "Mr. Siddhartha", qualification: "BBA", role: "Digital Marketing", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/IMG_9061.jpg?updatedAt=1779103695589", isHead: false },
-  { name: "Mr. Mahesh", qualification: "MBA", role: "Video Editor", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/mahesh.JPG.jpeg", isHead: false },
 ];
 
 const itServices = [
@@ -1233,12 +1232,12 @@ const AboutPage = () => {
                       <div className="w-px h-8" style={{ background: "linear-gradient(to bottom, hsl(var(--primary)/0.6), hsl(var(--accent)/0.4))" }} />
                     </div>
                     {/* Horizontal connector */}
-                    <div className="absolute left-1/2 -translate-x-1/2 bottom-0" style={{ top: "calc(100% + 14px)", width: "480px", height: "1px", background: "linear-gradient(90deg, transparent, hsl(var(--accent)/0.5), transparent)" }} />
+                    <div className="absolute left-1/2 -translate-x-1/2 bottom-0" style={{ top: "calc(100% + 14px)", width: "360px", height: "1px", background: "linear-gradient(90deg, transparent, hsl(var(--accent)/0.5), transparent)" }} />
                   </div>
                 ))}
               </div>
 
-              {/* Bottom row — remaining 4 members */}
+              {/* Bottom row — remaining 3 members */}
               <div className="flex flex-wrap justify-center gap-4 mt-2">
                 {itTeam.filter(m => !m.isHead).map((member, index) => {
                   const tagColors = [
