@@ -525,6 +525,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Kazan Federal University specific page
+            const isKFU = uni.includes("Kazan Federal University");
+            if (isKFU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/kazan-federal-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Tashkent Medical Academy specific page
             const isTMA = uni.includes("Tashkent Medical Academy");
             if (isTMA) {
@@ -617,6 +634,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/university-of-nottingham"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Queen Mary University of London specific page
+            const isQMUL = uni === "Queen Mary University of London";
+            if (isQMUL) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/queen-mary-university-of-london"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

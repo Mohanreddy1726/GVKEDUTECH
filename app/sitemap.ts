@@ -115,6 +115,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-bristol",
     "/partner-universities/pirogov-russian-national-medical-university",
     "/partner-universities/university-of-exeter",
+    "/partner-universities/kazan-federal-university",
+    "/partner-universities/queen-mary-university-of-london",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
