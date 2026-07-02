@@ -117,6 +117,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-exeter",
     "/partner-universities/kazan-federal-university",
     "/partner-universities/queen-mary-university-of-london",
+    "/partner-universities/sechenov-university",
+    "/partner-universities/newcastle-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
