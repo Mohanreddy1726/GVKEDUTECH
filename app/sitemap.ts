@@ -119,6 +119,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/queen-mary-university-of-london",
     "/partner-universities/sechenov-university",
     "/partner-universities/newcastle-university",
+    "/partner-universities/far-eastern-federal-university",
+    "/partner-universities/cardiff-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [

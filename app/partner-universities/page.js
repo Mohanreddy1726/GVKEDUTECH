@@ -559,6 +559,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Far Eastern Federal University specific page
+            const isFEFU = uni.includes("Far Eastern Federal University");
+            if (isFEFU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/far-eastern-federal-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Tashkent Medical Academy specific page
             const isTMA = uni.includes("Tashkent Medical Academy");
             if (isTMA) {
@@ -770,6 +787,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/university-of-bristol"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Cardiff University specific page
+            const isCardiff = uni === "Cardiff University";
+            if (isCardiff) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/cardiff-university"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle
