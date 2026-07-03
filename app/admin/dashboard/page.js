@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PageLayout } from "@/components/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
+import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2, TrendingUp, ChevronDown, ChevronUp, CheckCheck } from "lucide-react";
 import * as XLSX from "xlsx";
 
 export default function DashboardPage() {
@@ -22,6 +22,59 @@ export default function DashboardPage() {
   });
   const [activeTab, setActiveTab] = useState("contact");
   const [isLoading, setIsLoading] = useState(true);
+
+  // ── "New submission" blink state ─────────────────────────────────
+  // Tracks whether each of the 6 submission-driven tools has at least one
+  // unread row (seenAt: null). Blog and Video Testimonials are excluded.
+  const [hasNew, setHasNew] = useState({
+    contact: false,
+    apply: false,
+    predictor: false,
+    budget: false,
+    compare: false,
+    roi: false,
+  });
+
+  const fetchHasNew = useCallback(async () => {
+    try {
+      const res = await fetch("/api/admin/has-new");
+      if (res.ok) {
+        const data = await res.json();
+        setHasNew({
+          contact: !!data.contact,
+          apply: !!data.apply,
+          predictor: !!data.predictor,
+          budget: !!data.budget,
+          compare: !!data.compare,
+          roi: !!data.roi,
+        });
+      }
+    } catch {
+      // Silent — polling is best-effort.
+    }
+  }, []);
+
+  const markSeen = useCallback(async (tool) => {
+    // Optimistic update so the blink disappears instantly, even if the
+    // network round-trip is slow.
+    setHasNew((prev) => (prev[tool] ? { ...prev, [tool]: false } : prev));
+    try {
+      await fetch("/api/admin/mark-seen", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tool }),
+      });
+    } catch {
+      // Re-sync on failure so the blink returns if the DB write didn't land.
+      fetchHasNew();
+    }
+  }, [fetchHasNew]);
+
+  useEffect(() => {
+    fetchHasNew();
+    const t = setInterval(fetchHasNew, 15000); // 15s polling
+    return () => clearInterval(t);
+  }, [fetchHasNew]);
 
   useEffect(() => {
     const isLoggedIn = sessionStorage.getItem("adminLoggedIn");
@@ -342,14 +395,39 @@ export default function DashboardPage() {
     { label: "Date", key: "createdAt" },
   ];
 
-  const renderExportButtons = (dataArray, filename, headers) => (
-    <div className="flex gap-2 mb-4">
-      <Button size="sm" variant="outline" onClick={() => exportToExcel(dataArray, filename, headers)}>
-        <FileSpreadsheet className="w-4 h-4 mr-2" />
-        Export Excel
-      </Button>
-    </div>
-  );
+  const renderExportButtons = (dataArray, filename, headers, tabKey) => {
+    const handleMarkSeen = async () => {
+      if (!tabKey) return;
+      await markSeen(tabKey);
+      // Re-sync with the server in case the optimistic update raced.
+      fetchHasNew();
+      toast({
+        title: "Marked as seen",
+        description: "Notifications for this tool have been cleared.",
+        variant: "success",
+      });
+    };
+    return (
+      <div className="flex gap-2 mb-4 flex-wrap">
+        <Button size="sm" variant="outline" onClick={() => exportToExcel(dataArray, filename, headers)}>
+          <FileSpreadsheet className="w-4 h-4 mr-2" />
+          Export Excel
+        </Button>
+        {tabKey && (
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={handleMarkSeen}
+            disabled={!hasNew[tabKey]}
+            title={hasNew[tabKey] ? "Clear the blink for this tool" : "No new submissions to clear"}
+          >
+            <CheckCheck className="w-4 h-4 mr-2" />
+            Mark all as seen
+          </Button>
+        )}
+      </div>
+    );
+  };
 
   return (
     <PageLayout>
@@ -373,26 +451,50 @@ export default function DashboardPage() {
           </div>
 
           <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-            {tabs.map((tab) => (
-              <Button
-                key={tab.id}
-                variant={activeTab === tab.id ? "accent" : "outline"}
-                onClick={() => {
-                  if (tab.id === "blog") {
-                    router.push("/admin/blog");
-                  } else if (tab.id === "videos") {
-                    router.push("/admin/video-testimonials");
-                  } else {
+            {tabs.map((tab) => {
+              // Only the 6 submission-driven tools can blink. Blog and
+              // Video Testimonials are intentionally excluded.
+              const canBlink = [
+                "contact",
+                "predictor",
+                "budget",
+                "compare",
+                "roi",
+                "apply",
+              ].includes(tab.id);
+              const blinking = canBlink && hasNew[tab.id];
+              return (
+                <Button
+                  key={tab.id}
+                  variant={activeTab === tab.id ? "accent" : "outline"}
+                  onClick={() => {
+                    if (tab.id === "blog") {
+                      router.push("/admin/blog");
+                      return;
+                    }
+                    if (tab.id === "videos") {
+                      router.push("/admin/video-testimonials");
+                      return;
+                    }
                     setActiveTab(tab.id);
-                  }
-                }}
-                className="flex items-center gap-2"
-              >
-                <tab.icon className="w-4 h-4" />
-                {tab.label}
-                <Badge variant="secondary" className="ml-1">{tab.count}</Badge>
-              </Button>
-            ))}
+                    // Auto-clear the blink the moment the admin opens a tab.
+                    if (blinking) markSeen(tab.id);
+                  }}
+                  className="flex items-center gap-2"
+                >
+                  <tab.icon className="w-4 h-4" />
+                  {tab.label}
+                  {blinking && (
+                    <span
+                      className="ml-1 inline-block h-2 w-2 rounded-full bg-red-500 animate-pulse"
+                      title="New submissions"
+                      aria-label="New submissions"
+                    />
+                  )}
+                  <Badge variant="secondary" className="ml-1">{tab.count}</Badge>
+                </Button>
+              );
+            })}
           </div>
 
           {isLoading ? (
@@ -403,7 +505,7 @@ export default function DashboardPage() {
             <>
               {activeTab === "contact" && (
                 <div>
-                  {renderExportButtons(data.contactSubmissions, "Contact_Submissions", contactHeaders)}
+                  {renderExportButtons(data.contactSubmissions, "Contact_Submissions", contactHeaders, "contact")}
                   {data.contactSubmissions.length === 0 ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No contact form submissions yet</CardContent></Card>
                   ) : (
@@ -457,7 +559,7 @@ export default function DashboardPage() {
 
               {activeTab === "predictor" && (
                 <div>
-                  {renderExportButtons(data.collegePredictorSubmissions, "College_Predictor", predictorHeaders)}
+                  {renderExportButtons(data.collegePredictorSubmissions, "College_Predictor", predictorHeaders, "predictor")}
                   {data.collegePredictorSubmissions.length === 0 ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No college predictor submissions yet</CardContent></Card>
                   ) : (
@@ -520,7 +622,7 @@ export default function DashboardPage() {
 
               {activeTab === "budget" && (
                 <div>
-                  {renderExportButtons(data.budgetCalculatorSubmissions, "Budget_Calculator", budgetHeaders)}
+                  {renderExportButtons(data.budgetCalculatorSubmissions, "Budget_Calculator", budgetHeaders, "budget")}
                   {data.budgetCalculatorSubmissions.length === 0 ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No budget calculator submissions yet</CardContent></Card>
                   ) : (
@@ -581,7 +683,7 @@ export default function DashboardPage() {
 
               {activeTab === "apply" && (
                 <div>
-                  {renderExportButtons(data.applySubmissions, "Apply_Form", applyHeaders)}
+                  {renderExportButtons(data.applySubmissions, "Apply_Form", applyHeaders, "apply")}
                   {data.applySubmissions.length === 0 ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No apply form submissions yet</CardContent></Card>
                   ) : (
@@ -675,7 +777,7 @@ export default function DashboardPage() {
 
               {activeTab === "compare" && (
                 <div>
-                  {renderExportButtons(data.smartComparisonSubmissions || [], "Smart_Comparison", smartCompareHeaders)}
+                  {renderExportButtons(data.smartComparisonSubmissions || [], "Smart_Comparison", smartCompareHeaders, "compare")}
                   {(!data.smartComparisonSubmissions || data.smartComparisonSubmissions.length === 0) ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No smart comparison submissions yet</CardContent></Card>
                   ) : (
@@ -758,7 +860,8 @@ export default function DashboardPage() {
                       scoreOrCgpa: r.courseType === "MBBS" ? (r.neetScore ?? "N/A") : (r.cgpa != null ? `${r.cgpa}%` : "N/A"),
                     })),
                     "ROI_Planner",
-                    roiHeaders
+                    roiHeaders,
+                    "roi"
                   )}
                   {(!data.roiPlannerSubmissions || data.roiPlannerSubmissions.length === 0) ? (
                     <Card><CardContent className="p-8 text-center text-muted-foreground">No ROI planner submissions yet</CardContent></Card>
