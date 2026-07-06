@@ -508,6 +508,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Volgograd State Medical University specific page
+            const isVolgograd = uni === "Volgograd State Medical University";
+            if (isVolgograd) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/volgograd-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Pirogov Russian National Research Medical University specific page
             const isPirogov = uni === "Pirogov Russian National Research Medical University";
             if (isPirogov) {
@@ -515,6 +532,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/pirogov-russian-national-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Crimean Federal University specific page
+            const isCFU = uni.includes("Crimean Federal University");
+            if (isCFU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/crimean-federal-university"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle
@@ -770,6 +804,40 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/university-of-exeter"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Bath specific page
+            const isBath = uni === "University of Bath";
+            if (isBath) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-bath"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Surrey specific page
+            const isSurrey = uni === "University of Surrey";
+            if (isSurrey) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-surrey"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

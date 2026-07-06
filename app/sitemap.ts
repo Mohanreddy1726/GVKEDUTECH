@@ -121,6 +121,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/newcastle-university",
     "/partner-universities/far-eastern-federal-university",
     "/partner-universities/cardiff-university",
+    "/partner-universities/volgograd-state-medical-university",
+    "/partner-universities/university-of-bath",
+    "/partner-universities/crimean-federal-university",
+    "/partner-universities/university-of-surrey",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
