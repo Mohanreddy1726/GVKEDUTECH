@@ -125,6 +125,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-bath",
     "/partner-universities/crimean-federal-university",
     "/partner-universities/university-of-surrey",
+    "/partner-universities/tver-state-medical-university",
+    "/partner-universities/university-of-leicester",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
