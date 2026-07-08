@@ -865,6 +865,40 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // University of Sussex specific page
+            const isSussex = uni === "University of Sussex";
+            if (isSussex) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-sussex"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Mari State University specific page
+            const isMari = uni === "Mari State University";
+            if (isMari) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/mari-state-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Tver State Medical University specific page
             const isTver = uni === "Tver State Medical University";
             if (isTver) {
