@@ -1,0 +1,955 @@
+"use client";
+
+import { PageLayout } from "@/components/PageLayout";
+import { PageHeader } from "@/components/PageHeader";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
+import {
+  ArrowRight,
+  CheckCircle,
+  FileText,
+  Users,
+  GraduationCap,
+  Globe,
+  ShieldCheck,
+  Clock,
+  BookOpen,
+  Home,
+  Utensils,
+  Wifi,
+  ChevronRight,
+  Star,
+  IndianRupee,
+  Award,
+  TrendingUp,
+  MapPin,
+  Heart,
+} from "lucide-react";
+import Link from "next/link";
+
+/* ══════════════════════════════════════════════════════════════════
+   NORTH-WESTERN STATE MEDICAL UNIVERSITY — CONTENT DATA
+════════════════════════════════════════════════════════════════════ */
+
+const faqs = [
+  {
+    question: "Is North-Western State Medical University NMC approved?",
+    answer:
+      "Yes. North-Western State Medical University (formerly known as Ilya Mechnikov North-Western State Medical University) is recognised by the National Medical Commission (NMC) of India and listed in the World Directory of Medical Schools (WDOMS), FAIMER, and ECFMG. Indian graduates are eligible to appear for FMGE / NEXT and practise medicine in India after clearing the licensing exam.",
+  },
+  {
+    question: "What is the duration of the MBBS program at North-Western State Medical University?",
+    answer:
+      "The MBBS program at North-Western State Medical University is 6 years — 5 years of academic study followed by 1 year of compulsory clinical internship. The medium of instruction is English for international students, with Russian language classes integrated into the curriculum to support clinical interactions from the third year onwards.",
+  },
+  {
+    question: "What is the total MBBS fees at North-Western State Medical University?",
+    answer:
+      "The total MBBS fees at North-Western State Medical University for the complete 6-year program is approximately USD 22,000–28,000 — roughly ₹19–24 lakhs — including tuition, hostel and Indian mess. This makes it one of the most affordable NMC-approved medical universities in Russia. There is no donation or capitation fee.",
+  },
+  {
+    question: "Is NEET required for admission to North-Western State Medical University?",
+    answer:
+      "Yes. NEET-UG qualification is mandatory for all Indian students applying to study MBBS abroad, including at North-Western State Medical University. Admission is granted on the basis of NEET score and Class 12 PCB marks — no separate entrance exam or donation is required.",
+  },
+  {
+    question: "What is the medium of instruction at North-Western State Medical University?",
+    answer:
+      "The complete MBBS program at North-Western State Medical University is taught in English for international students from day one. Russian language training is included in the curriculum so students can communicate with local patients during clinical rotations starting from the third year. No IELTS or TOEFL is required.",
+  },
+  {
+    question: "How safe is St. Petersburg for Indian students?",
+    answer:
+      "St. Petersburg is Russia's second-largest city and a major cultural hub with a large international student community. The university offers 24/7 campus security, CCTV-monitored hostels, separate accommodation for boys and girls, and a thriving Indian student community that organises cultural events, festivals and mentorship for newcomers.",
+  },
+  {
+    question: "Is Indian food available in the hostel?",
+    answer:
+      "Yes. North-Western State Medical University's hostel complex has Indian mess facilities run by experienced Indian cooks serving both vegetarian and non-vegetarian meals. Students also have access to a shared kitchen, common rooms and Indian grocery stores within St. Petersburg.",
+  },
+  {
+    question: "Can I pursue PG (postgraduate) after graduating from North-Western State Medical University?",
+    answer:
+      "Absolutely. North-Western State Medical University's degree is one of the most respected medical qualifications in Russia. Graduates can apply for PG programs in Russia, the USA (after USMLE), the UK (after PLAB), Germany, Australia, Canada and India (after NEXT / FMGE).",
+  },
+  {
+    question: "What is the world ranking of North-Western State Medical University?",
+    answer:
+      "North-Western State Medical University is one of the oldest and most respected medical universities in Russia, with a strong reputation for clinical training. It is recognised by WHO, NMC, FAIMER, WDOMS and ECFMG, and is featured in various international medical university rankings.",
+  },
+  {
+    question: "Why choose North-Western State Medical University?",
+    answer:
+      "North-Western State Medical University (named after Ilya Mechnikov) offers one of the most affordable MBBS programs among NMC-approved Russian medical universities. Located in beautiful St. Petersburg, it provides excellent clinical training, a diverse international student community, and a rich cultural experience in Russia's northern capital.",
+  },
+];
+
+const admissionSteps = [
+  {
+    step: 1,
+    title: "Submit Application",
+    desc: "Fill out the GVK EduTech application form with your academic and personal details",
+    icon: FileText,
+  },
+  {
+    step: 2,
+    title: "Receive Offer Letter",
+    desc: "North-Western State Medical University issues an official admission letter within 15–20 working days",
+    icon: BookOpen,
+  },
+  {
+    step: 3,
+    title: "Pay Tuition Fees",
+    desc: "Confirm your seat by remitting the first-year tuition to the university account",
+    icon: IndianRupee,
+  },
+  {
+    step: 4,
+    title: "Apply for Russian Visa",
+    desc: "We help you file the Russian student visa using the university's official invitation letter",
+    icon: Globe,
+  },
+  {
+    step: 5,
+    title: "Book Flights to St. Petersburg",
+    desc: "Fly directly to St. Petersburg — excellent flight connectivity from India",
+    icon: ArrowRight,
+  },
+  {
+    step: 6,
+    title: "Begin Studies at NWSMU",
+    desc: "Complete university registration, medical check-up and start your MBBS journey",
+    icon: GraduationCap,
+  },
+];
+
+const documents = [
+  "Valid Passport (min. 18 months validity)",
+  "10th Mark Sheet & Passing Certificate",
+  "12th Mark Sheet & Passing Certificate",
+  "NEET-UG Score Card",
+  "Passport Size Photographs (10 copies)",
+  "Birth Certificate (in English)",
+  "Police Clearance Certificate (PCC)",
+  "Medical Fitness Certificate",
+  "HIV Test Report",
+  "Travel & Medical Insurance",
+  "Bank Statement (last 6 months)",
+  "Admission / Invitation Letter from NWSMU",
+];
+
+const hostelFeatures = [
+  { icon: Home, label: "Separate hostels for boys and girls" },
+  { icon: Users, label: "Furnished rooms — 2 / 3 sharing" },
+  { icon: Utensils, label: "Indian mess with veg & non-veg meals" },
+  { icon: Wifi, label: "High-speed WiFi across campus" },
+  { icon: ShieldCheck, label: "24/7 security & CCTV monitoring" },
+  { icon: Clock, label: "Central heating, hot water & laundry" },
+];
+
+const whyChoose = [
+  {
+    title: "Affordable MBBS Program",
+    desc: "One of the most budget-friendly NMC-approved medical universities in Russia",
+    icon: IndianRupee,
+  },
+  {
+    title: "Historic Medical University",
+    desc: "Founded in 1896 — over 125 years of medical education excellence",
+    icon: Star,
+  },
+  {
+    title: "St. Petersburg Location",
+    desc: "Study in Russia's cultural capital — beautiful city with rich heritage",
+    icon: MapPin,
+  },
+  {
+    title: "No Donation / Capitation",
+    desc: "100% transparent admission process — no hidden charges or agent commissions",
+    icon: ShieldCheck,
+  },
+  {
+    title: "English Medium MBBS",
+    desc: "Entire MBBS course delivered in English from day one for international students",
+    icon: Globe,
+  },
+  {
+    title: "Excellent Clinical Training",
+    desc: "Hands-on rotations at affiliated hospitals in St. Petersburg",
+    icon: Award,
+  },
+  {
+    title: "Indian Mess & Community",
+    desc: "Dedicated Indian mess serving veg and non-veg meals, plus active Indian student community",
+    icon: Utensils,
+  },
+  {
+    title: "Global Career Pathways",
+    desc: "Degree recognised across Europe, USA, UK, Canada, Australia and India",
+    icon: GraduationCap,
+  },
+];
+
+const rankings = [
+  { label: "Top 20", sub: "Medical Universities in Russia" },
+  { label: "WDOMS", sub: "World Directory of Medical Schools" },
+  { label: "1896", sub: "Year Established — 125+ Years of Legacy" },
+  { label: "NMC", sub: "Approved for Indian Students" },
+];
+
+const advantages = [
+  {
+    title: "No Entrance Exam",
+    desc: "Admission based purely on NEET score and 12th PCB marks",
+  },
+  {
+    title: "No Donation",
+    desc: "Fully transparent fee structure — no capitation or hidden costs",
+  },
+  {
+    title: "Affordable Education",
+    desc: "One of the most cost-effective MBBS options in Russia",
+  },
+  {
+    title: "International Exposure",
+    desc: "Study in St. Petersburg alongside peers from 50+ countries",
+  },
+  {
+    title: "Clinical Excellence",
+    desc: "Hands-on training at affiliated multi-specialty hospitals",
+  },
+  {
+    title: "WHO Recognition",
+    desc: "Degree recognised by WHO, NMC, FAIMER, WDOMS, ECFMG",
+  },
+  {
+    title: "Global PG Pathways",
+    desc: "Eligible for postgraduate studies in USA, UK, Germany, Canada and more",
+  },
+  {
+    title: "GVK End-to-End Support",
+    desc: "Visa, travel, forex, SIM card & pre-departure briefing included",
+  },
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   PAGE COMPONENT
+════════════════════════════════════════════════════════════════════ */
+
+export default function NorthWesternStateMedicalUniversityPage() {
+  return (
+    <PageLayout>
+      <PageHeader
+        title="North-Western State Medical University Fees, Eligibility & Admission Process 2026"
+        subtitle="NMC Approved · WHO Recognised · Affordable MBBS in St. Petersburg, Russia"
+        breadcrumb="Partner Universities"
+        backgroundImage="https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1200&auto=format&fit=crop"
+      />
+
+      {/* ── 1. OVERVIEW ─────────────────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal animation="fade-up">
+              <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+                Est. 1896 · St. Petersburg, Russia
+              </p>
+              <ColorfulHeading
+                text="North-Western State Medical University"
+                size="3xl"
+                className="mb-5"
+              />
+              <p className="text-muted-foreground text-lg leading-relaxed mb-5">
+                North-Western State Medical University (NWSMU), formerly known
+                as Ilya Mechnikov North-Western State Medical University, is
+                one of Russia's oldest and most respected medical institutions,
+                located in the beautiful city of{" "}
+                <Link
+                  href="/mbbs/russia"
+                  className="text-accent font-semibold hover:underline"
+                >
+                  St. Petersburg
+                </Link>
+                . Founded in 1896, it has over 125 years of excellence in medical
+                education and clinical training.
+              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Recognised by the{" "}
+                <strong className="text-foreground">
+                  National Medical Commission (NMC)
+                </strong>
+                , WHO, WDOMS, FAIMER and ECFMG, NWSMU graduates are eligible to
+                appear for FMGE / NEXT in India and practise medicine in over 90
+                countries worldwide. With one of the most affordable fee
+                structures among NMC-approved Russian medical universities,
+                NWSMU offers excellent value for Indian medical aspirants.
+              </p>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {[
+                  "NMC Approved",
+                  "WHO Listed",
+                  "WDOMS Listed",
+                  "English Medium",
+                  "Affordable Fees",
+                ].map((badge) => (
+                  <span
+                    key={badge}
+                    className="px-4 py-1.5 bg-accent/10 text-accent border border-accent/20 rounded-full text-sm font-semibold"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-4 flex-wrap">
+                <Button asChild size="lg" variant="accent">
+                  <Link href="/apply">
+                    Apply Now
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="/contact">Free Counseling</Link>
+                </Button>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={200}>
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1513326738677-b964603b136d?w=600&auto=format&fit=crop"
+                  alt="North-Western State Medical University campus in St. Petersburg, Russia"
+                  className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-background border border-border rounded-2xl p-5 shadow-xl">
+                  <p className="text-3xl font-bold text-accent">125+</p>
+                  <p className="text-sm text-muted-foreground mt-0.5">
+                    Years of medical education
+                  </p>
+                </div>
+                <div className="absolute -top-6 -right-6 bg-background border border-border rounded-2xl p-5 shadow-xl">
+                  <p className="text-3xl font-bold text-accent">Top 20</p>
+                  <p className="text-sm text-muted-foreground mt-0.5">
+                    Medical University in Russia
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 2. WHY CHOOSE NWSMU ──────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Why Indian Students Choose North-Western State Medical University"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              From 125 years of academic legacy to affordable tuition fees,
+              NWSMU offers Indian medical aspirants the best value Russian
+              medical education.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {whyChoose.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <Card
+                  key={i}
+                  className="border border-border/60 hover:border-accent/50 transition-colors duration-200"
+                >
+                  <CardContent className="p-6">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                      <Icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. RECOGNITION (NMC / WHO) ──────────────────────────── */}
+      <section className="py-12 bg-accent text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { label: "NMC", sub: "India — National Medical Commission" },
+              { label: "WHO", sub: "World Health Organisation Listed" },
+              { label: "WDOMS", sub: "World Directory of Medical Schools" },
+              { label: "ECFMG", sub: "Eligible for US Medical Licensing" },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-4xl font-bold">{item.label}</p>
+                <p className="text-white/75 text-sm mt-1 leading-snug">
+                  {item.sub}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. WORLD RANKING ────────────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="North-Western State Medical University — Ranking"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              Among the top medical universities in Russia with over 125 years
+              of academic excellence and international recognition.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {rankings.map((item) => (
+              <Card
+                key={item.label}
+                className="border-2 border-accent/20 hover:border-accent/50 transition-colors duration-200"
+              >
+                <CardContent className="p-6 text-center">
+                  <TrendingUp className="w-8 h-8 text-accent mx-auto mb-3" />
+                  <p className="text-3xl font-extrabold text-accent mb-1">
+                    {item.label}
+                  </p>
+                  <p className="text-muted-foreground text-sm leading-snug">
+                    {item.sub}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. MBBS FEES STRUCTURE ──────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="MBBS Fees Structure 2026–27"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              One of the most affordable MBBS programs in Russia — transparent
+              fees, no hidden charges, no capitation.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto grid lg:grid-cols-3 gap-8">
+            {/* Main fee table */}
+            <div className="lg:col-span-2">
+              <Card className="border-2 border-accent/20 overflow-hidden">
+                <CardHeader className="bg-accent/8 border-b border-accent/20 px-6 py-4">
+                  <CardTitle className="text-base font-semibold text-foreground">
+                    North-Western State Medical University — Tuition Fee Breakdown
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-0">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-border bg-muted/30">
+                        <th className="text-left px-6 py-3 font-semibold text-foreground">
+                          Year
+                        </th>
+                        <th className="text-right px-6 py-3 font-semibold text-foreground">
+                          USD
+                        </th>
+                        <th className="text-right px-6 py-3 font-semibold text-foreground">
+                          INR*
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-border">
+                        <td className="px-6 py-4 text-foreground">1st Year</td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          $5,500
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          ₹4,67,500
+                        </td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="px-6 py-4 text-foreground">
+                          2nd–5th Year{" "}
+                          <span className="text-muted-foreground text-xs">
+                            (per year)
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          $4,500
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          ₹3,82,500
+                        </td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="px-6 py-4 text-foreground">6th Year (Internship)</td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          $4,500
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          ₹3,82,500
+                        </td>
+                      </tr>
+                      <tr className="bg-accent/5">
+                        <td className="px-6 py-4 font-bold text-foreground">
+                          Total (6 Years)
+                        </td>
+                        <td className="px-6 py-4 text-right font-bold text-accent text-base">
+                          $27,500
+                        </td>
+                        <td className="px-6 py-4 text-right font-bold text-accent text-base">
+                          ₹23,37,500
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p className="text-xs text-muted-foreground px-6 py-3 border-t border-border">
+                    * Exchange rate: 1 USD ≈ ₹85 (indicative). NWSMU fees are
+                    subject to revision by the university.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Living cost cards */}
+            <div className="flex flex-col gap-4">
+              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+                Annual Living Costs
+              </p>
+              {[
+                {
+                  label: "Hostel",
+                  sub: "On-campus shared room in St. Petersburg",
+                  usd: "$800",
+                },
+                {
+                  label: "Indian Mess",
+                  sub: "Daily veg / non-veg meals",
+                  usd: "$1,000",
+                },
+                {
+                  label: "Living Expenses",
+                  sub: "Travel, books, personal",
+                  usd: "$1,200",
+                },
+              ].map((item) => (
+                <Card key={item.label} className="border border-border/60">
+                  <CardContent className="px-5 py-4 flex items-center justify-between">
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">
+                        {item.label}
+                      </p>
+                      <p className="text-muted-foreground text-xs mt-0.5">
+                        {item.sub}
+                      </p>
+                    </div>
+                    <p className="text-lg font-bold text-accent">{item.usd}</p>
+                  </CardContent>
+                </Card>
+              ))}
+              <Card className="border-2 border-accent/30 bg-accent/5">
+                <CardContent className="px-5 py-4 flex items-center justify-between">
+                  <div>
+                    <p className="font-bold text-foreground text-sm">
+                      Total 6-Year Cost
+                    </p>
+                    <p className="text-muted-foreground text-xs mt-0.5">
+                      Tuition + hostel + mess
+                    </p>
+                  </div>
+                  <p className="text-lg font-bold text-accent">~$35,000</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. ELIGIBILITY CRITERIA ─────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Eligibility Criteria for Indian Students"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              Clear, straightforward requirements — no entrance exam beyond
+              NEET.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-5">
+            {[
+              {
+                title: "Age",
+                desc: "Minimum 17 years as on 31st December of the admission year",
+              },
+              {
+                title: "Academics",
+                desc: "12th standard with min. 50% in Physics, Chemistry & Biology (40% for SC/ST/OBC)",
+              },
+              {
+                title: "NEET",
+                desc: "NEET-UG qualification is mandatory for all Indian students applying abroad",
+              },
+              {
+                title: "English",
+                desc: "No separate English proficiency test required — the medium of instruction is English",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="flex gap-4 p-6 rounded-2xl bg-background border border-border/60"
+              >
+                <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-bold text-foreground mb-1">{item.title}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. ADMISSION PROCESS ────────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-16 text-center">
+            <ColorfulHeading
+              text="NWSMU Admission Process"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              A straightforward six-step journey from your application to your
+              first day at North-Western State Medical University.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto relative">
+            <div className="hidden md:block absolute top-9 left-[calc(1/12*100%+1.25rem)] right-[calc(1/12*100%+1.25rem)] h-px bg-border" />
+
+            <div className="grid md:grid-cols-6 gap-6">
+              {admissionSteps.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.step}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div className="relative z-10 w-[4.5rem] h-[4.5rem] rounded-full border-2 border-accent bg-background flex items-center justify-center mb-4 flex-shrink-0">
+                      <Icon className="w-6 h-6 text-accent" />
+                    </div>
+                    <p className="font-bold text-foreground text-sm mb-1">
+                      {item.title}
+                    </p>
+                    <p className="text-muted-foreground text-xs leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild size="lg" variant="accent">
+              <Link href="/apply">
+                Start Your Application
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 8. REQUIRED DOCUMENTS ───────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Required Documents for NWSMU Admission"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              Keep these documents ready before applying — GVK EduTech will guide
+              you through attestation, translation and submission.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Card>
+              <CardContent className="p-8">
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {documents.map((doc, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 p-3.5 rounded-xl bg-muted/50 border border-border/50"
+                    >
+                      <FileText className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span className="text-foreground text-sm">{doc}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 9. HOSTEL FACILITIES ────────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal animation="fade-up">
+              <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+                On-Campus Living
+              </p>
+              <ColorfulHeading
+                text="NWSMU Hostel Facilities"
+                size="3xl"
+                className="mb-6 text-left"
+              />
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                North-Western State Medical University's on-campus hostels are
+                safe, comfortable and built with international students in mind
+                — from dedicated Indian mess options to 24/7 campus security
+                and high-speed WiFi, located in the beautiful city of St.
+                Petersburg.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {hostelFeatures.map((f, i) => {
+                  const Icon = f.icon;
+                  return (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4 text-accent" />
+                      </div>
+                      <span className="text-foreground text-sm">{f.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={200}>
+              <div className="grid grid-cols-2 gap-4">
+                <img
+                  src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400&auto=format&fit=crop"
+                  alt="NWSMU hostel room"
+                  className="rounded-2xl shadow-lg w-full aspect-square object-cover"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&auto=format&fit=crop"
+                  alt="NWSMU hostel common area"
+                  className="rounded-2xl shadow-lg w-full aspect-square object-cover mt-8"
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 10. STUDENT LIFE IN ST. PETERSBURG ───────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal animation="fade-up">
+              <div className="grid grid-cols-2 gap-4">
+                <img
+                  src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&auto=format&fit=crop"
+                  alt="St. Petersburg city in Russia"
+                  className="rounded-2xl shadow-lg w-full aspect-square object-cover"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1513326738677-b964603b136d?w=400&auto=format&fit=crop"
+                  alt="St. Petersburg winter landscape"
+                  className="rounded-2xl shadow-lg w-full aspect-square object-cover mt-8"
+                />
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={200}>
+              <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+                Life in St. Petersburg, Russia
+              </p>
+              <ColorfulHeading
+                text="Student Life in Russia"
+                size="3xl"
+                className="mb-6 text-left"
+              />
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                St. Petersburg is Russia's cultural capital — a beautiful
+                city known for its palaces, museums, and vibrant student life.
+                Six years of medical study in this historic city is a truly
+                transformative experience.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Russia's cultural capital with world-class museums and theatres",
+                  "Beautiful architecture — Winter Palace, Church of the Savior",
+                  "Excellent metro system and connectivity within the city",
+                  "Active Indian student association with cultural events",
+                  "Affordable cost of living compared to Moscow",
+                  "Close to Helsinki and other European destinations",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <ChevronRight className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 11. ADVANTAGES ───────────────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Advantages of Studying MBBS at NWSMU"
+              size="3xl"
+              className="mb-4"
+            />
+          </div>
+          <div className="max-w-4xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {advantages.map((adv, i) => (
+              <Card
+                key={i}
+                className="border border-border/60 hover:border-accent/40 transition-colors duration-200"
+              >
+                <CardContent className="p-5">
+                  <h3 className="font-bold text-foreground text-sm mb-1.5">
+                    {adv.title}
+                  </h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed">
+                    {adv.desc}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 12. FAQs ─────────────────────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Frequently Asked Questions"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              Everything Indian students ask about North-Western State Medical
+              University and MBBS in Russia.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, i) => (
+              <details
+                key={i}
+                className="group border border-border/60 rounded-2xl overflow-hidden bg-background open:border-accent/30"
+              >
+                <summary className="flex items-center gap-4 p-6 cursor-pointer list-none select-none">
+                  <span className="w-7 h-7 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                    {i + 1}
+                  </span>
+                  <p className="font-semibold text-foreground flex-1">
+                    {faq.question}
+                  </p>
+                  <ChevronRight className="w-5 h-5 text-muted-foreground group-open:rotate-90 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6">
+                  <p className="text-muted-foreground text-sm leading-relaxed pl-11">
+                    {faq.answer}
+                  </p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── APPLY NOW CTA ───────────────────────────────────────── */}
+      <section className="py-24 bg-gradient-to-br from-primary via-primary/90 to-primary/80">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-primary-foreground/70 text-sm font-semibold tracking-widest uppercase mb-4">
+            2026 Admissions Open
+          </p>
+          <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-6 max-w-3xl mx-auto leading-tight">
+            Begin Your MBBS Journey at North-Western State Medical University
+          </h2>
+          <p className="text-primary-foreground/80 text-lg mb-10 max-w-2xl mx-auto">
+            GVK EduTech's expert counselors will guide you through the entire
+            admission process — from application and visa to your first day at
+            NWSMU, St. Petersburg.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild variant="secondary" size="xl" className="group">
+              <Link href="/apply">
+                Apply Now
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button asChild size="xl" variant="accent" className="group">
+              <Link href="/contact">
+                Free Counseling Session
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INTERNAL LINKS FOOTER ───────────────────────────────── */}
+      <section className="py-10 section-light border-t border-border">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { href: "/", label: "Home" },
+              { href: "/mbbs/russia", label: "MBBS in Russia" },
+              { href: "/partner-universities", label: "Partner Universities" },
+              { href: "/apply", label: "Apply Now" },
+              { href: "/contact", label: "Contact Us" },
+              { href: "/about", label: "About GVK EduTech" },
+            ].map((link) => (
+              <Button key={link.href} asChild variant="outline" size="sm">
+                <Link href={link.href}>{link.label}</Link>
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+    </PageLayout>
+  );
+}

@@ -129,6 +129,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-leicester",
     "/partner-universities/mari-state-university",
     "/partner-universities/university-of-sussex",
+    "/partner-universities/peoples-friends-university",
+    "/partner-universities/university-of-reading",
+    "/partner-universities/north-western-state-medical-university",
+    "/partner-universities/lancaster-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
