@@ -115,6 +115,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-bristol",
     "/partner-universities/pirogov-russian-national-medical-university",
     "/partner-universities/university-of-exeter",
+    "/partner-universities/university-of-essex",
     "/partner-universities/kazan-federal-university",
     "/partner-universities/queen-mary-university-of-london",
     "/partner-universities/sechenov-university",
@@ -132,6 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/peoples-friends-university",
     "/partner-universities/university-of-reading",
     "/partner-universities/north-western-state-medical-university",
+    "/partner-universities/pavlov-first-saint-petersburg-university",
     "/partner-universities/lancaster-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
