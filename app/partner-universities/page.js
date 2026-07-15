@@ -509,8 +509,8 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
               );
             }
             // Siberian State Medical University specific page
-            const isSSMU = uni === "Siberian State Medical University";
-            if (isSSMU) {
+            const isSiberian = uni === "Siberian State Medical University";
+            if (isSiberian) {
               return (
                 <Link
                   key={i}
