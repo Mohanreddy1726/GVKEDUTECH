@@ -135,6 +135,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/north-western-state-medical-university",
     "/partner-universities/pavlov-first-saint-petersburg-university",
     "/partner-universities/lancaster-university",
+    "/partner-universities/siberian-state-medical-university",
+    "/partner-universities/oxford-brookes-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
