@@ -661,6 +661,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Kursk State Medical University specific page
+            const isKursk = uni === "Kursk State Medical University";
+            if (isKursk) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/kursk-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // North-Western State Medical University specific page
             const isNWSMU = uni.includes("North-Western State Medical University");
             if (isNWSMU) {
@@ -1008,6 +1025,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/oxford-brookes-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Strathclyde specific page
+            const isStrathclyde = uni === "University of Strathclyde";
+            if (isStrathclyde) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-strathclyde"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

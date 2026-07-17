@@ -123,7 +123,7 @@ const universityData = {
       { name: "Kirov State Medical University", website: "https://kirim.ru" },
       { name: "Krasnoyarsk State Medical University", website: "https://krasgmu.ru" },
       { name: "Kuban State Medical University", website: "https://ksma.ru" },
-      { name: "Kursk State Medical University", website: "https://kursksmu.ru" },
+      { name: "Kursk State Medical University", website: "/partner-universities/kursk-state-medical-university" },
       { name: "Lobachevsky State University", website: "https://unn.ru" },
       { name: "Lomonosov Moscow State University", website: "https://msu.ru" },
       { name: "Mari State University", website: "https://marsu.ru" },
@@ -270,7 +270,7 @@ const universityData = {
       { name: "University of Sussex", website: "https://sussex.ac.uk" },
       { name: "University of Surrey", website: "https://surrey.ac.uk" },
       { name: "University of Leicester", website: "https://le.ac.uk" },
-      { name: "University of Strathclyde", website: "https://strath.ac.uk" },
+      { name: "University of Strathclyde", website: "/partner-universities/university-of-strathclyde" },
     ],
   },
   usa: {
