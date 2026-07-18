@@ -542,6 +542,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Ryazan State Medical University specific page
+            const isRyazan = uni === "Ryazan State Medical University";
+            if (isRyazan) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/ryazan-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Altai State Medical University specific page
             const isAltai = uni === "Altai State Medical University";
             if (isAltai) {
