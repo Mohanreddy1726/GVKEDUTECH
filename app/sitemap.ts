@@ -141,6 +141,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/oxford-brookes-university",
     "/partner-universities/kursk-state-medical-university",
     "/partner-universities/ryazan-state-medical-university",
+    "/partner-universities/heriot-watt-university",
     "/partner-universities/university-of-strathclyde",
   ].map((route) => entry(route, { priority: 0.7 }));
 
