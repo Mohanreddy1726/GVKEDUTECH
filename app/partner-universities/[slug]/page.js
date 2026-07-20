@@ -163,7 +163,7 @@ const universityData = {
       { name: "Volgograd State Medical University", website: "https://volgmed.ru" },
       { name: "Voronezh State Medical University", website: "https://vgmu.ru" },
       { name: "Yaroslav-the-Wise Novgorod State University", website: "https://novsu.ru" },
-      { name: "Yaroslavl State Medical University", website: "https://ysma.ru" },
+      { name: "Yaroslavl State Medical University", website: "/partner-universities/yaroslavl-state-medical-university" },
     ],
   },
   uzbekistan: {
@@ -219,6 +219,7 @@ const universityData = {
     flag: "gb",
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&auto=format&fit=crop",
     universities: [
+      { name: "Aston University", website: "/partner-universities/aston-university" },
       { name: "Bangor University", website: "https://bangor.ac.uk" },
       { name: "Coventry University", website: "https://coventry.ac.uk" },
       { name: "De Montfort University", website: "https://dmu.ac.uk" },

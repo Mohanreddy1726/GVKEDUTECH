@@ -143,6 +143,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/ryazan-state-medical-university",
     "/partner-universities/heriot-watt-university",
     "/partner-universities/university-of-strathclyde",
+    "/partner-universities/yaroslavl-state-medical-university",
+    "/partner-universities/aston-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
