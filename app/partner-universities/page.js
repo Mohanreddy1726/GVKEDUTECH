@@ -712,6 +712,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Voronezh State Medical University specific page
+            const isVoronezh = uni === "Voronezh State Medical University";
+            if (isVoronezh) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/voronezh-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // North-Western State Medical University specific page
             const isNWSMU = uni.includes("North-Western State Medical University");
             if (isNWSMU) {
@@ -1093,6 +1110,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/aston-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Nottingham Trent University specific page
+            const isNTU = uni === "Nottingham Trent University";
+            if (isNTU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/nottingham-trent-university"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

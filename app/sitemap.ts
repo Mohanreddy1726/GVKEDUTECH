@@ -145,6 +145,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-strathclyde",
     "/partner-universities/yaroslavl-state-medical-university",
     "/partner-universities/aston-university",
+    "/partner-universities/voronezh-state-medical-university",
+    "/partner-universities/nottingham-trent-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
