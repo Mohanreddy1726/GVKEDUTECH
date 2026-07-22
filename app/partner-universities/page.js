@@ -593,6 +593,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Smolensk State Medical University specific page
+            const isSmolensk = uni === "Smolensk State Medical University";
+            if (isSmolensk) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/smolensk-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Pirogov Russian National Research Medical University specific page
             const isPirogov = uni === "Pirogov Russian National Research Medical University";
             if (isPirogov) {
@@ -940,6 +957,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/queen-mary-university-of-london"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Northumbria University London specific page
+            const isNorthumbria = uni === "Northumbria University London";
+            if (isNorthumbria) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/northumbria-university-london"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

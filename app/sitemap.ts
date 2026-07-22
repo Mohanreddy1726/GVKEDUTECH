@@ -141,12 +141,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/oxford-brookes-university",
     "/partner-universities/kursk-state-medical-university",
     "/partner-universities/ryazan-state-medical-university",
+    "/partner-universities/smolensk-state-medical-university",
     "/partner-universities/heriot-watt-university",
     "/partner-universities/university-of-strathclyde",
     "/partner-universities/yaroslavl-state-medical-university",
     "/partner-universities/aston-university",
     "/partner-universities/voronezh-state-medical-university",
     "/partner-universities/nottingham-trent-university",
+    "/partner-universities/northumbria-university-london",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
