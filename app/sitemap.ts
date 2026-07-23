@@ -149,6 +149,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/voronezh-state-medical-university",
     "/partner-universities/nottingham-trent-university",
     "/partner-universities/northumbria-university-london",
+    "/partner-universities/ural-state-medical-university",
+    "/partner-universities/university-of-east-anglia",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [

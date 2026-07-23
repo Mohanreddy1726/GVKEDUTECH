@@ -1222,6 +1222,40 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Ural State Medical University specific page
+            const isUral = uni === "Ural State Medical University";
+            if (isUral) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/ural-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of East Anglia specific page
+            const isUEA = uni === "University of East Anglia";
+            if (isUEA) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-east-anglia"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Tver State Medical University specific page
             const isTver = uni === "Tver State Medical University";
             if (isTver) {
