@@ -151,6 +151,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/northumbria-university-london",
     "/partner-universities/ural-state-medical-university",
     "/partner-universities/university-of-east-anglia",
+    "/partner-universities/kemerovo-state-medical-university",
+    "/partner-universities/university-of-hull",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
