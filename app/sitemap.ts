@@ -152,6 +152,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/ural-state-medical-university",
     "/partner-universities/university-of-east-anglia",
     "/partner-universities/kemerovo-state-medical-university",
+    "/partner-universities/omsk-state-medical-university",
+    "/partner-universities/coventry-university",
     "/partner-universities/university-of-hull",
   ].map((route) => entry(route, { priority: 0.7 }));
 

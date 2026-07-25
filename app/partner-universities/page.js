@@ -1307,6 +1307,40 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Omsk State Medical University specific page
+            const isOmsk = uni === "Omsk State Medical University";
+            if (isOmsk) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/omsk-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Coventry University specific page
+            const isCoventry = uni === "Coventry University";
+            if (isCoventry) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/coventry-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Heriot-Watt University specific page
             const isHeriotWatt = uni === "Heriot Watt University";
             if (isHeriotWatt) {
