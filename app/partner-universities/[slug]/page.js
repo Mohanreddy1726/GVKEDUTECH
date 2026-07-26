@@ -103,7 +103,7 @@ const universityData = {
       { name: "Amur State Medical Academy", website: "https://amursma.ru" },
       { name: "Astrakhan State Medical University", website: "https://astrahmsu.ru" },
       { name: "Bashkir State Medical University", website: "https://bashgmu.ru" },
-      { name: "Chita State Medical Academy", website: "https://chitagsma.ru" },
+      { name: "Chita State Medical Academy", website: "/partner-universities/chita-state-medical-academy" },
       { name: "Chuvash State University", website: "https://chuvsu.ru" },
       { name: "Crimean Federal University (CFU)", website: "https://cfuv.ru" },
       { name: "Dagestan State Medical University", website: "https://dsmu.ru" },
@@ -272,6 +272,7 @@ const universityData = {
       { name: "University of Surrey", website: "https://surrey.ac.uk" },
       { name: "University of Leicester", website: "https://le.ac.uk" },
       { name: "University of Strathclyde", website: "/partner-universities/university-of-strathclyde" },
+      { name: "University of Portsmouth", website: "/partner-universities/university-of-portsmouth" },
     ],
   },
   usa: {

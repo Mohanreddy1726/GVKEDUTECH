@@ -130,6 +130,7 @@ const universityLogos = {
   "University of Surrey": "https://static.cdnlogo.com/logos/u/82/university-of-surrey.svg",
   "University of Leicester": "https://static.cdnlogo.com/logos/u/37/university-of-leicester.svg",
   "University of Strathclyde": "https://static.cdnlogo.com/logos/u/82/university-of-strathclyde.svg",
+  "University of Portsmouth": "https://static.cdnlogo.com/logos/u/42/university-of-portsmouth.svg",
   "University of Edinburgh": "https://www.ed.ac.uk/themes/upstream/wpp_theme/images/logo.png",
   "University of Cambridge": "https://www.cam.ac.uk/sites/all/themes/fresh/images/interface/cambridge_university2.svg",
 
@@ -239,6 +240,7 @@ const universityLogos = {
 
   // Russia
   "Altai State Medical University": "https://asmu.ru/wp-content/uploads/2021/04/logo.png",
+  "Chita State Medical Academy": "https://chitagsma.ru/images/logo.png",
   "Bashkir State Medical University": "https://bashgmu.ru/wp-content/uploads/2020/01/logo.png",
   "Kazan State Medical University": "https://kazgmu.ru/wp-content/uploads/2020/01/logo.png",
   "Krasnoyarsk State Medical University": "https://krasgmu.ru/wp-content/uploads/2021/04/logo.png",
