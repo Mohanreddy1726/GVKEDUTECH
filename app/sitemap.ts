@@ -115,6 +115,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/altai-state-medical-university",
     "/partner-universities/bashkir-state-medical-university",
     "/partner-universities/chita-state-medical-academy",
+    "/partner-universities/amur-state-medical-academy",
     "/partner-universities/university-of-bristol",
     "/partner-universities/pirogov-russian-national-medical-university",
     "/partner-universities/university-of-exeter",
@@ -157,6 +158,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/omsk-state-medical-university",
     "/partner-universities/coventry-university",
     "/partner-universities/university-of-hull",
+    "/partner-universities/university-of-lincoln",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
