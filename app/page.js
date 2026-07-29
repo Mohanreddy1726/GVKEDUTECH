@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { HomeCarousel } from "@/components/HomeCarousel";
 import { About } from "@/components/About";
 import { CollegePredictor } from "@/components/CollegePredictor";
 import { Benefits } from "@/components/Benefits";
@@ -47,6 +48,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <HomeCarousel />
         <About />
         <CollegePredictor />
         <Benefits />

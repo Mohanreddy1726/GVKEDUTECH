@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { GraduationCap, Stethoscope, TrendingUp, Sparkles, ArrowRight, CheckCircle2, Calculator, BookOpen, GitCompareArrows, ChartLine } from "lucide-react";
 import { validateEmail, validatePhone } from "@/utils/validation";
+import { INDIAN_STATES_AND_UTS } from "@/utils/indianStates";
 import { SmartComparison } from "@/components/SmartComparison";
 import { ROIPlanner } from "@/components/ROIPlanner";
 
@@ -16,7 +17,7 @@ const mbbsCountries = [
   "Nepal", "Georgia", "Kyrgyzstan", "Russia", "Kazakhstan", "Uzbekistan", "Vietnam"
 ];
 
-const categories = ["OC", "BC-A", "BC-B", "BC-C", "BC-D", "BC-E", "SC", "ST", "EWS"];
+const indianStates = INDIAN_STATES_AND_UTS;
 
 // Complete college database from all MBBS country pages
 const collegeDatabase = [
@@ -369,7 +370,7 @@ function PredictorForm() {
     neetScore: "",
     budget: [25],
     country: "all",
-    category: "",
+    state: "",
   });
   const [results, setResults] = useState(null);
   const [submitted, setSubmitted] = useState(false);
@@ -387,8 +388,8 @@ function PredictorForm() {
     if (!formData.neetScore || formData.neetScore < 0 || formData.neetScore > 720) {
       newErrors.neetScore = "Please enter a valid NEET score (0-720)";
     }
-    if (!formData.category) {
-      newErrors.category = "Please select a category";
+    if (!formData.state) {
+      newErrors.state = "Please select your state";
     }
     return newErrors;
   };
@@ -416,7 +417,7 @@ function PredictorForm() {
           name: formData.name,
           phone: formData.phone,
           neetScore: score,
-          category: formData.category,
+          state: formData.state,
           budget: formData.budget[0],
           country: formData.country,
           matchedColleges: predicted.length,
@@ -428,7 +429,7 @@ function PredictorForm() {
   };
 
   const handleWhatsApp = () => {
-    const msg = `Hi, I'm ${formData.name}. My NEET score is ${formData.neetScore}, category: ${formData.category || "N/A"}, budget ₹${formData.budget[0]} Lakh, preferred: ${formData.country === "all" ? "any country" : formData.country}. Phone: ${formData.phone}. Please guide me for MBBS abroad.`;
+    const msg = `Hi, I'm ${formData.name}. My NEET score is ${formData.neetScore}, state: ${formData.state || "N/A"}, budget ₹${formData.budget[0]} Lakh, preferred: ${formData.country === "all" ? "any country" : formData.country}. Phone: ${formData.phone}. Please guide me for MBBS abroad.`;
     window.open(`https://api.whatsapp.com/send/?phone=919010060000&text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -484,18 +485,18 @@ function PredictorForm() {
             </Select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-foreground mb-2">Category *</label>
-            <Select value={formData.category} onValueChange={(v) => { setFormData({ ...formData, category: v }); setErrors({ ...errors, category: "" }); }}>
-              <SelectTrigger className={`h-12 border-border/50 bg-white ${errors.category ? "border-red-500" : ""}`}>
-                <SelectValue placeholder="Select category" />
+            <label className="block text-sm font-semibold text-foreground mb-2">State *</label>
+            <Select value={formData.state} onValueChange={(v) => { setFormData({ ...formData, state: v }); setErrors({ ...errors, state: "" }); }}>
+              <SelectTrigger className={`h-12 border-border/50 bg-white ${errors.state ? "border-red-500" : ""}`}>
+                <SelectValue placeholder="Select state" />
               </SelectTrigger>
-              <SelectContent>
-                {categories.map((c) => (
-                  <SelectItem key={c} value={c}>{c}</SelectItem>
+              <SelectContent className="max-h-[280px]">
+                {indianStates.map((s) => (
+                  <SelectItem key={s} value={s}>{s}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
-            {errors.category && <p className="text-red-500 text-xs mt-1">{errors.category}</p>}
+            {errors.state && <p className="text-red-500 text-xs mt-1">{errors.state}</p>}
           </div>
         </div>
 
@@ -561,6 +562,7 @@ function BudgetForm() {
     name: "",
     email: "",
     phone: "",
+    state: "",
     programType: "",
     country: "",
     university: "",
@@ -584,6 +586,9 @@ function BudgetForm() {
     const phoneValidation = validatePhone(formData.phone);
     if (!phoneValidation.valid) {
       newErrors.phone = phoneValidation.message;
+    }
+    if (!formData.state) {
+      newErrors.state = "Please select your state";
     }
     if (!formData.programType) {
       newErrors.programType = "Please select a program type";
@@ -618,6 +623,7 @@ function BudgetForm() {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          state: formData.state,
           programType: formData.programType,
           country: formData.country,
           university: formData.university,
@@ -632,7 +638,7 @@ function BudgetForm() {
   };
 
   const handleWhatsApp = () => {
-    const msg = `Hi, I'm ${formData.name}. I'm interested in ${formData.programType} in ${formData.country}${formData.university ? ` at ${formData.university}` : ""}. Living: ${formData.livingPreference}. Course type: ${formData.courseType || "N/A"}. Phone: ${formData.phone}. Please help me with budget planning.`;
+    const msg = `Hi, I'm ${formData.name}. I'm interested in ${formData.programType} in ${formData.country}${formData.university ? ` at ${formData.university}` : ""}. Living: ${formData.livingPreference}. State: ${formData.state || "N/A"}. Course type: ${formData.courseType || "N/A"}. Phone: ${formData.phone}. Please help me with budget planning.`;
     const phoneNumber = formData.programType === "MASTERS" ? "918886661877" : "919010060000";
     window.open(`https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodeURIComponent(msg)}`, "_blank");
   };
@@ -663,6 +669,20 @@ function BudgetForm() {
             <label className="block text-sm font-semibold text-foreground mb-2">Phone Number *</label>
             <Input required type="tel" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={(e) => { setFormData({ ...formData, phone: e.target.value }); setErrors({ ...errors, phone: "" }); }} className={`h-12 border-border/50 focus:border-accent ${errors.phone ? "border-red-500" : ""}`} />
             {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-foreground mb-2">State *</label>
+            <Select value={formData.state} onValueChange={(v) => { setFormData({ ...formData, state: v }); setErrors({ ...errors, state: "" }); }}>
+              <SelectTrigger className={`h-12 border-border/50 bg-white ${errors.state ? "border-red-500" : ""}`}>
+                <SelectValue placeholder="Select state" />
+              </SelectTrigger>
+              <SelectContent className="max-h-[280px]">
+                {indianStates.map((s) => (
+                  <SelectItem key={s} value={s}>{s}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.state && <p className="text-red-500 text-xs mt-1">{errors.state}</p>}
           </div>
         </div>
 

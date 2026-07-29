@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2, TrendingUp, ChevronDown, ChevronUp, CheckCheck } from "lucide-react";
+import { LogOut, Calculator, GraduationCap, RefreshCw, Phone, Mail, MessageCircle, FileSpreadsheet, Play, GitCompareArrows, Globe, Building2, TrendingUp, ChevronDown, ChevronUp, CheckCheck, Image as ImageIcon } from "lucide-react";
 import * as XLSX from "xlsx";
 
 export default function DashboardPage() {
@@ -88,10 +88,11 @@ export default function DashboardPage() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const [submissionsRes, blogRes, videoRes] = await Promise.all([
+      const [submissionsRes, blogRes, videoRes, photoRes] = await Promise.all([
         fetch("/api/submissions"),
         fetch("/api/blog/"),
         fetch("/api/video-testimonials"),
+        fetch("/api/photo-gallery"),
       ]);
 
       const submissionsData = submissionsRes.ok ? await submissionsRes.json() : {
@@ -105,8 +106,9 @@ export default function DashboardPage() {
 
       const blogPosts = blogRes.ok ? await blogRes.json() : [];
       const videoTestimonials = videoRes.ok ? await videoRes.json() : [];
+      const photoGallery = photoRes.ok ? await photoRes.json() : [];
 
-      setData({ ...submissionsData, blogPosts, videoTestimonials });
+      setData({ ...submissionsData, blogPosts, videoTestimonials, photoGallery });
     } catch (err) {
       toast({
         title: "Error",
@@ -313,6 +315,7 @@ export default function DashboardPage() {
     { id: "apply", label: "Apply Form", icon: FileSpreadsheet, count: data.applySubmissions.length },
     { id: "blog", label: "Blog Management", icon: FileSpreadsheet, count: data.blogPosts?.length || 0 },
     { id: "videos", label: "Video Testimonials", icon: Play, count: data.videoTestimonials?.length || 0 },
+    { id: "photos", label: "Photo Gallery", icon: ImageIcon, count: data.photoGallery?.length || 0 },
   ];
 
   const contactHeaders = [
@@ -327,7 +330,7 @@ export default function DashboardPage() {
     { label: "Name", key: "name" },
     { label: "Phone", key: "phone" },
     { label: "NEET Score", key: "neetScore" },
-    { label: "Category", key: "category" },
+    { label: "State", key: "state" },
     { label: "Budget", key: "budget" },
     { label: "Country", key: "country" },
     { label: "Date", key: "createdAt" },
@@ -336,6 +339,7 @@ export default function DashboardPage() {
   const budgetHeaders = [
     { label: "Name", key: "name" },
     { label: "Phone", key: "phone" },
+    { label: "State", key: "state" },
     { label: "Program", key: "programType" },
     { label: "Country", key: "country" },
     { label: "Living", key: "livingPreference" },
@@ -476,6 +480,10 @@ export default function DashboardPage() {
                       router.push("/admin/video-testimonials");
                       return;
                     }
+                    if (tab.id === "photos") {
+                      router.push("/admin/photo-gallery");
+                      return;
+                    }
                     setActiveTab(tab.id);
                     // Auto-clear the blink the moment the admin opens a tab.
                     if (blinking) markSeen(tab.id);
@@ -587,8 +595,8 @@ export default function DashboardPage() {
                                 <p className="font-medium">{item.neetScore || "N/A"}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-muted-foreground">Category</p>
-                                <p className="font-medium">{item.category || "N/A"}</p>
+                                <p className="text-xs text-muted-foreground">State</p>
+                                <p className="font-medium">{item.state || "N/A"}</p>
                               </div>
                               <div>
                                 <p className="text-xs text-muted-foreground">Budget</p>
@@ -646,6 +654,10 @@ export default function DashboardPage() {
                                 <p className="font-medium">{item.phone || "N/A"}</p>
                               </div>
                               <div>
+                                <p className="text-xs text-muted-foreground">State</p>
+                                <p className="font-medium">{item.state || "N/A"}</p>
+                              </div>
+                              <div>
                                 <p className="text-xs text-muted-foreground">Program</p>
                                 <p className="font-medium">{item.programType || "N/A"}</p>
                               </div>
@@ -653,10 +665,30 @@ export default function DashboardPage() {
                                 <p className="text-xs text-muted-foreground">Country</p>
                                 <p className="font-medium">{item.country || "N/A"}</p>
                               </div>
+                            </div>
+                            <div className="grid md:grid-cols-4 gap-4 mt-4">
                               <div>
                                 <p className="text-xs text-muted-foreground">Living</p>
                                 <p className="font-medium">{item.livingPreference || "N/A"}</p>
                               </div>
+                              {item.university && (
+                                <div>
+                                  <p className="text-xs text-muted-foreground">University</p>
+                                  <p className="font-medium">{item.university}</p>
+                                </div>
+                              )}
+                              {item.courseType && (
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Course Type</p>
+                                  <p className="font-medium">{item.courseType}</p>
+                                </div>
+                              )}
+                              {item.email && (
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Email</p>
+                                  <p className="font-medium text-sm">{item.email}</p>
+                                </div>
+                              )}
                             </div>
                             {item.estimatedBudget && (
                               <div className="mt-4">
