@@ -159,6 +159,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/coventry-university",
     "/partner-universities/university-of-hull",
     "/partner-universities/university-of-lincoln",
+    "/partner-universities/pacific-state-medical-university",
+    "/partner-universities/university-of-huddersfield",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [

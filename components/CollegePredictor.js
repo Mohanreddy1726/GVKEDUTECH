@@ -11,6 +11,7 @@ import { validateEmail, validatePhone } from "@/utils/validation";
 import { INDIAN_STATES_AND_UTS } from "@/utils/indianStates";
 import { SmartComparison } from "@/components/SmartComparison";
 import { ROIPlanner } from "@/components/ROIPlanner";
+import Link from "next/link";
 
 // MBBS College Predictor Data - All 7 Countries
 const mbbsCountries = [
@@ -120,7 +121,7 @@ const collegeDatabase = [
   { name: "Novosibirsk State University", country: "Russia", fee: "₹28-38 Lakh (Total)", neetRange: "280-450", recognition: "WHO, NMC, ECFMG" },
   { name: "Omsk State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
   { name: "Orel State University", country: "Russia", fee: "₹18-26 Lakh (Total)", neetRange: "180-320", recognition: "WHO, NMC" },
-  { name: "Pacific State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
+  { name: "Pacific State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC", slug: "pacific-state-medical-university" },
   { name: "Penza State University", country: "Russia", fee: "₹20-28 Lakh (Total)", neetRange: "200-350", recognition: "WHO, NMC" },
   { name: "People's Friendship University RUDN", country: "Russia", fee: "₹28-40 Lakh (Total)", neetRange: "300-480", recognition: "WHO, NMC, ECFMG" },
   { name: "Perm State Medical University", country: "Russia", fee: "₹22-30 Lakh (Total)", neetRange: "220-370", recognition: "WHO, NMC" },
@@ -527,17 +528,37 @@ function PredictorForm() {
                   {results.length} Universities Match Your Profile
                 </h4>
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {results.map((college, i) => (
-                    <div key={i} className="p-4 rounded-xl border border-border bg-muted/30 hover:border-accent/50 transition-colors">
-                      <h5 className="font-bold text-foreground text-sm mb-2">{college.name}</h5>
-                      <div className="space-y-1 text-xs text-muted-foreground">
-                        <p>📍 {college.country}</p>
-                        <p>💰 {college.fee}</p>
-                        <p>📋 NEET: {college.neetRange}</p>
-                        <p>✅ {college.recognition}</p>
+                  {results.map((college, i) => {
+                    const card = (
+                      <>
+                        <h5 className="font-bold text-foreground text-sm mb-2">{college.name}</h5>
+                        <div className="space-y-1 text-xs text-muted-foreground">
+                          <p>📍 {college.country}</p>
+                          <p>💰 {college.fee}</p>
+                          <p>📋 NEET: {college.neetRange}</p>
+                          <p>✅ {college.recognition}</p>
+                        </div>
+                        {college.slug && (
+                          <p className="mt-2 text-xs font-semibold text-accent inline-flex items-center gap-1">
+                            View details <ArrowRight className="w-3 h-3" />
+                          </p>
+                        )}
+                      </>
+                    );
+                    return college.slug ? (
+                      <Link
+                        key={i}
+                        href={`/partner-universities/${college.slug}`}
+                        className="block p-4 rounded-xl border border-border bg-muted/30 hover:border-accent/50 transition-colors"
+                      >
+                        {card}
+                      </Link>
+                    ) : (
+                      <div key={i} className="p-4 rounded-xl border border-border bg-muted/30 hover:border-accent/50 transition-colors">
+                        {card}
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </>
             ) : (
