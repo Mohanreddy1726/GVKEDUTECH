@@ -81,8 +81,8 @@ const universityData = {
     flag: "kg",
     image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&auto=format&fit=crop",
     universities: [
-      { name: "IHSM Central Campus", website: "https://ihsm.edu.kg" },
-      { name: "IHSM Issyk-Kul Campus", website: "https://ihsm.edu.kg" },
+      { name: "IHSM Central Campus", website: "/partner-universities/international-higher-school-of-medicine" },
+      { name: "IHSM Issyk-Kul Campus", website: "/partner-universities/international-higher-school-of-medicine" },
       { name: "International Medical University", website: "https://imu.edu.kg" },
       { name: "Jalal-Abad State University", website: "https://jaau.edu.kg" },
       { name: "Kyrgyz National University", website: "https://knu.kg" },
@@ -259,6 +259,7 @@ const universityData = {
       { name: "University of Sheffield", website: "https://sheffield.ac.uk" },
       { name: "Newcastle University", website: "https://newcastle.ac.uk" },
       { name: "Lancaster University", website: "https://lancaster.ac.uk" },
+      { name: "University of Central Lancashire", website: "/partner-universities/university-of-central-lancashire" },
       { name: "Queen Mary University of London", website: "https://qmul.ac.uk" },
       { name: "University of Bath", website: "https://bath.ac.uk" },
       { name: "The University of Exeter", website: "/partner-universities/university-of-exeter" },

@@ -27,7 +27,7 @@ const slides = [
     url: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Gallery%20Photos/DSC02840.JPG",
     alt: "Group of international students",
     location: "India",
-    event: "GVK EDUTECH Staff",
+    event: "GVK EDUTECH Head Office Staff",
   },
   {
     url: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Gallery%20Photos/MSR09606.JPG",
@@ -139,6 +139,13 @@ export const HomeCarousel = () => {
         .hc-track { scrollbar-width: none; -ms-overflow-style: none; }
         .hc-track::-webkit-scrollbar { display: none; }
         .hc-card { scroll-snap-align: start; }
+        @media (min-width: 640px) {
+          .hc-card { aspect-ratio: 2 / 1; }
+        }
+        .hc-img { position: relative; width: 100%; height: auto; display: block; }
+        @media (min-width: 640px) {
+          .hc-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        }
         .hc-eyebrow::before {
           content: ""; display: inline-block; width: 28px; height: 2px;
           background: ${RED}; margin-right: 12px; vertical-align: middle;
@@ -218,22 +225,22 @@ export const HomeCarousel = () => {
                 className="hc-card hc-in group relative flex-shrink-0 overflow-hidden rounded-2xl bg-muted w-full"
                 style={{
                   width: "100%",
-                  aspectRatio: "2 / 1",
                   maxHeight: "560px",
                   boxShadow: "0 12px 32px -12px rgba(0,0,0,0.25)",
                   animationDelay: `${i * 0.07}s`,
                 }}
               >
                 {/* Single-photo carousel: one card visible at a time, full container width.
-                    Image spans the entire component width; aspect 2:1 (length twice height),
-                    capped at 560px tall so very wide viewports don't get a giant banner. */}
+                    Mobile uses a 3:4 card so portrait images fit without being cropped;
+                    desktop uses 2:1 (length twice height) for a banner feel.
+                    Capped at 560px tall so very wide viewports don't get a giant banner. */}
 
                 <img
                   src={slide.url}
                   alt={slide.alt}
                   loading="lazy"
                   decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  className="hc-img sm:transition-transform sm:duration-700 sm:ease-out sm:group-hover:scale-110"
                 />
 
                 {/* Permanent bottom gradient for caption legibility */}
