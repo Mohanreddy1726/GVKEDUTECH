@@ -161,6 +161,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-lincoln",
     "/partner-universities/pacific-state-medical-university",
     "/partner-universities/university-of-huddersfield",
+    "/partner-universities/international-higher-school-of-medicine",
+    "/partner-universities/international-school-of-medicine",
+    "/partner-universities/middlesex-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
