@@ -94,8 +94,8 @@ const KyrgyzstanPage = () => {
         clinical: ["General Medicine", "Surgery", "Paediatrics", "OBG", "Psychiatry", "Radiology", "Ophthalmology", "Orthopaedics", "Dermatology"],
       }}
       universities={[
-        { name: "IHSM Central Campus", website: "https://ism.edu.kg", logo: "https://static.tildacdn.one/tild3636-3838-4231-a632-613135383739/EN.svg" },
-        { name: "IHSM Issyk-Kul Campus", website: "https://ism.edu.kg", logo: "https://static.tildacdn.one/tild3636-3838-4231-a632-613135383739/EN.svg" },
+        { name: "IHSM Central Campus", website: "/partner-universities/international-higher-school-of-medicine", logo: "https://static.tildacdn.one/tild3636-3838-4231-a632-613135383739/EN.svg" },
+        { name: "IHSM Issyk-Kul Campus", website: "/partner-universities/international-higher-school-of-medicine", logo: "https://static.tildacdn.one/tild3636-3838-4231-a632-613135383739/EN.svg" },
         { name: "International Medical University", website: "https://imu.edu.kg", logo: "https://imu.edu.kg/uploads/settings/17677111306185.svg" },
         { name: "Jalal-Abad State University", website: "https://jasu.kg" },
         { name: "Kyrgyz National University", website: "https://www.knu.kg/ky/" },
