@@ -406,6 +406,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Manchester Metropolitan University specific page
+            const isMMU = uni === "Manchester Metropolitan University";
+            if (isMMU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/manchester-metropolitan-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // University of Southampton specific page
             const isSouthampton = uni === "University of Southampton";
             if (isSouthampton) {
@@ -532,6 +549,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/osh-state-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Jalal-Abad State University specific page
+            const isJASU = uni.includes("Jalal-Abad State University");
+            if (isJASU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/jalal-abad-state-university"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle
