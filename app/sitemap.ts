@@ -166,6 +166,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/middlesex-university",
     "/partner-universities/jalal-abad-state-university",
     "/partner-universities/manchester-metropolitan-university",
+    "/partner-universities/asian-medical-institute",
+    "/partner-universities/university-of-westminster",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
