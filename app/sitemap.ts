@@ -168,6 +168,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/manchester-metropolitan-university",
     "/partner-universities/asian-medical-institute",
     "/partner-universities/university-of-westminster",
+    "/partner-universities/kingston-university-london",
+    "/partner-universities/brunel-university-london",
+    "/partner-universities/kyrgyz-russian-salvic-university",
+    "/partner-universities/avicenna-international-medical-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
