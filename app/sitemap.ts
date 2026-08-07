@@ -172,6 +172,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/brunel-university-london",
     "/partner-universities/kyrgyz-russian-salvic-university",
     "/partner-universities/avicenna-international-medical-university",
+    "/partner-universities/adam-university",
+    "/partner-universities/bournemouth-university",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
