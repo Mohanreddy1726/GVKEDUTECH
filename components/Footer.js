@@ -156,7 +156,6 @@ export const Footer = () => {
               <Image
                 src="https://ik.imagekit.io/abhobz66j/GVK%20Images/logo.jpg?updatedAt=1776492281519"
                 width={40} height={40} alt="GVK Edutech"
-                className="rounded-lg"
               />
               <Image
                 src="https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK%20EDUTECH%20LOGO%2007-05.png"

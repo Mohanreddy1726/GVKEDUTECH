@@ -13,7 +13,7 @@ import "flag-icons/css/flag-icons.min.css";
 import { useState, useEffect, useRef, useCallback } from "react";
 
 /* ─────────────────────────────────────────────────────────────
-   BRAND COLORS  — same on every slide
+   BRAND COLORS  — same on every slide (UNCHANGED)
    Red  : #FF0008   Red Dark  : #A80005
    Blue : #253775   Blue Dark : #162248
 ───────────────────────────────────────────────────────────── */
@@ -21,11 +21,11 @@ const RED       = "#FF0008";
 const RED_DARK  = "#A80005";
 const BLUE      = "#253775";
 const BLUE_DARK = "#162248";
-const RED_GLOW  = "rgba(255,0,8,0.22)";
-const BLUE_GLOW = "rgba(37,55,117,0.30)";
+const RED_GLOW  = "rgba(255,0,8,0.28)";
+const BLUE_GLOW = "rgba(37,55,117,0.38)";
 
-/* shared dark background — same for both slides */
-const BG = "linear-gradient(140deg,#08010a 0%,#0e0316 40%,#010614 100%)";
+/* shared background — brightened (was near-black, now a lighter deep navy/plum) */
+const BG = "linear-gradient(140deg,#1a0f22 0%,#221230 40%,#0d1830 100%)";
 
 const slides = [
   {
@@ -34,7 +34,7 @@ const slides = [
     headline: ["Your Path to", "Becoming a", "Global Doctor"],
     hl: 2,
     sub: "Study MBBS at NMC/WHO-approved universities across Russia, Kazakhstan & Europe — zero donation, English medium, complete support from day one.",
-    photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0025.PNG",
+    photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/Untitled%20-%20August%2006,%202026%20at%2019.20.42.png",
     photoName: "Dr. G. Vidya Kumar (GVK)",
     photoRole: "Vice-Dean · MBBS Programs",
     photoQuote: "Every student deserves world-class medical education. We make it possible.",
@@ -72,7 +72,7 @@ const slides = [
     headline: ["Elevate Your", "Career with a", "Global Masters"],
     hl: 2,
     sub: "Pursue MBA, MS and postgraduate programs at top-ranked universities in the UK, USA, Europe & Asia — scholarship guidance and visa support at every step.",
-    photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0027.PNG",
+    photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/Vinod%20sir%20photograpg.png",
     photoName: "Dr. G. Vinod Kumar (GVK) ",
     photoRole: "CEO · Masters & Global Programs",
     photoQuote: "International education transformed my life. Let it transform yours too.",
@@ -220,18 +220,18 @@ export const Hero = () => {
         .aw-br { bottom:-48px; right:-62px; animation: aw-br .55s cubic-bezier(.22,1,.36,1) .42s both, aw-bob-d 6.5s ease-in-out infinite; }
       `}</style>
 
-      {/* ── SHARED DARK BACKGROUND ── */}
+      {/* ── SHARED BACKGROUND (brightened) ── */}
       <div className="absolute inset-0" style={{ background: BG }} />
 
-      {/* ── AMBIENT GLOWS ── */}
+      {/* ── AMBIENT GLOWS (brightened — larger + more opaque) ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute rounded-full blur-[130px]"
-          style={{ width:"55vw", height:"55vw", top:"-15%", right:"-8%", background: RED_GLOW, opacity:.55 }} />
+          style={{ width:"60vw", height:"60vw", top:"-15%", right:"-8%", background: RED_GLOW, opacity:.75 }} />
         <div className="absolute rounded-full blur-[110px]"
-          style={{ width:"45vw", height:"45vw", bottom:"-12%", left:"-6%", background: BLUE_GLOW, opacity:.55 }} />
+          style={{ width:"50vw", height:"50vw", bottom:"-12%", left:"-6%", background: BLUE_GLOW, opacity:.75 }} />
         <div className="absolute rounded-full blur-[90px]"
-          style={{ width:"28vw", height:"35vw", top:"22%", left:"36%", background: BLUE_GLOW, opacity:.12 }} />
-        <div className="absolute inset-0 opacity-[0.028]"
+          style={{ width:"32vw", height:"38vw", top:"18%", left:"34%", background: BLUE_GLOW, opacity:.22 }} />
+        <div className="absolute inset-0 opacity-[0.05]"
           style={{
             backgroundImage: `linear-gradient(${RED}88 1px,transparent 1px),linear-gradient(90deg,${BLUE}88 1px,transparent 1px)`,
             backgroundSize: "56px 56px",
@@ -239,7 +239,7 @@ export const Hero = () => {
         <div className="absolute pointer-events-none"
           style={{
             top: 0, right: "25%", width: "2px", height: "100%",
-            background: `linear-gradient(to bottom, transparent 0%, ${RED}40 30%, ${BLUE}40 70%, transparent 100%)`,
+            background: `linear-gradient(to bottom, transparent 0%, ${RED}55 30%, ${BLUE}55 70%, transparent 100%)`,
             transform: "rotate(12deg) scaleY(1.3)",
           }} />
       </div>
@@ -256,7 +256,7 @@ export const Hero = () => {
             {/* Admission + slide tag badges */}
             <div key={`b-${animKey}`} className="hfi flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase"
-                style={{ background:"rgba(255,255,255,0.07)", color:"rgba(255,255,255,0.65)", border:"1px solid rgba(255,255,255,0.12)" }}>
+                style={{ background:"rgba(255,255,255,0.1)", color:"rgba(255,255,255,0.75)", border:"1px solid rgba(255,255,255,0.16)" }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                 Admissions Open {admYear}
               </span>
@@ -297,7 +297,7 @@ export const Hero = () => {
               }} />
 
             {/* Sub-text */}
-            <p key={`s-${animKey}`} className="hfu text-white/60 leading-relaxed max-w-md"
+            <p key={`s-${animKey}`} className="hfu text-white/70 leading-relaxed max-w-md"
               style={{ fontSize:"clamp(0.87rem,1.3vw,1rem)", animationDelay:"0.24s" }}>
               {s.sub}
             </p>
@@ -306,7 +306,7 @@ export const Hero = () => {
             <div key={`f-${animKey}`} className="hfu flex flex-wrap gap-2" style={{ animationDelay:"0.30s" }}>
               {s.features.map((f, i) => (
                 <span key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold"
-                  style={{ background:"rgba(255,255,255,0.05)", color:"#fff", border:`1px solid ${RED}45` }}>
+                  style={{ background:"rgba(255,255,255,0.07)", color:"#fff", border:`1px solid ${RED}55` }}>
                   <CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />
                   {f}
                 </span>
@@ -317,7 +317,7 @@ export const Hero = () => {
             <div key={`c-${animKey}`} className="hfu flex flex-wrap gap-2" style={{ animationDelay:"0.34s" }}>
               {s.countries.map((c, i) => (
                 <span key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-                  style={{ background:"rgba(255,255,255,0.05)", color:"rgba(255,255,255,0.55)", border:`1px solid ${BLUE}40` }}>
+                  style={{ background:"rgba(255,255,255,0.07)", color:"rgba(255,255,255,0.65)", border:`1px solid ${BLUE}55` }}>
                   <span className={`fi fi-${c.flag}`} style={{ fontSize: "13px" }} />
                   {c.label}
                 </span>
@@ -421,7 +421,7 @@ export const Hero = () => {
               </Link>
               <Link href="/gallery"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{ background:"rgba(255,255,255,0.07)", border:"1px solid rgba(255,255,255,0.14)", backdropFilter:"blur(8px)" }}>
+                style={{ background:"rgba(255,255,255,0.1)", border:"1px solid rgba(255,255,255,0.18)", backdropFilter:"blur(8px)" }}>
                 <Play className="w-4 h-4" />
                 Watch Success Stories
               </Link>
@@ -431,7 +431,7 @@ export const Hero = () => {
             <div key={`br-${animKey}`} className="hfu" style={{ animationDelay:"0.50s", maxWidth:"430px" }}>
               <div className="flex items-center gap-2 mb-2">
                 <MapPin className="w-3.5 h-3.5 flex-shrink-0" style={{ color: RED }} />
-                <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color:"rgba(255,255,255,0.35)" }}>
+                <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color:"rgba(255,255,255,0.45)" }}>
                   Our Branches
                 </span>
               </div>
@@ -441,9 +441,9 @@ export const Hero = () => {
                     <span
                       className="px-2.5 py-1 rounded-full text-[10px] font-semibold cursor-pointer transition-all duration-200 hover:bg-white/15 hover:text-white"
                       style={{
-                        background: "rgba(255,255,255,0.05)",
-                        color: "rgba(255,255,255,0.45)",
-                        border: `1px solid ${i % 2 === 0 ? RED : BLUE}30`,
+                        background: "rgba(255,255,255,0.07)",
+                        color: "rgba(255,255,255,0.55)",
+                        border: `1px solid ${i % 2 === 0 ? RED : BLUE}40`,
                       }}
                     >
                       <span className={`fi fi-${b.flag} mr-1`} />
@@ -462,15 +462,15 @@ export const Hero = () => {
 
             {/* Live ticker */}
             <div key={`tk-${animKey}`} className="hfi rounded-2xl overflow-hidden"
-              style={{ background:"rgba(255,255,255,0.04)", border:`1px solid rgba(255,255,255,0.08)`, backdropFilter:"blur(10px)" }}>
+              style={{ background:"rgba(255,255,255,0.06)", border:`1px solid rgba(255,255,255,0.12)`, backdropFilter:"blur(10px)" }}>
               <div className="px-4 py-2 flex items-center gap-2"
-                style={{ borderBottom:"1px solid rgba(255,255,255,0.06)", background:`linear-gradient(90deg,${RED}18,${BLUE}18)` }}>
+                style={{ borderBottom:"1px solid rgba(255,255,255,0.09)", background:`linear-gradient(90deg,${RED}22,${BLUE}22)` }}>
                 <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: RED }} />
-                <span className="text-[10px] font-bold tracking-widest uppercase text-white/40">Live Fee Updates</span>
+                <span className="text-[10px] font-bold tracking-widest uppercase text-white/55">Live Fee Updates</span>
               </div>
               <div className="px-4 py-3 h-10 overflow-hidden relative">
                 <p key={`tk-${tickIdx}-${animKey}`}
-                  className="htick-anim text-white/80 text-xs font-semibold absolute inset-x-4">
+                  className="htick-anim text-white/90 text-xs font-semibold absolute inset-x-4">
                   📍 {s.ticker[tickIdx]}
                 </p>
               </div>
@@ -485,18 +485,18 @@ export const Hero = () => {
                 return (
                   <div key={`${animKey}-${i}`} className="hpop rounded-2xl p-4 flex flex-col gap-2"
                     style={{
-                      background: "rgba(255,255,255,0.04)",
-                      border: `1px solid ${ac}35`,
+                      background: "rgba(255,255,255,0.06)",
+                      border: `1px solid ${ac}45`,
                       backdropFilter: "blur(10px)",
                       animationDelay: `${i * 0.07}s`,
-                      boxShadow: `inset 0 1px 0 rgba(255,255,255,0.05)`,
+                      boxShadow: `inset 0 1px 0 rgba(255,255,255,0.08)`,
                     }}>
                     <div className="w-8 h-8 rounded-xl flex items-center justify-center"
                       style={{ background:`${ac}20`, border:`1px solid ${ac}40` }}>
                       <Icon className="w-4 h-4" style={{ color: ac }} />
                     </div>
                     <p className="text-white font-extrabold text-lg leading-none">{card.value}</p>
-                    <p className="text-[11px] font-medium leading-tight" style={{ color:"rgba(255,255,255,0.45)" }}>{card.label}</p>
+                    <p className="text-[11px] font-medium leading-tight" style={{ color:"rgba(255,255,255,0.6)" }}>{card.label}</p>
                   </div>
                 );
               })}
@@ -508,24 +508,24 @@ export const Hero = () => {
 
             {/* Trust strip */}
             <div className="rounded-2xl px-4 py-3 flex items-center gap-3"
-              style={{ background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.07)", backdropFilter:"blur(10px)" }}>
+              style={{ background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.11)", backdropFilter:"blur(10px)" }}>
               <div className="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center"
-                style={{ background:`linear-gradient(135deg,${RED}30,${BLUE}30)`, border:`1px solid rgba(255,255,255,0.1)` }}>
+                style={{ background:`linear-gradient(135deg,${RED}30,${BLUE}30)`, border:`1px solid rgba(255,255,255,0.14)` }}>
                 <Shield className="w-4 h-4 text-white" />
               </div>
               <div>
                 <p className="text-white text-xs font-bold leading-tight">Govt. Approved & Trusted</p>
-                <p className="text-[10px] mt-0.5" style={{ color:"rgba(255,255,255,0.38)" }}>NMC · WHO · MCI Recognized</p>
+                <p className="text-[10px] mt-0.5" style={{ color:"rgba(255,255,255,0.5)" }}>NMC · WHO · MCI Recognized</p>
               </div>
             </div>
 
             {/* Free counseling CTA */}
             <Link href="/apply"
               className="group rounded-2xl px-4 py-3 flex items-center justify-between transition-all duration-200 hover:-translate-y-0.5"
-              style={{ background:`linear-gradient(135deg,${RED}25,${BLUE}25)`, border:`1px solid rgba(255,255,255,0.09)` }}>
+              style={{ background:`linear-gradient(135deg,${RED}30,${BLUE}30)`, border:`1px solid rgba(255,255,255,0.13)` }}>
               <div>
                 <p className="text-white text-xs font-extrabold">Free Counseling Session</p>
-                <p className="text-[10px] mt-0.5" style={{ color:"rgba(255,255,255,0.42)" }}>Talk to an expert today — No fees</p>
+                <p className="text-[10px] mt-0.5" style={{ color:"rgba(255,255,255,0.55)" }}>Talk to an expert today — No fees</p>
               </div>
               <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ml-3"
                 style={{ background:`linear-gradient(135deg,${RED},${BLUE})` }}>
@@ -535,15 +535,15 @@ export const Hero = () => {
 
             {/* 15 years badge */}
             <div className="rounded-2xl px-4 py-3 flex items-center gap-3"
-              style={{ background:`linear-gradient(135deg,${BLUE}20,${RED}20)`, border:`1px solid ${BLUE}35` }}>
+              style={{ background:`linear-gradient(135deg,${BLUE}28,${RED}28)`, border:`1px solid ${BLUE}45` }}>
               <div className="flex-shrink-0 text-center">
                 <p className="font-black text-2xl leading-none" style={{ color: RED }}>15+</p>
-                <p className="text-[9px] font-bold text-white/40 leading-tight mt-0.5">YEARS</p>
+                <p className="text-[9px] font-bold text-white/55 leading-tight mt-0.5">YEARS</p>
               </div>
-              <div className="w-px h-8 bg-white/10 flex-shrink-0" />
+              <div className="w-px h-8 bg-white/15 flex-shrink-0" />
               <div>
                 <p className="text-white text-xs font-bold">Trusted Experience</p>
-                <p className="text-[10px] mt-0.5" style={{ color:"rgba(255,255,255,0.40)" }}>
+                <p className="text-[10px] mt-0.5" style={{ color:"rgba(255,255,255,0.55)" }}>
                   Leading overseas education consultancy since {yr - 15}
                 </p>
               </div>
@@ -567,7 +567,7 @@ export const Hero = () => {
               <div className="absolute -inset-[2px] rounded-3xl pointer-events-none"
                 style={{
                   background: `conic-gradient(from 0deg, ${RED} 0%, transparent 30%, ${BLUE} 50%, transparent 80%, ${RED} 100%)`,
-                  opacity: .32,
+                  opacity: .4,
                   animation: "hspin 12s linear infinite",
                 }} />
 
@@ -581,17 +581,17 @@ export const Hero = () => {
                     key={`${animKey}-${aw.pos}`}
                     className={`aw-badge aw-${aw.pos}`}
                     style={{
-                      background: `linear-gradient(135deg, rgba(14,10,26,0.96) 0%, ${aw.accent}18 100%)`,
-                      border: `1.5px solid ${aw.accent}70`,
-                      boxShadow: `0 0 0 1px ${aw.accent}20, 0 8px 32px ${glow}, 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)`,
+                      background: `linear-gradient(135deg, rgba(28,20,42,0.96) 0%, ${aw.accent}22 100%)`,
+                      border: `1.5px solid ${aw.accent}75`,
+                      boxShadow: `0 0 0 1px ${aw.accent}25, 0 8px 32px ${glow}, 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)`,
                     }}
                   >
                     <div
                       className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center"
                       style={{
-                        background: `${aw.accent}28`,
-                        border: `1.5px solid ${aw.accent}55`,
-                        boxShadow: `0 0 12px ${aw.accent}40`,
+                        background: `${aw.accent}30`,
+                        border: `1.5px solid ${aw.accent}60`,
+                        boxShadow: `0 0 12px ${aw.accent}45`,
                       }}
                     >
                       <Icon className="w-4.5 h-4.5" style={{ color: aw.accent, width: "18px", height: "18px" }} />
@@ -600,7 +600,7 @@ export const Hero = () => {
                       <p className="text-white font-extrabold leading-tight" style={{ fontSize: "11px" }}>{aw.title}</p>
                       <p
                         className="font-semibold leading-tight mt-1 text-white"
-                        style={{ fontSize: "10px", opacity: 0.82 }}
+                        style={{ fontSize: "10px", opacity: 0.88 }}
                       >
                         {aw.sub}
                       </p>
@@ -612,10 +612,10 @@ export const Hero = () => {
               {/* Card */}
               <div key={`card-${animKey}`} className="hsi relative rounded-3xl overflow-hidden"
                 style={{
-                  background: "rgba(10,8,18,0.85)",
-                  border: "1.5px solid rgba(255,255,255,0.1)",
+                  background: "rgba(24,18,36,0.82)",
+                  border: "1.5px solid rgba(255,255,255,0.14)",
                   backdropFilter: "blur(12px)",
-                  boxShadow: `0 40px 80px -20px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.07)`,
+                  boxShadow: `0 40px 80px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.09)`,
                 }}>
 
                 {/* Red→Blue top bar */}
@@ -627,7 +627,7 @@ export const Hero = () => {
                   <img src={s.photo} alt={s.photoName}
                     className="w-full h-full object-cover object-top transition-opacity duration-700" />
                   <div className="absolute bottom-0 left-0 right-0 h-2/5 pointer-events-none"
-                    style={{ background:"linear-gradient(to top,rgba(6,4,14,0.97) 0%,transparent 100%)" }} />
+                    style={{ background:"linear-gradient(to top,rgba(18,14,28,0.95) 0%,transparent 100%)" }} />
                   {/* Program badge */}
                   <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold"
                     style={{
@@ -639,7 +639,7 @@ export const Hero = () => {
                   </div>
                   {/* Verified badge */}
                   <div className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center"
-                    style={{ background:"rgba(255,255,255,0.1)", border:"1px solid rgba(255,255,255,0.18)", backdropFilter:"blur(8px)" }}>
+                    style={{ background:"rgba(255,255,255,0.14)", border:"1px solid rgba(255,255,255,0.22)", backdropFilter:"blur(8px)" }}>
                     <CheckCircle className="w-3.5 h-3.5 text-white" />
                   </div>
                 </div>
@@ -651,7 +651,7 @@ export const Hero = () => {
                     style={{ color: active === 0 ? RED : BLUE }}>
                     {s.photoRole}
                   </p>
-                  <blockquote className="text-[11px] text-white/48 leading-relaxed italic border-l-2 pl-2.5"
+                  <blockquote className="text-[11px] text-white/60 leading-relaxed italic border-l-2 pl-2.5"
                     style={{ borderColor: active === 0 ? RED : BLUE }}>
                     {s.photoQuote}
                   </blockquote>
@@ -665,7 +665,7 @@ export const Hero = () => {
         <div className="flex items-center justify-center gap-5 mt-15 pb-2">
           <button onClick={goPrev} aria-label="Previous"
             className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-200 hover:scale-110 active:scale-95"
-            style={{ background:"rgba(255,255,255,0.07)", border:`1px solid ${RED}40` }}>
+            style={{ background:"rgba(255,255,255,0.1)", border:`1px solid ${RED}50` }}>
             <ChevronLeft className="w-5 h-5" />
           </button>
 
@@ -678,11 +678,11 @@ export const Hero = () => {
                   width: i === active ? "56px" : "6px",
                   background: i === active
                     ? (i === 0 ? RED : BLUE)
-                    : "rgba(255,255,255,0.18)",
+                    : "rgba(255,255,255,0.25)",
                 }}>
                 {i === active && (
                   <span className="absolute inset-y-0 left-0 rounded-full"
-                    style={{ width:`${progress}%`, background:"rgba(255,255,255,0.45)", transition:"width .1s linear" }} />
+                    style={{ width:`${progress}%`, background:"rgba(255,255,255,0.55)", transition:"width .1s linear" }} />
                 )}
               </button>
             ))}
@@ -690,13 +690,13 @@ export const Hero = () => {
 
           <button onClick={goNext} aria-label="Next"
             className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all duration-200 hover:scale-110 active:scale-95"
-            style={{ background:"rgba(255,255,255,0.07)", border:`1px solid ${BLUE}40` }}>
+            style={{ background:"rgba(255,255,255,0.1)", border:`1px solid ${BLUE}50` }}>
             <ChevronRight className="w-5 h-5" />
           </button>
 
           <span className="hidden sm:flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
             <span style={{ color: RED }}>MBBS</span>
-            <span style={{ color:"rgba(255,255,255,0.2)" }}>·</span>
+            <span style={{ color:"rgba(255,255,255,0.3)" }}>·</span>
             <span style={{ color: BLUE }}>MASTERS</span>
           </span>
         </div>

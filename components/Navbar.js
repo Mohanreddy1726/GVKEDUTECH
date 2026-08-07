@@ -9,6 +9,11 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
+/* ── Logos ── */
+const STATIC_LOGO  = "https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK%20EDUTECH%20LOGO%2007-05.png?updatedAt=1778156516367";
+const SCROLLED_ICON = "https://ik.imagekit.io/abhobz66j/GVK%20Images/logo.jpg?updatedAt=1776492281519";
+const SCROLLED_WORDMARK = "https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK-LOGO.png?updatedAt=1776492281541";
+
 /* ─────────────────────────────────────────
    Design tokens
 ───────────────────────────────────────────*/
@@ -207,6 +212,10 @@ export const Navbar = () => {
   const [mobileOpenSub, setMobileOpenSub] = useState(null);
   const [isDesktop,     setIsDesktop]     = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === "/";
+  // Logo swap and transparent-text styling only apply on the homepage.
+  // On every other page the navbar is always in its "scrolled" look.
+  const showStaticLogo = isHome && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -229,6 +238,9 @@ export const Navbar = () => {
   const isActive = (href) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
+  // On non-home pages the navbar is always opaque with dark text, regardless of scroll.
+  const treatAsScrolled = scrolled || !isHome;
+
   return (
     <>
       <style>{`@import url('https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css');`}</style>
@@ -237,27 +249,28 @@ export const Navbar = () => {
       <div
         className="hidden lg:block fixed top-0 left-0 right-0 z-50"
         style={{
-          background: T.navy,
+          background: `linear-gradient(90deg, ${T.navy} 0%, ${T.navyMid} 100%)`,
+          borderBottom: `1px solid ${T.red}55`,
           height: "34px",
           transition: "height 0.3s ease, opacity 0.3s ease",
-          opacity: scrolled ? 0 : 1,
-          pointerEvents: scrolled ? "none" : "auto",
+          opacity: treatAsScrolled ? 0 : 1,
+          pointerEvents: treatAsScrolled ? "none" : "auto",
         }}
       >
         <div className="container mx-auto px-4 h-full flex items-center justify-between">
-          <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <p className="text-xs font-semibold" style={{ color: "rgba(255,255,255,0.95)" }}>
             🎓 15+ Years · 5,000+ Students Placed · 7 MBBS + 8 Masters Destinations
           </p>
-          <div className="flex items-center gap-5 text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>
+          <div className="flex items-center gap-5 text-xs font-semibold" style={{ color: "rgba(255,255,255,0.95)" }}>
             <a href="mailto:info@gvkedutech.com" className="hover:text-white transition-colors">
               info@gvkedutech.com
             </a>
-            <span style={{ color: "rgba(255,255,255,0.2)" }}>|</span>
+            <span style={{ color: T.redLight }}>|</span>
             <a href="tel:+919010060000" className="hover:text-white transition-colors flex items-center gap-1">
               <Phone className="w-3 h-3" style={{ color: T.red }} />
               +91 9010060000
             </a>
-            <span style={{ color: "rgba(255,255,255,0.2)" }}>|</span>
+            <span style={{ color: T.redLight }}>|</span>
             <a href="tel:+918886661877" className="hover:text-white transition-colors">
               +91 8886661877
             </a>
@@ -269,12 +282,12 @@ export const Navbar = () => {
       <nav
         className="fixed left-0 right-0 z-50 transition-all duration-300"
         style={{
-          top: (!scrolled && isDesktop) ? "34px" : "0",
-          background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.0)",
-          backdropFilter: scrolled ? "blur(20px)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-          boxShadow: scrolled ? "0 2px 24px rgba(15,27,45,0.1)" : "none",
-          borderBottom: scrolled ? `1px solid rgba(15,27,45,0.07)` : "1px solid transparent",
+          top: (isHome && !scrolled && isDesktop) ? "34px" : "0",
+          background: treatAsScrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.0)",
+          backdropFilter: treatAsScrolled ? "blur(20px)" : "none",
+          WebkitBackdropFilter: treatAsScrolled ? "blur(20px)" : "none",
+          boxShadow: treatAsScrolled ? "0 2px 24px rgba(15,27,45,0.1)" : "none",
+          borderBottom: treatAsScrolled ? `1px solid rgba(15,27,45,0.07)` : "1px solid transparent",
         }}
       >
         <div className="container mx-auto px-4">
@@ -282,18 +295,37 @@ export const Navbar = () => {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-              <Image
-                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/logo.jpg?updatedAt=1776492281519"
-                width={52} height={52} alt="GVK EduTech"
-                className="rounded-xl flex-shrink-0 shadow-md ring-1 ring-black/5"
-                priority
-              />
-              <Image
-                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/GVK-LOGO.png?updatedAt=1776492281541"
-                width={200} height={40} alt="GVK EduTech"
-                className="sm:block"
-                priority
-              />
+              {showStaticLogo ? (
+                <>
+                  <Image
+                    src={SCROLLED_ICON}
+                    width={52} height={52} alt="GVK EduTech"
+                    className="flex-shrink-0"
+                    priority
+                  />
+                  <Image
+                    src={STATIC_LOGO}
+                    width={200} height={40} alt="GVK EduTech"
+                    className="block sm:block"
+                    priority
+                  />
+                </>
+              ) : (
+                <>
+                  <Image
+                    src={SCROLLED_ICON}
+                    width={52} height={52} alt="GVK EduTech"
+                    className="flex-shrink-0"
+                    priority
+                  />
+                  <Image
+                    src={SCROLLED_WORDMARK}
+                    width={200} height={40} alt="GVK EduTech"
+                    className="sm:block"
+                    priority
+                  />
+                </>
+              )}
             </Link>
 
             {/* Desktop nav links */}
@@ -311,18 +343,22 @@ export const Navbar = () => {
                     href={item.href}
                     className="relative flex items-center gap-1 px-3.5 py-2 text-sm font-semibold rounded-lg transition-all duration-150 select-none"
                     style={{
-                      color: isActive(item.href) ? T.navyMid : T.muted,
+                      color: treatAsScrolled
+                        ? (isActive(item.href) ? T.navyMid : T.muted)
+                        : T.white,
                       background: openMega === item.mega && item.mega ? T.surfaceAlt : "transparent",
                     }}
                     onMouseEnter={e => {
                       if (!item.mega) {
-                        e.currentTarget.style.color = T.navyMid;
-                        e.currentTarget.style.background = T.surfaceAlt;
+                        e.currentTarget.style.color = treatAsScrolled ? T.navyMid : T.white;
+                        e.currentTarget.style.background = treatAsScrolled ? T.surfaceAlt : "rgba(255,255,255,0.12)";
                       }
                     }}
                     onMouseLeave={e => {
                       if (!item.mega) {
-                        e.currentTarget.style.color = isActive(item.href) ? T.navyMid : T.muted;
+                        e.currentTarget.style.color = treatAsScrolled
+                          ? (isActive(item.href) ? T.navyMid : T.muted)
+                          : T.white;
                         e.currentTarget.style.background = "transparent";
                       }
                     }}
@@ -333,7 +369,9 @@ export const Navbar = () => {
                         className="w-3.5 h-3.5 transition-transform duration-200"
                         style={{
                           transform: openMega === item.mega ? "rotate(180deg)" : "rotate(0)",
-                          color: openMega === item.mega ? T.red : T.muted,
+                          color: treatAsScrolled
+                            ? (openMega === item.mega ? T.red : T.muted)
+                            : T.white,
                         }}
                       />
                     )}
@@ -341,7 +379,7 @@ export const Navbar = () => {
                     {isActive(item.href) && (
                       <span
                         className="absolute bottom-0.5 left-3.5 right-3.5 h-0.5 rounded-full"
-                        style={{ background: T.red }}
+                        style={{ background: treatAsScrolled ? T.red : T.white }}
                       />
                     )}
                   </Link>
@@ -359,9 +397,18 @@ export const Navbar = () => {
               <Link
                 href="/partner-universities"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all"
-                style={{ color: T.muted, background: T.surfaceAlt }}
-                onMouseEnter={e => Object.assign(e.currentTarget.style, { color: T.navyMid, background: T.surfaceAlt })}
-                onMouseLeave={e => Object.assign(e.currentTarget.style, { color: T.muted, background: T.surfaceAlt })}
+                style={{
+                  color: treatAsScrolled ? T.muted : T.white,
+                  background: treatAsScrolled ? T.surfaceAlt : "rgba(255,255,255,0.12)",
+                }}
+                onMouseEnter={e => Object.assign(e.currentTarget.style, {
+                  color: treatAsScrolled ? T.navyMid : T.white,
+                  background: treatAsScrolled ? T.surfaceAlt : "rgba(255,255,255,0.2)",
+                })}
+                onMouseLeave={e => Object.assign(e.currentTarget.style, {
+                  color: treatAsScrolled ? T.muted : T.white,
+                  background: treatAsScrolled ? T.surfaceAlt : "rgba(255,255,255,0.12)",
+                })}
               >
                 <Building2 className="w-3.5 h-3.5" />
                 300+ Universities
