@@ -730,7 +730,7 @@ const AboutPage = () => {
             </div>
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
               <FramedPhoto
-                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0025.PNG"
+                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/Untitled%20-%20August%2006,%202026%20at%2019.20.42.png?updatedAt=1786024509735"
                 alt="Dr. G. Vidya Kumar"
                 flip={true}
               />
@@ -748,7 +748,7 @@ const AboutPage = () => {
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div className="flex justify-center lg:justify-start">
               <FramedPhoto
-                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0027.PNG"
+                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/Vinod%20sir%20photograpg.png"
                 alt="Dr. G. Vinod Kumar"
                 flip={false}
               />
