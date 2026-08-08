@@ -389,6 +389,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // International Medical University (IMU) — Kyrgyzstan
+            const isIMU = uni === "International Medical University";
+            if (isIMU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/international-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // University of Central Lancashire (UCLan) specific page
             const isUCLan = uni === "University of Central Lancashire";
             if (isUCLan) {
@@ -1433,6 +1450,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/aston-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Roehampton specific page
+            const isRoehampton = uni === "University of Roehampton";
+            if (isRoehampton) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-roehampton"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

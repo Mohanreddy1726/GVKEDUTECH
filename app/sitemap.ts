@@ -174,6 +174,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/avicenna-international-medical-university",
     "/partner-universities/adam-university",
     "/partner-universities/bournemouth-university",
+    "/partner-universities/international-medical-university",
+    "/partner-universities/university-of-roehampton",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
