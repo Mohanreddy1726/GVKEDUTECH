@@ -191,7 +191,7 @@ const universityData = {
     universities: [
       { name: "Al-Farabi Kazakh National University", website: "https://kaznu.kz" },
       { name: "Asfendiyarov Kazakh National University", website: "https://kaznmu.kz" },
-      { name: "Caspian International School of Medicine", website: "https://cism.edu.kz" },
+      { name: "Caspian International School of Medicine", website: "/partner-universities/caspian-international-school-of-medicine" },
       { name: "Karaganda Medical University", website: "https://kazmu.edu.kz" },
       { name: "Kazakh-Russian Medical University", website: "https://krmu.edu.kz" },
       { name: "Astana Medical University", website: "https://amu.edu.kz" },
@@ -232,6 +232,7 @@ const universityData = {
       { name: "University of Huddersfield", website: "/partner-universities/university-of-huddersfield" },
       { name: "University of Gloucestershire", website: "https://glos.ac.uk" },
       { name: "Ravensbourne University London", website: "https://rave.ac.uk" },
+      { name: "University of Salford", website: "/partner-universities/university-of-salford" },
       { name: "Solent University", website: "https://solent.ac.uk" },
       { name: "Teesside University", website: "https://tees.ac.uk" },
       { name: "University of East Anglia", website: "https://uea.ac.uk" },

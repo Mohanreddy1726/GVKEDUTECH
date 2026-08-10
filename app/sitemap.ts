@@ -176,6 +176,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/bournemouth-university",
     "/partner-universities/international-medical-university",
     "/partner-universities/university-of-roehampton",
+    "/partner-universities/caspian-international-school-of-medicine",
+    "/partner-universities/university-of-salford",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
