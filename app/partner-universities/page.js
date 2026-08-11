@@ -576,6 +576,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Kokshetau State University specific page
+            const isKokshetau = uni.includes("Kokshetau State University");
+            if (isKokshetau) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/kokshetau-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Astana Medical University specific page
             const isAstana = uni.includes("Astana Medical University");
             if (isAstana) {
@@ -1484,6 +1501,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/aston-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Wolverhampton specific page
+            const isWolverhampton = uni === "University of Wolverhampton";
+            if (isWolverhampton) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-wolverhampton"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

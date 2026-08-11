@@ -178,6 +178,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-roehampton",
     "/partner-universities/caspian-international-school-of-medicine",
     "/partner-universities/university-of-salford",
+    "/partner-universities/kokshetau-university",
+    "/partner-universities/university-of-wolverhampton",
   ].map((route) => entry(route, { priority: 0.7 }));
 
   return [
