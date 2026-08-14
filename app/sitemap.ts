@@ -180,7 +180,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-salford",
     "/partner-universities/kokshetau-university",
     "/partner-universities/south-kazakhstan-medical-academy",
+    "/partner-universities/karaganda-medical-university",
     "/partner-universities/university-of-derby",
+    "/partner-universities/university-of-gloucestershire",
     "/partner-universities/university-of-wolverhampton",
   ].map((route) => entry(route, { priority: 0.7 }));
 
