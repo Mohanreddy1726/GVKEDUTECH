@@ -184,6 +184,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-derby",
     "/partner-universities/university-of-gloucestershire",
     "/partner-universities/university-of-wolverhampton",
+    "/partner-universities/semey-medical-university",
+    "/partner-universities/university-of-stirling",
     "/mbbs-abroad",
   ].map((route) => entry(route, { priority: 0.7 }));
 
