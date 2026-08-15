@@ -9,6 +9,7 @@
 - [Apply Now](https://gvkedutech.com/apply) - Start your application
 - [Partner Universities](https://gvkedutech.com/partner-universities) - Browse all partner universities
 - [MBBS Abroad](https://gvkedutech.com/mbbs) - MBBS programs worldwide
+- [MBBS Abroad - Google Ads Landing](https://gvkedutech.com/mbbs-abroad) - Dedicated Google Ads landing page for MBBS abroad with free counselling form
 - [Masters Abroad](https://gvkedutech.com/masters) - Masters programs worldwide
 
 ## Services & Info Pages
@@ -206,4 +207,4 @@
 - Website: https://gvkedutech.com
 
 ---
-Last updated: August 2026 (Added: Karaganda Medical University, University of Gloucestershire)
+Last updated: August 2026 (Added: MBBS Abroad Google Ads Landing Page, Karaganda Medical University, University of Gloucestershire)

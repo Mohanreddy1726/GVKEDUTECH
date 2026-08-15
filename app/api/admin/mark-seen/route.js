@@ -4,7 +4,7 @@ import connectToDatabase from "@/lib/mongodb";
 /**
  * POST /api/admin/mark-seen
  *
- * Body: { "tool": "contact" | "apply" | "predictor" | "budget" | "compare" | "roi" }
+ * Body: { "tool": "contact" | "apply" | "predictor" | "budget" | "compare" | "roi" | "mbbsAbroad" }
  *
  * Sets seenAt = now() on every currently-unread submission (seenAt: null)
  * for the requested tool. The next call to /api/admin/has-new will report
@@ -14,12 +14,13 @@ import connectToDatabase from "@/lib/mongodb";
  * submission-driven and are excluded from the blink feature by design.
  */
 const TOOL_TO_COLLECTION = {
-  contact:   "contact_submissions",
-  apply:     "apply_submissions",
-  predictor: "college_predictor_submissions",
-  budget:    "budget_calculator_submissions",
-  compare:   "smart_comparison_submissions",
-  roi:       "roi_planner_submissions",
+  contact:     "contact_submissions",
+  apply:       "apply_submissions",
+  predictor:   "college_predictor_submissions",
+  budget:      "budget_calculator_submissions",
+  compare:     "smart_comparison_submissions",
+  roi:         "roi_planner_submissions",
+  mbbsAbroad:  "mbbs_abroad_submissions",
 };
 
 export async function POST(req) {

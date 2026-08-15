@@ -8,16 +8,17 @@ import connectToDatabase from "@/lib/mongodb";
  * submission with seenAt: null. Used by the admin dashboard sidebar to
  * decide which tabs to flag with a blink.
  *
- * Tools: contact, apply, predictor, budget, compare, roi
+ * Tools: contact, apply, predictor, budget, compare, roi, mbbsAbroad
  *   (Blog and Video Testimonials are intentionally excluded.)
  */
 const TOOL_TO_COLLECTION = {
-  contact:   "contact_submissions",
-  apply:     "apply_submissions",
-  predictor: "college_predictor_submissions",
-  budget:    "budget_calculator_submissions",
-  compare:   "smart_comparison_submissions",
-  roi:       "roi_planner_submissions",
+  contact:     "contact_submissions",
+  apply:       "apply_submissions",
+  predictor:   "college_predictor_submissions",
+  budget:      "budget_calculator_submissions",
+  compare:     "smart_comparison_submissions",
+  roi:         "roi_planner_submissions",
+  mbbsAbroad:  "mbbs_abroad_submissions",
 };
 
 export async function GET() {
@@ -45,6 +46,7 @@ export async function GET() {
         budget: false,
         compare: false,
         roi: false,
+        mbbsAbroad: false,
       },
       { status: 500 }
     );

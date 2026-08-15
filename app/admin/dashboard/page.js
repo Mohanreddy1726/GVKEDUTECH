@@ -17,6 +17,7 @@ export default function DashboardPage() {
     collegePredictorSubmissions: [],
     budgetCalculatorSubmissions: [],
     applySubmissions: [],
+    mbbsAbroadSubmissions: [],
     blogPosts: [],
     videoTestimonials: [],
   });
@@ -24,7 +25,7 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   // ── "New submission" blink state ─────────────────────────────────
-  // Tracks whether each of the 6 submission-driven tools has at least one
+  // Tracks whether each of the submission-driven tools has at least one
   // unread row (seenAt: null). Blog and Video Testimonials are excluded.
   const [hasNew, setHasNew] = useState({
     contact: false,
@@ -33,6 +34,7 @@ export default function DashboardPage() {
     budget: false,
     compare: false,
     roi: false,
+    mbbsAbroad: false,
   });
 
   const fetchHasNew = useCallback(async () => {
@@ -47,6 +49,7 @@ export default function DashboardPage() {
           budget: !!data.budget,
           compare: !!data.compare,
           roi: !!data.roi,
+          mbbsAbroad: !!data.mbbsAbroad,
         });
       }
     } catch {
@@ -102,6 +105,7 @@ export default function DashboardPage() {
         applySubmissions: [],
         smartComparisonSubmissions: [],
         roiPlannerSubmissions: [],
+        mbbsAbroadSubmissions: [],
       };
 
       const blogPosts = blogRes.ok ? await blogRes.json() : [];
@@ -215,6 +219,10 @@ export default function DashboardPage() {
       () => groupSubmissions(data.roiPlannerSubmissions),
       [data.roiPlannerSubmissions]
     ),
+    mbbsAbroad: useMemo(
+      () => groupSubmissions(data.mbbsAbroadSubmissions),
+      [data.mbbsAbroadSubmissions]
+    ),
   };
 
   // Convenience wrapper to render a grouped list using a per-row component
@@ -313,6 +321,7 @@ export default function DashboardPage() {
     { id: "compare", label: "Smart Comparison", icon: GitCompareArrows, count: data.smartComparisonSubmissions?.length || 0 },
     { id: "roi", label: "ROI Planner", icon: TrendingUp, count: data.roiPlannerSubmissions?.length || 0 },
     { id: "apply", label: "Apply Form", icon: FileSpreadsheet, count: data.applySubmissions.length },
+    { id: "mbbsAbroad", label: "MBBS Abroad", icon: Globe, count: data.mbbsAbroadSubmissions?.length || 0 },
     { id: "blog", label: "Blog Management", icon: FileSpreadsheet, count: data.blogPosts?.length || 0 },
     { id: "videos", label: "Video Testimonials", icon: Play, count: data.videoTestimonials?.length || 0 },
     { id: "photos", label: "Photo Gallery", icon: ImageIcon, count: data.photoGallery?.length || 0 },
@@ -399,6 +408,16 @@ export default function DashboardPage() {
     { label: "Date", key: "createdAt" },
   ];
 
+  const mbbsAbroadHeaders = [
+    { label: "Name", key: "fullName" },
+    { label: "Phone", key: "phone" },
+    { label: "Email", key: "email" },
+    { label: "NEET Score", key: "neetScore" },
+    { label: "Preferred Country", key: "country" },
+    { label: "Message", key: "message" },
+    { label: "Date", key: "createdAt" },
+  ];
+
   const renderExportButtons = (dataArray, filename, headers, tabKey) => {
     const handleMarkSeen = async () => {
       if (!tabKey) return;
@@ -456,7 +475,7 @@ export default function DashboardPage() {
 
           <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
             {tabs.map((tab) => {
-              // Only the 6 submission-driven tools can blink. Blog and
+              // Only the submission-driven tools can blink. Blog and
               // Video Testimonials are intentionally excluded.
               const canBlink = [
                 "contact",
@@ -465,6 +484,7 @@ export default function DashboardPage() {
                 "compare",
                 "roi",
                 "apply",
+                "mbbsAbroad",
               ].includes(tab.id);
               const blinking = canBlink && hasNew[tab.id];
               return (
@@ -954,6 +974,80 @@ export default function DashboardPage() {
                             renderRoiRow(item, key, isOlder)
                           }
                           tintClass="border-l-emerald-500"
+                        />
+                      );
+                    })()
+                  )}
+                </div>
+              )}
+
+              {activeTab === "mbbsAbroad" && (
+                <div>
+                  {renderExportButtons(
+                    data.mbbsAbroadSubmissions || [],
+                    "MBBS_Abroad",
+                    mbbsAbroadHeaders,
+                    "mbbsAbroad"
+                  )}
+                  {(!data.mbbsAbroadSubmissions || data.mbbsAbroadSubmissions.length === 0) ? (
+                    <Card><CardContent className="p-8 text-center text-muted-foreground">No MBBS Abroad submissions yet</CardContent></Card>
+                  ) : (
+                    (() => {
+                      const renderMbbsAbroadRow = (item, rowKey, isOlder) => (
+                        <Card
+                          key={rowKey}
+                          className={`border-l-4 border-l-rose-500 ${isOlder ? "bg-muted/30" : ""}`}
+                        >
+                          <CardContent className="p-6">
+                            <div className="flex justify-between items-start mb-4 pr-40">
+                              <div>
+                                <h3 className="font-bold text-lg">{item.fullName || item.name || "Unknown"}</h3>
+                                <p className="text-sm text-muted-foreground">{formatDate(item.createdAt)}</p>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Badge variant="outline">MBBS Abroad</Badge>
+                                {item.country && (
+                                  <Badge variant="secondary" className="capitalize">
+                                    {item.country}
+                                  </Badge>
+                                )}
+                              </div>
+                            </div>
+                            <div className="grid md:grid-cols-4 gap-4">
+                              <div className="flex items-center gap-2">
+                                <Phone className="w-4 h-4 text-muted-foreground" />
+                                <span className="font-medium">{item.phone || "N/A"}</span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Mail className="w-4 h-4 text-muted-foreground" />
+                                <span className="text-sm font-medium">{item.email || "N/A"}</span>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">NEET Score</p>
+                                <p className="font-medium">{item.neetScore || "N/A"}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">Preferred Country</p>
+                                <p className="font-medium">{item.country || "N/A"}</p>
+                              </div>
+                            </div>
+                            {item.message && (
+                              <div className="mt-4 p-3 bg-muted rounded-lg">
+                                <p className="text-sm font-medium mb-1">Message:</p>
+                                <p className="text-sm text-muted-foreground">{item.message}</p>
+                              </div>
+                            )}
+                          </CardContent>
+                        </Card>
+                      );
+                      return (
+                        <GroupedList
+                          tabKey="mbbsAbroad"
+                          groups={grouped.mbbsAbroad}
+                          renderRow={(item, key, isOlder) =>
+                            renderMbbsAbroadRow(item, key, isOlder)
+                          }
+                          tintClass="border-l-rose-500"
                         />
                       );
                     })()
