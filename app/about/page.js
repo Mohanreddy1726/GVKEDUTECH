@@ -152,6 +152,14 @@ const accreditations = [
   { icon: "🇬🇧", name: "PLAB", fullName: "Professional and Linguistic Assessments Board (UK)", desc: "Our MBBS graduates are eligible for PLAB – the route to medical practice and GMC registration in the United Kingdom.", badge: { bg: "#EDE9FE", color: "#6D28D9" }, glow: "rgba(109,40,217,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-05-11_160648313.png" },
   { icon: "🏥", name: "Egypt MoHE", fullName: "The Kingdom of UF Medical Sciences – Egypt", desc: "Recognized by Egyptian medical education authorities, our partner institutions in Egypt maintain high academic and clinical training standards.", badge: { bg: "#FEF3C7", color: "#92400E" }, glow: "rgba(146,64,14,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-05-11_160700237.png" },
   { icon: "🤝", name: "IFMSA", fullName: "International Federation of Medical Students' Associations", desc: "Our partner medical universities are associated with IFMSA – the world's largest independent medical student organization, active in 140+ countries.", badge: { bg: "#DCFCE7", color: "#166534" }, glow: "rgba(22,101,52,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-05-11_160715123.png" },
+  { icon: "📚", name: "FAIMER", fullName: "Foundation for Advancement of International Medical Education and Research", desc: "Recognized by FAIMER, ensuring our partner medical schools meet international standards for medical education and accreditation.", badge: { bg: "#E0E7FF", color: "#3730A3" }, glow: "rgba(55,48,163,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-08-17_112534432.png", logoScale: 0.95 },
+  { icon: "🌐", name: "WFME", fullName: "World Federation for Medical Education", desc: "Partner institutions align with WFME standards – the global benchmark for quality assurance in medical education and training.", badge: { bg: "#DBEAFE", color: "#1D4ED8" }, glow: "rgba(59,130,246,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-08-17_112550687.png" },
+  { icon: "🩺", name: "ECFMG", fullName: "Educational Commission for Foreign Medical Graduates", desc: "Graduates from our partner medical colleges are ECFMG-eligible, opening pathways to medical practice and residency in the United States.", badge: { bg: "#FEF3C7", color: "#92400E" }, glow: "rgba(146,64,14,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-08-17_112603342.png", logoScale: 0.65 },
+  { icon: "✅", name: "EQAR", fullName: "European Quality Assurance Register for Higher Education", desc: "Listed with EQAR – the official register of credible quality assurance agencies operating across the European Higher Education Area (EHEA).", badge: { bg: "#EDE9FE", color: "#6D28D9" }, glow: "rgba(109,40,217,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-08-17_112616600.png", logoScale: 0.65 },
+  { icon: "🇯🇵", name: "JICA", fullName: "Japan International Cooperation Agency", desc: "Partnered with JICA's framework for international cooperation in education, supporting global student mobility and capacity building.", badge: { bg: "#FEE2E2", color: "#B91C1C" }, glow: "rgba(239,68,68,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-08-17_112629232.png", logoScale: 0.65 },
+  { icon: "🏛️", name: "IMED", fullName: "International Medical Education Directory", desc: "Our partner medical schools are listed in the IMED directory, enabling graduates to pursue further certifications and licensure worldwide.", badge: { bg: "#CCFBF1", color: "#0F766E" }, glow: "rgba(20,184,166,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-08-17_112642452.png", logoScale: 0.65 },
+  { icon: "🌍", name: "UNESCO", fullName: "United Nations Educational, Scientific and Cultural Organization", desc: "Aligned with UNESCO's global standards for higher education quality, inclusion, and international academic cooperation.", badge: { bg: "#DBEAFE", color: "#1E40AF" }, glow: "rgba(30,64,175,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-08-17_112653640.png", logoScale: 0.65 },
+  { icon: "🎓", name: "IAU", fullName: "International Association of Universities", desc: "Partner universities are members of the IAU – the UNESCO-based worldwide association of higher education institutions.", badge: { bg: "#FCE7F3", color: "#BE185D" }, glow: "rgba(236,72,153,0.18)", logo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Accredation%20Logos/image_2026-08-17_112703985.png", logoScale: 0.65 },
 ];
 
 /* ─────────────────────────────────────────────
@@ -493,7 +501,7 @@ function MediaCarousel({ items }) {
   );
 }
 
-function AccredLogo({ logo, icon, name }) {
+function AccredLogo({ logo, icon, name, scale = 2 }) {
   const [imgOk, setImgOk] = useState(true);
   return (
     <div className="w-full h-full flex items-center justify-center">
@@ -501,8 +509,11 @@ function AccredLogo({ logo, icon, name }) {
         <img
           src={logo}
           alt={name}
-          className="max-h-full max-w-full scale-200 object-contain"
-          style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.10))" }}
+          className="max-h-full max-w-full object-contain"
+          style={{
+            transform: `scale(${scale})`,
+            filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.10))",
+          }}
           onError={() => setImgOk(false)}
         />
       ) : (
@@ -590,6 +601,14 @@ const AboutPage = () => {
         .accred-card:nth-child(10) { animation-delay: 0.40s; }
         .accred-card:nth-child(11) { animation-delay: 0.44s; }
         .accred-card:nth-child(12) { animation-delay: 0.48s; }
+        .accred-card:nth-child(13) { animation-delay: 0.52s; }
+        .accred-card:nth-child(14) { animation-delay: 0.56s; }
+        .accred-card:nth-child(15) { animation-delay: 0.60s; }
+        .accred-card:nth-child(16) { animation-delay: 0.64s; }
+        .accred-card:nth-child(17) { animation-delay: 0.68s; }
+        .accred-card:nth-child(18) { animation-delay: 0.72s; }
+        .accred-card:nth-child(19) { animation-delay: 0.76s; }
+        .accred-card:nth-child(20) { animation-delay: 0.80s; }
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes modal-pop {
           from { opacity: 0; transform: scale(0.92) translateY(16px); }
@@ -628,7 +647,7 @@ const AboutPage = () => {
             {/* Photo frame — reacts to hovered achievement */}
             <div className="flex justify-center lg:justify-start">
               <FramedPhoto
-                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/IMG_0029.PNG"
+                src="https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/vijay-sir-photo-edited-corpped.png"
                 alt="Dr. G. VIJAY KUMAR – Founder"
                 flip={false}
               />
@@ -1000,7 +1019,7 @@ const AboutPage = () => {
                       style={{ background: item.badge.color }}
                     />
                     <div className="relative z-10 w-full h-full">
-                      <AccredLogo logo={item.logo} icon={item.icon} name={item.name} />
+                      <AccredLogo logo={item.logo} icon={item.icon} name={item.name} scale={item.logoScale ?? 2} />
                     </div>
                   </div>
                   <div className="flex-1 flex flex-col items-center justify-center gap-2 px-4 py-4 text-center">

@@ -186,6 +186,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-wolverhampton",
     "/partner-universities/semey-medical-university",
     "/partner-universities/university-of-stirling",
+    "/partner-universities/west-kazakhstan-marat-ospanov-medical-university",
+    "/partner-universities/university-of-dundee",
     "/mbbs-abroad",
   ].map((route) => entry(route, { priority: 0.7 }));
 
