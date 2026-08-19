@@ -35,6 +35,7 @@ const BlogPage = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetchPosts();
@@ -55,9 +56,17 @@ const BlogPage = () => {
     }
   };
 
-  const filteredPosts = selectedCategory === "all"
-    ? allPosts
-    : allPosts.filter(post => post.category === selectedCategory);
+  const trimmedQuery = searchQuery.trim().toLowerCase();
+  const filteredPosts = allPosts
+    .filter(post => selectedCategory === "all" || post.category === selectedCategory)
+    .filter(post => {
+      if (!trimmedQuery) return true;
+      const title = (post.title || "").toLowerCase();
+      const excerpt = (post.excerpt || "").toLowerCase();
+      const content = (post.content || "").toLowerCase();
+      const tags = Array.isArray(post.tags) ? post.tags.join(" ").toLowerCase() : "";
+      return title.includes(trimmedQuery) || excerpt.includes(trimmedQuery) || content.includes(trimmedQuery) || tags.includes(trimmedQuery);
+    });
 
   return (
     <PageLayout>
@@ -88,6 +97,8 @@ const BlogPage = () => {
               <input
                 type="text"
                 placeholder="Search articles..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full h-14 pl-12 pr-4 rounded-full border border-border bg-card focus:border-accent focus:outline-none text-foreground"
               />
             </div>
@@ -160,6 +171,11 @@ const BlogPage = () => {
               text={selectedCategory === "all" ? "Recent Articles" : categories.find(c => c.value === selectedCategory)?.name || "Articles"}
               size="3xl"
             />
+            {trimmedQuery && (
+              <p className="text-sm text-muted-foreground mt-2">
+                Showing {filteredPosts.length} {filteredPosts.length === 1 ? "result" : "results"} for "{searchQuery}"
+              </p>
+            )}
           </div>
 
           {isLoading ? (
@@ -168,8 +184,12 @@ const BlogPage = () => {
             </div>
           ) : filteredPosts.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-xl text-muted-foreground mb-4">No articles in this category</p>
-              <p className="text-muted-foreground">Check back soon for informative articles about studying abroad!</p>
+              <p className="text-xl text-muted-foreground mb-4">
+                {trimmedQuery ? `No articles match "${searchQuery}"` : "No articles in this category"}
+              </p>
+              <p className="text-muted-foreground">
+                {trimmedQuery ? "Try a different keyword or clear the search box." : "Check back soon for informative articles about studying abroad!"}
+              </p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
