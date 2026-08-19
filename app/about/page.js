@@ -42,10 +42,10 @@ const regionalDirectors = [
 ];
 
 const operationalTeam = [
-  { name: "Mr. Bala Gangadhar", qualification: "B.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-04-30%20at%2010.56.06%20AM.jpeg" },
+  { name: "Mr. Bala Gangadhar", qualification: "B.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Untitled%20-%20July%2020,%202026%20at%2017.19.26.png?updatedAt=1787121583485" },
+  { name: "Mr. Hanok Srikar", qualification: "B.Com, LLB", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/passport%20size%20photo.png?updatedAt=1787121472931" },
+  { name: "Mrs. Kavitha", qualification: "LLB, LLM", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/DSCF7410.JPG?updatedAt=1787119080116" },
   { name: "Mrs. Vandana", qualification: "M.A, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Vandama%20mam%20img.jpeg" },
-  { name: "Mr. Hanok Srikar", qualification: "B.Com, LLB", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/DSC02875.JPG.jpeg" },
-  { name: "Mr. Shivam", qualification: "MBBS", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Shivam%20img.jpeg" },
   { name: "Mrs. Padma", qualification: "B.Com", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/padma.png?updatedAt=1776335169846" },
   { name: "Mr. Subbi Reddy", qualification: "M.Sc Zoology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/subbireddy.png?updatedAt=1776335169616" },
   { name: "Mr. Praveen", qualification: "B.Com", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.06.40%20PM%20(1).jpeg" },
@@ -54,16 +54,16 @@ const operationalTeam = [
 
 const itTeam = [
   { name: "Mr. Mohan Reddy", qualification: "B.Tech", role: "Full Stack Developer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Mohan.png", isHead: true },
-  { name: "Mr. Rakesh", qualification: "B.Tech", role: "Ad Manager", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.43.36%20PM.jpeg", isHead: false },
+  { name: "Mr. Rakesh", qualification: "B.Tech", role: "Content Writer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-05-07%20at%204.43.36%20PM.jpeg", isHead: false },
   { name: "Mr. Shiva", qualification: "B.Tech", role: "UI/UX Designer", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shiva-edited-photo-new-one.jpg.jpeg", isHead: false },
-  { name: "Mr. Siddhartha", qualification: "BBA", role: "Digital Marketing", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/IMG_9061.jpg?updatedAt=1779103695589", isHead: false },
+  { name: "Mr. Venkatesh", qualification: "MA Journalism", role: "Video Editor", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/DSCF7593.JPG", isHead: false },
 ];
 
 const itServices = [
   { label: "Web Development", icon: Code2, color: "#3B82F6", bg: "#EFF6FF" },
   { label: "App Development", icon: Smartphone, color: "#8B5CF6", bg: "#F5F3FF" },
-  { label: "Graphic Designing", icon: Palette, color: "#EC4899", bg: "#FDF2F8" },
   { label: "UI/UX Design", icon: Layout, color: "#F59E0B", bg: "#FFFBEB" },
+  { label: "Graphic Designing", icon: Palette, color: "#EC4899", bg: "#FDF2F8" },
   { label: "SEO Optimization", icon: Search, color: "#10B981", bg: "#ECFDF5" },
   { label: "Digital Marketing", icon: Megaphone, color: "#EF4444", bg: "#FEF2F2" },
   { label: "Video Editing", icon: Video, color: "#6366F1", bg: "#EEF2FF" },
@@ -1154,7 +1154,7 @@ const AboutPage = () => {
                       style={{ boxShadow: "0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--accent)/0.3)" }}
                     >
                       {member.image ? (
-                        <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
+                        <img src={member.image} alt={member.name} className="w-full h-full object-cover object-[center_25%]" />
                       ) : (
                         <div className="w-full h-full bg-accent/10 flex items-center justify-center text-xl">👤</div>
                       )}
@@ -1228,7 +1228,7 @@ const AboutPage = () => {
                         className="relative w-20 h-20 rounded-2xl overflow-hidden group-hover:scale-105 transition-transform duration-300"
                         style={{ boxShadow: "0 0 0 3px hsl(var(--background)), 0 0 0 5px hsl(var(--primary)/0.4)" }}
                       >
-                        <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
+                        <img src={member.image} alt={member.name} className="w-full h-full object-cover object-[center_25%]" />
                       </div>
                       <div className="text-center">
                         <p className="font-bold text-foreground text-sm leading-snug">{member.name}</p>
@@ -1278,11 +1278,11 @@ const AboutPage = () => {
                         }}
                       >
                         <div
-                          className="relative w-16 h-16 rounded-xl overflow-hidden group-hover:scale-105 transition-transform duration-300 flex items-center justify-center"
+                          className="relative w-19 h-19 rounded-xl overflow-hidden group-hover:scale-105 transition-transform duration-300 flex items-center justify-center"
                           style={{ boxShadow: `0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary)/0.25)`, background: "linear-gradient(135deg, hsl(var(--primary)/0.1), hsl(var(--accent)/0.1))" }}
                         >
                           {member.image ? (
-                            <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
+                            <img src={member.image} alt={member.name} className="w-full h-full mt-4" />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center text-2xl">👤</div>
                           )}
