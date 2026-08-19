@@ -131,6 +131,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/crimean-federal-university",
     "/partner-universities/university-of-surrey",
     "/partner-universities/tver-state-medical-university",
+    "/partner-universities/university-of-aberdeen",
     "/partner-universities/university-of-leicester",
     "/partner-universities/mari-state-university",
     "/partner-universities/university-of-sussex",

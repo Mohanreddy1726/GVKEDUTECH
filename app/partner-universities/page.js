@@ -1647,6 +1647,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // University of Aberdeen specific page
+            const isAberdeen = uni === "University of Aberdeen";
+            if (isAberdeen) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-aberdeen"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // University of Wolverhampton specific page
             const isWolverhampton = uni === "University of Wolverhampton";
             if (isWolverhampton) {
