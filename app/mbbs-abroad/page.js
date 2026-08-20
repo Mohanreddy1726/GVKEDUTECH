@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { PageLayout } from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -346,6 +347,7 @@ const pageStyles = (
 ════════════════════════════════════════════════ */
 const MBBSAdsLandingPage = () => {
   const { toast } = useToast();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -400,13 +402,7 @@ const MBBSAdsLandingPage = () => {
         }),
       });
       if (!res.ok) throw new Error("Submit failed");
-      toast({
-        title: "Thank you! 🎉",
-        description: "Our counsellor will call you within 24 hours with your personalised MBBS plan.",
-      });
-      setFormData({
-        fullName: "", phone: "", email: "", neetScore: "", country: "", message: "",
-      });
+      router.push("/thank-you-mbbs-abroad");
     } catch (err) {
       console.error("MBBS Abroad submit error:", err);
       toast({
