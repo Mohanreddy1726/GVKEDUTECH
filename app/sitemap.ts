@@ -178,6 +178,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/international-medical-university",
     "/partner-universities/university-of-roehampton",
     "/partner-universities/caspian-international-school-of-medicine",
+    "/partner-universities/al-farbi-kazakh-national-university",
+    "/partner-universities/northeastern-university-boston",
     "/partner-universities/university-of-salford",
     "/partner-universities/kokshetau-university",
     "/partner-universities/south-kazakhstan-medical-academy",
