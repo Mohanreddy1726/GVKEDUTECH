@@ -469,21 +469,6 @@ const MBBSPage = () => {
           </ScrollReveal>
         </div>
       </section>
-
-      {/* TEMP: test button — open MBBS Abroad landing */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <Link
-          href="/mbbs-abroad"
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-sm shadow-2xl"
-          style={{
-            background: `linear-gradient(135deg, ${T.red}, ${T.redDark})`,
-            color: T.white,
-          }}
-        >
-          [TEMP] Open /mbbs-abroad
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </div>
     </PageLayout>
   );
 };
