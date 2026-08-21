@@ -1,0 +1,987 @@
+"use client";
+
+import { PageLayout } from "@/components/PageLayout";
+import { PageHeader } from "@/components/PageHeader";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { ColorfulHeading } from "@/components/ColorfulHeading";
+import {
+  ArrowRight,
+  CheckCircle,
+  FileText,
+  Users,
+  GraduationCap,
+  Globe,
+  ShieldCheck,
+  Clock,
+  BookOpen,
+  Home,
+  Utensils,
+  Wifi,
+  ChevronRight,
+  Star,
+  IndianRupee,
+  Trophy,
+  Building2,
+  Plane,
+  Microscope,
+  MapPin,
+} from "lucide-react";
+import Link from "next/link";
+
+const faqs = [
+  {
+    question: "Is Auezov South Kazakhstan University NMC approved for MBBS in Kazakhstan?",
+    answer:
+      "Yes. Auezov South Kazakhstan University is recognised by the National Medical Commission (NMC) of India, listed with the World Health Organization (WHO) and registered with FAIMER / ECFMG. Indian students graduating from the MBBS programme at Auezov South Kazakhstan University are eligible to appear for FMGE / NExT and practise medicine in India after completion of their degree.",
+  },
+  {
+    question: "Where is Auezov South Kazakhstan University located?",
+    answer:
+      "Auezov South Kazakhstan University is located in Shymkent, the largest city in southern Kazakhstan and the cultural capital of the region. Shymkent is well connected by air to Almaty, Astana and other major Kazakh cities, and the university operates a modern multi-building campus with attached teaching hospitals for clinical rotations in the MBBS programme.",
+  },
+  {
+    question: "What is the duration of the MBBS programme at Auezov South Kazakhstan University?",
+    answer:
+      "The MBBS programme at Auezov South Kazakhstan University is 6 years in total — 5 years of academic and clinical training followed by a 1-year compulsory internship. Clinical rotations begin from year 3 across the university's city clinical hospitals and polyclinics in Shymkent, giving Indian students strong hands-on patient exposure.",
+  },
+  {
+    question: "What is the total MBBS fee at Auezov South Kazakhstan University for Indian students?",
+    answer:
+      "The total MBBS fee at Auezov South Kazakhstan University for the full 6-year programme is approximately USD 20,000–23,000 (about ₹17–19 lakh). This covers tuition fees, hostel accommodation and basic living support. There is no donation or capitation fee — the fee structure is fixed and transparent for Indian students.",
+  },
+  {
+    question: "Is NEET required for MBBS admission at Auezov South Kazakhstan University?",
+    answer:
+      "Yes. NEET-UG qualification is mandatory for all Indian students applying to Auezov South Kazakhstan University, as per the latest NMC guidelines. NEET is required to be eligible for FMGE / NExT in India after graduation from the MBBS programme in Kazakhstan.",
+  },
+  {
+    question: "What is the medium of instruction at Auezov South Kazakhstan University?",
+    answer:
+      "The MBBS programme at Auezov South Kazakhstan University is taught in English, which makes it easy for Indian students to follow the curriculum. Basic Kazakh and Russian language classes are offered alongside so that students can comfortably interact with local patients during clinical rotations at university hospitals in Kazakhstan.",
+  },
+  {
+    question: "Does Auezov South Kazakhstan University provide hostel and Indian food?",
+    answer:
+      "Yes. Auezov South Kazakhstan University has separate, secure hostels for boys and girls within the campus. Indian mess facilities — both vegetarian and non-vegetarian — are available, so Indian students can enjoy home-style meals throughout their MBBS in Kazakhstan journey at Auezov South Kazakhstan University.",
+  },
+  {
+    question: "Can I do postgraduate studies after MBBS at Auezov South Kazakhstan University?",
+    answer:
+      "Yes. After MBBS at Auezov South Kazakhstan University, Indian students can appear for FMGE / NExT to practise in India, or pursue postgraduate studies (MD / MS / PG Diploma) in Kazakhstan, USA, UK, Germany, Australia and other countries after clearing the respective licensing exams such as USMLE, PLAB or AMC.",
+  },
+  {
+    question: "Is Shymkent safe for Indian students?",
+    answer:
+      "Shymkent is the third-largest city of Kazakhstan, modern and student-friendly with a low crime rate and a welcoming local population. A growing Indian student community at Auezov South Kazakhstan University, Indian grocery stores and restaurants, and a pleasant climate make Shymkent a comfortable destination for Indian students studying MBBS in Kazakhstan.",
+  },
+];
+
+const admissionSteps = [
+  {
+    step: 1,
+    title: "Submit Application",
+    desc: "Fill the GVK EduTech enquiry form with your academic details, NEET score and passport details",
+    icon: FileText,
+  },
+  {
+    step: 2,
+    title: "Receive Offer Letter",
+    desc: "Auezov South Kazakhstan University issues an admission letter within 7–10 working days",
+    icon: BookOpen,
+  },
+  {
+    step: 3,
+    title: "Pay First-Year Fees",
+    desc: "Confirm your seat by remitting the tuition + hostel fee directly to the university account",
+    icon: IndianRupee,
+  },
+  {
+    step: 4,
+    title: "Apply for Visa",
+    desc: "Submit your Kazakhstan student visa application with university documents — GVK assists end-to-end",
+    icon: Globe,
+  },
+  {
+    step: 5,
+    title: "Book Flights",
+    desc: "Book flights from India to Shymkent via Almaty or Astana — GVK EduTech provides full travel and airport pickup support",
+    icon: Plane,
+  },
+  {
+    step: 6,
+    title: "Begin Studies",
+    desc: "Report to the Auezov South Kazakhstan University campus in Shymkent, complete registration and start your MBBS journey in Kazakhstan",
+    icon: GraduationCap,
+  },
+];
+
+const documents = [
+  "Valid Passport (minimum 18 months validity)",
+  "10th Mark Sheet & Passing Certificate",
+  "12th Mark Sheet & Passing Certificate",
+  "NEET Score Card (current year)",
+  "Passport-Size Photographs (10 copies, white background)",
+  "Birth Certificate (English translation)",
+  "Police Clearance Certificate (PCC)",
+  "Medical Fitness Certificate",
+  "HIV Test Report",
+  "Travel & Health Insurance",
+  "Bank Statement (Father / Guardian — last 6 months)",
+  "Admission Letter from Auezov South Kazakhstan University",
+];
+
+const hostelFeatures = [
+  { icon: Home, label: "Separate hostels for boys and girls inside the Auezov South Kazakhstan University campus in Shymkent" },
+  { icon: Users, label: "Fully furnished rooms on twin-sharing basis" },
+  { icon: Utensils, label: "Indian mess serving vegetarian & non-vegetarian meals daily" },
+  { icon: Wifi, label: "High-speed WiFi in every hostel block" },
+  { icon: ShieldCheck, label: "24/7 security, CCTV and biometric entry" },
+  { icon: Clock, label: "Laundry, hot water and central heating" },
+];
+
+const whyChoose = [
+  {
+    title: "NMC, WHO & FAIMER Approved",
+    desc: "Recognised by NMC India, WHO and FAIMER — your MBBS degree from Auezov South Kazakhstan University is accepted worldwide",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Affordable MBBS Fees",
+    desc: "Complete 6-year MBBS at approximately ₹17–19 lakh — far lower than Indian private medical colleges",
+    icon: IndianRupee,
+  },
+  {
+    title: "No Donation / Capitation",
+    desc: "100% transparent admission — no hidden charges, no capitation fees of any kind at Auezov South Kazakhstan University",
+    icon: Star,
+  },
+  {
+    title: "English Medium MBBS",
+    desc: "Full MBBS course taught in English from day one — no language barrier for Indian students at the university",
+    icon: Globe,
+  },
+  {
+    title: "Indian Mess on Campus",
+    desc: "Dedicated Indian mess with vegetarian and non-vegetarian meals prepared by Indian chefs",
+    icon: Utensils,
+  },
+  {
+    title: "Modern Campus & Labs",
+    desc: "Simulation labs, anatomy dissection halls and digital classrooms at Auezov South Kazakhstan University",
+    icon: Microscope,
+  },
+  {
+    title: "Strong Clinical Training",
+    desc: "Clinical rotations in the university's city clinical hospitals and multi-speciality centres across Shymkent",
+    icon: BookOpen,
+  },
+  {
+    title: "Shymkent — Major City",
+    desc: "Kazakhstan's third-largest city — modern infrastructure, malls, transport and a growing Indian community",
+    icon: MapPin,
+  },
+];
+
+export default function AuezovSouthKazakhstanUniversityPage() {
+  return (
+    <PageLayout>
+      <PageHeader
+        title="Auezov South Kazakhstan University — MBBS 2026"
+        subtitle="NMC Approved · WHO Listed · English Medium · Affordable Fees · Modern Shymkent Campus"
+        breadcrumb="Partner Universities"
+        backgroundImage="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1600&auto=format&fit=crop"
+      />
+
+      {/* ── OVERVIEW ─────────────────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal animation="fade-up">
+              <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+                Est. 1945 · Shymkent, Kazakhstan
+              </p>
+              <ColorfulHeading
+                text="Auezov South Kazakhstan University"
+                size="3xl"
+                className="mb-5"
+              />
+              <p className="text-muted-foreground text-lg leading-relaxed mb-5">
+                <strong className="text-foreground">Auezov South Kazakhstan University</strong>{" "}
+                is one of the oldest and most respected multidisciplinary universities in southern
+                Kazakhstan, located in the vibrant city of Shymkent. Established in 1945 and
+                named after the great Kazakh writer Mukhtar Auezov, the university has a strong
+                legacy in higher education and research, and its Faculty of Medicine is a top
+                choice for Indian students seeking an affordable, NMC-approved MBBS programme
+                abroad in a modern metropolitan setting.
+              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Recognised by the <strong className="text-foreground">National Medical Commission (NMC)</strong>,
+                the <strong className="text-foreground">World Health Organization (WHO)</strong>{" "}
+                and FAIMER, Auezov South Kazakhstan University graduates are eligible to appear
+                for <strong className="text-foreground">FMGE / NExT</strong> and practise medicine
+                in India. The university offers a fully English-medium MBBS programme with
+                modern laboratories, experienced faculty and rich clinical exposure across
+                teaching hospitals in Shymkent for Indian students pursuing MBBS in Kazakhstan.
+              </p>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["NMC Approved", "WHO Listed", "FAIMER Recognised", "English Medium", "Modern Campus"].map(
+                  (badge) => (
+                    <span
+                      key={badge}
+                      className="px-4 py-1.5 bg-accent/10 text-accent border border-accent/20 rounded-full text-sm font-semibold"
+                    >
+                      {badge}
+                    </span>
+                  )
+                )}
+              </div>
+
+              <div className="flex gap-4">
+                <Button asChild size="lg" variant="accent">
+                  <Link href="/apply">
+                    Apply Now
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="/contact">Free Counseling</Link>
+                </Button>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={200}>
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&auto=format&fit=crop"
+                  alt="Auezov South Kazakhstan University campus"
+                  className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-background border border-border rounded-2xl p-5 shadow-xl">
+                  <p className="text-3xl font-bold text-accent">80+</p>
+                  <p className="text-sm text-muted-foreground mt-0.5">
+                    Years of academic excellence
+                  </p>
+                </div>
+                <div className="absolute -top-6 -right-6 bg-background border border-border rounded-2xl p-5 shadow-xl">
+                  <p className="text-3xl font-bold text-accent">20,000+</p>
+                  <p className="text-sm text-muted-foreground mt-0.5">
+                    Students across all faculties
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RECOGNITION BAND ─────────────────────────────────── */}
+      <section className="py-12 bg-accent text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { label: "NMC", sub: "India — National Medical Commission" },
+              { label: "WHO", sub: "World Health Organization Listed" },
+              { label: "FAIMER", sub: "Foundation for Advancement in Medical Education" },
+              { label: "MOH", sub: "Ministry of Education & Science, Kazakhstan" },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-4xl font-bold">{item.label}</p>
+                <p className="text-white/75 text-sm mt-1 leading-snug">
+                  {item.sub}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE ──────────────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Why Indian Students Choose Auezov South Kazakhstan University"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              From affordable tuition in a major Kazakh metropolis to strong clinical training,
+              Auezov South Kazakhstan University checks every box for Indian medical aspirants
+              seeking MBBS in Kazakhstan in 2026.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {whyChoose.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <Card
+                  key={i}
+                  className="border border-border/60 hover:border-accent/50 transition-colors duration-200"
+                >
+                  <CardContent className="p-6">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                      <Icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WORLD RANKING ────────────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Auezov South Kazakhstan University World Ranking & Reputation"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              Auezov South Kazakhstan University is consistently ranked among the top
+              multidisciplinary universities in Kazakhstan and Central Asia for higher
+              education and research.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto grid sm:grid-cols-3 gap-6">
+            {[
+              { rank: "Top 15", source: "Universities in Kazakhstan" },
+              { rank: "Top 100", source: "Universities in Central Asia" },
+              { rank: "Established 1945", source: "80+ Years of Excellence" },
+            ].map((item, i) => (
+              <Card key={i} className="border-2 border-accent/20">
+                <CardContent className="p-6 text-center">
+                  <p className="text-4xl font-bold text-accent mb-2">{item.rank}</p>
+                  <p className="text-muted-foreground text-sm">{item.source}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEES ─────────────────────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Auezov South Kazakhstan University MBBS Fee Structure 2026–27"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              One of the most affordable NMC-approved MBBS programmes in Central Asia —
+              no hidden charges, no donation, no capitation fee at Auezov South Kazakhstan
+              University.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto grid lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2">
+              <Card className="border-2 border-accent/20 overflow-hidden">
+                <CardHeader className="bg-accent/8 border-b border-accent/20 px-6 py-4">
+                  <CardTitle className="text-base font-semibold text-foreground">
+                    MBBS Tuition Fee Breakdown
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-0">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-border bg-muted/30">
+                        <th className="text-left px-6 py-3 font-semibold text-foreground">
+                          Particulars
+                        </th>
+                        <th className="text-right px-6 py-3 font-semibold text-foreground">
+                          USD
+                        </th>
+                        <th className="text-right px-6 py-3 font-semibold text-foreground">
+                          INR*
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-border">
+                        <td className="px-6 py-4 text-foreground">
+                          Tuition Fee (1st Year)
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          $4,500
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          ₹3,82,500
+                        </td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="px-6 py-4 text-foreground">
+                          Tuition Fee (2nd–6th Year){" "}
+                          <span className="text-muted-foreground text-xs">
+                            (per year)
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          $3,000
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          ₹2,55,000
+                        </td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="px-6 py-4 text-foreground">
+                          Hostel Fee (per year)
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          $700
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          ₹59,500
+                        </td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="px-6 py-4 text-foreground">
+                          Indian Mess / Food (per year)
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          $1,200
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          ₹1,02,000
+                        </td>
+                      </tr>
+                      <tr className="bg-accent/5">
+                        <td className="px-6 py-4 font-bold text-foreground">
+                          Total (6 Years)
+                        </td>
+                        <td className="px-6 py-4 text-right font-bold text-accent text-base">
+                          ~$23,000
+                        </td>
+                        <td className="px-6 py-4 text-right font-bold text-accent text-base">
+                          ~₹19,55,000
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p className="text-xs text-muted-foreground px-6 py-3 border-t border-border">
+                    * Exchange rate: 1 USD ≈ ₹85 (indicative). Hostel & mess fees are
+                    indicative — final figure confirmed at admission.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+                What's Included
+              </p>
+              {[
+                {
+                  label: "Tuition Fees",
+                  sub: "Complete 6-year MBBS",
+                  usd: "Included",
+                },
+                {
+                  label: "On-Campus Hostel",
+                  sub: "Furnished twin-sharing room",
+                  usd: "$700/yr",
+                },
+                {
+                  label: "Indian Mess",
+                  sub: "Veg & non-veg meals daily",
+                  usd: "$1,200/yr",
+                },
+                {
+                  label: "Medical Insurance",
+                  sub: "Health cover for 6 years",
+                  usd: "Included",
+                },
+                {
+                  label: "Airport Pickup",
+                  sub: "Shymkent airport transfer",
+                  usd: "Free",
+                },
+              ].map((item) => (
+                <Card
+                  key={item.label}
+                  className="border border-border/60"
+                >
+                  <CardContent className="px-5 py-4 flex items-center justify-between">
+                    <div>
+                      <p className="font-semibold text-foreground text-sm">
+                        {item.label}
+                      </p>
+                      <p className="text-muted-foreground text-xs mt-0.5">
+                        {item.sub}
+                      </p>
+                    </div>
+                    <p className="text-lg font-bold text-accent">{item.usd}</p>
+                  </CardContent>
+                </Card>
+              ))}
+              <Card className="border-2 border-accent/30 bg-accent/5">
+                <CardContent className="px-5 py-4 flex items-center justify-between">
+                  <div>
+                    <p className="font-bold text-foreground text-sm">
+                      Total 6-Year Cost
+                    </p>
+                    <p className="text-muted-foreground text-xs mt-0.5">
+                      All-inclusive estimate
+                    </p>
+                  </div>
+                  <p className="text-lg font-bold text-accent">~$23,000</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ELIGIBILITY ──────────────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Eligibility Criteria for Indian Students"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              Clear, straightforward requirements — only NEET-UG is mandatory, no separate
+              entrance exam for Auezov South Kazakhstan University.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-5">
+            {[
+              {
+                title: "Age Requirement",
+                desc: "Minimum 17 years as on 31st December of the admission year. No upper age limit as per NMC.",
+              },
+              {
+                title: "Academic Qualification",
+                desc: "12th standard with minimum 50% in Physics, Chemistry and Biology (40% for SC / ST / OBC).",
+              },
+              {
+                title: "NEET-UG Mandatory",
+                desc: "Valid NEET-UG scorecard is compulsory for all Indian students applying for MBBS abroad at Auezov South Kazakhstan University.",
+              },
+              {
+                title: "English Proficiency",
+                desc: "No IELTS / TOEFL required — the MBBS course is taught entirely in English at the university.",
+              },
+              {
+                title: "Valid Passport",
+                desc: "Indian passport with minimum 18 months validity at the time of visa application for Kazakhstan.",
+              },
+              {
+                title: "Medical Fitness",
+                desc: "Good physical and mental health, supported by a medical fitness certificate and HIV test report.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="flex gap-4 p-6 rounded-2xl bg-background border border-border/60"
+              >
+                <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-bold text-foreground mb-1">{item.title}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ADMISSION PROCESS ────────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-16 text-center">
+            <ColorfulHeading
+              text="Auezov South Kazakhstan University Admission Process 2026"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              A straightforward six-step journey from application to your first day at
+              Auezov South Kazakhstan University in Shymkent, Kazakhstan.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto relative">
+            <div className="hidden md:block absolute top-9 left-[calc(1/12*100%+1.25rem)] right-[calc(1/12*100%+1.25rem)] h-px bg-border" />
+
+            <div className="grid md:grid-cols-6 gap-6">
+              {admissionSteps.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.step} className="flex flex-col items-center text-center">
+                    <div className="relative z-10 w-[4.5rem] h-[4.5rem] rounded-full border-2 border-accent bg-background flex items-center justify-center mb-4 flex-shrink-0">
+                      <Icon className="w-6 h-6 text-accent" />
+                    </div>
+                    <p className="font-bold text-foreground text-sm mb-1">
+                      {item.title}
+                    </p>
+                    <p className="text-muted-foreground text-xs leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild size="lg" variant="accent">
+              <Link href="/apply">
+                Start Your Application
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── REQUIRED DOCUMENTS ───────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Required Documents for MBBS Admission"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              Gather these documents before applying — GVK EduTech will verify, attest and
+              help you with the entire submission process for Auezov South Kazakhstan University.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Card>
+              <CardContent className="p-8">
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {documents.map((doc, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 p-3.5 rounded-xl bg-muted/50 border border-border/50"
+                    >
+                      <FileText className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span className="text-foreground text-sm">{doc}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOSTEL ───────────────────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal animation="fade-up">
+              <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+                On-Campus Living
+              </p>
+              <ColorfulHeading
+                text="Hostel & Mess Facilities"
+                size="3xl"
+                className="mb-6 text-left"
+              />
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Auezov South Kazakhstan University's on-campus hostels are safe, modern and
+                built with international students in mind — featuring separate wings for
+                boys and girls, dedicated Indian mess facilities, 24/7 security and
+                high-speed WiFi so that Indian students feel completely at home while
+                pursuing MBBS in Kazakhstan.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {hostelFeatures.map((f, i) => {
+                  const Icon = f.icon;
+                  return (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4 text-accent" />
+                      </div>
+                      <span className="text-foreground text-sm">{f.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={200}>
+              <div className="grid grid-cols-2 gap-4">
+                <img
+                  src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400&auto=format&fit=crop"
+                  alt="Auezov South Kazakhstan University hostel room"
+                  className="rounded-2xl shadow-lg w-full aspect-square object-cover"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&auto=format&fit=crop"
+                  alt="Auezov South Kazakhstan University hostel common area"
+                  className="rounded-2xl shadow-lg w-full aspect-square object-cover mt-8"
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STUDENT LIFE IN KAZAKHSTAN ──────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal animation="fade-up">
+              <div className="grid grid-cols-2 gap-4">
+                <img
+                  src="https://images.unsplash.com/photo-1604881991720-f91add269bed?w=400&auto=format&fit=crop"
+                  alt="Shymkent city landscape"
+                  className="rounded-2xl shadow-lg w-full aspect-square object-cover"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1613844237701-8f3664fc2eff?w=400&auto=format&fit=crop"
+                  alt="Southern Kazakhstan nature"
+                  className="rounded-2xl shadow-lg w-full aspect-square object-cover mt-8"
+                />
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={200}>
+              <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+                Life in Shymkent
+              </p>
+              <ColorfulHeading
+                text="Student Life in Kazakhstan"
+                size="3xl"
+                className="mb-6 text-left"
+              />
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Shymkent is Kazakhstan's third-largest city and the vibrant cultural capital
+                of southern Kazakhstan. With modern shopping malls, parks, restaurants and a
+                pleasant climate, Shymkent offers Indian students at Auezov South Kazakhstan
+                University a comfortable urban lifestyle with affordable transport, Indian
+                grocery stores, restaurants and a growing Indian student community across the
+                region.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Kazakhstan's third-largest city — modern infrastructure and a student-friendly atmosphere",
+                  "Direct flights from India to Almaty or Astana, then a short domestic connection to Shymkent",
+                  "Affordable cost of living — lower than Almaty, Astana and most European cities",
+                  "Pleasant climate, mountain getaways and parks — perfect for weekend trips",
+                  "Indian restaurants, grocery stores and cultural associations in Shymkent",
+                  "Vibrant Indian student community at Auezov South Kazakhstan University and across southern Kazakhstan",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <ChevronRight className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ADVANTAGES ───────────────────────────────────────── */}
+      <section className="py-20 section-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Advantages of Studying MBBS at Auezov South Kazakhstan University"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              The university combines affordable fees, a major-city location, internationally
+              recognised degrees and strong clinical training — a smart choice for Indian
+              medical aspirants in 2026.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                title: "No Entrance Exam",
+                desc: "Admission based purely on NEET score — no separate university entrance test",
+                icon: FileText,
+              },
+              {
+                title: "No Donation / Capitation",
+                desc: "Transparent fee structure — pay only the published tuition + hostel fee at the university",
+                icon: Star,
+              },
+              {
+                title: "FMGE / NExT Coaching",
+                desc: "Integrated coaching and mentoring to help clear FMGE / NExT in India after MBBS",
+                icon: Trophy,
+              },
+              {
+                title: "International Exposure",
+                desc: "Study alongside peers from 15+ countries — global classroom experience at the university",
+                icon: Globe,
+              },
+              {
+                title: "Modern Clinical Training",
+                desc: "Rotations in the university's city clinical hospitals and multi-speciality centres in Shymkent",
+                icon: BookOpen,
+              },
+              {
+                title: "Affordable Total Cost",
+                desc: "Complete MBBS at ~₹19 lakh — far below Indian private medical colleges",
+                icon: IndianRupee,
+              },
+              {
+                title: "Global PG Pathways",
+                desc: "Eligible for PG in USA, UK, Germany, Australia and Canada after licensing exams",
+                icon: GraduationCap,
+              },
+              {
+                title: "GVK EduTech Support",
+                desc: "End-to-end visa, travel, forex & pre-departure assistance from Hyderabad",
+                icon: ShieldCheck,
+              },
+            ].map((adv, i) => {
+              const Icon = adv.icon;
+              return (
+                <Card
+                  key={i}
+                  className="border border-border/60 hover:border-accent/40 transition-colors duration-200"
+                >
+                  <CardContent className="p-5">
+                    <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center mb-3">
+                      <Icon className="w-4 h-4 text-accent" />
+                    </div>
+                    <h3 className="font-bold text-foreground text-sm mb-1.5">
+                      {adv.title}
+                    </h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed">
+                      {adv.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQs ─────────────────────────────────────────────── */}
+      <section className="py-20 section-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <ColorfulHeading
+              text="Frequently Asked Questions"
+              size="3xl"
+              className="mb-4"
+            />
+            <p className="text-muted-foreground text-lg">
+              Answers to the most common questions Indian students ask about Auezov South
+              Kazakhstan University and MBBS in Kazakhstan.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, i) => (
+              <details
+                key={i}
+                className="group border border-border/60 rounded-2xl overflow-hidden bg-background open:border-accent/30"
+              >
+                <summary className="flex items-center gap-4 p-6 cursor-pointer list-none select-none">
+                  <span className="w-7 h-7 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                    {i + 1}
+                  </span>
+                  <p className="font-semibold text-foreground flex-1">
+                    {faq.question}
+                  </p>
+                  <ChevronRight className="w-5 h-5 text-muted-foreground group-open:rotate-90 transition-transform flex-shrink-0" />
+                </summary>
+                <div className="px-6 pb-6">
+                  <p className="text-muted-foreground text-sm leading-relaxed pl-11">
+                    {faq.answer}
+                  </p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── APPLY NOW CTA ─────────────────────────────────────── */}
+      <section className="py-24 bg-gradient-to-br from-primary via-primary/90 to-primary/80">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-primary-foreground/70 text-sm font-semibold tracking-widest uppercase mb-4">
+            2026 Admissions Open · Limited Seats
+          </p>
+          <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-6 max-w-3xl mx-auto leading-tight">
+            Begin Your MBBS Journey at Auezov South Kazakhstan University
+          </h2>
+          <p className="text-primary-foreground/80 text-lg mb-10 max-w-2xl mx-auto">
+            Secure your seat at one of southern Kazakhstan's most respected NMC-approved
+            multidisciplinary universities. Our expert Hyderabad-based counsellors will guide
+            you through the entire process — from application to your first day on campus at
+            Auezov South Kazakhstan University in Shymkent.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild variant="secondary" size="xl" className="group">
+              <Link href="/apply">
+                Apply Now
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button asChild size="xl" variant="accent" className="group">
+              <Link href="/contact">
+                Free Counseling Session
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="xl"
+              variant="outline"
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+            >
+              <a href="https://api.whatsapp.com/send/?phone=919010060000&text=Hi%2C%20I%20want%20to%20know%20more%20about%20MBBS%20at%20Auezov%20South%20Kazakhstan%20University%2C%20Kazakhstan.">
+                WhatsApp Counselor
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INTERNAL LINKS ────────────────────────────────────── */}
+      <section className="py-10 section-light border-t border-border">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-sm font-semibold tracking-widest uppercase text-muted-foreground mb-5">
+            Explore More
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { href: "/", label: "Homepage" },
+              { href: "/mbbs/kazakhstan", label: "MBBS in Kazakhstan" },
+              { href: "/partner-universities", label: "Partner Universities" },
+              { href: "/apply", label: "Apply Now" },
+              { href: "/contact", label: "Contact Us" },
+              { href: "/about", label: "About GVK EduTech" },
+            ].map((link) => (
+              <Button key={link.href} asChild variant="outline" size="sm">
+                <Link href={link.href}>{link.label}</Link>
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+    </PageLayout>
+  );
+}

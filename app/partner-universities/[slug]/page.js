@@ -191,6 +191,7 @@ const universityData = {
     universities: [
       { name: "Al-Farabi Kazakh National University", website: "https://kaznu.kz" },
       { name: "Asfendiyarov Kazakh National University", website: "https://kaznmu.kz" },
+      { name: "Auezov South Kazakhstan University", website: "/partner-universities/auezov-south-kazakhstan-university" },
       { name: "Caspian International School of Medicine", website: "/partner-universities/caspian-international-school-of-medicine" },
       { name: "Karaganda Medical University", website: "/partner-universities/karaganda-medical-university" },
       { name: "Kazakh-Russian Medical University", website: "https://krmu.edu.kz" },
@@ -307,7 +308,7 @@ const universityData = {
       { name: "University of Cincinnati", website: "https://uc.edu" },
       { name: "Johns Hopkins University", website: "https://jhu.edu" },
       { name: "Arizona State University", website: "https://asu.edu" },
-      { name: "University of California", website: "https://uc.edu" },
+      { name: "University of California", website: "/partner-universities/university-of-california" },
       { name: "University of South Florida", website: "https://usf.edu" },
       { name: "Drexel University", website: "https://drexel.edu" },
       { name: "University of Delaware", website: "https://udel.edu" },
