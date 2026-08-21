@@ -1,0 +1,21 @@
+
+> nextjs-demo@0.1.0 dev
+> next dev
+
+[32m✔[0m [33mConsole Ninja[0m extension is connected to [33mNext.js[0m, see [36mhttps://tinyurl.com/2vt8jxzw[0m
+▲ Next.js 16.2.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.29.193:3000
+- Environments: .env.local
+✓ Ready in 874ms
+⚠ Console Ninja Turbopack support is a PRO feature, [33mcurrently available to community users while in preview[0m
+Node.js fs rename failed after 101 retries with error Error: EPERM: operation not permitted, rename 'C:\GVKEDUTECH\.next\dev\server\server-reference-manifest.json.tmp.j4fkn0a8w2a' -> 'C:\GVKEDUTECH\.next\dev\server\server-reference-manifest.json'
+Error: EPERM: operation not permitted, rename 'C:\GVKEDUTECH\.next\dev\server\server-reference-manifest.json.tmp.j4fkn0a8w2a' -> 'C:\GVKEDUTECH\.next\dev\server\server-reference-manifest.json'
+    at ignore-listed frames {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'rename',
+  path: 'C:\\GVKEDUTECH\\.next\\dev\\server\\server-reference-manifest.json.tmp.j4fkn0a8w2a',
+  dest: 'C:\\GVKEDUTECH\\.next\\dev\\server\\server-reference-manifest.json'
+}
+[?25h

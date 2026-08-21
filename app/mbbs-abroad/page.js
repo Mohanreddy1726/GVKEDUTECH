@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { PageLayout } from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
@@ -32,7 +32,9 @@ import {
   Quote,
   PhoneCall,
   MessageCircle,
+  Play,
   PlayCircle,
+  X,
   Sparkles,
   Clock,
   Building2,
@@ -138,82 +140,88 @@ const mbbsCountries = [
 /* ─── 6 hardcoded testimonials — videoUrl placeholders ─── */
 const testimonials = [
   {
-    name: "Aarav Sharma",
-    city: "Hyderabad",
-    initial: "AS",
-    program: "MBBS, 2022–28",
-    country: "Russia",
-    university: "Bashkir State Medical University",
+    name: "Navya",
+    city: "Warangal",
+    initial: "NA",
+    program: "MBBS, 2023–28",
+    country: "Kazakhstan",
+    university: "Caspian International School of Medicine",
     quote:
-      "GVK EduTech handled my entire admission — from application to visa — in just 6 weeks. I'm now in my 3rd year at Bashkir and love the clinical exposure here.",
+      "No visa, similar food, similar climate — Kazakhstan felt like a natural choice. GVK EduTech made the entire process effortless for me and my parents.",
     rating: 5,
-    color: "#C8243A",
-    videoUrl: "#", // TODO: replace with real YouTube link
+    color: "#1A2B42",
+    videoUrl: "https://www.youtube.com/shorts/Anc4EuZWSyU",
+    youtubeId: "Anc4EuZWSyU",
   },
   {
-    name: "Priya Reddy",
-    city: "Bangalore",
-    initial: "PR",
-    program: "MBBS, 2021–27",
+    name: "Dr. Veronica",
+    city: "Hyderabad",
+    initial: "VA",
+    program: "MBBS, 2019–25",
+    country: "Kyrgyzstan",
+    university: "Asian Institute of medical science",
+    quote:
+      "Don’t let a low NEET rank shatter your medical dreams. If I can clear FMGE, so can YOU! GVK’s mentoring and coaching helped me achieve my dream of becoming a doctor.",
+    rating: 5,
+    color: "#C8243A",
+    videoUrl: "https://www.youtube.com/watch?v=uycFH9C6BJk",
+    youtubeId: "uycFH9C6BJk",
+  },
+  {
+    name: "Dr. Eshwar Reddy",
+    city: "Warangal",
+    initial: "ER",
+    program: "MBBS, 2018–24",
     country: "Georgia",
     university: "Tbilisi State Medical University",
     quote:
       "I was worried about FMGE preparation, but GVK's integrated coaching and mentoring helped me clear it on my first attempt. The 2-year journey here has been amazing.",
     rating: 5,
     color: "#1A2B42",
-    videoUrl: "#",
+    videoUrl: "https://www.youtube.com/watch?v=mPlxeVSaZw4",
+    youtubeId: "mPlxeVSaZw4",
   },
   {
-    name: "Rohan Patel",
-    city: "Ahmedabad",
-    initial: "RP",
+    name: "Dr. Sravini's Father",
+    city: "Hyderabad",
+    initial: "SR",
     program: "MBBS, 2023–29",
-    country: "Kyrgyzstan",
-    university: "International Higher School of Medicine",
+    country: "Kazakhstan",
+    university: "Caspian International School of Medicine",
     quote:
       "Total 6-year cost was under ₹20 lakh — less than half of what Indian private colleges charge. The Indian mess and hostel make it feel like home.",
     rating: 5,
     color: "#C8243A",
-    videoUrl: "#",
+    videoUrl: "https://www.youtube.com/watch?v=q0T8tW7JNcA&t=39s",
+    youtubeId: "q0T8tW7JNcA",
   },
   {
-    name: "Sneha Iyer",
-    city: "Chennai",
-    initial: "SI",
+    name: "Kamala",
+    city: "Visakhapatnam",
+    initial: "KA",
     program: "MBBS, 2022–28",
     country: "Kazakhstan",
-    university: "South Kazakhstan Medical Academy",
+    university: "Caspian International School of Medicine",
     quote:
       "GVK's counsellors were with me at every step. From picking the right university to settling in Shymkent — their support was unbelievable. Highly recommend!",
     rating: 5,
     color: "#1A2B42",
-    videoUrl: "#",
+    videoUrl: "https://www.youtube.com/watch?v=EBaUYD9lS9Y",
+    youtubeId: "EBaUYD9lS9Y",
   },
   {
-    name: "Karthik Nair",
-    city: "Kochi",
-    initial: "KN",
-    program: "MBBS, 2021–27",
-    country: "Uzbekistan",
-    university: "Samarkand State Medical University",
+    name: "Dr. Sravanthi Gadhiraju (Miss Earth 2021)",
+    city: "Hyderabad",
+    initial: "SG",
+    program: "MBBS",
+    country: "#",
+    university: "#",
     quote:
-      "I had a low NEET score and was rejected by many consultants. GVK found me a seat in Samarkand within 3 weeks. Forever grateful to the team.",
+      "V for Victory! ✌️🎯 Just like the three brothers whose names start with 'V', GVK has paved a successful path for aspiring students. ",
     rating: 5,
     color: "#C8243A",
-    videoUrl: "#",
-  },
-  {
-    name: "Ananya Singh",
-    city: "Lucknow",
-    initial: "AS",
-    program: "MBBS, 2023–28",
-    country: "Nepal",
-    university: "Kathmandu Medical College",
-    quote:
-      "No visa, similar food, similar climate — Nepal felt like a natural choice. GVK EduTech made the entire process effortless for me and my parents.",
-    rating: 5,
-    color: "#1A2B42",
-    videoUrl: "#",
+    videoUrl: "https://www.youtube.com/watch?v=y__JU5GSyFA",
+    youtubeId: "y__JU5GSyFA",
   },
 ];
 
@@ -349,6 +357,7 @@ const MBBSAdsLandingPage = () => {
   const { toast } = useToast();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [modalVideo, setModalVideo] = useState(null);
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -414,6 +423,19 @@ const MBBSAdsLandingPage = () => {
       setIsSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    if (!modalVideo) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setModalVideo(null);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [modalVideo]);
 
   return (
     <PageLayout>
@@ -886,25 +908,39 @@ const MBBSAdsLandingPage = () => {
               <ScrollReveal key={i} animation="fade-up" delay={i * 60}>
                 <div className="testimonial-card">
                   {/* Video thumbnail */}
-                  <a
-                    href={t.videoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="video-thumb block mb-4 group"
-                    aria-label={`Watch ${t.name}'s story`}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setModalVideo({
+                        youtubeId: t.youtubeId,
+                        title: t.name,
+                        university: t.university,
+                        country: t.country,
+                      })
+                    }
+                    className="video-thumb block mb-4 w-full text-left group cursor-pointer"
+                    aria-label={`Play ${t.name}'s story`}
                   >
                     <img
-                      src={`https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg`}
+                      src={`https://img.youtube.com/vi/${t.youtubeId}/hqdefault.jpg`}
                       alt={`${t.name} — ${t.country}`}
                       onError={(e) => {
                         e.currentTarget.src = `https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop`;
                       }}
                     />
                     <div className="play-overlay">
-                      <PlayCircle
-                        className="w-14 h-14 text-white group-hover:scale-110 transition-transform"
-                        style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.5))" }}
-                      />
+                      <div
+                        className="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"
+                        style={{
+                          background: T.red,
+                          boxShadow: "0 6px 20px rgba(0,0,0,0.45)",
+                        }}
+                      >
+                        <Play
+                          className="w-6 h-6 text-white fill-white ml-1"
+                          style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
+                        />
+                      </div>
                     </div>
                     <div
                       className="absolute top-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold"
@@ -912,7 +948,7 @@ const MBBSAdsLandingPage = () => {
                     >
                       ▶ VIDEO
                     </div>
-                  </a>
+                  </button>
 
                   {/* Stars */}
                   <div className="flex items-center gap-0.5 mb-3">
@@ -1126,6 +1162,42 @@ const MBBSAdsLandingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* ─────────────────────── TESTIMONIAL VIDEO MODAL ─────────────────────── */}
+      {modalVideo && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          onClick={() => setModalVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setModalVideo(null)}
+              className="absolute -top-12 right-0 text-white hover:text-white/80 transition-colors"
+              aria-label="Close video"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <div className="aspect-video rounded-2xl overflow-hidden bg-black">
+              <iframe
+                src={`https://www.youtube.com/embed/${modalVideo.youtubeId}?autoplay=1&rel=0`}
+                title={modalVideo.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+            <div className="mt-4 text-white">
+              <h3 className="text-xl font-bold">{modalVideo.title}</h3>
+              <p className="text-white/70">
+                {modalVideo.university} • {modalVideo.country}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </PageLayout>
   );
 };
