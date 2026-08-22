@@ -35,7 +35,7 @@ const T = {
 
 const universityData = {
   nepal:       { name: "Nepal",           flag: "np", image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&auto=format&fit=crop",        category: "MBBS", universities: ["Birat Medical College (KU), Biratnagar","B & C Medical College (KU), Birtamod","Chitwan Medical College (TU), Bharatpur","College of Medical Science (KU), Bharatpur","Devdaha Medical College (KU), Butwal","Gandaki Medical College (TU), Pokhara","Janaki Medical College (TU), Janakpur","Kathmandu Medical College (KU), Kathmandu","Kathmandu University (KUSMS), Dhulikhel","Karnali Academy of Health Science, Karnali","KIST Medical College (TU), Kathmandu","Lumbini Medical College (KU), Palpa","Manipal College of Medical Science (KU), Pokhara","National Medical College (TU), Birgunj","Nepal Medical College (KU), Kathmandu","Nepalgunj Medical College (KU), Nepalgunj","Nobel Medical College (KU), Biratnagar","Universal Medical College (TU), Bhairahawa"] },
-  georgia:     { name: "Georgia",         flag: "ge", image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&auto=format&fit=crop",        category: "MBBS", universities: ["Akaki Tsereteli State University","Alte University School of Medicine","Avicenna - Batumi Medical University","Batumi Shota Rustaveli State University","BAU International University","Caucasus International University (CIU)","Caucasus University (CU)","Central University of Europe, Kutaisi","Central University of Europe, Tbilisi","David Tvildiani Medical University (DTMU)","East European University (EEU)","East-West University (EWU)","European University (EU)","Geomedi University","Georgian American University (GAU)","Georgian National University (SEU)","Grigol Robakidze University","International Black Sea University","Ilia State University","Ivane Javakhishvili Tbilisi State University","New Vision University","Petre Shotadze Tbilisi Medical Academy","Tbilisi State Medical University (TSMU)","University of Georgia (UG)"] },
+  georgia:     { name: "Georgia",         flag: "ge", image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&auto=format&fit=crop",        category: "MBBS", universities: ["Akaki Tsereteli State University","Alte University School of Medicine","Avicenna - Batumi Medical University","Batumi Shota Rustaveli State University","BAU International University","Caucasus International University (CIU)","Caucasus University (CU)","Central University of Europe, Kutaisi","Central University of Europe, Tbilisi","David Tvildiani Medical University (DTMU)","East European University (EEU)","East-West University (EWU)","European University (EU)","Geomedi University","Georgian American University (GAU)","Georgia National University","Grigol Robakidze University","International Black Sea University","Ilia State University","Ivane Javakhishvili Tbilisi State University","New Vision University","Petre Shotadze Tbilisi Medical Academy","Tbilisi State Medical University (TSMU)","University of Georgia (UG)"] },
   kyrgyzstan:  { name: "Kyrgyzstan",      flag: "kg", image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&auto=format&fit=crop",        category: "MBBS", universities: ["Adam University (Medical Faculty)","Avicenna International Medical University","IHSM Central Campus","IHSM Issyk-Kul Campus","International Medical University","International School of Medicine","Jalal-Abad State University","Kyrgyz National University","Kyrgyz-Russian Slavic University","Kyrgyz State Medical Academy","Osh International Medical University","Osh State University","S. Tentishev Asian Medical Institute","University Of South Asia"] },
   russia:      { name: "Russia",          flag: "ru", image: "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=800&auto=format&fit=crop",        category: "MBBS", universities: ["Altai State Medical University","Amur State Medical Academy","Astrakhan State Medical University","Bashkir State Medical University","Chita State Medical Academy","Chuvash State University","Crimean Federal University (CFU)","Dagestan State Medical University","Far Eastern Federal University (FEFU)","First Moscow State Medical University","Immanuel Kant Baltic Federal University","Ingush State University","Irkutsk State Medical University","Ivanovo State Medical University","Izhevsk State Medical Academy (ISMA)","Kabardino-Balkarian State University","Kadyrov Chechen State University","Kazan Federal University (KFU)","Kazan State Medical University","Kemerovo State Medical University","Kemerovo State University","Kirov State Medical University","Krasnoyarsk State Medical University","Kuban State Medical University","Kursk State Medical University","Lobachevsky State University","Lomonosov Moscow State University","Mari State University","Maykop State University","Murmansk Arctic State University","N.P. Ogarev Mordovia State University","North Caucasian State Academy (NCSA)","North Ossetian State Medical Academy","North-Western State Medical University","Northern State Medical University","Novosibirsk State University","Omsk State Medical University","Orel State University","Orenburg State Medical University","Pacific State Medical University","Pavlov First Saint Petersburg State Medical University","Penza State University","People's Friendship University \"RUDN\"","Perm State Medical University","Petrozavodsk State University","Pirogov Russian National Research Medical University","Privolzhsky Research Medical University","Rostov State Medical University","Ryazan State Medical University","Samara State Medical University","Saratov State Medical University","Sechenov University","Siberian State Medical University","Smolensk State Medical University","South-Ural State Medical University","Stavropol State Medical University","Surgut State University","Tambov State University","Tula State University","Tver State Medical University","Tyumen State Medical University","Ulyanovsk State University","Ural State Medical University","Volgograd State Medical University","Voronezh State Medical University","Yaroslavl State Medical University"] },
   uzbekistan:  { name: "Uzbekistan",      flag: "uz", image: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&auto=format&fit=crop",        category: "MBBS", universities: ["Asia International University","Andijan State Medical Institute","Bukhara State Medical Institute","Fergana Medical Institute of Public Health","Karakalpakstan Medical Institute","Namangan State University","Samarkand State Medical University","Tashkent Medical Academy, Tashkent","Tashkent Medical Academy, Chirchiq","Tashkent Medical Academy, Termez","Tashkent Medical Academy, Urgench","Tashkent Pediatric Medical Institute","Tashkent State Dental Institute"] },
@@ -259,6 +259,9 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
             // Hardcoded detail-page overrides (mirror TSMU pattern)
             const isTSMU = uni.includes("Tbilisi State Medical University");
             const isKSMA = uni.includes("Kyrgyz State Medical Academy");
+            const isGNU = uni === "Georgia National University";
+            const isASU = uni === "Arizona State University";
+            const isBIU = uni.includes("Bridgetown International University");
             const isGreenwich = uni === "University of Greenwich";
             if (isTSMU) {
               return (
@@ -280,6 +283,51 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/kyrgyz-state-medical-academy"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            if (isGNU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/georgia-national-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            if (isASU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/arizona-state-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            if (isBIU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/bridgetown-international-university"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle
