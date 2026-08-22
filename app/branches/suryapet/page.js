@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, GraduationCap, BookOpen, Globe, Award, FileCheck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import BranchGallery from "@/components/BranchGallery";
 
 export const dynamic = "force-dynamic";
 
@@ -59,6 +60,15 @@ const pageStyles = (
     .service-card:hover { transform: translateY(-3px); }
   `}</style>
 );
+
+const galleryImages = [
+  { url: "ADD_IMAGE_URL_HERE_1", title: "Gallery image 1", caption: "" },
+  { url: "ADD_IMAGE_URL_HERE_2", title: "Gallery image 2", caption: "" },
+  { url: "ADD_IMAGE_URL_HERE_3", title: "Gallery image 3", caption: "" },
+  { url: "ADD_IMAGE_URL_HERE_4", title: "Gallery image 4", caption: "" },
+  { url: "ADD_IMAGE_URL_HERE_5", title: "Gallery image 5", caption: "" },
+  { url: "ADD_IMAGE_URL_HERE_6", title: "Gallery image 6", caption: "" },
+];
 
 export default function SuryapetPage() {
   return (
@@ -120,7 +130,15 @@ export default function SuryapetPage() {
           </div>
         </div>
       </section>
-      {/* ── Other Branches ── */}
+
+      {/* ── Branch Gallery ── */}
+      <BranchGallery
+        items={galleryImages}
+        title="suryapet Gallery"
+        subtitle="Photos from our suryapet office, events, and student success stories"
+      />
+
+            {/* ── Other Branches ── */}
       <section className="py-16" style={{ background: T.surface }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
@@ -138,6 +156,11 @@ export default function SuryapetPage() {
               { city: "Nellore", flag: "in" },
               { city: "Tirupati", flag: "in" },
               { city: "Nalgonda", flag: "in" },
+              { city: "Khammam", flag: "in" },
+              { city: "Mahabubnagar", flag: "in" },
+              { city: "Nizamabad", flag: "in" },
+              { city: "Kakinada", flag: "in" },
+              { city: "Kerala", flag: "in" },
             ].filter(b => b.city.toLowerCase() !== "suryapet").map((branch) => (
               <Link key={branch.city} href={`/branches/${branch.city.toLowerCase()}`} className="flex items-center gap-3 p-4 rounded-xl border bg-white" style={{ borderColor: T.surfaceAlt }}>
                 <span className={`fi fi-${branch.flag} text-xl`} />

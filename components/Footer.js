@@ -21,23 +21,25 @@ const T = {
 
 /* ── Data ── */
 const mbbsPrograms = [
-  { label: "MBBS in Georgia",     href: "/mbbs/georgia" },
-  { label: "MBBS in Kyrgyzstan",  href: "/mbbs/kyrgyzstan" },
-  { label: "MBBS in Russia",      href: "/mbbs/russia" },
-  { label: "MBBS in Kazakhstan",  href: "/mbbs/kazakhstan" },
-  { label: "MBBS in Uzbekistan",  href: "/mbbs/uzbekistan" },
-  { label: "MBBS in Nepal",       href: "/mbbs/nepal" },
-  { label: "MBBS in Vietnam",     href: "/mbbs/vietnam" },
+  { label: "MBBS in Georgia",         href: "/mbbs/georgia" },
+  { label: "MBBS in Kyrgyzstan",      href: "/mbbs/kyrgyzstan" },
+  { label: "MBBS in Russia",          href: "/mbbs/russia" },
+  { label: "MBBS in Kazakhstan",      href: "/mbbs/kazakhstan" },
+  { label: "MBBS in Uzbekistan",      href: "/mbbs/uzbekistan" },
+  { label: "MBBS in Nepal",           href: "/mbbs/nepal" },
+  { label: "MBBS in Vietnam",         href: "/mbbs/vietnam" },
+  { label: "MBBS in Central America", href: "/mbbs/centralamerica" },
 ];
 
 const mastersPrograms = [
-  { label: "Masters in UK",        href: "/masters/uk" },
-  { label: "Masters in USA",       href: "/masters/usa" },
-  { label: "Masters in Australia", href: "/masters/australia" },
-  { label: "Masters in Canada",    href: "/masters/canada" },
-  { label: "Masters in Germany",   href: "/masters/germany" },
-  { label: "Masters in Europe",    href: "/masters/europe" },
-  { label: "Masters in Ireland",   href: "/masters/ireland" },
+  { label: "Masters in UK",          href: "/masters/uk" },
+  { label: "Masters in USA",         href: "/masters/usa" },
+  { label: "Masters in Australia",   href: "/masters/australia" },
+  { label: "Masters in Canada",      href: "/masters/canada" },
+  { label: "Masters in Germany",     href: "/masters/germany" },
+  { label: "Masters in Europe",      href: "/masters/europe" },
+  { label: "Masters in Ireland",     href: "/masters/ireland" },
+  { label: "Masters in New Zealand", href: "/masters/newzealand" },
 ];
 
 const companyLinks = [

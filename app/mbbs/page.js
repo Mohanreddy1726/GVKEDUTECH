@@ -59,6 +59,7 @@ const mbbsCountries = [
   { name: "Uzbekistan", flag: "uz", link: "/mbbs/uzbekistan", monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114749638.png?updatedAt=1778825875602", highlights: ["Emerging Destination", "Quality Education", "Cultural Heritage"] },
   { name: "Nepal",      flag: "np", link: "/mbbs/nepal",      monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-14_142225739.png?updatedAt=1778748808091", highlights: ["NMC Approved", "Cultural Proximity", "Affordable"] },
   { name: "Vietnam",    flag: "vn", link: "/mbbs/vietnam",    monument: "https://ik.imagekit.io/abhobz66j/GVK%20Images/MBBS%20and%20MASTERS/image_2026-05-15_114910639.png?updatedAt=1778825958215", highlights: ["WHO Listed", "Clinical Exposure", "Tropical Medicine"] },
+  { name: "Central America", flag: null, link: "/mbbs/centralamerica", monument: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=400&auto=format&fit=crop", highlights: ["New Region", "Emerging Hub", "Affordable Options"], region: true },
 ];
 
 const benefits = [
@@ -283,14 +284,30 @@ const MBBSPage = () => {
                   <div className="relative z-10 p-6 pt-28 min-h-[280px] flex flex-col justify-end">
                     {/* Flag + name */}
                     <div className="flex items-center gap-3 mb-3">
-                      <span
-                        className={`fi fi-${country.flag}`}
-                        style={{
-                          fontSize: "2.25rem",
-                          lineHeight: 1,
-                          filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.4))",
-                        }}
-                      />
+                      {country.region ? (
+                        <span
+                          className="inline-flex items-center justify-center font-extrabold rounded-md"
+                          style={{
+                            width: "2.25rem",
+                            height: "2.25rem",
+                            fontSize: "0.95rem",
+                            background: "rgba(255,255,255,0.18)",
+                            color: "#fff",
+                            border: "1px solid rgba(255,255,255,0.35)",
+                          }}
+                        >
+                          CA
+                        </span>
+                      ) : (
+                        <span
+                          className={`fi fi-${country.flag}`}
+                          style={{
+                            fontSize: "2.25rem",
+                            lineHeight: 1,
+                            filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.4))",
+                          }}
+                        />
+                      )}
                       <div>
                         <h3 className="text-xl font-bold text-white leading-tight">
                           {country.name}

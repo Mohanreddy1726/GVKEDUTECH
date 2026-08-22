@@ -31,13 +31,14 @@ const T = {
 
 /* ── Nav data ── */
 const mbbsCountries = [
-  { label: "Kazakhstan",  href: "/mbbs/kazakhstan",  flag: "kz", tag: "MCI Recognized" },
-  { label: "Kyrgyzstan",  href: "/mbbs/kyrgyzstan",  flag: "kg", tag: "NMC Approved" },
-  { label: "Russia",      href: "/mbbs/russia",       flag: "ru", tag: "Top Ranked" },
-  { label: "Georgia",     href: "/mbbs/georgia",      flag: "ge", tag: "WHO Listed" },
-  { label: "Uzbekistan",  href: "/mbbs/uzbekistan",   flag: "uz", tag: "Affordable" },
-  { label: "Nepal",       href: "/mbbs/nepal",        flag: "np", tag: "NMC Approved" },
-  { label: "Vietnam",     href: "/mbbs/vietnam",      flag: "vn", tag: "WHO Listed" },
+  { label: "Kazakhstan",      href: "/mbbs/kazakhstan",  flag: "kz", tag: "MCI Recognized" },
+  { label: "Kyrgyzstan",      href: "/mbbs/kyrgyzstan",  flag: "kg", tag: "NMC Approved" },
+  { label: "Russia",          href: "/mbbs/russia",       flag: "ru", tag: "Top Ranked" },
+  { label: "Georgia",         href: "/mbbs/georgia",      flag: "ge", tag: "WHO Listed" },
+  { label: "Uzbekistan",      href: "/mbbs/uzbekistan",   flag: "uz", tag: "Affordable" },
+  { label: "Nepal",           href: "/mbbs/nepal",        flag: "np", tag: "NMC Approved" },
+  { label: "Vietnam",         href: "/mbbs/vietnam",      flag: "vn", tag: "WHO Listed" },
+  { label: "Central America", href: "/mbbs/centralamerica", flag: null, tag: "New Region", region: true },
 ];
 
 const mastersCountries = [
@@ -82,14 +83,30 @@ const FlagCard = ({ item, onClick }) => {
       }}
     >
       {/* Flag */}
-      <span
-        className={`fi fi-${item.flag} flex-shrink-0 rounded`}
-        style={{
-          fontSize: "1.6rem",
-          lineHeight: 1,
-          filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.15))",
-        }}
-      />
+      {item.region ? (
+        <span
+          className="flex-shrink-0 rounded inline-flex items-center justify-center font-extrabold"
+          style={{
+            width: "1.6rem",
+            height: "1.6rem",
+            fontSize: "0.7rem",
+            background: T.red + "20",
+            color: T.red,
+            border: `1px solid ${T.red}40`,
+          }}
+        >
+          CA
+        </span>
+      ) : (
+        <span
+          className={`fi fi-${item.flag} flex-shrink-0 rounded`}
+          style={{
+            fontSize: "1.6rem",
+            lineHeight: 1,
+            filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.15))",
+          }}
+        />
+      )}
       {/* Text */}
       <div className="min-w-0">
         <p
@@ -259,7 +276,7 @@ export const Navbar = () => {
       >
         <div className="container mx-auto px-4 h-full flex items-center justify-between">
           <p className="text-xs font-semibold" style={{ color: "rgba(255,255,255,0.95)" }}>
-            🎓 15+ Years · 5,000+ Students Placed · 7 MBBS + 8 Masters Destinations
+            🎓 15+ Years · 5,000+ Students Placed · 8 MBBS + 8 Masters Destinations
           </p>
           <div className="flex items-center gap-5 text-xs font-semibold" style={{ color: "rgba(255,255,255,0.95)" }}>
             <a href="mailto:info@gvkedutech.com" className="hover:text-white transition-colors">

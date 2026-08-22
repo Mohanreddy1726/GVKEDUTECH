@@ -47,6 +47,9 @@ const universityData = {
   canada:      { name: "Canada",          flag: "ca", image: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=800&auto=format&fit=crop",        category: "Masters", universities: ["York College","Brock University","Royal Roads University","Saskatchewan Colleges","Wilfrid Laurier University","Fairleigh Dickinson University","McGill University's School of Continuing Studies","University of Lethbridge","Simon Fraser University","University of Waterloo","Lakehead University","University of Calgary","Queen's University","University of Winnipeg","University of Manitoba","Dalhousie University","University of Prince Edward Island","Toronto Metropolitan University","University of Victoria","Acadia University","Vancouver Island University","York University","St. Francis Xavier University","St. Thomas University","University of Guelph","University of Northern British Columbia","University Canada West","University of Windsor","Thompson Rivers University","New York Institute of Technology","Memorial University of Newfoundland","Trent University","Cape Breton University","George Brown College","Sheridan College","Seneca Polytechnic"] },
   germany:     { name: "Germany",         flag: "de", image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&auto=format&fit=crop",        category: "Masters", universities: ["IU International University of Applied Sciences","Berlin School of Business & Innovation (BSBI)","University of Applied Sciences Europe (UE)","SRH Hochschule Heidelberg","SRH Hochschule Berlin","SRH Hochschule Hamburg","SRH Hochschule Dresden","SRH Hochschule Nordrhein-Westfalen","ISM International School of Management GmbH","Steinbeis University","Eurasia Institute","Arden University","EU Business School","GISMA Business School","New European College","Technical University of Munich (TUM)"] },
   europe:      { name: "Rest of Europe",  flag: "eu", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&auto=format&fit=crop",        category: "Masters", universities: ["Domus Academy - Milan, Italy","Campus Spain - Madrid, Spain","Bella Vista - Zurich, Switzerland","Istituto Europeo di Design - Rome, Italy","Business and Hotel Management School – BHMS - Lucerne, Switzerland","Hochschule Fresenius University of Applied Science - Berlin, Germany"] },
+  ireland:     { name: "Ireland",         flag: "ie", image: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&auto=format&fit=crop",        category: "Masters", universities: ["University College Dublin (UCD)","University College Cork (UCC)","Dublin City University (DCU)","University of Limerick (UL)","Trinity College Dublin","National University of Ireland Galway (NUIG)","Maynooth University","Technological University Dublin (TU Dublin)","Atlantic Technological University (ATU)","South East Technological University (SETU)"] },
+  newzealand:  { name: "New Zealand",     flag: "nz", image: "https://images.unsplash.com/photo-1469521669194-babb45599def?w=800&auto=format&fit=crop",        category: "Masters", universities: ["University of Auckland","University of Otago","Victoria University of Wellington","University of Canterbury","Massey University","University of Waikato","Lincoln University","Auckland University of Technology (AUT)","Wellington Institute of Technology (WelTec)","Unitec Institute of Technology"] },
+  centralamerica: { name: "Central America", flag: null, region: true, image: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800&auto=format&fit=crop", category: "MBBS", universities: ["Bridgetown International University (BIU), Barbados","Central American Health Sciences University (Belize)","Washington University of Health and Sciences (Belize)","Medical University of the Americas (Belize / Nevis)","International American University College of Medicine"] },
 };
 
 const totalCount = Object.values(universityData).reduce((s, c) => s + c.universities.length, 0);
@@ -190,10 +193,25 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
         >
           <img src={country.image} alt={country.name}
             className="absolute inset-0 w-full h-full object-cover opacity-60" />
-          <span
-            className={`fi fi-${country.flag} relative z-10`}
-            style={{ fontSize: "1.75rem", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35))" }}
-          />
+          {country.region ? (
+            <span
+              className="relative z-10 inline-flex items-center justify-center font-extrabold rounded-md"
+              style={{
+                width: "1.75rem",
+                height: "1.75rem",
+                fontSize: "0.7rem",
+                background: T.red,
+                color: T.white,
+              }}
+            >
+              CA
+            </span>
+          ) : (
+            <span
+              className={`fi fi-${country.flag} relative z-10`}
+              style={{ fontSize: "1.75rem", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35))" }}
+            />
+          )}
         </div>
 
         {/* Name + count */}
@@ -2061,7 +2079,7 @@ const PartnerUniversitiesPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {[
               { value: `${totalCount}+`, label: "Partner Universities" },
-              { value: "13",            label: "Countries" },
+              { value: "16",            label: "Countries" },
               { value: "MBBS & Masters",label: "Programs" },
               { value: "100%",          label: "NMC / QS Vetted" },
             ].map((s, i) => (

@@ -33,7 +33,7 @@ const slides = [
     tag: "MBBS Abroad",
     headline: ["Your Path to", "Becoming a", "Global Doctor"],
     hl: 2,
-    sub: "Study MBBS at NMC/WHO-approved universities across Russia, Kazakhstan & Europe — zero donation, English medium, complete support from day one.",
+    sub: "Study MBBS at NMC/WHO-approved universities across Russia, Kazakhstan, Georgia, Kyrgyzstan, Nepal, Uzbekistan, Vietnam & Central America — zero donation, English medium, complete support from day one.",
     photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/Untitled%20-%20August%2006,%202026%20at%2019.20.42.png",
     photoName: "Dr. G. Vidya Kumar (GVK)",
     photoRole: "Vice-Dean · MBBS Programs",
@@ -43,8 +43,11 @@ const slides = [
       { flag: "ru", label: "Russia" },
       { flag: "kz", label: "Kazakhstan" },
       { flag: "ge", label: "Georgia" },
+      { flag: "kg", label: "Kyrgyzstan" },
       { flag: "np", label: "Nepal" },
       { flag: "uz", label: "Uzbekisthan" },
+      { flag: "vn", label: "Vietnam" },
+      { flag: null,  label: "Central America", region: true },
     ],
     centerCards: [
       { icon: Shield,     label: "Recognition",    value: "NMC / WHO",    accent: RED  },
@@ -56,8 +59,11 @@ const slides = [
       "Russia · 6 Years · ₹20–30L Total",
       "Kazakhstan · 5 Years · ₹22–28L Total",
       "Georgia · 6 Years · ₹25–32L Total",
+      "Kyrgyzstan · 5 Years · ₹15–22L Total",
       "Nepal · 6 Years · ₹20–25L Total",
       "Uzbekisthan · 5 Years · ₹18–24L Total",
+      "Vietnam · 6 Years · ₹18–25L Total",
+      "Central America · 5–6 Years · ₹18–28L Total",
     ],
     awards: [
       { icon: "Trophy",  title: "Young Entrepreneur",        sub: "Dubai · 2022",       accent: RED,  pos: "tl" },
@@ -71,7 +77,7 @@ const slides = [
     tag: "Masters Abroad",
     headline: ["Elevate Your", "Career with a", "Global Masters"],
     hl: 2,
-    sub: "Pursue MBA, MS and postgraduate programs at top-ranked universities in the UK, USA, Europe & Asia — scholarship guidance and visa support at every step.",
+    sub: "Pursue MBA, MS and postgraduate programs at top-ranked universities in the UK, USA, Germany, Australia, Canada, Europe, Ireland & New Zealand — scholarship guidance and visa support at every step.",
     photo: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Directors/Vinod%20sir%20photograpg.png",
     photoName: "Dr. G. Vinod Kumar (GVK) ",
     photoRole: "CEO · Masters & Global Programs",
@@ -83,6 +89,9 @@ const slides = [
       { flag: "de", label: "Germany" },
       { flag: "au", label: "Australia" },
       { flag: "ca", label: "Canada" },
+      { flag: "eu", label: "Europe" },
+      { flag: "ie", label: "Ireland" },
+      { flag: "nz", label: "New Zealand" },
     ],
     centerCards: [
       { icon: Star,       label: "Rankings",       value: "QS Top 200",   accent: RED  },
@@ -95,6 +104,10 @@ const slides = [
       "MS Computer Science · USA · 2 Years",
       "M.Sc · Germany · Free Tuition",
       "MBA · Australia · 1.5 Years",
+      "Masters · Canada · 1–2 Years · PR Pathway",
+      "Masters · New Zealand · 1–2 Years · Work Permit",
+      "Masters · Europe · Schengen Access",
+      "Masters · Ireland · Tech Hub",
     ],
     awards: [
       { icon: "Crown",   title: "London Global Award",       sub: "London · 2024",        accent: RED,  pos: "tl" },
@@ -118,6 +131,11 @@ const branches = [
   { label: "Suryapet",      href: "/branches/suryapet",       flag: "in" },
   { label: "Nellore",       href: "/branches/nellore",        flag: "in" },
   { label: "Tirupati",      href: "/branches/tirupati",       flag: "in" },
+  { label: "Khammam",       href: "/branches/khammam",        flag: "in" },
+  { label: "Mahabubnagar",  href: "/branches/mahabubnagar",   flag: "in" },
+  { label: "Nizamabad",     href: "/branches/nizamabad",      flag: "in" },
+  { label: "Kakinada",      href: "/branches/kakinada",       flag: "in" },
+  { label: "Kerala",        href: "/branches/kerala",         flag: "in" },
 ];
 
 function useInterval(fn, delay, paused) {
@@ -318,7 +336,22 @@ export const Hero = () => {
               {s.countries.map((c, i) => (
                 <span key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
                   style={{ background:"rgba(255,255,255,0.07)", color:"rgba(255,255,255,0.65)", border:`1px solid ${BLUE}55` }}>
-                  <span className={`fi fi-${c.flag}`} style={{ fontSize: "13px" }} />
+                  {c.region ? (
+                    <span
+                      className="inline-flex items-center justify-center font-extrabold rounded-sm"
+                      style={{
+                        width: "13px",
+                        height: "13px",
+                        fontSize: "7px",
+                        background: RED,
+                        color: "#fff",
+                      }}
+                    >
+                      CA
+                    </span>
+                  ) : (
+                    <span className={`fi fi-${c.flag}`} style={{ fontSize: "13px" }} />
+                  )}
                   {c.label}
                 </span>
               ))}

@@ -56,7 +56,7 @@ const T = {
   white:     "#FFFFFF",
 };
 
-/* ─── Country data: 7 MBBS destinations ─── */
+/* ─── Country data: 8 MBBS destinations ─── */
 const mbbsCountries = [
   {
     name: "Russia",
@@ -134,6 +134,18 @@ const mbbsCountries = [
     fee: "₹18 – ₹25 Lakh",
     universities: "5+ NMC Approved",
     highlights: ["WHO Listed", "Clinical Exposure", "Tropical Medicine", "Affordable Living"],
+  },
+  {
+    name: "Central America",
+    slug: "centralamerica",
+    flag: null,
+    region: true,
+    image: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=400&auto=format&fit=crop",
+    duration: "5–6 Years",
+    medium: "English",
+    fee: "₹18 – ₹28 Lakh",
+    universities: "Emerging Region",
+    highlights: ["New Region", "English-Medium Programs", "Affordable Options", "Cultural Diversity"],
   },
 ];
 
@@ -480,7 +492,7 @@ const MBBSAdsLandingPage = () => {
               </h1>
 
               <p className="text-lg lg:text-xl mb-6 max-w-2xl" style={{ color: "rgba(255,255,255,0.8)" }}>
-                Affordable fees from <strong className="text-white">₹12 Lakh</strong> · English Medium · 5,000+ Indian students placed in 7 countries.
+                Affordable fees from <strong className="text-white">₹12 Lakh</strong> · English Medium · 5,000+ Indian students placed in 8 countries.
               </p>
 
               {/* Mini stats inline */}
@@ -618,7 +630,7 @@ const MBBSAdsLandingPage = () => {
                     >
                       <option value="">Select a country</option>
                       {mbbsCountries.map((c) => (
-                        <option key={c.slug} value={c.slug}>{c.name}</option>
+                        <option key={c.slug || c.name} value={c.slug || c.name.toLowerCase().replace(/\s+/g, "-")}>{c.name}</option>
                       ))}
                       <option value="undecided">Not sure yet</option>
                     </select>
@@ -729,30 +741,46 @@ const MBBSAdsLandingPage = () => {
             <div className="text-center max-w-3xl mx-auto mb-12">
               <p className="ads-eyebrow center">MBBS Destinations</p>
               <h2 className="text-3xl lg:text-4xl font-bold mb-2" style={{ color: T.navyMid }}>
-                Top 7 Countries for Indian Students
+                Top 8 Countries for Indian Students
               </h2>
               <span className="ads-rule center" />
               <p className="mt-5 text-base" style={{ color: T.muted }}>
-                Choose from Russia, Georgia, Kyrgyzstan, Kazakhstan, Nepal, Uzbekistan, and
-                Vietnam — all offering NMC-approved MBBS programmes in English.
+                Choose from Russia, Georgia, Kyrgyzstan, Kazakhstan, Nepal, Uzbekistan, Vietnam,
+                and Central America — all offering NMC-approved MBBS programmes in English.
               </p>
             </div>
           </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {mbbsCountries.map((c, i) => (
-              <ScrollReveal key={c.slug} animation="scale" delay={i * 60}>
-                <Link href={`/mbbs/${c.slug}`} className="country-mini">
+              <ScrollReveal key={c.slug || c.name} animation="scale" delay={i * 60}>
+                <Link href={c.slug ? `/mbbs/${c.slug}` : "/mbbs"} className="country-mini">
                   <div
                     className="h-44 bg-cover bg-center"
                     style={{ backgroundImage: `url(${c.image})` }}
                   />
                   <div className="relative z-10 p-5 flex-1 flex flex-col" style={{ background: T.white }}>
                     <div className="flex items-center gap-2 mb-3">
-                      <span
-                        className={`fi fi-${c.flag}`}
-                        style={{ fontSize: "1.5rem", lineHeight: 1, filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }}
-                      />
+                      {c.region ? (
+                        <span
+                          className="inline-flex items-center justify-center font-extrabold rounded"
+                          style={{
+                            width: "1.5rem",
+                            height: "1.5rem",
+                            fontSize: "0.7rem",
+                            background: T.red + "18",
+                            color: T.red,
+                            border: `1px solid ${T.red}55`,
+                          }}
+                        >
+                          CA
+                        </span>
+                      ) : (
+                        <span
+                          className={`fi fi-${c.flag}`}
+                          style={{ fontSize: "1.5rem", lineHeight: 1, filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }}
+                        />
+                      )}
                       <h3 className="text-lg font-bold" style={{ color: T.navyMid }}>{c.name}</h3>
                     </div>
                     <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs mb-3">

@@ -1,6 +1,6 @@
 import { PageLayout } from "@/components/PageLayout";
 import { PageHeader } from "@/components/PageHeader";
-import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, GraduationCap, BookOpen, Globe, Award, FileCheck } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, GraduationCap, BookOpen, Globe, Award, FileCheck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import BranchGallery from "@/components/BranchGallery";
@@ -8,9 +8,9 @@ import BranchGallery from "@/components/BranchGallery";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Best Study Abroad Consultancy in Tirupati | MBBS & Masters Abroad",
-  description: "Looking for the best study abroad consultancy in Tirupati? GVK EduTech offers expert guidance for MBBS and Masters abroad in Tirupati.",
-  keywords: "study abroad consultancy tirupati, best abroad consultancy tirupati",
+  title: "Best Study Abroad Consultancy in Kerala | MBBS & Masters Abroad",
+  description: "Looking for the best study abroad consultancy in Kerala? GVK EduTech offers expert guidance for MBBS and Masters abroad admissions, visas and scholarships.",
+  keywords: "study abroad consultancy kerala, best abroad consultancy kerala, overseas education consultants kerala, mbbs abroad consultancy kerala, study abroad consultants kerala, foreign education consultants kerala, masters abroad consultancy kerala, study abroad consultancy kochi, study abroad consultancy trivandrum, study abroad consultancy calicut",
 };
 
 const T = { navy: "#0F1B2D", navyMid: "#1A2B42", red: "#C8243A", surface: "#F8F9FB", surfaceAlt: "#E8EDF5", muted: "#5A7190", white: "#FFFFFF" };
@@ -42,16 +42,16 @@ const services = [
 ];
 
 const office = {
-  city: "Tirupati",
+  city: "Kerala",
   type: "Regional Office",
-  address: "Tirupati, Andhra Pradesh",
-  phones: ["+91 9494289424", "+91 9000492589"],
+  address: "Kerala",
+  phones: ["+91 9010060000", "+91 8886661877"],
   email: "info@gvkedutech.com",
-  mapLink: "https://goo.gl/maps/tirupati",
-  image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/image_2026-05-07_115255252.png",
-  monument: "Tirumala Temple",
-  regionalDirector: "Mr. Aluvala Madhu",
-  qualification: "B.Sc(B.Z.C), B.P.Ed",
+  mapLink: "https://goo.gl/maps/kerala",
+  image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1200&auto=format&fit=crop",
+  monument: "Backwaters of Kerala",
+  regionalDirector: "To Be Announced",
+  qualification: "",
 };
 
 const pageStyles = (
@@ -68,19 +68,19 @@ const galleryImages = [
   { url: "ADD_IMAGE_URL_HERE_4", title: "Gallery image 4", caption: "" },
 ];
 
-export default function TirupatiPage() {
+export default function KeralaPage() {
   return (
     <PageLayout>
       {pageStyles}
-      <PageHeader title="Best Study Abroad Consultancy in Tirupati" subtitle="Your trusted partner for MBBS and Masters abroad" breadcrumb="Branches / Tirupati" />
+      <PageHeader title="Best Study Abroad Consultancy in Kerala" subtitle="Your trusted partner for MBBS and Masters abroad" breadcrumb="Branches / Kerala" />
       <section className="py-16" style={{ background: T.surface }}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: T.navyMid }}>Best Study Abroad Consultancy in Tirupati</h1>
-            <p className="text-lg" style={{ color: T.muted }}>GVK EduTech offers expert guidance for MBBS and Masters abroad.</p>
+            <h1 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: T.navyMid }}>Best Study Abroad Consultancy in Kerala</h1>
+            <p className="text-lg" style={{ color: T.muted }}>GVK EduTech offers expert guidance for MBBS and Masters abroad admissions.</p>
             <div className="flex flex-wrap gap-4 justify-center mt-8">
               <Link href="/contact" className="px-6 py-3 rounded-xl font-semibold text-sm" style={{ background: T.red, color: T.white }}>Book Free Counseling</Link>
-              <a href="tel:+919494289424" className="px-6 py-3 rounded-xl font-semibold text-sm border" style={{ borderColor: T.surfaceAlt, color: T.navyMid }}>Call: +91 9494289424</a>
+              <a href="tel:+919010060000" className="px-6 py-3 rounded-xl font-semibold text-sm border" style={{ borderColor: T.surfaceAlt, color: T.navyMid }}>Call: +91 9010060000</a>
             </div>
           </div>
         </div>
@@ -107,10 +107,10 @@ export default function TirupatiPage() {
       </section>
       <section className="py-20" style={{ background: T.surface }}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12"><h2 className="text-3xl font-bold" style={{ color: T.navyMid }}>GVK EduTech Tirupati Office</h2></div>
+          <div className="text-center mb-12"><h2 className="text-3xl font-bold" style={{ color: T.navyMid }}>GVK EduTech Kerala Office</h2></div>
           <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
             <div className="relative h-[350px] rounded-2xl overflow-hidden">
-              <Image src={office.image} alt="GVK EduTech Tirupati" fill className="object-cover" />
+              <Image src={office.image} alt="GVK EduTech Kerala" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
             <div className="space-y-5">
@@ -128,15 +128,13 @@ export default function TirupatiPage() {
           </div>
         </div>
       </section>
-
       {/* ── Branch Gallery ── */}
       <BranchGallery
         items={galleryImages}
-        title="tirupati Gallery"
-        subtitle="Photos from our tirupati office, events, and student success stories"
+        title="kerala Gallery"
+        subtitle="Photos from our kerala office, events, and student success stories"
       />
 
-            {/* ── Other Branches ── */}
       <section className="py-16" style={{ background: T.surface }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
@@ -144,22 +142,12 @@ export default function TirupatiPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { city: "Hyderabad", flag: "in" },
-              { city: "Bangalore", flag: "in" },
-              { city: "Chennai", flag: "in" },
-              { city: "Warangal", flag: "in" },
-              { city: "Karimnagar", flag: "in" },
-              { city: "Vijayawada", flag: "in" },
-              { city: "Visakhapatnam", flag: "in" },
-              { city: "Nellore", flag: "in" },
-              { city: "Suryapet", flag: "in" },
-              { city: "Nalgonda", flag: "in" },
-              { city: "Khammam", flag: "in" },
-              { city: "Mahabubnagar", flag: "in" },
-              { city: "Nizamabad", flag: "in" },
-              { city: "Kakinada", flag: "in" },
-              { city: "Kerala", flag: "in" },
-            ].filter(b => b.city.toLowerCase() !== "tirupati").map((branch) => (
+              { city: "Hyderabad", flag: "in" }, { city: "Bangalore", flag: "in" }, { city: "Chennai", flag: "in" },
+              { city: "Warangal", flag: "in" }, { city: "Karimnagar", flag: "in" }, { city: "Vijayawada", flag: "in" },
+              { city: "Visakhapatnam", flag: "in" }, { city: "Nellore", flag: "in" }, { city: "Suryapet", flag: "in" },
+              { city: "Nalgonda", flag: "in" }, { city: "Tirupati", flag: "in" }, { city: "Khammam", flag: "in" },
+              { city: "Mahabubnagar", flag: "in" }, { city: "Nizamabad", flag: "in" }, { city: "Kakinada", flag: "in" },
+            ].filter(b => b.city.toLowerCase() !== "kerala").map((branch) => (
               <Link key={branch.city} href={`/branches/${branch.city.toLowerCase()}`} className="flex items-center gap-3 p-4 rounded-xl border bg-white" style={{ borderColor: T.surfaceAlt }}>
                 <span className={`fi fi-${branch.flag} text-xl`} />
                 <span className="font-semibold" style={{ color: T.navyMid }}>{branch.city}</span>
@@ -169,13 +157,12 @@ export default function TirupatiPage() {
           </div>
         </div>
       </section>
-
       <section className="py-16" style={{ background: `linear-gradient(135deg, ${T.navy} 0%, #1E3558 100%)` }}>
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">Start Your Study Abroad Journey</h2>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" className="px-6 py-3 rounded-xl font-semibold text-sm" style={{ background: T.red, color: T.white }}>Book Free Counseling</Link>
-            <a href="tel:+919494289424" className="px-6 py-3 rounded-xl font-semibold text-sm border border-white/20 text-white">Call Now</a>
+            <a href="tel:+919010060000" className="px-6 py-3 rounded-xl font-semibold text-sm border border-white/20 text-white">Call Now</a>
           </div>
         </div>
       </section>

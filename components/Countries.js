@@ -16,6 +16,7 @@ const mbbsCountries = [
   { name: "Kazakhstan", flag: "kz", link: "/mbbs/kazakhstan", monument: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=400&auto=format&fit=crop" },
   { name: "Vietnam", flag: "vn", link: "/mbbs/vietnam", monument: "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=400&auto=format&fit=crop" },
   { name: "Uzbekistan", flag: "uz", link: "/mbbs/uzbekistan", monument: "https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=400&auto=format&fit=crop" },
+  { name: "Central America", flag: null, link: "/mbbs/centralamerica", monument: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=400&auto=format&fit=crop", region: true },
 ];
 
 const mastersCountries = [
@@ -26,6 +27,7 @@ const mastersCountries = [
   { name: "Ireland", flag: "ie", link: "/masters/ireland", monument: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=400&auto=format&fit=crop" },
   { name: "Germany", flag: "de", link: "/masters/germany", monument: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&auto=format&fit=crop" },
   { name: "Canada", flag: "ca", link: "/masters/canada", monument: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=400&auto=format&fit=crop" },
+  { name: "New Zealand", flag: "nz", link: "/masters/newzealand", monument: "https://images.unsplash.com/photo-1469521669194-babb45599def?w=400&auto=format&fit=crop" },
 ];
 
 export const Countries = () => {
@@ -51,7 +53,7 @@ export const Countries = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
             {mbbsCountries.map((country, index) => (
               <ScrollReveal key={country.name} animation="scale" delay={index * 60}>
                 <Link
@@ -64,7 +66,11 @@ export const Countries = () => {
                   />
                   <div className="relative p-6">
                     <div className="mb-3 group-hover:scale-110 transition-transform flag-fly-wrapper">
-                      <span className={`fi fi-${country.flag}`} style={{ fontSize: "3rem", display: "inline-block" }}></span>
+                      {country.region ? (
+                        <span className="inline-flex items-center justify-center rounded-full bg-accent/15 text-accent font-extrabold" style={{ width: "3rem", height: "3rem", fontSize: "1.25rem" }}>CA</span>
+                      ) : (
+                        <span className={`fi fi-${country.flag}`} style={{ fontSize: "3rem", display: "inline-block" }}></span>
+                      )}
                     </div>
                     <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors text-sm lg:text-base">
                       {country.name}
@@ -89,7 +95,7 @@ export const Countries = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
             {mastersCountries.map((country, index) => (
               <ScrollReveal key={country.name} animation="scale" delay={index * 60}>
                 <Link

@@ -444,6 +444,53 @@ const universityData = {
       { name: "Hochschule Fresenius University of Applied Science - Berlin, Germany", website: "https://fresenius.de" },
     ],
   },
+  ireland: {
+    name: "Ireland",
+    flag: "ie",
+    image: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&auto=format&fit=crop",
+    universities: [
+      { name: "University College Dublin (UCD)", website: "https://ucd.ie" },
+      { name: "University College Cork (UCC)", website: "https://ucc.ie" },
+      { name: "Dublin City University (DCU)", website: "https://dcu.ie" },
+      { name: "University of Limerick (UL)", website: "https://ul.ie" },
+      { name: "Trinity College Dublin", website: "https://tcd.ie" },
+      { name: "National University of Ireland Galway (NUIG)", website: "https://universityofgalway.ie" },
+      { name: "Maynooth University", website: "https://mu.ie" },
+      { name: "Technological University Dublin (TU Dublin)", website: "https://tudublin.ie" },
+      { name: "Atlantic Technological University (ATU)", website: "https://atu.ie" },
+      { name: "South East Technological University (SETU)", website: "https://setu.ie" },
+    ],
+  },
+  newzealand: {
+    name: "New Zealand",
+    flag: "nz",
+    image: "https://images.unsplash.com/photo-1469521669194-babb45599def?w=800&auto=format&fit=crop",
+    universities: [
+      { name: "University of Auckland", website: "https://auckland.ac.nz" },
+      { name: "University of Otago", website: "https://otago.ac.nz" },
+      { name: "Victoria University of Wellington", website: "https://wgtn.ac.nz" },
+      { name: "University of Canterbury", website: "https://canterbury.ac.nz" },
+      { name: "Massey University", website: "https://massey.ac.nz" },
+      { name: "University of Waikato", website: "https://waikato.ac.nz" },
+      { name: "Lincoln University", website: "https://lincoln.ac.nz" },
+      { name: "Auckland University of Technology (AUT)", website: "https://aut.ac.nz" },
+      { name: "Wellington Institute of Technology (WelTec)", website: "https://weltec.ac.nz" },
+      { name: "Unitec Institute of Technology", website: "https://unitec.ac.nz" },
+    ],
+  },
+  centralamerica: {
+    name: "Central America",
+    flag: null,
+    region: true,
+    image: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800&auto=format&fit=crop",
+    universities: [
+      { name: "Bridgetown International University (BIU), Barbados", website: "https://biu.edu.bb" },
+      { name: "Central American Health Sciences University (Belize)", website: "https://cahsu.edu.bz" },
+      { name: "Washington University of Health and Sciences (Belize)", website: "https://wuhs.edu" },
+      { name: "Medical University of the Americas (Belize / Nevis)", website: "https://mua.edu" },
+      { name: "International American University College of Medicine", website: "https://iau.edu" },
+    ],
+  },
 };
 
 // Function to get logo URL - uses real logos from universityLogos mapping
