@@ -193,6 +193,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-dundee",
     "/partner-universities/auezov-south-kazakhstan-university",
     "/partner-universities/university-of-california",
+    "/partner-universities/european-university-georgia",
+    "/partner-universities/university-of-texas-at-dallas",
     "/mbbs-abroad",
   ].map((route) => entry(route, { priority: 0.7 }));
 

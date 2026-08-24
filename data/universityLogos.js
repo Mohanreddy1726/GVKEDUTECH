@@ -77,6 +77,7 @@ const universityLogos = {
   "University of Oklahoma": "https://static.cdnlogo.com/logos/u/32/university-of-oklahoma.svg",
   "University of Maryland": "https://static.cdnlogo.com/logos/u/32/university-of-maryland.svg",
   "University of Tennessee": "https://static.cdnlogo.com/logos/u/83/university-of-tennessee.svg",
+  "University of Texas at Dallas": "https://static.cdnlogo.com/logos/u/83/university-of-texas-at-dallas.svg",
 
   // UK
   "Bangor University": "https://static.cdnlogo.com/logos/b/42/bangor-university.svg",

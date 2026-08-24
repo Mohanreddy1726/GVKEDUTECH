@@ -62,7 +62,7 @@ const universityData = {
       { name: "David Tvildiani Medical University (DTMU)", website: "https://dtmu.edu.ge" },
       { name: "East European University (EEU)", website: "https://eeu.edu.ge" },
       { name: "East-West University (EWU)", website: "https://ewu.edu.ge" },
-      { name: "European University (EU)", website: "https://europeanuniversity.edu.ge" },
+      { name: "European University (EU)", website: "/partner-universities/european-university-georgia" },
       { name: "Geomedi University", website: "https://geomedi.edu.ge" },
       { name: "Georgian American University (GAU)", website: "https://gau.edu.ge" },
       { name: "Georgian National University (SEU)", website: "https://seu.edu.ge" },
@@ -328,6 +328,7 @@ const universityData = {
       { name: "University of Oklahoma", website: "https://ou.edu" },
       { name: "University of Maryland", website: "https://umd.edu" },
       { name: "University of Tennessee", website: "https://tennessee.edu" },
+      { name: "University of Texas at Dallas", website: "/partner-universities/university-of-texas-at-dallas" },
     ],
   },
   australia: {
