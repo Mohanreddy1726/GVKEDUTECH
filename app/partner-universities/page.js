@@ -42,7 +42,7 @@ const universityData = {
   kazakhstan:  { name: "Kazakhstan",      flag: "kz", image: "https://images.unsplash.com/photo-1625657799852-3d2bd008a050?w=800&auto=format&fit=crop",        category: "MBBS", universities: ["Al-Farabi Kazakh National University","Asfendiyarov Kazakh National University","Caspian International School of Medicine","Karaganda Medical University","Kazakh-Russian Medical University","Astana Medical University","Semey Medical University","Kokshetau State University","South Kazakhstan Medical Academy","West Kazakhstan Marat Ospanov Medical University","Kazakh National Medical University (KazNMU)"] },
   vietnam:     { name: "Vietnam",         flag: "vn", image: "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=800&auto=format&fit=crop",            category: "MBBS", universities: ["Hanoi Medical University (HMU)","University of Medicine and Pharmacy at HCMC","Hue University of Medicine and Pharmacy","Can Tho University of Medicine and Pharmacy","Thai Nguyen University of Medicine and Pharmacy","Hai Phong University of Medicine and Pharmacy","Pham Ngoc Thach University of Medicine"] },
   uk:          { name: "United Kingdom",  flag: "gb", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&auto=format&fit=crop",        category: "Masters", universities: ["Aston University","Bangor University","Bournemouth University","Coventry University","De Montfort University","University of Roehampton","University of East London","University of Greenwich","Hertfordshire University","University of Gloucestershire","University of Huddersfield","Kingston University London","Ravensbourne University London","University of Salford","Solent University","Teesside University","University of East Anglia","Cardiff Metropolitan University","Heriot Watt University","Middlesex University","Nottingham Trent University","Swansea University","University of Wolverhampton","University of Chester","BPP University","Birmingham City University","University of Bradford","Northumbria University London","Manchester Metropolitan University","University of Manchester","Wrexham Glyndwr University","Sheffield Hallam University","Brunel University London","University of Westminster","University of Bristol","University of Leeds","University of Glasgow","Durham University","University of Southampton","University of Birmingham","University of Hull","University of Kent","University of Lincoln","University of Nottingham","University of Sheffield","Newcastle University","Lancaster University","University of Central Lancashire","Queen Mary University of London","University of Bath","Oxford Brookes University","The University of Exeter","University of Essex","Cardiff University","University of York","University of Liverpool","University of Derby","Cranfield University","Queens University Belfast","University of Aberdeen","Loughborough University","University of Sussex","University of Surrey","University of Leicester","University of Reading","University of Strathclyde","University of Portsmouth","University of Stirling","University of Dundee"] },
-  usa:         { name: "USA",             flag: "us", image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800&auto=format&fit=crop",        category: "Masters", universities: ["Saint Louis University","Webster University","Arkansas State University","University of Memphis","University of Findlay","Wichita State University","University of Missouri St. Louis","Southern New Hampshire","Sacred Heart University","South East Missouri University","SUNY Buffalo State College","New Jersey Institute of Technology","San Jose State University","University of North Texas","University of New Haven","University of Albany SUNY","Baylor University","Marquette University","University of South Dakota","University of Cincinnati","Johns Hopkins University","Arizona State University","University of California","University of South Florida","Drexel University","University of Delaware","Miami University","University of Wisconsin","George Mason University","Montclair State University","Northeastern University","Colorado State University","Oregon State University","University of Illinois at Chicago","The University of Alabama","Claremont Graduate University","Auburn University","University of Utah","Ohio University","University of Kansas","University of Oklahoma","University of Maryland","University of Tennessee","University of Texas at Dallas"] },
+  usa:         { name: "USA",             flag: "us", image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800&auto=format&fit=crop",        category: "Masters", universities: ["Saint Louis University","Webster University","Arkansas State University","University of Memphis","University of Findlay","Wichita State University","University of Missouri St. Louis","Southern New Hampshire","Sacred Heart University","South East Missouri University","SUNY Buffalo State College","New Jersey Institute of Technology","San Jose State University","University of North Texas","University of New Haven","University of Albany SUNY","Baylor University","Marquette University","University of South Dakota","University of Cincinnati","Johns Hopkins University","Arizona State University","University of California","University of South Florida","Drexel University","University of Delaware","Miami University","University of Wisconsin","George Mason University","Montclair State University","Northeastern University","Colorado State University","Oregon State University","University of Illinois at Chicago","The University of Alabama","Claremont Graduate University","Auburn University","Purdue University","University of Utah","Ohio University","University of Kansas","University of Oklahoma","University of Maryland","University of Tennessee","University of Texas at Dallas"] },
   australia:   { name: "Australia",       flag: "au", image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&auto=format&fit=crop",        category: "Masters", universities: ["The University of New South Wales","Monash University","The University of Queensland","University of Western Australia","The University of Adelaide","University of Technology Sydney","Macquarie University","RMIT University","University of Wollongong","The University of Newcastle","Queensland University of Technology","Deakin University","La Trobe University","Griffith University","Swinburne University of Technology","Western Sydney University","University of Tasmania","University of South Australia","Flinders University","Charles Darwin University","James Cook University","CQUniversity Australia","Australian Catholic University","Torrens University","Victoria University","University of Canberra","University of the Sunshine Coast","Kaplan Business School","Le Cordon Bleu","International College of Management Sydney"] },
   canada:      { name: "Canada",          flag: "ca", image: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=800&auto=format&fit=crop",        category: "Masters", universities: ["York College","Brock University","Royal Roads University","Saskatchewan Colleges","Wilfrid Laurier University","Fairleigh Dickinson University","McGill University's School of Continuing Studies","University of Lethbridge","Simon Fraser University","University of Waterloo","Lakehead University","University of Calgary","Queen's University","University of Winnipeg","University of Manitoba","Dalhousie University","University of Prince Edward Island","Toronto Metropolitan University","University of Victoria","Acadia University","Vancouver Island University","York University","St. Francis Xavier University","St. Thomas University","University of Guelph","University of Northern British Columbia","University Canada West","University of Windsor","Thompson Rivers University","New York Institute of Technology","Memorial University of Newfoundland","Trent University","Cape Breton University","George Brown College","Sheridan College","Seneca Polytechnic"] },
   germany:     { name: "Germany",         flag: "de", image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&auto=format&fit=crop",        category: "Masters", universities: ["IU International University of Applied Sciences","Berlin School of Business & Innovation (BSBI)","University of Applied Sciences Europe (UE)","SRH Hochschule Heidelberg","SRH Hochschule Berlin","SRH Hochschule Hamburg","SRH Hochschule Dresden","SRH Hochschule Nordrhein-Westfalen","ISM International School of Management GmbH","Steinbeis University","Eurasia Institute","Arden University","EU Business School","GISMA Business School","New European College","Technical University of Munich (TUM)"] },
@@ -347,6 +347,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/university-of-texas-at-dallas"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Purdue University — specific page
+            const isPurdue = uni === "Purdue University";
+            if (isPurdue) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/purdue-university"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle
@@ -872,6 +889,23 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/batumi-shota-rustaveli-state-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // Caucasus International University (CIU) — Georgia specific page
+            const isCIU = uni.includes("Caucasus International University");
+            if (isCIU) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/caucasus-international-university"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

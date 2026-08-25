@@ -194,7 +194,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/auezov-south-kazakhstan-university",
     "/partner-universities/university-of-california",
     "/partner-universities/european-university-georgia",
+    "/partner-universities/caucasus-international-university",
     "/partner-universities/university-of-texas-at-dallas",
+    "/partner-universities/purdue-university",
     "/mbbs-abroad",
   ].map((route) => entry(route, { priority: 0.7 }));
 
