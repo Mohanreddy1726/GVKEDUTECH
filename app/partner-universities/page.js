@@ -389,6 +389,40 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // University of Georgia (UG) specific page
+            const isUG = uni === "University of Georgia (UG)" || uni === "University of Georgia";
+            if (isUG) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-georgia"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Illinois at Chicago (UIC) specific page
+            const isUIC = uni === "University of Illinois at Chicago" || uni === "University of Illinois Chicago";
+            if (isUIC) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-illinois-chicago"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // Adam University (Medical Faculty) specific page
             const isAdam = uni === "Adam University (Medical Faculty)";
             if (isAdam) {

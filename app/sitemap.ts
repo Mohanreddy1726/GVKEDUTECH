@@ -197,6 +197,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/caucasus-international-university",
     "/partner-universities/university-of-texas-at-dallas",
     "/partner-universities/purdue-university",
+    "/partner-universities/university-of-georgia",
+    "/partner-universities/university-of-illinois-chicago",
     "/mbbs-abroad",
   ].map((route) => entry(route, { priority: 0.7 }));
 
