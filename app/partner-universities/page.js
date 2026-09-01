@@ -2174,6 +2174,40 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Caucasus University (CU) — Georgia specific page
+            const isCaucasusUni = uni === "Caucasus University (CU)" || uni === "Caucasus University";
+            if (isCaucasusUni) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/caucasus-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Minnesota Twin Cities — USA specific page
+            const isMinnesota = uni === "University of Minnesota Twin Cities";
+            if (isMinnesota) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-minnesota-twin-cities"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // For MBBS countries, link to partner-universities/[country-slug]
             const countrySlug = Object.keys(universityData).find(key => universityData[key].name === country.name);
             return (
