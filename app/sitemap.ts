@@ -195,10 +195,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-california",
     "/partner-universities/european-university-georgia",
     "/partner-universities/caucasus-international-university",
+    "/partner-universities/caucasus-university",
     "/partner-universities/university-of-texas-at-dallas",
     "/partner-universities/purdue-university",
     "/partner-universities/university-of-georgia",
     "/partner-universities/university-of-illinois-chicago",
+    "/partner-universities/university-of-minnesota-twin-cities",
     "/mbbs-abroad",
   ].map((route) => entry(route, { priority: 0.7 }));
 
