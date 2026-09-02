@@ -2208,6 +2208,40 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            // Alte University School of Medicine — Georgia specific page
+            const isAlte = uni === "Alte University School of Medicine";
+            if (isAlte) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/alte-university-school-of-medicine"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            // University of Wisconsin — USA specific page
+            const isUW = uni === "University of Wisconsin";
+            if (isUW) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-wisconsin-madison"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             // For MBBS countries, link to partner-universities/[country-slug]
             const countrySlug = Object.keys(universityData).find(key => universityData[key].name === country.name);
             return (
