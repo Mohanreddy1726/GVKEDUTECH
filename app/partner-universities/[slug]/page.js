@@ -52,7 +52,7 @@ const universityData = {
     image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&auto=format&fit=crop",
     universities: [
       { name: "Akaki Tsereteli State University", website: "https://atsu.edu.ge" },
-      { name: "Alte University School of Medicine", website: "https://alte.edu.ge" },
+      { name: "Alte University School of Medicine", website: "/partner-universities/alte-university-school-of-medicine" },
       { name: "Avicenna - Batumi Medical University", website: "https://avicenna.edu.ge" },
       { name: "Batumi Shota Rustaveli State University", website: "/partner-universities/batumi-shota-rustaveli-state-university" },
       { name: "BAU International University", website: "https://bau.edu.ge" },
@@ -313,7 +313,7 @@ const universityData = {
       { name: "Drexel University", website: "https://drexel.edu" },
       { name: "University of Delaware", website: "https://udel.edu" },
       { name: "Miami University", website: "https://miamioh.edu" },
-      { name: "University of Wisconsin", website: "https://wisc.edu" },
+      { name: "University of Wisconsin", website: "/partner-universities/university-of-wisconsin-madison" },
       { name: "George Mason University", website: "https://gmu.edu" },
       { name: "Montclair State University", website: "https://montclair.edu" },
       { name: "Colorado State University", website: "https://colostate.edu" },

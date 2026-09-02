@@ -201,6 +201,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-georgia",
     "/partner-universities/university-of-illinois-chicago",
     "/partner-universities/university-of-minnesota-twin-cities",
+    "/partner-universities/alte-university-school-of-medicine",
+    "/partner-universities/university-of-wisconsin-madison",
     "/mbbs-abroad",
   ].map((route) => entry(route, { priority: 0.7 }));
 
