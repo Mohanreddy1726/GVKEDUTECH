@@ -110,7 +110,7 @@ export default function NewVisionUniversityPage() {
         title="New Vision University Fees, Eligibility & Admission Process 2026"
         subtitle="Accredited MBBS Programme – NMC & WHO Recognised – Affordable Tuition"
         breadcrumb="Partner Universities"
-        backgroundImage="https://example.com/new-vision-university.jpg"
+        backgroundImage="https://images.unsplash.com/photo-1522920193-30c9716f3517?w=1200&auto=format&fit=crop"
       />
 
       {/* ── 1. OVERVIEW ─────────────────────────────────────────── */}
@@ -125,7 +125,22 @@ export default function NewVisionUniversityPage() {
               <p className="text-muted-foreground text-lg leading-relaxed mb-5">
                 New Vision University (NVU) offers a modern MBBS curriculum recognised by the National Medical Council (NMC) and World Health Organization (WHO). The university combines quality teaching with affordable tuition, making it a popular choice for Indian students seeking medical education in Russia.
               </p>
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex flex-wrap gap-2 mb-8">
+  {[
+    "Top 50 World Ranking",
+    "TU9 Member",
+    "Excellence Initiative",
+    "English Programs",
+  ].map((badge) => (
+    <span
+      key={badge}
+      className="px-4 py-1.5 bg-accent/10 text-accent border border-accent/20 rounded-full text-sm font-semibold"
+    >
+      {badge}
+    </span>
+  ))}
+</div>
+<div className="flex gap-4 flex-wrap">
                 <Button asChild size="lg" variant="accent">
                   <Link href="/apply">
                     Apply Now
@@ -141,7 +156,7 @@ export default function NewVisionUniversityPage() {
             <ScrollReveal animation="fade-up" delay={200}>
               <div className="relative">
                 <img
-                  src="https://example.com/new-vision-campus.jpg"
+                  src="https://images.unsplash.com/photo-1543797483-74c45022a4b6?w=1200&auto=format&fit=crop"
                   alt="New Vision University campus"
                   className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
                 />

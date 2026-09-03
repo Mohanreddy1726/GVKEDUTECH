@@ -109,7 +109,7 @@ export default function UniversityOfColoradoBoulderPage() {
         title="University of Colorado Boulder Fees, Eligibility & Admission Process 2026"
         subtitle="Accredited Programs – US Recognised – Competitive Tuition"
         breadcrumb="Partner Universities"
-        backgroundImage="https://example.com/university-of-colorado-boulder.jpg"
+        backgroundImage="https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=1200&auto=format&fit=crop"
       />
       {/* ── 1. OVERVIEW ─────────────────────────────────────────── */}
       <section className="py-20 section-light">
@@ -123,7 +123,22 @@ export default function UniversityOfColoradoBoulderPage() {
               <p className="text-muted-foreground text-lg leading-relaxed mb-5">
                 CU Boulder offers a world‑class education recognised globally. With a strong focus on research, innovation and student support, it is a popular choice for Indian students seeking quality U.S. higher education.
               </p>
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex flex-wrap gap-2 mb-8">
+  {[
+    "Top 50 World Ranking",
+    "TU9 Member",
+    "Excellence Initiative",
+    "English Programs",
+  ].map((badge) => (
+    <span
+      key={badge}
+      className="px-4 py-1.5 bg-accent/10 text-accent border border-accent/20 rounded-full text-sm font-semibold"
+    >
+      {badge}
+    </span>
+  ))}
+</div>
+<div className="flex gap-4 flex-wrap">
                 <Button asChild size="lg" variant="accent">
                   <Link href="/apply">
                     Apply Now
@@ -138,7 +153,7 @@ export default function UniversityOfColoradoBoulderPage() {
             <ScrollReveal animation="fade-up" delay={200}>
               <div className="relative">
                 <img
-                  src="https://example.com/university-of-colorado-boulder-campus.jpg"
+                  src="https://images.unsplash.com/photo-1531973968075-9a0c5b63772c?w=1200&auto=format&fit=crop"
                   alt="University of Colorado Boulder campus"
                   className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
                 />
