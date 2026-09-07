@@ -326,7 +326,7 @@ const universityData = {
       { name: "Ohio University", website: "https://ohio.edu" },
       { name: "University of Kansas", website: "https://ku.edu" },
       { name: "University of Oklahoma", website: "https://ou.edu" },
-      { name: "University of Maryland", website: "https://umd.edu" },
+      { name: "University of Maryland", website: "/partner-universities/university-of-maryland" },
       { name: "University of Tennessee", website: "https://tennessee.edu" },
       { name: "University of Texas at Dallas", website: "/partner-universities/university-of-texas-at-dallas" },
     ],
