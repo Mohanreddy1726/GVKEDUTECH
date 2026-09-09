@@ -87,6 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Hardcoded partner-university detail pages ──────────
   const partnerUniversityPages = [
+    "/partner-universities/akaki-tsereteli-state-university",
     "/partner-universities/tbilisi-state-medical-university",
     "/partner-universities/kyrgyz-state-medical-academy",
     "/partner-universities/university-of-greenwich",
@@ -204,6 +205,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/alte-university-school-of-medicine",
     "/partner-universities/university-of-wisconsin-madison",
     "/partner-universities/university-of-colorado-boulder",
+    "/partner-universities/university-of-colorado-denver",
     "/mbbs-abroad",
   ].map((route) => entry(route, { priority: 0.7 }));
 
