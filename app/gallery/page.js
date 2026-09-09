@@ -38,6 +38,7 @@ const GalleryPage = () => {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [selectedVideoCategory, setSelectedVideoCategory] = useState("all");
   const [selectedPhotoCategory, setSelectedPhotoCategory] = useState("all");
+  const [selectedProgramType, setSelectedProgramType] = useState("MBBS");
   const [activeTab, setActiveTab] = useState("videos");
 
   useEffect(() => {
@@ -75,9 +76,11 @@ const GalleryPage = () => {
     }
   };
 
-  const filteredVideos = selectedVideoCategory === "all"
-    ? allVideos
-    : allVideos.filter((video) => video.category === selectedVideoCategory);
+  const filteredVideos = allVideos.filter((video) => {
+    const matchesProgram = (video.programType || "MBBS") === selectedProgramType;
+    const matchesCategory = selectedVideoCategory === "all" || video.category === selectedVideoCategory;
+    return matchesProgram && matchesCategory;
+  });
 
   const filteredPhotos = selectedPhotoCategory === "all"
     ? allPhotos
@@ -200,7 +203,25 @@ const GalleryPage = () => {
 
           {/* Sub-category filters */}
           {activeTab === "videos" ? (
-            <div className="flex flex-wrap justify-center gap-3">
+            <>
+              <div className="flex justify-center mb-6">
+                <div className="inline-flex p-1 bg-muted rounded-xl border border-border">
+                  {["MBBS", "Masters"].map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => setSelectedProgramType(type)}
+                      className={`px-6 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${
+                        selectedProgramType === type
+                          ? "bg-accent text-white shadow-md"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {type}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-wrap justify-center gap-3">
               <span className="hidden sm:inline text-sm font-medium text-muted-foreground whitespace-nowrap text-center">
                 Filter by:
               </span>
@@ -219,6 +240,7 @@ const GalleryPage = () => {
                 </button>
               ))}
             </div>
+            </>
           ) : (
             <div className="flex flex-wrap justify-center gap-3">
               <span className="hidden sm:inline text-sm font-medium text-muted-foreground whitespace-nowrap text-center">
