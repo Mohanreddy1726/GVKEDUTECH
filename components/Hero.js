@@ -4,7 +4,7 @@ import {
   ArrowRight, Play, GraduationCap, Globe, Award, Stethoscope,
   Calculator, ChevronLeft, ChevronRight, MapPin, CheckCircle,
   Users, TrendingUp, BookOpen, Star, Zap, Shield,
-  Trophy, Medal, Crown, Mic, GitCompareArrows, BarChart2
+  Trophy, Medal, Crown, Mic
 } from "lucide-react";
 
 const AWARD_ICONS = { Trophy, Medal, Award, Star, Globe, Crown, Mic, World: Globe };
@@ -148,6 +148,26 @@ function useInterval(fn, delay, paused) {
   }, [delay, paused]);
 }
 
+/* ── Reusable single-line marquee (auto-scrolling carousel) ── */
+function Marquee({ items, renderItem, speed = 22, gap = 8 }) {
+  return (
+    <div
+      className="overflow-hidden w-full min-w-0"
+      style={{
+        maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+        WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+      }}
+    >
+      <div
+        className="flex items-center w-max"
+        style={{ gap: `${gap}px`, animation: `marquee ${speed}s linear infinite` }}
+      >
+        {[...items, ...items].map((item, i) => renderItem(item, i))}
+      </div>
+    </div>
+  );
+}
+
 /* ══════════════════════════════════════════════════════════ */
 export const Hero = () => {
   const [active,   setActive]   = useState(0);
@@ -217,6 +237,7 @@ export const Hero = () => {
         @keyframes htick { 0%{opacity:0;transform:translateY(8px)} 15%,85%{opacity:1;transform:translateY(0)} 100%{opacity:0;transform:translateY(-8px)} }
         @keyframes hpop  { 0%{opacity:0;transform:scale(0.86) translateY(10px)} 100%{opacity:1;transform:scale(1) translateY(0)} }
         @keyframes hline { 0%{width:0} 100%{width:60%} }
+        @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
         @keyframes aw-tl { from{opacity:0;transform:translate(-16px,-12px)} to{opacity:1;transform:translate(0,0)} }
         @keyframes aw-tr { from{opacity:0;transform:translate(16px,-12px)} to{opacity:1;transform:translate(0,0)} }
         @keyframes aw-bl { from{opacity:0;transform:translate(-16px,12px)} to{opacity:1;transform:translate(0,0)} }
@@ -264,215 +285,178 @@ export const Hero = () => {
 
       {/* ── CONTENT ── */}
       <div className="container mx-auto px-4 pt-34 pb-4 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_380px_340px] gap-6 xl:gap-8 items-start">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_380px_340px] gap-6 xl:gap-8 items-stretch">
 
           {/* ════════════════════════════
-              COL 1 — TEXT
+              COL 1 — TEXT (stretched to match col2/col3 height)
           ════════════════════════════ */}
-          <div className="space-y-4 order-1 pt-4">
+          <div className="order-1 pt-4 h-full flex flex-col justify-between min-w-0">
 
-            {/* Admission + slide tag badges */}
-            <div key={`b-${animKey}`} className="hfi flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase"
-                style={{ background:"rgba(255,255,255,0.1)", color:"rgba(255,255,255,0.75)", border:"1px solid rgba(255,255,255,0.16)" }}>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                Admissions Open {admYear}
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase"
-                style={{
-                  background: active === 0 ? RED : BLUE,
-                  color: "#fff",
-                  boxShadow: active === 0
-                    ? `0 4px 18px -4px ${RED_GLOW}`
-                    : `0 4px 18px -4px ${BLUE_GLOW}`,
-                }}>
-                {s.tag}
-              </span>
-            </div>
-
-            {/* Headline */}
-            <div key={`h-${animKey}`}>
-              {s.headline.map((line, i) => (
-                <h1 key={i} className="hfu font-black leading-[1.06] tracking-tight"
+            <div className="space-y-4 min-w-0">
+              {/* Admission + slide tag badges */}
+              <div key={`b-${animKey}`} className="hfi flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase"
+                  style={{ background:"rgba(255,255,255,0.1)", color:"rgba(255,255,255,0.75)", border:"1px solid rgba(255,255,255,0.16)" }}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                  Admissions Open {admYear}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase"
                   style={{
-                    fontSize: "clamp(2.4rem, 4.4vw, 3.8rem)",
-                    animationDelay: `${i * 0.08}s`,
-                    color: i === s.hl ? RED : "#fff",
-                    textShadow: i === s.hl ? `0 0 50px ${RED_GLOW}` : "none",
+                    background: active === 0 ? RED : BLUE,
+                    color: "#fff",
+                    boxShadow: active === 0
+                      ? `0 4px 18px -4px ${RED_GLOW}`
+                      : `0 4px 18px -4px ${BLUE_GLOW}`,
                   }}>
-                  {line}
-                </h1>
-              ))}
-            </div>
-
-            {/* Animated underline */}
-            <div key={`ul-${animKey}`}
-              className="h-0.5 rounded-full"
-              style={{
-                background: `linear-gradient(90deg,${RED},${BLUE},transparent)`,
-                animation: "hline 0.8s 0.28s cubic-bezier(.22,1,.36,1) forwards",
-                width: 0,
-              }} />
-
-            {/* Sub-text */}
-            <p key={`s-${animKey}`} className="hfu text-white/70 leading-relaxed max-w-md"
-              style={{ fontSize:"clamp(0.87rem,1.3vw,1rem)", animationDelay:"0.24s" }}>
-              {s.sub}
-            </p>
-
-            {/* Feature pills */}
-            <div key={`f-${animKey}`} className="hfu flex flex-wrap gap-2" style={{ animationDelay:"0.30s" }}>
-              {s.features.map((f, i) => (
-                <span key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold"
-                  style={{ background:"rgba(255,255,255,0.07)", color:"#fff", border:`1px solid ${RED}55` }}>
-                  <CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />
-                  {f}
+                  {s.tag}
                 </span>
-              ))}
-            </div>
+              </div>
 
-            {/* Countries */}
-            <div key={`c-${animKey}`} className="hfu flex flex-wrap gap-2" style={{ animationDelay:"0.34s" }}>
-              {s.countries.map((c, i) => (
-                <span key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-                  style={{ background:"rgba(255,255,255,0.07)", color:"rgba(255,255,255,0.65)", border:`1px solid ${BLUE}55` }}>
-                  {c.region ? (
-                    <span
-                      className="inline-flex items-center justify-center font-extrabold rounded-sm"
-                      style={{
-                        width: "13px",
-                        height: "13px",
-                        fontSize: "7px",
-                        background: RED,
-                        color: "#fff",
-                      }}
-                    >
-                      CA
+              {/* Headline */}
+              <div key={`h-${animKey}`}>
+                {s.headline.map((line, i) => (
+                  <h1 key={i} className="hfu font-black leading-[1.06] tracking-tight"
+                    style={{
+                      fontSize: "clamp(2.4rem, 4.4vw, 3.8rem)",
+                      animationDelay: `${i * 0.08}s`,
+                      color: i === s.hl ? RED : "#fff",
+                      textShadow: i === s.hl ? `0 0 50px ${RED_GLOW}` : "none",
+                    }}>
+                    {line}
+                  </h1>
+                ))}
+              </div>
+
+              {/* Animated underline */}
+              <div key={`ul-${animKey}`}
+                className="h-0.5 rounded-full"
+                style={{
+                  background: `linear-gradient(90deg,${RED},${BLUE},transparent)`,
+                  animation: "hline 0.8s 0.28s cubic-bezier(.22,1,.36,1) forwards",
+                  width: 0,
+                }} />
+
+              {/* Sub-text */}
+              <p key={`s-${animKey}`} className="hfu text-white/70 leading-relaxed max-w-md"
+                style={{ fontSize:"clamp(0.87rem,1.3vw,1rem)", animationDelay:"0.24s" }}>
+                {s.sub}
+              </p>
+
+              {/* Feature pills */}
+              <div key={`f-${animKey}`} className="hfu flex flex-wrap gap-2" style={{ animationDelay:"0.30s" }}>
+                {s.features.map((f, i) => (
+                  <span key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold"
+                    style={{ background:"rgba(255,255,255,0.07)", color:"#fff", border:`1px solid ${RED}55` }}>
+                    <CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />
+                    {f}
+                  </span>
+                ))}
+              </div>
+
+              {/* Countries — single-line auto-scrolling marquee */}
+              <div key={`c-${animKey}`} className="hfu min-w-0" style={{ animationDelay:"0.34s" }}>
+                <Marquee
+                  items={s.countries}
+                  speed={20}
+                  renderItem={(c, i) => (
+                    <span key={i} className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium flex-shrink-0"
+                      style={{ background:"rgba(255,255,255,0.07)", color:"rgba(255,255,255,0.65)", border:`1px solid ${BLUE}55` }}>
+                      {c.region ? (
+                        <span
+                          className="inline-flex items-center justify-center font-extrabold rounded-sm"
+                          style={{ width: "13px", height: "13px", fontSize: "7px", background: RED, color: "#fff" }}
+                        >
+                          CA
+                        </span>
+                      ) : (
+                        <span className={`fi fi-${c.flag}`} style={{ fontSize: "13px" }} />
+                      )}
+                      {c.label}
                     </span>
-                  ) : (
-                    <span className={`fi fi-${c.flag}`} style={{ fontSize: "13px" }} />
                   )}
-                  {c.label}
-                </span>
-              ))}
+                />
+              </div>
+
+              {/* ════════════════════════════
+                  AI TOOL BUTTONS
+              ════════════════════════════ */}
+              <div key={`t-${animKey}`} className="hfu flex flex-wrap gap-3" style={{ animationDelay:"0.38s" }}>
+
+                {/* 1. College Predictor — RED */}
+                <button
+                  onClick={() => scrollTo("predictor")}
+                  className="group relative flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm overflow-hidden transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                  style={{
+                    background: `linear-gradient(135deg,${RED},${RED_DARK})`,
+                    boxShadow: `0 8px 28px -6px ${RED_GLOW}`,
+                    border: `1px solid ${RED}60`,
+                  }}>
+                  <span className="absolute inset-y-0 w-1/2 -skew-x-12 pointer-events-none"
+                    style={{ background:"linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)", animation:"hshm 2.8s ease-in-out infinite" }} />
+                  <span className="relative w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                    <Stethoscope className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="relative text-left">
+                    <span className="block text-[9px] text-white/60 font-medium leading-none mb-0.5">AI Powered</span>
+                    <span className="block text-sm leading-none">College Predictor</span>
+                  </span>
+                  <ArrowRight className="relative w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+
+                {/* 2. Budget Calculator — BLUE */}
+                <button
+                  onClick={() => scrollTo("budget")}
+                  className="group flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                  style={{
+                    background: `linear-gradient(135deg,${BLUE},${BLUE_DARK})`,
+                    boxShadow: `0 8px 28px -6px ${BLUE_GLOW}`,
+                    border: `1px solid ${BLUE}60`,
+                  }}>
+                  <span className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                    <Calculator className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="text-left">
+                    <span className="block text-[9px] text-white/60 font-medium leading-none mb-0.5">Smart Tool</span>
+                    <span className="block text-sm leading-none">Budget Calculator</span>
+                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+
+              </div>
+
+              {/* Primary CTAs */}
+              <div key={`p-${animKey}`} className="hfu flex flex-wrap gap-3" style={{ animationDelay:"0.44s" }}>
+                <Link href="/apply"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                  style={{ background:`linear-gradient(135deg,${RED},${RED_DARK})`, boxShadow:`0 10px 32px -8px ${RED_GLOW}` }}>
+                  Begin Your Journey
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link href="/gallery"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                  style={{ background:"rgba(255,255,255,0.1)", border:"1px solid rgba(255,255,255,0.18)", backdropFilter:"blur(8px)" }}>
+                  <Play className="w-4 h-4" />
+                  Watch Success Stories
+                </Link>
+              </div>
             </div>
 
-            {/* ════════════════════════════
-                AI TOOL BUTTONS — all 4
-            ════════════════════════════ */}
-            <div key={`t-${animKey}`} className="hfu flex flex-wrap gap-3" style={{ animationDelay:"0.38s" }}>
-
-              {/* 1. College Predictor — RED */}
-              <button
-                onClick={() => scrollTo("predictor")}
-                className="group relative flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm overflow-hidden transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{
-                  background: `linear-gradient(135deg,${RED},${RED_DARK})`,
-                  boxShadow: `0 8px 28px -6px ${RED_GLOW}`,
-                  border: `1px solid ${RED}60`,
-                }}>
-                <span className="absolute inset-y-0 w-1/2 -skew-x-12 pointer-events-none"
-                  style={{ background:"linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)", animation:"hshm 2.8s ease-in-out infinite" }} />
-                <span className="relative w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
-                  <Stethoscope className="w-3.5 h-3.5" />
-                </span>
-                <span className="relative text-left">
-                  <span className="block text-[9px] text-white/60 font-medium leading-none mb-0.5">AI Powered</span>
-                  <span className="block text-sm leading-none">College Predictor</span>
-                </span>
-                <ArrowRight className="relative w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-
-              {/* 2. Budget Calculator — BLUE */}
-              <button
-                onClick={() => scrollTo("budget")}
-                className="group flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{
-                  background: `linear-gradient(135deg,${BLUE},${BLUE_DARK})`,
-                  boxShadow: `0 8px 28px -6px ${BLUE_GLOW}`,
-                  border: `1px solid ${BLUE}60`,
-                }}>
-                <span className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
-                  <Calculator className="w-3.5 h-3.5" />
-                </span>
-                <span className="text-left">
-                  <span className="block text-[9px] text-white/60 font-medium leading-none mb-0.5">Smart Tool</span>
-                  <span className="block text-sm leading-none">Budget Calculator</span>
-                </span>
-                <ArrowRight className="w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-
-              {/* 3. Smart Comparison — RED DARK with shimmer */}
-              <button
-                onClick={() => scrollTo("compare")}
-                className="group relative flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm overflow-hidden transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{
-                  background: `linear-gradient(135deg,${RED_DARK},#6B0003)`,
-                  boxShadow: `0 8px 28px -6px ${RED_GLOW}`,
-                  border: `1px solid ${RED}50`,
-                }}>
-                <span className="absolute inset-y-0 w-1/2 -skew-x-12 pointer-events-none"
-                  style={{ background:"linear-gradient(90deg,transparent,rgba(255,255,255,0.10),transparent)", animation:"hshm 3.2s ease-in-out infinite" }} />
-                <span className="relative w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
-                  <GitCompareArrows className="w-3.5 h-3.5" />
-                </span>
-                <span className="relative text-left">
-                  <span className="block text-[9px] text-white/60 font-medium leading-none mb-0.5">Smart Tool</span>
-                  <span className="block text-sm leading-none">Compare Universities</span>
-                </span>
-                <ArrowRight className="relative w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-
-              {/* 4. ROI Planner — BLUE DARK */}
-              <button
-                onClick={() => scrollTo("roi")}
-                className="group flex items-center gap-2.5 px-5 py-3 rounded-2xl text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{
-                  background: `linear-gradient(135deg,${BLUE_DARK},#0A1530)`,
-                  boxShadow: `0 8px 28px -6px ${BLUE_GLOW}`,
-                  border: `1px solid ${BLUE}50`,
-                }}>
-                <span className="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
-                  <BarChart2 className="w-3.5 h-3.5" />
-                </span>
-                <span className="text-left">
-                  <span className="block text-[9px] text-white/60 font-medium leading-none mb-0.5">AI Powered</span>
-                  <span className="block text-sm leading-none">ROI Planner</span>
-                </span>
-                <ArrowRight className="w-3.5 h-3.5 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-
-            </div>
-
-            {/* Primary CTAs */}
-            <div key={`p-${animKey}`} className="hfu flex flex-wrap gap-3" style={{ animationDelay:"0.44s" }}>
-              <Link href="/apply"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{ background:`linear-gradient(135deg,${RED},${RED_DARK})`, boxShadow:`0 10px 32px -8px ${RED_GLOW}` }}>
-                Begin Your Journey
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-              <Link href="/gallery"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                style={{ background:"rgba(255,255,255,0.1)", border:"1px solid rgba(255,255,255,0.18)", backdropFilter:"blur(8px)" }}>
-                <Play className="w-4 h-4" />
-                Watch Success Stories
-              </Link>
-            </div>
-
-            {/* ALL Branches */}
-            <div key={`br-${animKey}`} className="hfu" style={{ animationDelay:"0.50s", maxWidth:"430px" }}>
+            {/* Branches — single-line auto-scrolling marquee, pinned to bottom for alignment with col 2 / col 3 */}
+            <div key={`br-${animKey}`} className="hfu min-w-0" style={{ animationDelay:"0.50s" }}>
               <div className="flex items-center gap-2 mb-2">
                 <MapPin className="w-3.5 h-3.5 flex-shrink-0" style={{ color: RED }} />
                 <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color:"rgba(255,255,255,0.45)" }}>
                   Our Branches
                 </span>
               </div>
-              <div className="flex flex-wrap gap-1.5">
-                {branches.map((b, i) => (
-                  <Link key={b.label} href={b.href}>
+              <Marquee
+                items={branches}
+                speed={32}
+                gap={6}
+                renderItem={(b, i) => (
+                  <Link key={`${b.label}-${i}`} href={b.href} className="flex-shrink-0">
                     <span
-                      className="px-2.5 py-1 rounded-full text-[10px] font-semibold cursor-pointer transition-all duration-200 hover:bg-white/15 hover:text-white"
+                      className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold cursor-pointer transition-all duration-200 hover:bg-white/15 hover:text-white"
                       style={{
                         background: "rgba(255,255,255,0.07)",
                         color: "rgba(255,255,255,0.55)",
@@ -483,15 +467,15 @@ export const Hero = () => {
                       {b.label}
                     </span>
                   </Link>
-                ))}
-              </div>
+                )}
+              />
             </div>
           </div>
 
           {/* ════════════════════════════
-              COL 2 — CENTER PANEL
+              COL 2 — CENTER PANEL (aligned to same top offset as col 1 & col 3)
           ════════════════════════════ */}
-          <div className="order-2 flex flex-col gap-3 pt-10">
+          <div className="order-2 pt-4 h-full flex flex-col gap-3">
 
             {/* Live ticker */}
             <div key={`tk-${animKey}`} className="hfi rounded-2xl overflow-hidden"
@@ -566,8 +550,8 @@ export const Hero = () => {
               </div>
             </Link>
 
-            {/* 15 years badge */}
-            <div className="rounded-2xl px-4 py-3 flex items-center gap-3"
+            {/* 15 years badge — pushed to fill remaining space so col 2 bottom aligns with col 1 / col 3 */}
+            <div className="rounded-2xl px-4 py-3 flex items-center gap-3 mt-auto"
               style={{ background:`linear-gradient(135deg,${BLUE}28,${RED}28)`, border:`1px solid ${BLUE}45` }}>
               <div className="flex-shrink-0 text-center">
                 <p className="font-black text-2xl leading-none" style={{ color: RED }}>15+</p>
@@ -584,9 +568,9 @@ export const Hero = () => {
           </div>
 
           {/* ════════════════════════════
-              COL 3 — PHOTO CARD
+              COL 3 — PHOTO CARD (aligned to same top offset, centered in the stretched column)
           ════════════════════════════ */}
-          <div className="relative flex flex-col items-center gap-3 order-3 pt-12">
+          <div className="relative order-3 pt-4 h-full flex flex-col items-center justify-center gap-3">
 
             <div className="relative w-full max-w-[320px]">
               {/* Outer glow */}
