@@ -137,7 +137,7 @@ export default function UniversityOfColoradoDenverPage() {
       {badge}
     </span>
   ))}
-</div}
+</div>
 <div className="flex gap-4 flex-wrap">
                 <Button asChild size="lg" variant="accent">
                   <Link href="/apply">
@@ -148,7 +148,7 @@ export default function UniversityOfColoradoDenverPage() {
                 <Button asChild size="lg" variant="outline">
                   <Link href="/contact">Free Counselling</Link>
                 </Button>
-              </div}
+              </div>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={200}>
               <div className="relative">
@@ -160,15 +160,15 @@ export default function UniversityOfColoradoDenverPage() {
                 <div className="absolute -bottom-6 -left-6 bg-background border border-border rounded-2xl p-5 shadow-xl">
                   <p className="text-3xl font-bold text-accent">30+</p>
                   <p className="text-sm text-muted-foreground mt-0.5">Years of Excellence</p>
-                </div}
+                </div>
                 <div className="absolute -top-6 -right-6 bg-background border border-border rounded-2xl p-5 shadow-xl">
                   <p className="text-3xl font-bold text-accent">5K+</p>
                   <p className="text-sm text-muted-foreground mt-0.5">International Students</p>
-                </div}
-              </div}
+                </div>
+              </div>
             </ScrollReveal>
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 2. WHY CHOOSE CU DENVER ─────────────────────────────────────── */}
@@ -179,7 +179,7 @@ export default function UniversityOfColoradoDenverPage() {
             <p className="text-muted-foreground text-lg">
               Cutting‑edge research, global recognition and a cost‑effective tuition make CU Denver a top choice.
             </p>
-          </div}
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {whyChoose.map((item, i) => {
               const Icon = item.icon;
@@ -188,15 +188,15 @@ export default function UniversityOfColoradoDenverPage() {
                   <CardContent className="p-6">
                     <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                       <Icon className="w-5 h-5 text-accent" />
-                    </div}
+                    </div>
                     <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                   </CardContent>
                 </Card>
               );
             })}
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 3. RECOGNITION ─────────────────────────────────────── */}
@@ -211,10 +211,10 @@ export default function UniversityOfColoradoDenverPage() {
               <div key={item.label}>
                 <p className="text-4xl font-bold">{item.label}</p>
                 <p className="text-white/75 text-sm mt-1">{item.sub}</p>
-              </div}
+              </div>
             ))}
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 4. WORLD RANKING ───────────────────────────────────── */}
@@ -223,7 +223,7 @@ export default function UniversityOfColoradoDenverPage() {
           <div className="max-w-4xl mx-auto mb-12 text-center">
             <ColorfulHeading text="World Ranking" size="3xl" className="mb-4" />
             <p className="text-muted-foreground text-lg">CU Denver is consistently ranked among the top U.S. universities.</p>
-          </div}
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {rankings.map((r, i) => (
               <Card key={i} className="border border-border/60">
@@ -233,8 +233,8 @@ export default function UniversityOfColoradoDenverPage() {
                 </CardContent>
               </Card>
             ))}
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 5. TUITION FEES ───────────────────────────── */}
@@ -245,7 +245,7 @@ export default function UniversityOfColoradoDenverPage() {
             <p className="text-muted-foreground text-lg">
               Transparent tuition fees with no hidden charges.
             </p>
-          </div}
+          </div>
           <div className="max-w-4xl mx-auto grid lg:grid-cols-2 gap-8">
             <Card className="border-2 border-accent/20 overflow-hidden">
               <CardHeader className="bg-accent/8 border-b border-accent/20 px-6 py-4">
@@ -281,8 +281,8 @@ export default function UniversityOfColoradoDenverPage() {
                 <p className="text-xs text-muted-foreground px-6 py-3 border-t border-border">* Exchange rate: 1 USD ≈ ₹85</p>
               </CardContent>
             </Card>
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 6. ELIGIBILITY ─────────────────────────────────────── */}
@@ -293,7 +293,7 @@ export default function UniversityOfColoradoDenverPage() {
             <p className="text-muted-foreground text-lg">
               Straight‑forward eligibility – no additional entrance exams beyond standard requirements.
             </p>
-          </div}
+          </div>
           <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-5">
             {[
               { title: "Age", desc: "Minimum 17 years as on 31 December of the admission year" },
@@ -305,11 +305,11 @@ export default function UniversityOfColoradoDenverPage() {
                 <div>
                   <p className="font-bold text-foreground mb-1">{item.title}</p>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-                </div}
-              </div}
+                </div>
+              </div>
             ))}
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 7. ADMISSION PROCESS ─────────────────────────────── */}
@@ -317,7 +317,7 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-16 text-center">
             <ColorfulHeading text="Admission Process" size="3xl" />
-          </div}
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             {admissionSteps.map(step => (
               <Card key={step.step} className="border border-border/60">
@@ -330,8 +330,8 @@ export default function UniversityOfColoradoDenverPage() {
                 </CardContent>
               </Card>
             ))}
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 8. REQUIRED DOCUMENTS ─────────────────────────────── */}
@@ -339,13 +339,13 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto mb-12 text-center">
             <ColorfulHeading text="Required Documents" size="3xl" className="mb-4" />
-          </div}
+          </div>
           <ul className="list-disc list-inside space-y-2 text-lg text-muted-foreground max-w-3xl mx-auto">
             {documents.map(doc => (
               <li key={doc}>{doc}</li>
             ))}
           </ul>
-        </div}
+        </div>
       </section>
 
       {/* ── 9. HOSTEL FACILITIES ─────────────────────────────── */}
@@ -353,7 +353,7 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-12 text-center">
             <ColorfulHeading text="Hostel Facilities" size="3xl" className="mb-4" />
-          </div}
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {accommodationFeatures.map((item, i) => (
               <Card key={i} className="border border-border/60">
@@ -363,8 +363,8 @@ export default function UniversityOfColoradoDenverPage() {
                 </CardContent>
               </Card>
             ))}
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 10. STUDENT LIFE IN USA ─────────────────────── */}
@@ -372,11 +372,11 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-12 text-center">
             <ColorfulHeading text="Student Life in the USA" size="3xl" className="mb-4" />
-          </div}
+          </div>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             Colorado offers a vibrant outdoor lifestyle, diverse cultural events, and a thriving tech ecosystem. CU Denver supports international students with dedicated services, clubs and career fairs.
           </p>
-        </div}
+        </div>
       </section>
 
       {/* ── 11. ADVANTAGES ───────────────────────────────────── */}
@@ -384,7 +384,7 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-12 text-center">
             <ColorfulHeading text="Advantages" size="3xl" className="mb-4" />
-          </div}
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {advantages.map((adv, i) => (
               <Card key={i} className="border border-border/60">
@@ -394,8 +394,8 @@ export default function UniversityOfColoradoDenverPage() {
                 </CardContent>
               </Card>
             ))}
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── 12. FAQs ────────────────────────────────────────────── */}
@@ -403,7 +403,7 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto mb-12 text-center">
             <ColorfulHeading text="Frequently Asked Questions" size="3xl" className="mb-4" />
-          </div}
+          </div>
           <div className="space-y-6 max-w-3xl mx-auto">
             {faqs.map((item, i) => (
               <div key={i}>
@@ -411,8 +411,8 @@ export default function UniversityOfColoradoDenverPage() {
                 <p className="text-muted-foreground">{item.answer}</p>
               </div>
             ))}
-          </div}
-        </div}
+          </div>
+        </div>
       </section>
 
       {/* ── CALL TO ACTION ───────────────────────────────────── */}
@@ -424,7 +424,7 @@ export default function UniversityOfColoradoDenverPage() {
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
-        </div}
+        </div>
       </section>
     </PageLayout>
   );
