@@ -23,6 +23,7 @@ export default function AdminVideoTestimonialsPage() {
     university: "",
     country: "",
     category: "student-testimonial",
+    programType: "MBBS",
     featured: false,
     order: 0,
   });
@@ -100,6 +101,7 @@ export default function AdminVideoTestimonialsPage() {
       university: video.university || "",
       country: video.country || "",
       category: video.category || "student-testimonial",
+      programType: video.programType || "MBBS",
       featured: video.featured || false,
       order: video.order || 0,
     });
@@ -114,6 +116,7 @@ export default function AdminVideoTestimonialsPage() {
       university: "",
       country: "",
       category: "student-testimonial",
+      programType: "MBBS",
       featured: false,
       order: 0,
     });
@@ -342,6 +345,25 @@ export default function AdminVideoTestimonialsPage() {
                         <option key={c.value} value={c.value}>{c.label}</option>
                       ))}
                     </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Program Type</label>
+                    <div className="flex gap-4">
+                      {["MBBS", "Masters"].map((type) => (
+                        <label key={type} className="flex items-center gap-2 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="programType"
+                            value={type}
+                            checked={formData.programType === type}
+                            onChange={(e) => setFormData({ ...formData, programType: e.target.value })}
+                            className="w-4 h-4 text-accent focus:ring-accent"
+                          />
+                          <span className="text-sm">{type}</span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="space-y-2">

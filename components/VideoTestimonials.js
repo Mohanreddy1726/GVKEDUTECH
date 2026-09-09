@@ -9,6 +9,7 @@ export const VideoTestimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeVideo, setActiveVideo] = useState(null);
+  const [filter, setFilter] = useState("MBBS");
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -56,6 +57,25 @@ export const VideoTestimonials = () => {
           </p>
         </div>
 
+        {/* Program Toggle */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex p-1 bg-muted rounded-xl border border-border">
+            {["MBBS", "Masters"].map((type) => (
+              <button
+                key={type}
+                onClick={() => setFilter(type)}
+                className={`px-6 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${
+                  filter === type
+                    ? "bg-accent text-white shadow-md"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Carousel */}
         {isLoading ? (
           <div className="flex items-center justify-center py-12">
@@ -86,7 +106,9 @@ export const VideoTestimonials = () => {
               className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              {testimonials.map((video, idx) => (
+              {testimonials
+                .filter((video) => (video.programType || "MBBS") === filter)
+                .map((video, idx) => (
                 <div
                   key={video._id}
                   className="flex-shrink-0 w-[340px] snap-start"
