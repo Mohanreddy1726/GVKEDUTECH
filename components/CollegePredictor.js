@@ -198,7 +198,7 @@ function predictColleges(neetScore, budget, country) {
     const feeMatch = c.fee.match(/(\d+)-(\d+)/);
     const maxFee = feeMatch ? parseInt(feeMatch[2]) : 50;
     const countryMatch = country === "all" || c.country === country;
-    return neetScore >= minNeet && neetScore <= maxNeet + 50 && budget >= maxFee * 0.7 && countryMatch;
+    return neetScore >= minNeet && budget >= maxFee * 0.7 && countryMatch;
   });
 }
 
@@ -457,13 +457,39 @@ function PredictorForm() {
 
         <div className="grid md:grid-cols-3 gap-5">
           <div>
-            <label className="block text-sm font-semibold text-foreground mb-2">
-              <span className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-accent" />
-                NEET Score (0-720) *
-              </span>
-            </label>
-            <Input required type="number" min={0} max={720} placeholder="Enter NEET score" value={formData.neetScore} onChange={(e) => { setFormData({ ...formData, neetScore: e.target.value }); setErrors({ ...errors, neetScore: "" }); }} className={`h-12 border-border/50 focus:border-accent text-lg font-semibold ${errors.neetScore ? "border-red-500" : ""}`} />
+            <div className="flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-accent" />
+              NEET Score (0-720) *
+            </div>
+            <div className="flex flex-col gap-2">
+              <Input
+                required
+                type="number"
+                min={0}
+                max={720}
+                placeholder="Enter NEET score"
+                value={formData.neetScore}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  setFormData({ ...formData, neetScore: val });
+                  if (val !== "" && (parseInt(val) < 0 || parseInt(val) > 720)) {
+                    setErrors({ ...errors, neetScore: "Score must be between 0 and 720" });
+                  } else {
+                    setErrors({ ...errors, neetScore: "" });
+                  }
+                }}
+                className={`h-12 border-border/50 focus:border-accent text-lg font-semibold ${errors.neetScore ? "border-red-500" : ""}`}
+              />
+              <div className="bg-muted/50 p-2 rounded-lg border border-border/50">
+                <p className="text-[10px] font-bold text-muted-foreground uppercase mb-1">Typical 2026 Cutoffs:</p>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-[10px] text-muted-foreground">
+                  <span>• Top Unis: 300+</span>
+                  <span>• Mid Range: 150-300</span>
+                  <span>• Budget: 100-150</span>
+                  <span>• Min Qual: 50+ (Cat)</span>
+                </div>
+              </div>
+            </div>
             {errors.neetScore && <p className="text-red-500 text-xs mt-1">{errors.neetScore}</p>}
           </div>
           <div>
@@ -473,17 +499,34 @@ function PredictorForm() {
                 Preferred Country
               </span>
             </label>
-            <Select value={formData.country} onValueChange={(v) => setFormData({ ...formData, country: v })}>
-              <SelectTrigger className="h-12 border-border/50 bg-white">
-                <SelectValue placeholder="Select country" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Countries</SelectItem>
-                {mbbsCountries.map((c) => (
-                  <SelectItem key={c} value={c}>{c}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-col gap-2">
+              <Select value={formData.country} onValueChange={(v) => setFormData({ ...formData, country: v })}>
+                <SelectTrigger className="h-12 border-border/50 bg-white">
+                  <SelectValue placeholder="Select country" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Countries</SelectItem>
+                  {mbbsCountries.map((c) => (
+                    <SelectItem key={c} value={c}>{c}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {formData.country !== "all" && (
+                <div className="bg-muted/50 p-2 rounded-lg border border-border/50">
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase mb-1">Typical Budget ({formData.country}):</p>
+                  <div className="text-[10px] text-muted-foreground">
+                    {(() => {
+                      const budget = calculateBudget("MBBS", formData.country, "University Hostel");
+                      return (
+                        <span className="font-medium text-foreground">
+                          Total: {budget.totalEstimate} (Approx.)
+                        </span>
+                      );
+                    })()}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           <div>
             <label className="block text-sm font-semibold text-foreground mb-2">State *</label>
