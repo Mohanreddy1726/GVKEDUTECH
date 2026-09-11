@@ -21,165 +21,167 @@ import {
   Wifi,
   ChevronRight,
   Star,
-  Award,
-  DollarSign,
+  IndianRupee,
 } from "lucide-react";
 import Link from "next/link";
 
 const faqs = [
   {
-    question: "Is University of Colorado Denver recognised internationally?",
+    question: "Is Petre Shotadze Tbilisi Medical Academy NMC approved?",
     answer:
-      "Yes. CU Denver is fully accredited by the U.S. Department of Education and recognized by professional bodies worldwide, ensuring your degree is valued globally.",
+      "Yes, Petre Shotadze Tbilisi Medical Academy is recognized by the National Medical Commission (NMC) of India and WHO. Indian students can appear for FMGE/NEXT after completing their MBBS degree.",
   },
   {
-    question: "What is the typical tuition fee for international students?",
+    question: "What is the duration of MBBS at Petre Shotadze Tbilisi Medical Academy?",
     answer:
-      "Tuition fees vary by program, but typically range around $30,000 per year. We recommend contacting our counselors for a detailed breakdown based on your chosen course.",
+      "The MBBS program is 6 years in duration, including clinical rotations and practical training in Georgia.",
   },
   {
-    question: "Do I need an entrance exam for admission?",
+    question: "Is NEET required for admission?",
     answer:
-      "Standard university admission criteria apply, including a strong GPA and English proficiency scores (IELTS/TOEFL/PTE). Some specific programs may require GRE/GMAT.",
+      "Yes, NEET-UG qualification is mandatory for all Indian students seeking admission to any medical university abroad, including Petre Shotadze Tbilisi Medical Academy.",
   },
   {
-    question: "Is English proficiency mandatory?",
+    question: "What is the medium of instruction?",
     answer:
-      "Yes, as a U.S. institution, proof of English proficiency is required for all international students to ensure academic success.",
+      "The entire MBBS course is taught in English. Students also learn the local Georgian language to facilitate clinical interactions with patients.",
   },
   {
-    question: "Does CU Denver offer scholarships to Indian students?",
+    question: "Can I work while studying in Georgia?",
     answer:
-      "Yes, CU Denver provides various merit-based scholarships and financial aid options for international students to make education more accessible.",
+      "Students are generally allowed to work part-time (up to 20 hours/week), but the medical curriculum is rigorous, and we recommend focusing on your studies.",
   },
   {
-    question: "How is the living environment in Denver?",
+    question: "What is the total cost of MBBS at Petre Shotadze Tbilisi Medical Academy?",
     answer:
-      "Denver is known for its vibrant city life, breathtaking Rocky Mountain views, and a booming tech economy, providing an excellent backdrop for students.",
+      "The total cost, including tuition, hostel, and living expenses, is highly competitive and affordable compared to private colleges in India.",
   },
   {
-    question: "What are the career prospects after graduating from CU Denver?",
+    question: "How is the food and accommodation for Indian students?",
     answer:
-      "With strong industry ties in Colorado and across the U.S., graduates have excellent opportunities for internships and full-time employment in their respective fields.",
+      "The academy provides safe and comfortable hostels with Indian mess facilities, offering vegetarian and non-vegetarian options.",
   },
   {
-    question: "Can I work while studying in the USA?",
+    question: "Can I pursue PG in other countries after graduating?",
     answer:
-      "International students on an F-1 visa are generally allowed to work on-campus up to 20 hours per week during the semester and full-time during breaks.",
+      "Yes, the degree is globally recognized, allowing graduates to pursue postgraduate studies in the USA, UK, Germany, and other countries after clearing the required licensing exams.",
   },
 ];
 
 const admissionSteps = [
   {
     step: 1,
-    title: "Free Counseling",
-    desc: "Discuss your profile and academic goals with GVK EduTech's experts",
+    title: "Submit Application",
+    desc: "Fill out the online application form and upload your academic credentials",
     icon: FileText,
   },
   {
     step: 2,
-    title: "Program Selection",
-    desc: "Choose the right course based on your background and career aspirations",
+    title: "Document Verification",
+    desc: "Our team reviews your academic records and NEET qualification",
     icon: BookOpen,
   },
   {
     step: 3,
-    title: "Submit Application",
-    desc: "Complete the CU Denver online application and upload required documents",
+    title: "Receive Offer Letter",
+    desc: "Get your official admission letter from the academy",
     icon: GraduationCap,
   },
   {
     step: 4,
-    title: "Receive Offer",
-    desc: "Get your official admission offer letter from the university",
-    icon: CheckCircle,
+    title: "Pay Tuition Fees",
+    desc: "Confirm your enrollment by paying the required first-year fees",
+    icon: IndianRupee,
   },
   {
     step: 5,
-    title: "Secure Seat",
-    desc: "Pay the tuition deposit to confirm your enrollment",
-    icon: DollarSign,
+    title: "Visa Processing",
+    desc: "Apply for the Georgian student visa with our end-to-end support",
+    icon: Globe,
   },
   {
     step: 6,
-    title: "Visa Assistance",
-    desc: "Get comprehensive support for your I-20 and US Student Visa (F-1)",
-    icon: Globe,
-  },
-];
-
-const documents = [
-  "Valid Passport (minimum 6 months validity)",
-  "Official Academic Transcripts & Degree Certificates",
-  "English Proficiency Score (IELTS / TOEFL / PTE)",
-  "Statement of Purpose (SOP)",
-  "Letters of Recommendation (LORs)",
-  "Proof of Funds / Bank Statement",
-  "Passport-size Photographs",
-  "Birth Certificate",
-  "Resume / CV",
-];
-
-const accommodationFeatures = [
-  { icon: Home, label: "Diverse on-campus housing options" },
-  { icon: Users, label: "Shared and private room configurations" },
-  { icon: Utensils, label: "Modern campus dining and meal plans" },
-  { icon: Wifi, label: "High-speed campus-wide Wi-Fi" },
-  { icon: ShieldCheck, label: "24/7 security and student safety services" },
-  { icon: Clock, label: "State-of-the-art gyms and study lounges" },
-];
-
-const whyChoose = [
-  {
-    title: "Global Recognition",
-    desc: "A prestigious U.S. degree that opens doors to top employers worldwide",
-    icon: Globe,
-  },
-  {
-    title: "Research Excellence",
-    desc: "Access to cutting-edge labs and funding for innovative research projects",
-    icon: Star,
-  },
-  {
-    title: "Industry Connections",
-    desc: "Strong ties with Denver's tech and business hubs for internships",
-    icon: Briefcase,
-  },
-  {
-    title: "Diverse Community",
-    desc: "Study alongside peers from over 50 countries in a multicultural setting",
-    icon: Users,
-  },
-  {
-    title: "Expert Faculty",
-    desc: "Learn from world-renowned professors and industry practitioners",
-    icon: GraduationCap,
-  },
-  {
-    title: "Vibrant City Life",
-    desc: "Experience the perfect mix of urban excitement and outdoor adventure",
-    icon: CheckCircle,
-  },
-  {
-    title: "Comprehensive Support",
-    desc: "Dedicated international student services for a smooth transition",
-    icon: ShieldCheck,
-  },
-  {
-    title: "GVK EduTech Guidance",
-    desc: "End-to-end support from application to landing in the USA",
+    title: "Travel to Georgia",
+    desc: "Book your flights and start your medical journey in Tbilisi",
     icon: ArrowRight,
   },
 ];
 
-export default function UniversityOfColoradoDenverPage() {
+const documents = [
+  "Valid Passport (minimum 18 months validity)",
+  "10th Standard Mark Sheet & Certificate",
+  "12th Standard Mark Sheet & Certificate",
+  "NEET-UG Score Card",
+  "Passport Size Photographs (10-15 copies)",
+  "Birth Certificate",
+  "Police Clearance Certificate (PCC)",
+  "Medical Fitness Certificate",
+  "HIV/Hepatitis Test Report",
+  "Travel Insurance",
+  "Bank Statement (Guardian's proof of funds)",
+  "Academy Admission Letter",
+];
+
+const hostelFeatures = [
+  { icon: Home, label: "Safe & secure on-campus hostels" },
+  { icon: Users, label: "Comfortable shared rooms with amenities" },
+  { icon: Utensils, label: "Dedicated Indian mess with veg options" },
+  { icon: Wifi, label: "High-speed internet connectivity" },
+  { icon: ShieldCheck, label: "24/7 security and surveillance" },
+  { icon: Clock, label: "Laundry and heating facilities" },
+];
+
+const whyChoose = [
+  {
+    title: "High Academic Standards",
+    desc: "Renowned for its rigorous medical training and experienced faculty members",
+    icon: Star,
+  },
+  {
+    title: "Affordable Education",
+    desc: "Quality MBBS education at a fraction of the cost of private Indian colleges",
+    icon: IndianRupee,
+  },
+  {
+    title: "NMC & WHO Recognized",
+    desc: "Globally recognized degree ensuring eligibility for FMGE/NEXT and PG worldwide",
+    icon: ShieldCheck,
+  },
+  {
+    title: "English Medium Curriculum",
+    desc: "Complete course delivered in English for ease of learning for international students",
+    icon: Globe,
+  },
+  {
+    title: "Modern Infrastructure",
+    desc: "Advanced laboratories and clinical training facilities for hands-on experience",
+    icon: GraduationCap,
+  },
+  {
+    title: "Safe Living Environment",
+    desc: "Located in Tbilisi, one of the safest and most welcoming cities in Europe",
+    icon: CheckCircle,
+  },
+  {
+    title: "Clinical Exposure",
+    desc: "Extensive practical training in affiliated hospitals from early years",
+    icon: BookOpen,
+  },
+  {
+    title: "Expert Guidance",
+    desc: "End-to-end support from GVK EduTech for admission, visa, and travel",
+    icon: ArrowRight,
+  },
+];
+
+export default function PetreShotadzeTbilisiMedicalAcademyPage() {
   return (
     <PageLayout>
       <PageHeader
-        title="University of Colorado Denver Fees, Eligibility & Admission Process 2026"
-        subtitle="US Accredited · Global Recognition · World-Class Faculty · Research Hub"
+        title="Petre Shotadze Tbilisi Medical Academy Fees, Eligibility & Admission Process 2026"
+        subtitle="NMC Approved · WHO Recognised · English Medium · Affordable Tuition"
         breadcrumb="Partner Universities"
-        backgroundImage="https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=1200&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1562774053-702739656662?w=1200&auto=format&fit=crop"
       />
 
       {/* ── OVERVIEW ─────────────────────────────────────────── */}
@@ -188,27 +190,28 @@ export default function UniversityOfColoradoDenverPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal animation="fade-up">
               <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
-                Academic Excellence · Denver, Colorado, USA
+                Excellence in Medical Education · Tbilisi, Georgia
               </p>
               <ColorfulHeading
-                text="University of Colorado Denver"
+                text="Petre Shotadze Tbilisi Medical Academy"
                 size="3xl"
                 className="mb-5"
               />
               <p className="text-muted-foreground text-lg leading-relaxed mb-5">
-                The University of Colorado Denver is a powerhouse of research and
-                innovation, offering a world-class education in the heart of one of
-                America's fastest-growing cities. It is a premier destination for
-                Indian students seeking a globally recognized degree.
+                Petre Shotadze Tbilisi Medical Academy is a premier institution for
+                medical aspirants seeking a global career in healthcare. Located in the
+                heart of Tbilisi, Georgia, it offers a perfect blend of traditional
+                medical wisdom and modern clinical practices.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                With its commitment to academic rigor and student success, CU Denver
-                combines a high-ranking university experience with unparalleled access
-                to industry leaders and professional networks.
+                With <strong className="text-foreground">NMC approval</strong> and{" "}
+                <strong className="text-foreground">WHO recognition</strong>, the academy
+                ensures that its graduates are well-prepared to excel in medical licensing
+                exams like FMGE/NEXT and practice medicine globally.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {["US Accredited", "Global Ranking", "Research Hub", "Diverse Programs"].map(
+                {["NMC Approved", "WHO Listed", "English Medium", "Affordable Fees"].map(
                   (badge) => (
                     <span
                       key={badge}
@@ -236,20 +239,20 @@ export default function UniversityOfColoradoDenverPage() {
             <ScrollReveal animation="fade-up" delay={200}>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1531973968075-9a0c5b63772c?w=600&auto=format&fit=crop"
-                  alt="University of Colorado Denver campus"
+                  src="https://images.unsplash.com/photo-1562774053-702739656662?w=600&auto=format&fit=crop"
+                  alt="Petre Shotadze Tbilisi Medical Academy campus"
                   className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-background border border-border rounded-2xl p-5 shadow-xl">
-                  <p className="text-3xl font-bold text-accent">Top</p>
+                  <p className="text-3xl font-bold text-accent">Global</p>
                   <p className="text-sm text-muted-foreground mt-0.5">
-                    US Public University
+                    Recognition
                   </p>
                 </div>
                 <div className="absolute -top-6 -right-6 bg-background border border-border rounded-2xl p-5 shadow-xl">
-                  <p className="text-3xl font-bold text-accent">5K+</p>
+                  <p className="text-3xl font-bold text-accent">100%</p>
                   <p className="text-sm text-muted-foreground mt-0.5">
-                    International Students
+                    English Medium
                   </p>
                 </div>
               </div>
@@ -263,10 +266,10 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { label: "US Dept of Ed", sub: "Fully Accredited" },
-              { label: "ABET", sub: "Engineering Standard" },
-              { label: "AACSB", sub: "Business Excellence" },
-              { label: "Global", sub: "World-Wide Recognition" },
+              { label: "NMC", sub: "India — National Medical Commission" },
+              { label: "WHO", sub: "World Health Organization Listed" },
+              { label: "Ranked", sub: "Top-tier Medical Institution in Georgia" },
+              { label: "EU", sub: "European Standards of Education" },
             ].map((item) => (
               <div key={item.label}>
                 <p className="text-4xl font-bold">{item.label}</p>
@@ -284,13 +287,13 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-12 text-center">
             <ColorfulHeading
-              text="Why Indian Students Choose CU Denver"
+              text="Why Choose Petre Shotadze Tbilisi Medical Academy?"
               size="3xl"
               className="mb-4"
             />
             <p className="text-muted-foreground text-lg">
-              From a booming job market to academic prestige, CU Denver offers a
-              complete ecosystem for professional and personal growth.
+              From world-class faculty to a student-friendly environment, the academy
+              is designed to nurture the next generation of doctors.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -324,13 +327,13 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-12 text-center">
             <ColorfulHeading
-              text="Tuition Fee Structure 2026–27"
+              text="MBBS Fee Structure 2026–27"
               size="3xl"
               className="mb-4"
             />
             <p className="text-muted-foreground text-lg">
-              A transparent investment in your future with various scholarship
-              options available to eligible students.
+              Competitive pricing for world-class education, making high-quality
+              medical degrees accessible to all.
             </p>
           </div>
 
@@ -339,7 +342,7 @@ export default function UniversityOfColoradoDenverPage() {
               <Card className="border-2 border-accent/20 overflow-hidden">
                 <CardHeader className="bg-accent/8 border-b border-accent/20 px-6 py-4">
                   <CardTitle className="text-base font-semibold text-foreground">
-                    Tuition Fee Estimate
+                    Tuition Fee Breakdown
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -347,43 +350,54 @@ export default function UniversityOfColoradoDenverPage() {
                     <thead>
                       <tr className="border-b border-border bg-muted/30">
                         <th className="text-left px-6 py-3 font-semibold text-foreground">
-                          Program Duration
+                          Year
                         </th>
                         <th className="text-right px-6 py-3 font-semibold text-foreground">
-                          Est. Yearly USD
+                          USD
                         </th>
                         <th className="text-right px-6 py-3 font-semibold text-foreground">
-                          Est. Yearly INR*
+                          INR*
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr className="border-b border-border">
                         <td className="px-6 py-4 text-foreground">
-                          Undergraduate / Masters
+                          1st Year
                         </td>
                         <td className="px-6 py-4 text-right font-semibold text-foreground">
-                          $30,000
+                          Contact for Details
                         </td>
                         <td className="px-6 py-4 text-right font-semibold text-foreground">
-                          ₹25,50,000
+                          Contact for Details
+                        </td>
+                      </tr>
+                      <tr className="border-b border-border">
+                        <td className="px-6 py-4 text-foreground">
+                          2nd–6th Year
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          Competitive
+                        </td>
+                        <td className="px-6 py-4 text-right font-semibold text-foreground">
+                          Competitive
                         </td>
                       </tr>
                       <tr className="bg-accent/5">
                         <td className="px-6 py-4 font-bold text-foreground">
-                          Total Estimated Investment
+                          Total Estimate
                         </td>
                         <td className="px-6 py-4 text-right font-bold text-accent text-base">
-                          Contact for Details
+                          Affordable
                         </td>
                         <td className="px-6 py-4 text-right font-bold text-accent text-base">
-                          Contact for Details
+                          Affordable
                         </td>
                       </tr>
                     </tbody>
                   </table>
                   <p className="text-xs text-muted-foreground px-6 py-3 border-t border-border">
-                    * Exchange rate: 1 USD ≈ ₹85 (indicative). Fees vary by program.
+                    * Please contact our counselors for the exact updated fee structure.
                   </p>
                 </CardContent>
               </Card>
@@ -395,19 +409,19 @@ export default function UniversityOfColoradoDenverPage() {
               </p>
               {[
                 {
-                  label: "Accommodation",
-                  sub: "On-campus / Off-campus",
-                  usd: "Varies",
+                  label: "Hostel",
+                  sub: "Safe campus accommodation",
+                  usd: "Affordable",
                 },
                 {
-                  label: "Dining",
-                  sub: "University meal plans",
-                  usd: "Varies",
+                  label: "Indian Mess",
+                  sub: "Veg/Non-veg meal plans",
+                  usd: "Affordable",
                 },
                 {
-                  label: "Personal Expenses",
-                  sub: "Transport, books, insurance",
-                  usd: "Varies",
+                  label: "Living Expenses",
+                  sub: "Transport, personal costs",
+                  usd: "Affordable",
                 },
               ].map((item) => (
                 <Card
@@ -455,27 +469,26 @@ export default function UniversityOfColoradoDenverPage() {
               className="mb-4"
             />
             <p className="text-muted-foreground text-lg">
-              Academic excellence and English proficiency are the primary keys to
-              securing admission.
+              Simple requirements for students dedicated to the field of medicine.
             </p>
           </div>
           <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-5">
             {[
               {
-                title: "Academic Record",
-                desc: "Strong high school or bachelor's degree with a competitive GPA",
+                title: "Age",
+                desc: "Minimum 17 years of age by December 31st of the admission year",
+              },
+              {
+                title: "Academic Qualification",
+                desc: "10+2 with Biology, Physics, and Chemistry with min. 50% aggregate",
+              },
+              {
+                title: "NEET Requirement",
+                desc: "Qualifying NEET-UG is mandatory for all Indian students",
               },
               {
                 title: "English Proficiency",
-                desc: "Minimum required scores in IELTS, TOEFL, or PTE",
-              },
-              {
-                title: "Standardized Tests",
-                desc: "GRE or GMAT may be required depending on the program",
-              },
-              {
-                title: "Statement of Purpose",
-                desc: "A compelling SOP outlining your goals and reasons for choosing CU Denver",
+                desc: "No separate test required; course is taught in English",
               },
             ].map((item) => (
               <div
@@ -505,8 +518,8 @@ export default function UniversityOfColoradoDenverPage() {
               className="mb-4"
             />
             <p className="text-muted-foreground text-lg">
-              A streamlined path to your US degree, supported by the experts at
-              GVK EduTech.
+              A streamlined process to help you transition from your home to the
+              medical academy in Georgia.
             </p>
           </div>
 
@@ -554,8 +567,8 @@ export default function UniversityOfColoradoDenverPage() {
               className="mb-4"
             />
             <p className="text-muted-foreground text-lg">
-              Prepare your dossier carefully. GVK EduTech ensures your application
-              is complete and professional.
+              Ensure you have these documents ready. GVK EduTech provides a full
+              checklist and verification service.
             </p>
           </div>
           <div className="max-w-3xl mx-auto">
@@ -584,20 +597,20 @@ export default function UniversityOfColoradoDenverPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal animation="fade-up">
               <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
-                Campus Living
+                Student Living
               </p>
               <ColorfulHeading
-                text="Accommodation Facilities"
+                text="Hostel Facilities"
                 size="3xl"
                 className="mb-6 text-left"
               />
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                CU Denver offers a variety of living options to ensure students
-                have a safe, comfortable, and inspiring environment to live and
-                study.
+                The academy's accommodation is designed to feel like a home away
+                from home, ensuring students have a peaceful and supportive
+                environment for their studies.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
-                {accommodationFeatures.map((f, i) => {
+                {hostelFeatures.map((f, i) => {
                   const Icon = f.icon;
                   return (
                     <div key={i} className="flex items-center gap-3">
@@ -615,12 +628,12 @@ export default function UniversityOfColoradoDenverPage() {
               <div className="grid grid-cols-2 gap-4">
                 <img
                   src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400&auto=format&fit=crop"
-                  alt="University Housing"
+                  alt="Hostel room"
                   className="rounded-2xl shadow-lg w-full aspect-square object-cover"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&auto=format&fit=crop"
-                  alt="Campus Common Area"
+                  alt="Hostel common area"
                   className="rounded-2xl shadow-lg w-full aspect-square object-cover mt-8"
                 />
               </div>
@@ -637,12 +650,12 @@ export default function UniversityOfColoradoDenverPage() {
               <div className="grid grid-cols-2 gap-4">
                 <img
                   src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&auto=format&fit=crop"
-                  alt="Denver City"
+                  alt="Tbilisi city"
                   className="rounded-2xl shadow-lg w-full aspect-square object-cover"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&auto=format&fit=crop"
-                  alt="Colorado Landscape"
+                  alt="Georgia landscape"
                   className="rounded-2xl shadow-lg w-full aspect-square object-cover mt-8"
                 />
               </div>
@@ -650,26 +663,26 @@ export default function UniversityOfColoradoDenverPage() {
 
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
-                Life in Denver
+                Living in Tbilisi
               </p>
               <ColorfulHeading
-                text="The Mile High City Experience"
+                text="A Vibrant Student City"
                 size="3xl"
                 className="mb-6 text-left"
               />
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Living in Denver offers a unique balance of urban sophistication
-                and breathtaking natural beauty. From the bustling downtown core to
-                the serene Rocky Mountains, there is something for every student.
+                Studying in Tbilisi offers students a unique opportunity to experience
+                a blend of ancient culture and modern European living. It is an
+                ideal location for international students.
               </p>
               <ul className="space-y-3">
                 {[
-                  "One of the most economically dynamic cities in the USA",
-                  "World-class outdoor activities: skiing, hiking, and biking",
-                  "Diverse cultural festivals and an artsy urban vibe",
-                  "Proximity to major Fortune 500 companies",
-                  "Friendly, inclusive, and welcoming community",
-                  "Excellent public transport and walkable campus",
+                  "One of Europe's most welcoming cities for international students",
+                  "Low cost of living compared to Western Europe",
+                  "Safe, clean, and culturally rich environment",
+                  "English widely spoken in tourist and academic areas",
+                  "Strong community of Indian medical students",
+                  "Direct connectivity to major Indian cities",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <ChevronRight className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -687,7 +700,7 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-12 text-center">
             <ColorfulHeading
-              text="Advantages of CU Denver"
+              text="Advantages of Petre Shotadze Tbilisi Medical Academy"
               size="3xl"
               className="mb-4"
             />
@@ -695,36 +708,36 @@ export default function UniversityOfColoradoDenverPage() {
           <div className="max-w-4xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                title: "Career Growth",
-                desc: "Direct access to Denver's booming tech and business sectors",
+                title: "No Entrance Exam",
+                desc: "Admission based on NEET scores — no additional university test",
               },
               {
-                title: "Research Hub",
-                desc: "Engage in high-impact research with world-leading experts",
+                title: "No Donation Fee",
+                desc: "Completely transparent admission process with no capitation",
               },
               {
-                title: "Flexible Programs",
-                desc: "Diverse course offerings tailored to modern industry needs",
+                title: "FMGE/NEXT Focus",
+                desc: "Curriculum aligned with licensing exams for Indian returnees",
               },
               {
-                title: "Global Network",
-                desc: "Build a lifelong professional network of international peers",
+                title: "Cultural Diversity",
+                desc: "Interact with students from across the globe",
               },
               {
-                title: "Academic Rigor",
-                desc: "A curriculum that challenges and prepares you for the global stage",
+                title: "Hands-on Training",
+                desc: "Early clinical exposure in affiliated medical centers",
               },
               {
-                title: "US Degree Value",
-                desc: "High return on investment with strong global employability",
+                title: "EU Recognized",
+                desc: "Degrees aligned with European medical education standards",
               },
               {
-                title: "Cultural Immersion",
-                desc: "Experience the American dream in a safe and welcoming city",
+                title: "Global Opportunities",
+                desc: "Pathway to PG in USA, UK, and other leading nations",
               },
               {
-                title: "Expert Support",
-                desc: "End-to-end assistance from GVK EduTech for all US formalities",
+                title: "Complete Support",
+                desc: "GVK EduTech provides support from application to landing",
               },
             ].map((adv, i) => (
               <Card
@@ -788,11 +801,11 @@ export default function UniversityOfColoradoDenverPage() {
             2026 Admissions Open
           </p>
           <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-6 max-w-3xl mx-auto leading-tight">
-            Elevate Your Future at the University of Colorado Denver
+            Start Your Medical Journey at Petre Shotadze Tbilisi Medical Academy
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-10 max-w-2xl mx-auto">
-            Our expert counselors are here to help you secure your spot at one of
-            the USA's premier research universities.
+            Our expert counselors are ready to help you navigate the admission
+            process and ensure a smooth transition to Georgia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild variant="secondary" size="xl" className="group">
@@ -816,7 +829,7 @@ export default function UniversityOfColoradoDenverPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              { href: "/masters/usa", label: "Masters in USA" },
+              { href: "/mbbs/georgia", label: "MBBS in Georgia" },
               { href: "/partner-universities", label: "Partner Universities" },
               { href: "/apply", label: "Apply Now" },
               { href: "/contact", label: "Contact Us" },

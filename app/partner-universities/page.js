@@ -258,6 +258,7 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
           {visibleUnis.map((uni, i) => {
             // Hardcoded detail-page overrides (mirror TSMU pattern)
             const isTSMU = uni.includes("Tbilisi State Medical University");
+            const isPetre = uni.includes("Petre Shotadze Tbilisi Medical Academy");
             const isAkaki = uni.includes("Akaki Tsereteli State University");
             const isKSMA = uni.includes("Kyrgyz State Medical Academy");
             const isGNU = uni === "Georgia National University";
@@ -269,6 +270,21 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 <Link
                   key={i}
                   href="/partner-universities/tbilisi-state-medical-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            if (isPetre) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/petre-shotadze-tbilisi-medical-academy"
                   className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
                 >
                   <CheckCircle

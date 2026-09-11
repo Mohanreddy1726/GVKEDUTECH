@@ -88,6 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Hardcoded partner-university detail pages ──────────
   const partnerUniversityPages = [
     "/partner-universities/akaki-tsereteli-state-university",
+    "/partner-universities/petre-shotadze-tbilisi-medical-academy",
     "/partner-universities/tbilisi-state-medical-university",
     "/partner-universities/kyrgyz-state-medical-academy",
     "/partner-universities/university-of-greenwich",
