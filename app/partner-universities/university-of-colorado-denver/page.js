@@ -23,6 +23,7 @@ import {
   Star,
   Award,
   DollarSign,
+  Briefcase,
 } from "lucide-react";
 import Link from "next/link";
 
