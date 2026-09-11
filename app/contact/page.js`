@@ -107,18 +107,15 @@ const IndiaMap = () => {
             </h3>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-
-          <div className="map-legend">
-            <span className="map-legend-item">
-              <span className="map-legend-dot" style={{ background: HQ_COLOR }} />
-              Head Office
-            </span>
-            <span className="map-legend-item">
-              <span className="map-legend-dot map-legend-dot--outline" style={{ background: REGIONAL_COLOR }} />
-              Regional Office
-            </span>
-          </div>
+        <div className="map-legend">
+          <span className="map-legend-item">
+            <span className="map-legend-dot" style={{ background: HQ_COLOR }} />
+            Head Office
+          </span>
+          <span className="map-legend-item">
+            <span className="map-legend-dot map-legend-dot--outline" style={{ background: REGIONAL_COLOR }} />
+            Regional
+          </span>
         </div>
       </div>
 
@@ -208,7 +205,7 @@ const IndiaMap = () => {
                     <span className="map-tooltip-accent" style={{ background: dotColor }} />
                     <div className="map-tooltip-body">
                       <p className="map-tooltip-city">{city}</p>
-                      <p className="map-tooltip-type" style={{ color: coord.isHQ ? T.redLight : T.muted }}>
+                      <p className="map-tooltip-type" style={{ color: coord.isHQ ? "#F2A0AB" : "rgba(255,255,255,0.65)" }}>
                         {coord.info}
                       </p>
                     </div>
@@ -411,14 +408,6 @@ const pageStyles = (
       border-radius: 2px;
       margin-top: 0.5rem;
     }
-    .contact-rule-blue {
-      display: block;
-      width: 3rem;
-      height: 3px;
-      background: linear-gradient(to right, ${T.navyMid}, ${T.surfaceAlt});
-      border-radius: 2px;
-      margin-top: 0.5rem;
-    }
     .office-card {
       background: ${T.white};
       border-radius: 1.125rem;
@@ -430,9 +419,6 @@ const pageStyles = (
       box-shadow: 0 12px 32px rgba(15,27,45,0.1);
       transform: translateY(-3px);
       border-color: ${T.red}44;
-    }
-    .office-card--regional:hover {
-      border-color: ${T.navyMid}44;
     }
     .office-card .card-img {
       transition: transform 0.5s ease;
@@ -802,7 +788,7 @@ const ContactPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {branchOffices.map((office, index) => (
-              <Link key={index} href={`/branches/${office.city.toLowerCase()}`} className="office-card office-card--regional block">
+              <Link key={index} href={`/branches/${office.city.toLowerCase()}`} className="office-card block">
                 {/* Image */}
                 <div className="relative h-44 overflow-hidden">
                   <Image
@@ -824,17 +810,16 @@ const ContactPage = () => {
                   {/* badge */}
                   <div className="absolute top-3 right-3">
                     <span
-                      className="px-2.5 py-0.5 text-xs font-bold rounded-full whitespace-nowrap"
+                      className="px-2.5 py-0.5 text-xs font-bold rounded-full"
                       style={{ background: T.navyMid, color: T.white }}
                     >
-                      Regional Office
+                      Regional
                     </span>
                   </div>
                 </div>
 
                 {/* Body */}
                 <div className="p-5">
-                  <span className="contact-rule-blue mb-6" />
                   {/* Director */}
                   <div
                     className="flex items-center gap-2.5 p-3 rounded-xl mb-4"
@@ -847,9 +832,11 @@ const ContactPage = () => {
                       <User className="w-3.5 h-3.5" style={{ color: T.red }} />
                     </span>
                     <div className="min-w-0">
-                      <p className="text-xs font-semibold truncate" style={{ color: T.navyMid }}>
-                        Regional Director: {office.regionalDirector} <span className="ml-1" style={{ color: T.red }}>{office.qualification}</span>
+                      <p className="text-xs" style={{ color: T.muted }}>Regional Director</p>
+                      <p className="font-semibold text-xs truncate" style={{ color: T.navyMid }}>
+                        {office.regionalDirector}
                       </p>
+                      <p className="text-xs" style={{ color: T.red }}>{office.qualification}</p>
                     </div>
                   </div>
 
