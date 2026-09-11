@@ -37,7 +37,7 @@ const regionalDirectors = [
   { name: "Mrs. Shoba Rani", city: "Suryapet", qualification: "B.A", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/shobarani.png?updatedAt=1776335169676" },
   { name: "Mrs. Aarathi Sukumar Reddy", city: "Chennai", qualification: "M.Sc Biotechnology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chennai.jpeg?updatedAt=1778492063993" },
   { name: "Mr. Aluvala Madhu", city: "Tirupati", qualification: "B.Sc(B.Z.C), B.P.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/tirupathi.jpeg?updatedAt=1778492063557" },
-  { name: "Mr. Venkanna", city: "Nalgonda", qualification: "M.A, M.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/regional%20directors/regional%20directors/nalgonda.jpeg" },
+  { name: "Mr. Venkanna", city: "Nalgonda", qualification: "M.A, M.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/nalgonda.jpeg?updatedAt=1778492069255" },
   { name: "Mr. Chandan Singh", city: "Bangalore", qualification: "MBA", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/chandan.png?updatedAt=1776335169838" },
 ];
 
