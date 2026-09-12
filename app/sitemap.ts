@@ -113,6 +113,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/perm-state-medical-university",
     "/partner-universities/orenburg-state-medical-university",
     "/partner-universities/university-of-york",
+    "/partner-universities/david-tvildiani-medical-university",
+    "/partner-universities/university-of-maryland-baltimore-county",
     "/partner-universities/university-of-southampton",
     "/partner-universities/altai-state-medical-university",
     "/partner-universities/bashkir-state-medical-university",
