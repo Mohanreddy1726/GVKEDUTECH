@@ -11,6 +11,12 @@ export async function ingestLead(formId, data) {
     processedData.phone = phone;
   }
 
+  // FIX: Lead OS requires an email.
+  // If the form didn't provide one, we provide a placeholder to avoid the 500 error.
+  if (!processedData.email) {
+    processedData.email = "not-provided@example.com";
+  }
+
   console.log(`[CRM Ingest] Sending lead to proxy for ${formId}...`, { data: processedData });
 
   try {
