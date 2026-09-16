@@ -9,6 +9,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { GraduationCap, Stethoscope, TrendingUp, Sparkles, ArrowRight, CheckCircle2, Calculator, BookOpen, GitCompareArrows, ChartLine } from "lucide-react";
 import { validateEmail, validatePhone } from "@/utils/validation";
 import { INDIAN_STATES_AND_UTS } from "@/utils/indianStates";
+import { ingestLead } from "@/utils/crm";
 import { SmartComparison } from "@/components/SmartComparison";
 import { ROIPlanner } from "@/components/ROIPlanner";
 import Link from "next/link";
@@ -409,6 +410,14 @@ function PredictorForm() {
     setResults(predicted);
     setSubmitted(true);
 
+    // CRM Ingestion
+    ingestLead("College Predictor", {
+      name: formData.name,
+      phone: formData.phone,
+      program: "MBBS",
+      preferredCountry: formData.country === "all" ? "Any" : formData.country,
+    });
+
     // Save to database
     try {
       await fetch("/api/college-predictor", {
@@ -677,6 +686,14 @@ function BudgetForm() {
 
     const result = calculateBudget(formData.programType, formData.country, formData.livingPreference);
     setEstimate(result);
+
+    // CRM Ingestion
+    ingestLead("Budget Calculator", {
+      name: formData.name,
+      phone: formData.phone,
+      program: formData.programType,
+      preferredCountry: formData.country,
+    });
 
     // Save to database
     try {

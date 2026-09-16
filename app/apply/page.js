@@ -22,6 +22,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Send, MessageCircle, Phone } from "lucide-react";
 import { validatePhone } from "@/utils/validation";
+import { ingestLead } from "@/utils/crm";
 
 const mbbsCountries = [
   { slug: "nepal", name: "Nepal" },
@@ -108,6 +109,13 @@ const ApplyPage = () => {
     }
 
     setIsSubmitting(true);
+
+    // CRM Ingestion
+    ingestLead("Apply Form", {
+      name: formData.fullName,
+      phone: formData.phone,
+      preferredCountry: formData.country,
+    });
 
     const message = `
 *New Application from GVK Edutech Website*

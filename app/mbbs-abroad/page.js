@@ -40,6 +40,7 @@ import {
   Building2,
   TrendingUp,
 } from "lucide-react";
+import { ingestLead } from "@/utils/crm";
 
 /* ─────────────────────────────────────────────
    Design tokens — matches /mbbs page
@@ -409,6 +410,13 @@ const MBBSAdsLandingPage = () => {
 
     setIsSubmitting(true);
     try {
+      // CRM Ingestion
+      ingestLead("MBBS Abroad Form", {
+        name: formData.fullName,
+        phone: formData.phone,
+        preferredCountry: formData.country,
+      });
+
       const res = await fetch("/api/mbbs-abroad", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

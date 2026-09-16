@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
+import { ingestLead } from "@/utils/crm";
 import {
   Stethoscope,
   BookOpen,
@@ -235,6 +236,15 @@ export const ROIPlanner = () => {
       payload.cgpa = cgpa;
       payload.workExperience = workExperience;
     }
+
+    // CRM Ingestion
+    ingestLead("ROI Planner", {
+      name: name.trim(),
+      phone: phone.trim(),
+      program: courseType,
+      preferredCountry: country?.name || "",
+    });
+
     fetch("/api/roi-planner", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

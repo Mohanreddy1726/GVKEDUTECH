@@ -22,6 +22,7 @@ import {
   Sparkles,
   Shield,
 } from "lucide-react";
+import { ingestLead } from "@/utils/crm";
 
 // ===================== DATA =====================
 
@@ -683,6 +684,16 @@ export const SmartComparison = () => {
     if (sel.length < 2) return;
     setStep(3);
     try {
+      // CRM Ingestion
+      const sel = comparisonType === "countries" ? selectedCountries : selectedUniversities;
+      ingestLead("Smart Compare", {
+        name: leadData.name,
+        phone: leadData.phone,
+        program: leadData.courseType,
+        comparisonType,
+        selectedItems: sel,
+      });
+
       await fetch("/api/smart-comparison", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
