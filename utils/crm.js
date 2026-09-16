@@ -1,5 +1,5 @@
 export async function ingestLead(formId, data) {
-  const ENDPOINT = "https://your-leados-domain.com/api/leads/ingest";
+  const ENDPOINT = "https://https://lead-os-mr.vercel.app/api/leads/ingest";
   const TOKEN = "lead_os_ingest_secret_2026";
 
   try {
