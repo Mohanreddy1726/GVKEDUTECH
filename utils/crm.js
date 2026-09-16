@@ -1,14 +1,12 @@
 export async function ingestLead(formId, data) {
-  const ENDPOINT = "https://lead-os-mr.vercel.app/api/leads/ingest";
-  const TOKEN = "lead_os_ingest_secret_2026";
+  const PROXY_ENDPOINT = "/api/crm-proxy";
 
-  console.log(`[CRM Ingest] Attempting to send lead for ${formId}...`, { data });
+  console.log(`[CRM Ingest] Sending lead to proxy for ${formId}...`, { data });
 
   try {
-    const response = await fetch(ENDPOINT, {
+    const response = await fetch(PROXY_ENDPOINT, {
       method: "POST",
       headers: {
-        "x-ingest-token": TOKEN,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -19,13 +17,13 @@ export async function ingestLead(formId, data) {
 
     if (!response.ok) {
       const errorText = await response.text().catch(() => "No error body");
-      console.error(`[CRM Ingest] Failed for ${formId}: ${response.status} ${response.statusText} - ${errorText}`);
+      console.error(`[CRM Ingest] Proxy failed for ${formId}: ${response.status} - ${errorText}`);
     } else {
-      console.log(`[CRM Ingest] Successfully sent lead for ${formId}`);
+      console.log(`[CRM Ingest] Successfully sent lead to proxy for ${formId}`);
     }
     return response.ok;
   } catch (error) {
-    console.error(`[CRM Ingest] Network error for ${formId}:`, error);
+    console.error(`[CRM Ingest] Network error sending to proxy for ${formId}:`, error);
     return false;
   }
 }
