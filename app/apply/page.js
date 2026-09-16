@@ -110,11 +110,12 @@ const ApplyPage = () => {
 
     setIsSubmitting(true);
 
-    // CRM Ingestion
+    // CRM Ingestion - Map slug to name
+    const countryObj = [...mbbsCountries, ...mastersCountries].find(c => c.slug === formData.country);
     ingestLead("Apply Form", {
       name: formData.fullName,
       phone: formData.phone,
-      preferredCountry: formData.country,
+      preferredCountry: countryObj ? countryObj.name : formData.country,
     });
 
     const message = `

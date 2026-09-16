@@ -1,7 +1,17 @@
 export async function ingestLead(formId, data) {
   const PROXY_ENDPOINT = "/api/crm-proxy";
 
-  console.log(`[CRM Ingest] Sending lead to proxy for ${formId}...`, { data });
+  // Ensure phone number starts with +91 for CRM compatibility
+  const processedData = { ...data };
+  if (processedData.phone) {
+    let phone = processedData.phone.trim();
+    if (!phone.startsWith("+")) {
+      phone = "+91" + phone.replace(/^91/, "");
+    }
+    processedData.phone = phone;
+  }
+
+  console.log(`[CRM Ingest] Sending lead to proxy for ${formId}...`, { data: processedData });
 
   try {
     const response = await fetch(PROXY_ENDPOINT, {
@@ -11,7 +21,7 @@ export async function ingestLead(formId, data) {
       },
       body: JSON.stringify({
         formId,
-        data,
+        data: processedData,
       }),
     });
 

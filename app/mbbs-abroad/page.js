@@ -410,11 +410,12 @@ const MBBSAdsLandingPage = () => {
 
     setIsSubmitting(true);
     try {
-      // CRM Ingestion
+      // CRM Ingestion - Map slug to name
+      const countryObj = mbbsCountries.find(c => c.slug === formData.country);
       ingestLead("MBBS Abroad Form", {
         name: formData.fullName,
         phone: formData.phone,
-        preferredCountry: formData.country,
+        preferredCountry: countryObj ? countryObj.name : formData.country,
       });
 
       const res = await fetch("/api/mbbs-abroad", {
