@@ -283,6 +283,38 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
                 </Link>
               );
             }
+            const isGeomedi = uni === "Geomedi University";
+            if (isGeomedi) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/geomedi-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            const isUIUC = uni === "University of Illinois Urbana-Champaign";
+            if (isUIUC) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-illinois-urbana-champaign"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             const isUMBC = uni.includes("University of Maryland, Baltimore County");
             if (isUMBC) {
               return (
