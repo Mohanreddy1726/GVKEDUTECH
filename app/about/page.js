@@ -44,7 +44,7 @@ const regionalDirectors = [
 const operationalTeam = [
   { name: "Mr. Bala Gangadhar", qualification: "B.Tech", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Untitled%20-%20July%2020,%202026%20at%2017.19.26.png?updatedAt=1787121583485" },
   { name: "Mr. Hanok Srikar", qualification: "B.Com, LLB", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/passport%20size%20photo.png?updatedAt=1787121472931" },
-  { name: "Mrs. Kavitha", qualification: "LLB, LLM", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/WhatsApp%20Image%202026-09-21%20at%202.07.15%20PM.jpeg" },
+  { name: "Mrs. Kavitha", qualification: "LLB, LLM", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Firefly%20(12).png" },
   { name: "Mrs. Vandana", qualification: "M.A, B.Ed", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/Vandama%20mam%20img.jpeg" },
   { name: "Mrs. Padma", qualification: "B.Com", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/padma.png?updatedAt=1776335169846" },
   { name: "Mr. Subbi Reddy", qualification: "M.Sc Zoology", image: "https://ik.imagekit.io/abhobz66j/GVK%20Images/subbireddy.png?updatedAt=1776335169616" },
