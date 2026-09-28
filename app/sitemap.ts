@@ -120,6 +120,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partner-universities/university-of-southampton",
     "/partner-universities/altai-state-medical-university",
     "/partner-universities/bashkir-state-medical-university",
+    "/partner-universities/university-of-medicine-and-pharmacy-at-ho-chi-minh-city",
+    "/partner-universities/rwth-aachen-university",
     "/partner-universities/chita-state-medical-academy",
     "/partner-universities/amur-state-medical-academy",
     "/partner-universities/university-of-bristol",

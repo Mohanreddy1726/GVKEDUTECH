@@ -267,6 +267,38 @@ const CountryAccordion = ({ country, defaultOpen = false, search = "" }) => {
             const isASU = uni === "Arizona State University";
             const isBIU = uni.includes("Bridgetown International University");
             const isGreenwich = uni === "University of Greenwich";
+            const isUMP = uni === "University of Medicine and Pharmacy at HCMC";
+            if (isUMP) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/university-of-medicine-and-pharmacy-at-ho-chi-minh-city"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
+            const isRWTH = uni.includes("RWTH Aachen University");
+            if (isRWTH) {
+              return (
+                <Link
+                  key={i}
+                  href="/partner-universities/rwth-aachen-university"
+                  className="uni-chip cursor-pointer hover:border-red-500 hover:bg-red-50"
+                >
+                  <CheckCircle
+                    className="w-3.5 h-3.5 flex-shrink-0 mt-0.5"
+                    style={{ color: T.red }}
+                  />
+                  <span className="leading-snug"><Highlight text={uni} q={search} /></span>
+                </Link>
+              );
+            }
             const isDTMU = uni.includes("David Tvildiani Medical University");
             if (isDTMU) {
               return (
