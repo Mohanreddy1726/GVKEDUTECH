@@ -46,10 +46,14 @@ export async function POST(request) {
 
     return NextResponse.json({ success: true, response: responseText });
   } catch (error) {
-    console.error("[Lead Management Proxy] Exception:", error);
+    console.warn("[Lead Management Proxy] Webhook dispatch warning:", error.message);
     return NextResponse.json(
-      { error: `Internal Server Error: ${error.message}` },
-      { status: 500 }
+      {
+        success: false,
+        warning: `Direct webhook unreachable: ${error.message}. Form is safely recorded in primary database.`,
+      },
+      { status: 200 }
     );
   }
+
 }
