@@ -243,6 +243,10 @@ export const ROIPlanner = () => {
       phone: phone.trim(),
       program: courseType,
       preferredCountry: country?.name || "",
+      specialisation: specialty,
+      budget,
+      neetScore: courseType === "MBBS" ? neetScore : undefined,
+      cgpa: courseType !== "MBBS" ? cgpa : undefined,
     });
 
     fetch("/api/roi-planner", {

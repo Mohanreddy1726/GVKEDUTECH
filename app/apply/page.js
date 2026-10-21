@@ -112,10 +112,15 @@ const ApplyPage = () => {
 
     // CRM Ingestion - Map slug to name
     const countryObj = [...mbbsCountries, ...mastersCountries].find(c => c.slug === formData.country);
+    const isMastersCountry = mastersCountries.some(c => c.slug === formData.country);
     ingestLead("Apply Form", {
       name: formData.fullName,
       phone: formData.phone,
+      email: formData.email,
       preferredCountry: countryObj ? countryObj.name : formData.country,
+      program: isMastersCountry ? "Masters" : "MBBS",
+      fatherName: formData.fatherName,
+      message: formData.message,
     });
 
     const message = `

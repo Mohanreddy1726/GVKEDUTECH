@@ -12,14 +12,19 @@ export async function POST(request) {
       );
     }
 
-    const ENDPOINT = "https://lead-os-mr.vercel.app/api/leads/ingest";
-    const TOKEN = "lead_os_ingest_secret_2026";
+    // New Lead Management System Ingestion Endpoint
+    const ENDPOINT =
+      process.env.LEAD_MANAGEMENT_ENDPOINT ||
+      "http://localhost:3000/api/leads/capture";
+    const TOKEN =
+      process.env.LEAD_MANAGEMENT_TOKEN || "gvk_lead_capture_2026";
 
-    console.log(`[Server Proxy] Forwarding ${formId} lead to CRM...`);
+    console.log(`[Lead Management Proxy] Forwarding ${formId} lead to ${ENDPOINT}...`);
 
     const response = await fetch(ENDPOINT, {
       method: "POST",
       headers: {
+        "x-api-key": TOKEN,
         "x-ingest-token": TOKEN,
         "Content-Type": "application/json",
       },
@@ -32,16 +37,16 @@ export async function POST(request) {
     const responseText = await response.text();
 
     if (!response.ok) {
-      console.error(`[Server Proxy] CRM API error ${response.status}: ${responseText}`);
+      console.error(`[Lead Management Proxy] API error ${response.status}: ${responseText}`);
       return NextResponse.json(
-        { error: `CRM API responded with ${response.status}: ${responseText}` },
+        { error: `Lead Management API responded with ${response.status}: ${responseText}` },
         { status: response.status }
       );
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, response: responseText });
   } catch (error) {
-    console.error("[Server Proxy] Exception:", error);
+    console.error("[Lead Management Proxy] Exception:", error);
     return NextResponse.json(
       { error: `Internal Server Error: ${error.message}` },
       { status: 500 }

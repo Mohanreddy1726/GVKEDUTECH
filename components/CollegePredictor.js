@@ -416,6 +416,9 @@ function PredictorForm() {
       phone: formData.phone,
       program: "MBBS",
       preferredCountry: formData.country === "all" ? "Any" : formData.country,
+      neetScore: score,
+      state: formData.state,
+      budget: `₹${formData.budget[0]} Lakh`,
     });
 
     // Save to database
@@ -691,8 +694,12 @@ function BudgetForm() {
     ingestLead("Budget Calculator", {
       name: formData.name,
       phone: formData.phone,
+      email: formData.email,
       program: formData.programType,
       preferredCountry: formData.country,
+      state: formData.state,
+      university: formData.university,
+      estimatedBudget: result?.totalEstimate,
     });
 
     // Save to database

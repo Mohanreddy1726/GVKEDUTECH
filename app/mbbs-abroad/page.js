@@ -414,8 +414,15 @@ const MBBSAdsLandingPage = () => {
       const countryObj = mbbsCountries.find(c => c.slug === formData.country);
       ingestLead("MBBS Abroad Form", {
         name: formData.fullName,
+        fullName: formData.fullName,
         phone: formData.phone,
+        email: formData.email,
+        neetScore: formData.neetScore,
         preferredCountry: countryObj ? countryObj.name : formData.country,
+        country: countryObj ? countryObj.name : formData.country,
+        message: formData.message,
+        source: "Google Ads",
+        landingPage: "/mbbs-abroad",
       });
 
       const res = await fetch("/api/mbbs-abroad", {
